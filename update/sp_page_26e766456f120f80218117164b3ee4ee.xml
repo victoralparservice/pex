@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <css/>
+        <draft>false</draft>
+        <id>planos_de_acao_pex</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-06 13:22:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>26e766456f120f80218117164b3ee4ee</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>planos_de_acao_pex</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_page_26e766456f120f80218117164b3ee4ee</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-11-07 17:18:27</sys_updated_on>
+        <title>Planos de ações - PEX</title>
+    </sp_page>
+</record_update>

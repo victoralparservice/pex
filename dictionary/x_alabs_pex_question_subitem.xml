@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Question Subitem" max_length="40" name="x_alabs_pex_question_subitem" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Description" max_length="2000" name="description" type="translated_text"/>
+        <element label="Item" mandatory="true" max_length="32" name="item" reference="x_alabs_pex_question_item" type="reference"/>
+        <element label="Name" mandatory="true" max_length="200" name="name" type="translated_text"/>
+        <index name="index">
+            <element name="item"/>
+        </index>
+    </element>
+</database>

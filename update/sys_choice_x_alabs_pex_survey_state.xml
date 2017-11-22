@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="state" table="x_alabs_pex_survey" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Draft</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>0</sequence>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a8b223b06f8e8380218117164b3ee430</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:33</sys_updated_on>
+            <value>draft</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Waiting Approved</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>1</sequence>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6cb223b06f8e8380218117164b3ee431</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:40</sys_updated_on>
+            <value>waiting_approved</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Published</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>2</sequence>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2cb223b06f8e8380218117164b3ee432</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:45</sys_updated_on>
+            <value>published</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Completed</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>3</sequence>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f8b223b06f8e8380218117164b3ee433</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:49</sys_updated_on>
+            <value>completed</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Canceled</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>4</sequence>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b4b2a3f06f8e8380218117164b3ee447</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:53</sys_updated_on>
+            <value>canceled</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <name>x_alabs_pex_survey</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-10-24 12:45:19</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>28b223b06f8e8380218117164b3ee431</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>state</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_choice_x_alabs_pex_survey_state</sys_update_name>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-10-24 12:45:19</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

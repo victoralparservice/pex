@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance_vlist">
+    <sp_instance_vlist action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field>number</display_field>
+        <field_list/>
+        <filter/>
+        <glyph/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>0</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">2cefe9426fda4300218117164b3ee45b</sp_column>
+        <sp_page display_value="avaliacao_pex">e6d4895f6f420b80218117164b3ee403</sp_page>
+        <sp_widget display_value="PEX - Avaliações Lista">8adce7d56f9603001fb18a6d6b3ee44c</sp_widget>
+        <sys_class_name>sp_instance_vlist</sys_class_name>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2017-11-06 15:45:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c59803416f920f80218117164b3ee47d</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>Avaliações pendentes</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_instance_vlist_c59803416f920f80218117164b3ee47d</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-09 14:05:51</sys_updated_on>
+        <table>x_alabs_pex_instance_survey</table>
+        <title>Avaliações pendentes</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"filtro": {
+		"value": "stateINpending,started",
+		"displayValue": "stateINpending,started"
+	},
+	"mostrar_tudo": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"title": {
+		"value": "Avaliações pendentes",
+		"displayValue": "Avaliações pendentes"
+	},
+	"limite_quantidade_registros": {
+		"value": 6,
+		"displayValue": "6"
+	},
+	"maximo": {
+		"value": 6,
+		"displayValue": "6"
+	}
+}]]></widget_parameters>
+    </sp_instance_vlist>
+</record_update>

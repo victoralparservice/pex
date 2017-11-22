@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>PEX - Survey Due Date Reminder</name>
+        <run_as display_value="Eli Lima">5959d2ce6f9ab6401fb18a6d6b3ee4ea</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2017-11-13 16:44:00</run_start>
+        <run_time>1970-01-01 03:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[var surveyConditions = [];
+surveyConditions.push({receiversRulesName : 'responsible', days : 5});
+surveyConditions.push({receiversRulesName : 'responsible,n1', days : 3});
+surveyConditions.push({receiversRulesName : 'responsible,n1,n2', days : 1});
+
+var receiversRules = {
+	
+	//RESPONSIBLE
+	responsible : function(survey, days) {
+		gs.info("Getting all pending survey instances for survey: " + survey.number);
+		var surveyInstance = new GlideRecord("x_alabs_pex_instance_survey");
+		surveyInstance.addQuery("survey", survey.sys_id);
+		surveyInstance.addEncodedQuery("stateINpending,started,finished");
+		surveyInstance.query();
+		while (surveyInstance.next()) {
+			var parm2 = {
+				days : days
+			};
+			var notification = {
+				eventName : 'x_alabs_pex.survey.due.date.responsible',
+				glideObject : surveyInstance,
+				parm1 : surveyInstance.responsible,
+				parm2 :JSON.stringify(parm2)
+			};
+			this._queueNotificationMessage(notification);
+		}
+	},
+
+	//SURVEY INSTANCE FIRST LEVEL
+	n1 : function(survey, days) {
+		
+		var self = this;
+		
+		var levelManager = 
+			self._getSurveyInstancesByLevelManager(survey, "first_level_notification");
+		
+		Object.keys(levelManager).forEach(function(levelManagerUserId) {
+			var parm2 = {
+				days : days,
+				surveyInstances : levelManager[levelManagerUserId]
+			};
+			var notification = {
+				eventName : 'x_alabs_pex.survey.due.date.first.level',
+				glideObject : survey,
+				parm1 : levelManagerUserId,
+				parm2 :JSON.stringify(parm2)
+			};
+			self._queueNotificationMessage(notification);
+		});
+	},
+
+	//SURVEY INSTANCE SECOND LEVEL
+	n2 : function(survey, days) {
+	
+		var self = this;
+		
+		var levelManager = 
+			self._getSurveyInstancesByLevelManager(survey, "second_level_notification");
+		
+		Object.keys(levelManager).forEach(function(levelManagerUserId) {
+			var parm2 = {
+				days : days,
+				surveyInstances : levelManager[levelManagerUserId]
+			};
+			var notification = {
+				eventName : 'x_alabs_pex.survey.due.date.second.level',
+				glideObject : survey,
+				parm1 : levelManagerUserId,
+				parm2 :JSON.stringify(parm2)
+			};
+			self._queueNotificationMessage(notification);
+		});
+	},
+	
+	_getSurveyInstancesByLevelManager : function(survey, level) {
+		var levelManager = {};
+
+		gs.info("Getting all pending survey instances for: " + level);
+		var surveyInstance = new GlideRecord("x_alabs_pex_instance_survey");
+		surveyInstance.addQuery("survey", survey.sys_id);
+		surveyInstance.addEncodedQuery("stateINpending,started,finished");
+		surveyInstance.orderBy(level);
+		surveyInstance.query();
+		while (surveyInstance.next()) {
+			var instance = {
+				id : surveyInstance.getValue("sys_id"),
+				number : surveyInstance.getValue("number"),
+				responsible : surveyInstance.getDisplayValue("responsible"),
+				firstLevel : surveyInstance.getDisplayValue("first_level_notification"),
+				state : surveyInstance.getDisplayValue("state"),
+				numberOfQuestions : surveyInstance.getValue("number_of_questions"),
+				numberOfquestionsAnswered : surveyInstance.getValue("number_of_questions_answered")
+			};
+			
+			var levelManagerUserId = surveyInstance.getValue(level);
+			
+			if (!levelManager[levelManagerUserId]) {
+				levelManager[levelManagerUserId] = [];
+			}
+			levelManager[levelManagerUserId].push(instance);
+		}
+		
+		return levelManager;
+	},
+	
+	_queueNotificationMessage : function(notification) {
+		gs.eventQueue(notification.eventName, notification.glideObject,
+			notification.parm1, notification.parm2);
+	}
+};
+
+surveyConditions.forEach(function(surveyCondition) {
+	var survey = new GlideRecord("x_alabs_pex_survey");
+	survey.addEncodedQuery("state=published");
+	survey.addEncodedQuery("valid_untilRELATIVEEE@dayofweek@ahead@"+surveyCondition.days);
+	survey.query();
+	while (survey.next()) {
+		surveyCondition.receiversRulesName.split(",").forEach(function(receiversRulesName) {
+			receiversRules[receiversRulesName](survey, surveyCondition.days);
+		});
+	}
+});
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2017-11-13 17:50:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7319979f6f5a0700218117164b3ee45f</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>PEX - Survey Due Date Reminder</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sysauto_script_7319979f6f5a0700218117164b3ee45f</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-14 18:10:39</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

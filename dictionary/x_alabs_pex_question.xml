@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Question" max_length="40" name="x_alabs_pex_question" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Applicabilities" max_length="1024" name="applicabilities" reference="x_alabs_pex_applicability" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="glide_list"/>
+        <element label="Category" max_length="32" name="category" reference="x_alabs_pex_question_category" type="reference"/>
+        <element label="description" max_length="10000" name="description" type="translated_html"/>
+        <element label="Item" max_length="32" name="item" reference="x_alabs_pex_question_item" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="question" max_length="500" name="question" type="translated_text"/>
+        <element label="Subitem" max_length="32" name="subitem" reference="x_alabs_pex_question_subitem" reference_qual="javascript: 'item=' + current.item" type="reference" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" label="Suggestion not conform" max_length="4000" name="suggestion_not_conform" type="string"/>
+        <index name="index">
+            <element name="item"/>
+        </index>
+        <index name="index2">
+            <element name="subitem"/>
+        </index>
+        <index name="index3">
+            <element name="category"/>
+        </index>
+    </element>
+</database>

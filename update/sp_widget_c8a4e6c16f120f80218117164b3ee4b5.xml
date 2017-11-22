@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function () {
+	var c = this;	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.content{
+display:flex;
+  align-items: center;
+  p{
+  	
+  }
+  img{
+  	width:50%;
+  }
+}
+
+.carousel-inner {
+    height: 280px;
+}</css>
+        <data_table>sp_instance_carousel</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>interval</field_list>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link/>
+        <name>PEX - Carousel</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[data.slides = $sp.getRelatedList('sp_carousel_slide','carousel');]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-06 13:08:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c8a4e6c16f120f80218117164b3ee4b5</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>PEX - Carousel</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_widget_c8a4e6c16f120f80218117164b3ee4b5</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-11-07 17:29:35</sys_updated_on>
+        <template><![CDATA[<div class="pull-in">
+  <uib-carousel interval="options.interval">
+    <uib-slide ng-repeat="slide in ::data.slides" active="slide.active">
+      <div class="container">
+        <a href="{{::slide.url}}" title="Open carousel item">
+          <div class ="content">
+          	<img ng-src="{{::slide.background}}" style="margin:auto;" role="presentation">          
+          </div>        
+        </a>
+      </div>
+    </uib-slide>
+  </uib-carousel>
+</div>]]></template>
+    </sp_widget>
+</record_update>

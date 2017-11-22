@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Pex Surveys Questions" max_length="40" name="x_alabs_pex_surveys_questions" type="collection">
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Question" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
+        <element label="Survey" max_length="32" name="survey" reference="x_alabs_pex_survey" reference_floats="true" type="reference"/>
+        <index name="index">
+            <element name="question"/>
+        </index>
+        <index name="index2">
+            <element name="survey"/>
+        </index>
+    </element>
+</database>

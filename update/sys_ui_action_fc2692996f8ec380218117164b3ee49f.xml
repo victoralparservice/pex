@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>false</client>
+        <comments/>
+        <condition>current.state == 'draft'</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style>primary</form_style>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Request approval</name>
+        <onclick/>
+        <order>1000</order>
+        <script><![CDATA[var question = new GlideRecord('x_alabs_pex_surveys_questions');
+question.addEncodedQuery('survey=' + current.sys_id);
+question.query();
+
+if(question.next()){
+	current.state = 'waiting_approved';
+	current.update();
+}
+else{
+	gs.addErrorMessage(gs.getMessage('Essa avaliação não possui questões relacionadas!'));
+}
+
+action.setRedirectURL(current);
+
+]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-10-25 20:31:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fc2692996f8ec380218117164b3ee49f</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Request approval</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_ui_action_fc2692996f8ec380218117164b3ee49f</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-11-09 13:28:48</sys_updated_on>
+        <table>x_alabs_pex_survey</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

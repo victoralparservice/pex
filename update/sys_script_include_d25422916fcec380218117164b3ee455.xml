@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.SurveyInstanceUtils</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SurveyInstanceUtils</name>
+        <script><![CDATA[var SurveyInstanceUtils = Class.create();
+SurveyInstanceUtils.prototype = {
+	initialize: function() {  
+    },  
+    Generate : function(survey){
+		var scope = this;
+		var locations = survey.locations.toString().split(',');
+		var questions = this._getSurveyQuestions(survey);
+		
+		locations.forEach(function(location){			
+			var instance = scope._newInstance(location, survey, questions.length);
+			scope._newInstanceQuestion(instance, questions);
+		});
+	},
+	
+	_newInstance : function(location, survey, numberOfQuestions){
+		
+		var matrix = this._getMatrix(location, survey);
+		var gr = new GlideRecord('x_alabs_pex_instance_survey');
+		gr.initialize();
+		gr.survey = survey.sys_id;
+		gr.responsible = matrix.responsible;
+		gr.first_level_notification = matrix.firstLevel;
+		gr.second_level_notification = matrix.secondLevel;
+		gr.number_of_questions = numberOfQuestions;
+		var newId = gr.insert();
+		
+		return newId;
+	},
+	
+	_getMatrix : function(location, survey){
+		var matrix = {};
+		
+
+		
+		var gr = new GlideRecord('x_alabs_pex_location_survey_types');
+		gr.addEncodedQuery('survey_type='+ survey.type +'^location_survey=' + location);
+		gr.query();
+		
+		if(gr.next()){
+			matrix.responsible = gr.responsible.toString();
+			matrix.firstLevel = gr.first_level.toString();
+			matrix.secondLevel = gr.second_level.toString();
+		}	
+			
+		return matrix;
+	},	
+	
+	_getSurveyQuestions : function(survey) {
+		var questions = [];
+		var grSurveyQuestion = new GlideRecord('x_alabs_pex_surveys_questions');
+		grSurveyQuestion.addEncodedQuery('survey=' + survey.sys_id);
+		grSurveyQuestion.query();
+		
+		while(grSurveyQuestion.next()){
+			questions.push({
+				question : grSurveyQuestion.getValue('question'),
+				order : grSurveyQuestion.getValue('order')});
+		}
+		return questions;
+	},
+	
+	_newInstanceQuestion : function(instance, questions){
+		questions.forEach(function(question) {
+			var grInstanceQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
+			grInstanceQuestion.initialize();
+			grInstanceQuestion.question = question.question;
+			grInstanceQuestion.order = question.order;
+			grInstanceQuestion.survey_instance = instance;			
+			grInstanceQuestion.insert();
+		});
+	},
+
+    type: 'SurveyInstanceUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-10-25 21:29:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d25422916fcec380218117164b3ee455</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>SurveyInstanceUtils</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_d25422916fcec380218117164b3ee455</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-09 18:23:08</sys_updated_on>
+    </sys_script_include>
+</record_update>

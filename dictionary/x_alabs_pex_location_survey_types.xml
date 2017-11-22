@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Matriz PEX" max_length="40" name="x_alabs_pex_location_survey_types" type="collection">
+        <element label="First Level" max_length="32" name="first_level" reference="sys_user" type="reference"/>
+        <element label="Location" max_length="32" name="location_survey" reference="x_alabs_pex_location_survey" type="reference"/>
+        <element label="Responsible" max_length="32" name="responsible" reference="sys_user" type="reference"/>
+        <element label="Second Level" max_length="32" name="second_level" reference="sys_user" type="reference"/>
+        <element label="Type" max_length="32" name="survey_type" reference="x_alabs_pex_survey_type" type="reference"/>
+        <index name="index">
+            <element name="second_level"/>
+        </index>
+        <index name="index2">
+            <element name="location_survey"/>
+        </index>
+        <index name="index3">
+            <element name="first_level"/>
+        </index>
+        <index name="index4">
+            <element name="responsible"/>
+        </index>
+        <index name="index5">
+            <element name="survey_type"/>
+        </index>
+    </element>
+</database>

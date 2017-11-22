@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="94b39b5b6f5a0700218117164b3ee475" sys_domain="global" table="sys_ui_list_control" version="3" view="pex">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>fd345bdb6f5a0700218117164b3ee43d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>related_list</element>
+            <position>1</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>71345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>label</element>
+            <position>2</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f1345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_new_button</element>
+            <position>3</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>75345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_edit_button</element>
+            <position>4</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f5345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_if_empty</element>
+            <position>5</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>79345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_columns_if_empty</element>
+            <position>6</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f9345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_filters</element>
+            <position>7</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>7d345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_links</element>
+            <position>8</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>fd345bdb6f5a0700218117164b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>omit_drilldown_link</element>
+            <position>9</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>71345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>hierarchical_lists</element>
+            <position>10</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f1345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>11</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>75345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>new_roles</element>
+            <position>12</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f5345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>edit_roles</element>
+            <position>13</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>79345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>filter_roles</element>
+            <position>14</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f9345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>link_roles</element>
+            <position>15</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>7d345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>16</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>fd345bdb6f5a0700218117164b3ee43f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>list_edit_type</element>
+            <position>17</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>71345bdb6f5a0700218117164b3ee440</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>list_edit_ref_qual_tag</element>
+            <position>18</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f1345bdb6f5a0700218117164b3ee440</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>list_edit_insert_row</element>
+            <position>19</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>75345bdb6f5a0700218117164b3ee440</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>edit_default_filter</element>
+            <position>20</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>f5345bdb6f5a0700218117164b3ee440</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>edit_condition</element>
+            <position>21</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:22:34</sys_created_on>
+            <sys_id>79345bdb6f5a0700218117164b3ee440</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="sys_ui_list_control" sys_domain="global" view="e3205e556f8ec380218117164b3ee43d">94b39b5b6f5a0700218117164b3ee475</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:22:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>sys_ui_list_control</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 16:20:17</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>94b39b5b6f5a0700218117164b3ee475</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_ui_list_control</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_ui_section_94b39b5b6f5a0700218117164b3ee475</sys_update_name>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 16:20:17</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="PEX" name="pex">e3205e556f8ec380218117164b3ee43d</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

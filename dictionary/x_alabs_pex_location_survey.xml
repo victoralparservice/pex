@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Location Survey" max_length="40" name="x_alabs_pex_location_survey" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element label="Name" max_length="200" name="name" type="string"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Base" sequence="1" value="base"/>
+                <element label="Store" sequence="2" value="store"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="location"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($location, $scope, $rootScope) {
+	$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.breadcrumbs);
+	
+	var c = this;
+	
+	c.linkClick = function(id){
+		$location.search({id: 'avaliacao_pex', sys_id: id});		
+	}
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.buttons{
+	margin-bottom: 10px;
+}
+.card{
+  cursor:pointer;
+  display: block;
+  background-color: #fff;
+	position:relative;
+  position: relative;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.21);
+  padding: 15px;
+}
+
+.btn-active{
+	  color: #fff;
+    background-color: #023a69;
+    border-color: #023a69;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pex-avaliacoes-lista-card</id>
+        <internal>false</internal>
+        <link/>
+        <name>PEX - Avaliações Lista / Card</name>
+        <option_schema>[{"name":"mostrar_tudo","default_value":"false","label":"Mostrar tudo","type":"boolean"},{"name":"modo_visualizacao","default_value":"list","label":"Qual o modo de visualização?","type":"choice","choices":[{"label":"list","value":"list"},{"label":"card","value":"card"}]},{"name":"filtro","default_value":"state=pending","label":"Filtro","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {	
+	data.selected = options.modo_visualizacao;
+	data.list = [];
+	
+	//BREADCRUMBS
+	data.breadcrumbs = [];
+	data.breadcrumbs.push({label: gs.getMessage('Programa de Excelência'), url: '/sp?id=index_pex'});
+	data.breadcrumbs.push({label: gs.getMessage('Avaliações'), url: '#'});
+	
+	var gr = new GlideRecordSecure('x_alabs_pex_instance_survey');
+	gr.orderBy('survey.valid_until');
+	gr.addEncodedQuery(options.filtro);
+	gr.addEncodedQuery('responsible=' + gs.getUserID());
+	gr.query();
+	
+	while(gr.next()){
+		var survey = new GlideRecord('x_alabs_pex_survey');
+		survey.get(gr.survey);
+				
+		var item = [];
+		item.push($sp.getField(gr, 'number'));
+		item.push($sp.getField(survey, 'type'));
+		item.push(getQuestion(gr));
+		item.push($sp.getField(gr, 'state'));		
+		item.push($sp.getField(survey, 'valid_until'));	
+		item[0].value = gr.getUniqueValue();
+		data.list.push(item);
+	}
+	
+	function getQuestion(gr){
+		
+		var nq = $sp.getField(gr, 'number_of_questions').value;
+		var nqa = $sp.getField(gr, 'number_of_questions_answered').value;
+		
+		var question = {
+			'display_value' : nq + ' / ' + nqa,
+			'label' : gs.getMessage('Question'),
+			'type' : 'string',
+			'value' : nq + ' / ' + nq			
+		};
+		
+		return question;		
+	}
+	
+	options.mostrar_tudo = false;
+	data.listAvaliacoes = $sp.getWidget('pex-table-avaliacoes', options);
+	
+})()]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-07 18:11:16</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3383b4696f5a03001fb18a6d6b3ee4b0</sys_id>
+        <sys_mod_count>128</sys_mod_count>
+        <sys_name>PEX - Avaliações Lista / Card</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_widget_3383b4696f5a03001fb18a6d6b3ee4b0</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-09 13:39:55</sys_updated_on>
+        <template><![CDATA[<div class="buttons pull-right">
+  <a ng-click = "data.selected = 'card'" class="btn btn-default fa fa-th" ng-class = "{'btn-active': data.selected == 'card' }"></a>
+  <a ng-click = "data.selected = 'list'" class="btn btn-default fa fa-bars" ng-class = "{'btn-active': data.selected == 'list' }"></a>
+</div>
+
+<div class = "clearfix">
+</div>
+  
+<div ng-if="data.selected == 'list'">
+  <div>
+  	<sp-widget widget="data.listAvaliacoes"></sp-widget>
+  </div>
+</div>
+
+<div ng-if="data.selected == 'card'">
+<div class = "row">
+  <div class = "col-md-3" ng-repeat="item in c.data.list">
+    <div ng-click="c.linkClick(item[0].value)" class="card">
+      <div ng-repeat="line in item">
+        <label>{{line.label}}: {{line.display_value}}</label><br/>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>  ]]></template>
+    </sp_widget>
+</record_update>

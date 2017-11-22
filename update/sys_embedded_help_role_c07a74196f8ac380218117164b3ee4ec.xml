@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role/>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-10-25 13:47:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c07a74196f8ac380218117164b3ee4ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>447a74196f8ac380218117164b3ee4ea</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_embedded_help_role_c07a74196f8ac380218117164b3ee4ec</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-10-25 13:47:09</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

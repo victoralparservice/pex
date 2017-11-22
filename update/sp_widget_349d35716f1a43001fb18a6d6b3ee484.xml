@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, $location, $rootScope) {
+	
+	$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.breadcrumbs);
+	
+	var c = this;	
+	
+	c.linkClick = function(id){
+		$location.search({id: 'acao_pex', table: 'x_alabs_pex_action_plan_action', sys_id: id});		
+	}
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.panel-footer{
+  padding: 15px 15px;
+  .pull-right {
+    margin-top: -10px;
+	}
+}
+
+.not-found{
+	margin: 15px;
+}
+
+.bold{
+	font-weight: bold;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pex_plano_e_acoes</id>
+        <internal>false</internal>
+        <link/>
+        <name>PEX - Plano e ações</name>
+        <option_schema>[{"name":"title","default_value":"Ações","label":"Title","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+	data.list = [];
+	data.isValid = ($sp.getParameter('sys_id') == '' || $sp.getParameter('sys_id') == null) ? false : true;
+	
+	//BREADCRUMBS
+	data.breadcrumbs = [];
+	data.breadcrumbs.push({label: gs.getMessage('Programa de Excelência'), url: '/sp?id=index_pex'});
+	data.breadcrumbs.push({label: gs.getMessage('Planos de ação'), url: '/sp?id=planos_de_acao_pex'});
+		
+	if(!data.isValid)
+		return;
+	
+	data.plan = {};
+	
+	var grPlan = new GlideRecord('x_alabs_pex_action_plan');
+	grPlan.get($sp.getParameter('sys_id'));
+	data.plan.title = grPlan.number.getDisplayValue();
+	data.plan.fields = $sp.getFields(grPlan, 'state,responsible,survey_instance');
+	
+	//BREADCRUMBS
+	data.breadcrumbs.push({label: data.plan.title, url: '#'});
+	
+	var gr = new GlideRecordSecure('x_alabs_pex_action_plan_action');
+	gr.orderBy('question_instance.due_date');
+	gr.addEncodedQuery('action_plan=' + $sp.getParameter('sys_id'));
+	gr.query();
+	
+	while(gr.next()){
+		var questionInstance = new GlideRecord('x_alabs_pex_instance_survey_question');
+		questionInstance.get(gr.question_instance);
+				
+		var item = [];
+		item.push($sp.getField(gr, 'number'));
+		item.push($sp.getField(gr, 'state'));		
+			
+		item.push($sp.getField(questionInstance, 'responsible_area'));
+		item.push($sp.getField(questionInstance, 'due_date'));	
+		
+		/*item.push($sp.getField(survey, 'type'));
+		item.push(getQuestion(gr));
+		item.push($sp.getField(gr, 'state'));		
+		item.push($sp.getField(survey, 'valid_until'));	*/
+		item[0].value = gr.getUniqueValue();
+		data.list.push(item);
+	}
+})()]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-08 18:13:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>349d35716f1a43001fb18a6d6b3ee484</sys_id>
+        <sys_mod_count>100</sys_mod_count>
+        <sys_name>PEX - Plano e ações</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_widget_349d35716f1a43001fb18a6d6b3ee484</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-09 16:57:21</sys_updated_on>
+        <template><![CDATA[<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default b">
+      <div class="panel-heading">
+        <h1 class="h4 panel-title">{{c.data.plan.title}}</h1>
+      </div>
+      <div class="panel-body transclude">
+        <div ng-repeat="field in c.data.plan.fields">
+          <p><span class="bold">{{field.label}}: </span>{{field.display_value}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default b" ng-if="data.isValid">
+       <div class="panel-heading">
+          <h2 class="h4 panel-title">
+             {{::c.options.title}}
+          </h2>
+       </div>
+       <table class="table table-stripped table-responsive" ng-if="c.data.list.length"> 
+         <thead>
+             <tr>
+                <th></th>
+                <th ng-repeat="item in c.data.list[0]">{{item.label}}</th>
+             </tr>
+          </thead>
+          <tbody>
+             <tr ng-repeat="row in c.data.list">
+               <td><a ng-click=c.linkClick(row[0].value)><i class="fa fa-eye"></i></a></td>
+               <td ng-repeat="col in row">{{col.display_value}}</td>
+             </tr>
+          </tbody>
+       </table>
+          <div class="not-found" ng-if="!c.data.list.length">
+             ${No records found}
+          </div>
+       <div class="panel-footer" >
+       </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

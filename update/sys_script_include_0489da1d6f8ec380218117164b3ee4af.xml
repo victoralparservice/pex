@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.SurveyUtils</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SurveyUtils</name>
+        <script><![CDATA[var SurveyUtils = Class.create();
+SurveyUtils.prototype = {
+	initialize: function() {  
+    },  
+    Clone : function(gr){
+	
+		var newSurvey = new GlideRecord('x_alabs_pex_survey');
+		newSurvey.initialize();
+		newSurvey.valid_until = gr.valid_until;
+		newSurvey.name = gr.name + ' - Clone';
+		newSurvey.description = gr.description;
+		newSurvey.type = gr.type;
+		newSurvey.locations = gr.locations;
+		newSurvey.introduction = gr.introduction;
+		newSurvey.end_note = gr.end_note;
+		newSurvey.parent = gr.sys_id;
+		var newId = newSurvey.insert();
+		
+		this._cloneQuestion(gr.sys_id, newId);
+		
+		return newSurvey;
+	},
+	
+	FilterLocation : function(){
+		var filter = 'sys_idIN';
+		var arrayLocations = [];
+		
+		var grLocationByType = new GlideRecord('x_alabs_pex_location_survey_types');
+		grLocationByType.addEncodedQuery('survey_type=' + current.type);
+		grLocationByType.query();
+		
+		while(grLocationByType.next()){
+			arrayLocations.push(grLocationByType.location_survey.toString());
+		}
+		
+		filter += arrayLocations.join(',');
+				
+		return filter;
+	},
+	
+	_cloneQuestion : function(OldSurvey, newSurvey){
+		var m2mOld = new GlideRecord('x_alabs_pex_surveys_questions');
+		m2mOld.addEncodedQuery('survey=' + OldSurvey);
+		m2mOld.query();
+		
+		while(m2mOld.next()){
+			var m2mNew = new GlideRecord('x_alabs_pex_surveys_questions');
+			m2mNew.initialize();
+			m2mNew.survey = newSurvey;
+			m2mNew.question = m2mOld.question;
+			m2mNew.order = m2mOld.order;
+			m2mNew.insert();
+		}
+	},
+
+    type: 'SurveyUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-10-25 20:42:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0489da1d6f8ec380218117164b3ee4af</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>SurveyUtils</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_0489da1d6f8ec380218117164b3ee4af</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-10-25 21:22:36</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, $location, $rootScope) {
+	
+	$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.breadcrumbs);
+	
+	var c = this;	
+	
+	c.finalizar = function(){
+		c.data.action = 'fineshed';
+		this.server.update().then(function(){	
+			$location.search({id: 'plano_de_acao_pex', sys_id: c.data.plan.value});	
+		})
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.panel-footer{
+  padding: 15px 15px;
+  .pull-right {
+    margin-top: -10px;
+	}
+}
+
+.not-found{
+	margin: 15px;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.fineshed{
+  margin-top: -25px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pex_acao</id>
+        <internal>false</internal>
+        <link/>
+        <name>PEX - Ação</name>
+        <option_schema>[{"name":"title","default_value":"Ações","label":"Title","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+	if(input && input.action){
+		if(input.action == "fineshed"){
+			var gr = new GlideRecord('x_alabs_pex_action_plan_action');
+			gr.addEncodedQuery('sys_id=' + $sp.getParameter('sys_id'))
+			gr.query();
+			
+			if(gr.next()){
+				gr.state = 'completed';
+				gr.update();
+			}
+			
+			gs.addInfoMessage(gs.getMessage('Ação finalizada com sucesso!'));
+			return;	
+		}
+	}
+	
+	
+	data.list = [];
+	data.isValid = ($sp.getParameter('sys_id') == '' || $sp.getParameter('sys_id') == null) ? false : true;
+	
+	//BREADCRUMBS
+	data.breadcrumbs = [];
+	data.breadcrumbs.push({label: gs.getMessage('Programa de Excelência'), url: '/sp?id=index_pex'});
+	data.breadcrumbs.push({label: gs.getMessage('Planos de ação'), url: '/sp?id=planos_de_acao_pex'});
+		
+	if(!data.isValid)
+		return;
+		
+	data.fields = [];
+	
+	var grAction = new GlideRecord('x_alabs_pex_action_plan_action');
+	grAction.get($sp.getParameter('sys_id'));
+	
+	data.number = $sp.getField(grAction ,'number');
+	data.state = $sp.getField(grAction ,'state');
+	data.plan = $sp.getField(grAction ,'action_plan');
+	
+	var questionInstance = new GlideRecord('x_alabs_pex_instance_survey_question');
+	questionInstance.get(grAction.question_instance);
+	
+	var question = new GlideRecord('x_alabs_pex_question');
+	question.get(questionInstance.question);
+		
+	data.fields.push($sp.getField(grAction, 'state'));		
+	data.fields.push($sp.getField(question, 'question'));
+	data.fields.push($sp.getField(question, 'suggestion_not_conform'));
+	data.fields.push($sp.getField(questionInstance, 'due_date'));
+	data.fields.push($sp.getField(questionInstance, 'responsible_area'));
+	data.fields.push($sp.getField(questionInstance, 'proposition'));
+		
+	//BREADCRUMBS
+	data.breadcrumbs.push({label: data.plan.display_value, url: '/sp?id=plano_de_acao_pex&sys_id=' + data.plan.value});
+	data.breadcrumbs.push({label: data.number.display_value, url: '#'});
+	
+	
+})()]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-08 20:21:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fa0b1a396f5a43001fb18a6d6b3ee454</sys_id>
+        <sys_mod_count>117</sys_mod_count>
+        <sys_name>PEX - Ação</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_widget_fa0b1a396f5a43001fb18a6d6b3ee454</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-11-08 21:32:56</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b">
+    <div class="panel-heading">
+       <h1 class="h4 panel-title">${Details}</h1>
+      <a ng-if="c.data.state.value == 'pending'" ng-click="c.finalizar()" class="btn btn-success pull-right fineshed">${Finalizar}</a>
+    </div>
+    <div class="panel-body transclude">
+      <div ng-repeat="field in c.data.fields">
+         <p><span class="bold">{{field.label}}: </span>{{field.display_value}}</p>
+      </div>
+    </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

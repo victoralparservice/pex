@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="Import Instance Question" max_length="40" name="x_alabs_pex_import_instance_question" type="collection">
+        <element attributes="import_attribute_name=Order" label="Order" max_length="40" name="u_order" type="integer"/>
+        <element attributes="import_attribute_name=Question,edge_encryption_enabled=true" label="Question" max_length="190" name="u_question" type="string"/>
+        <element attributes="import_attribute_name=Survey,edge_encryption_enabled=true" label="Survey" max_length="73" name="u_survey" type="string"/>
+    </element>
+</database>
