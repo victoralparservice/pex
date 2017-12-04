@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Applicability" max_length="40" name="x_alabs_pex_applicability" type="collection">
-        <element label="Active" max_length="40" name="active" type="boolean"/>
-        <element label="Name" max_length="200" name="name" type="translated_text"/>
+    <element label="Aplicabilidade" max_length="40" name="x_alabs_pex_applicability" type="collection">
+        <element label="Ativo" max_length="40" name="active" type="boolean"/>
+        <element label="Nome" max_length="200" name="name" type="translated_text"/>
     </element>
 </database>

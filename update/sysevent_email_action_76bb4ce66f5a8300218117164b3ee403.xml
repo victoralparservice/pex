@@ -35,6 +35,7 @@
 </div>
 <div style="padding-top: 30px;">
 <p>${mail_script:message_for_first_level}.</p>
+<p><span style="font-family: AzulHelveticaNeue, HelveticaNeueLTStd-Lt, Helvetica, sans-serif;">Para&nbsp;ver a defini&ccedil;&atilde;o da pesquisa, acesse: ${URI_REF}</span></p>
 <p>Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>.</p>
 <p style="font-weight: bold;">Equipe PEX</p>
 <div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
@@ -53,7 +54,7 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>[PEX] - Lembrete de avaliações pendentes</subject>
+        <subject>[PEX] - ${name} - Lembrete de avaliações pendentes</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>eli.lima</sys_created_by>
@@ -62,7 +63,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>76bb4ce66f5a8300218117164b3ee403</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>PEX-Valid Util Reminder - First Level</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -71,7 +72,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_76bb4ce66f5a8300218117164b3ee403</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-14 13:49:47</sys_updated_on>
+        <sys_updated_on>2017-12-01 18:08:07</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

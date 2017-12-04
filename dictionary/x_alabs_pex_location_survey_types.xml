@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" label="Matriz PEX" max_length="40" name="x_alabs_pex_location_survey_types" type="collection">
-        <element label="First Level" max_length="32" name="first_level" reference="sys_user" type="reference"/>
-        <element label="Location" max_length="32" name="location_survey" reference="x_alabs_pex_location_survey" type="reference"/>
-        <element label="Responsible" max_length="32" name="responsible" reference="sys_user" type="reference"/>
-        <element label="Second Level" max_length="32" name="second_level" reference="sys_user" type="reference"/>
-        <element label="Type" max_length="32" name="survey_type" reference="x_alabs_pex_survey_type" type="reference"/>
+    <element audit="true" label="Matriz Responsabilidade" max_length="40" name="x_alabs_pex_location_survey_types" type="collection">
+        <element label="Primeiro Nível" max_length="32" name="first_level" reference="sys_user" type="reference"/>
+        <element label="Localidade" max_length="32" name="location_survey" reference="x_alabs_pex_location_survey" type="reference"/>
+        <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
+        <element label="Segundo Nível" max_length="32" name="second_level" reference="sys_user" type="reference"/>
+        <element label="Área" max_length="32" name="survey_type" reference="x_alabs_pex_survey_type" type="reference"/>
         <index name="index">
             <element name="second_level"/>
         </index>

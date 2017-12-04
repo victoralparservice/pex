@@ -15,7 +15,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Description</column_label>
+        <column_label>Descrição</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -53,16 +53,16 @@
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-10-24 13:00:10</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>1ec52f346f8e8380218117164b3ee465</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Description</sys_name>
+        <sys_id>8043e4fe6f268300218117164b3ee479</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Descrição</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_question_item_description</sys_update_name>
-        <sys_updated_by>victor.leite</sys_updated_by>
-        <sys_updated_on>2017-10-24 13:00:10</sys_updated_on>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-30 18:01:34</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

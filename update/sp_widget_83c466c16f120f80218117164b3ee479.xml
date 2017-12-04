@@ -107,8 +107,8 @@
 			return !question.situation;
 		});
 		
-		console.log("first question index");
-		console.log(indexFirstQuestion);
+		if (indexFirstQuestion < 0)
+			indexFirstQuestion = 0;
 		
 		return indexFirstQuestion || 0;
 	}
@@ -192,6 +192,10 @@
   //padding-bottom: 15px;
   background-color: #fff;
  	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.21);
+  
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+    padding:25px;
+  }
 }
 
 .card-circle{
@@ -199,17 +203,32 @@
   height: 160px;
   padding: 15px;
   width: 160px;
+  
+ @media (min-device-width: 320px) and (max-device-width: 480px) {
+  		border-radius: 50%;
+  		height: 100px;
+  		padding: 10px;
+  		width: 100px;
+  }
+   
 }
 
 p.icon {
     font-size: 65px;
   	color: #fff;
   	margin-bottom: -7px;
+  @media (min-device-width: 320px) and (max-device-width: 480px) {
+  	font-size:40px;  
+  }
 }
 
 p.action-text {
     font-size: 20px;
   	color: #fff;
+  
+  	@media (min-device-width: 320px) and (max-device-width: 480px) {
+  		font-size:12px;  
+  	}
 }
 
 .icon-like-active {
@@ -271,6 +290,8 @@ p.action-text {
   color:red;
 }
 
+
+
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -326,7 +347,7 @@ p.action-text {
 	data.breadcrumbs = [];
 	data.breadcrumbs.push({label: gs.getMessage('Programa de Excelência'), url: '/sp?id=index_pex'});
 	data.breadcrumbs.push({label: gs.getMessage('Avaliações'), url: '/sp?id=avaliacoes_pex'});
-	data.breadcrumbs.push({label: gs.getMessage('XPTO'), url: '#'});
+	data.breadcrumbs.push({label: gs.getMessage('Avaliação'), url: '#'});
 	
 	//get instance state
 	var grSurvey = new GlideRecord('x_alabs_pex_instance_survey')
@@ -335,11 +356,16 @@ p.action-text {
 	var survey = {
 		id : grSurvey.getValue("sys_id"),
 		state : grSurvey.getValue("state"),
+		title : grSurvey.survey.name.getDisplayValue(), 
+		type : grSurvey.survey.type.getDisplayValue(),
+		introduction : grSurvey.survey.introduction.getDisplayValue(),
+		endNotes : grSurvey.survey.end_note.getDisplayValue(),
 		questions : []
 	}
 	
 	var grQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
 	grQuestion.addEncodedQuery('survey_instance=' + survey.id);
+	//TODO add order
 	grQuestion.query();
 		
 	while(grQuestion.next()){
@@ -355,11 +381,25 @@ p.action-text {
 		question.notConform = {};
 		question.notConform.due_date = grQuestion.due_date.getDisplayValue();
 		question.notConform.proposition = grQuestion.proposition.getDisplayValue();	
-		question.notConform.responsible_area = grQuestion.responsible_area.getDisplayValue();
-		question.notConform.required = question.situation == 'not_conform' ? true : false;
+		question.notConform.responsible_area = grQuestion.getValue("responsible_area");
+	  question.notConform.required = question.situation == 'not_conform' ? true : false;
 		survey.questions.push(question);
 	}
 	
+	var responsibleAreas = [];
+	var grResponsibleArea = new GlideRecord("sys_choice");
+	grResponsibleArea.addQuery("language", gs.getSession().getLanguage());
+	grResponsibleArea.addEncodedQuery("nameSTARTSWITHx_alabs_pex_instance_survey_question^element=responsible_area");
+	grResponsibleArea.query();
+	while (grResponsibleArea.next()) {
+		var responsibleArea = {
+			label : grResponsibleArea.label.getDisplayValue(),
+			value : grResponsibleArea.value.getDisplayValue()
+		};
+		responsibleAreas.push(responsibleArea);
+	}
+	
+	data.responsibleAreas = responsibleAreas;
 	data.survey = survey;
 	
 })();]]></script>
@@ -369,7 +409,7 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>824</sys_mod_count>
+        <sys_mod_count>924</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -377,7 +417,7 @@ p.action-text {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-21 20:07:40</sys_updated_on>
+        <sys_updated_on>2017-12-01 18:18:16</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
    <div class="row">
@@ -385,13 +425,14 @@ p.action-text {
          <div class="card">
             <div class="row">
                <div class="col-md-12">
-                  <h1 class="text-center">Título</h1>
-                  <h4 class="text-center"><span>Aeroportos</span> | <span>Quantidade de questões: 35</span></h4>
+                  <h1 class="text-center">{{data.survey.name}}</h1>
+                  <h4 class="text-center"><span>{{data.survey.type}}</span> | <span>Quantidade de questões: {{data.survey.questions.length}}</span></h4>
                </div>
             </div>
             <div class="row">
-               <div class="col-md-12">
-                  <p>Phasellus bibendum erat eget erat blandit, eget mattis velit bibendum. Aenean et pharetra turpis. Nunc consectetur turpis tristique arcu ultricies, eget porta lorem convallis. Morbi sodales, leo vel suscipit dictum, enim ante posuere lorem, et hendrerit velit nibh ac ante. Cras mattis interdum porta. Pellentesque turpis nunc, eleifend eget ornare quis, dapibus et dolor. Vivamus fringilla vel lorem ac rhoncus. Duis lacinia lacus nec posuere vulputate. Cras quis arcu eget mauris ornare congue. Cras blandit, odio sit amet dapibus volutpat, sapien erat aliquet tortor, a iaculis risus lectus vitae quam. Vestibulum sagittis aliquam felis ut vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In non condimentum ligula.</p>
+               <div class="col-md-12 text-center">
+                  <p data-ng-bind-html="data.survey.introduction">
+                  </p>
                </div>
             </div>
             <div class="row">
@@ -408,7 +449,7 @@ p.action-text {
 <!-- INICIO CAROUSEL -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" ng-if="data.survey.state=='started'||data.survey.state=='finished'">
    <div class="carousel-inner">
-      <slide ng-repeat="question in data.survey.questions" active='{{$index==firstIndex}}' class="item" ng-class="{active:$first}">
+      <slide ng-repeat="question in data.survey.questions" active='{{$index==firstIndex}}' class="item" ng-class="{active:$index==firstIndex}">
          <div class="question">
             <div class="slide-content">
                <div class="row">
@@ -430,7 +471,7 @@ p.action-text {
                         <div class="row">
                            <div class="col-md-12">
                               <div class="question">
-                                <p><strong>Categoria:</strong> {{question.category}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Item:</strong> {{question.item}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Subitem:</strong> {{question.subitem}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Aplicabilidade:</strong> {{question.applicabilities}}</p>
+                                <p><strong>Pilar:</strong> {{question.category}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Item:</strong> {{question.item}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Subitem:</strong> {{question.subitem}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Aplicabilidade:</strong> {{question.applicabilities}}</p>
                                 <h4><strong>${Pergunta}</strong></h4>
                                 <p>{{question.question}}</p>
                               </div>
@@ -477,17 +518,28 @@ p.action-text {
             <form name="notConformForm">
             <div class="row not-in" ng-if="question.situation=='not_conform'">
                <div class="col-md-offset-1 col-md-10">
-                  <div class="row">
-                     <div class="col-md-8">
-                        <div class="form-group required">
-                           <label class="control-label" for="proposition">O que você pretende fazer para melhorar?</label>
-                           <textarea name="proposition" id="proposition" class="form-control" rows="3" ng-model="question.notConform.proposition"  ng-required='question.notConform.required' ng-blur="saveLastQuestion(notConformForm.$valid, $last, question)"></textarea>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
+                 <div class="row">
+                     <div class="col-md-6">
                         <div class="form-group required">
                            <label class="control-label" for="due_date">Prazo</label>
                            <sp-date-picker name="due_date" id="due_date" ng-model="question.notConform.due_date" ng-required='question.notConform.required' ng-change="selectDate(notConformForm.$valid, $last, question)"></sp-date-picker>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group required">
+                           <label class="control-label" for="responsible_area">Área Responsável</label>
+                           <select class="form-control" name="responsible_area" ng-options="responsibleArea.value as responsibleArea.label for responsibleArea in data.responsibleAreas" ng-required='question.notConform.required' ng-model="question.notConform.responsible_area" ng-change="selectDate(notConformForm.$valid, $last, question)">
+                             <option value="">Selecione a área responsável...</option>
+                           </select>
+                        </div>
+                     </div>
+                    </div>
+                 
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="form-group required">
+                           <label class="control-label" for="proposition">O que você pretende fazer para melhorar?</label>
+                           <textarea name="proposition" id="proposition" class="form-control" rows="3" ng-model="question.notConform.proposition"  ng-required='question.notConform.required' ng-blur="saveLastQuestion(notConformForm.$valid, $last, question)"></textarea>
                         </div>
                      </div>
                   </div>
@@ -531,19 +583,21 @@ p.action-text {
          <div class="card">
             <div class="row">
                <div class="col-md-12">
-                  <h1 class="text-center">Notas de finalização</h1>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <p>Phasellus bibendum erat eget erat blandit, eget mattis velit bibendum. Aenean et pharetra turpis. Nunc consectetur turpis tristique arcu ultricies, eget porta lorem convallis. Morbi sodales, leo vel suscipit dictum, enim ante posuere lorem, et hendrerit velit nibh ac ante. Cras mattis interdum porta. Pellentesque turpis nunc, eleifend eget ornare quis, dapibus et dolor. Vivamus fringilla vel lorem ac rhoncus. Duis lacinia lacus nec posuere vulputate. Cras quis arcu eget mauris ornare congue. Cras blandit, odio sit amet dapibus volutpat, sapien erat aliquet tortor, a iaculis risus lectus vitae quam. Vestibulum sagittis aliquam felis ut vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In non condimentum ligula.</p>
+                  <h3 class="text-center">Notas de finalização</h3>
                </div>
             </div>
             <div class="row">
                <div class="col-md-12 text-center">
-                  <a ng-disabled="!hasNotConformQuestion" class="btn btn-primary btn-lg" ng-click="redirectAfterCompletedSurvey('plano_de_acao_pex')">${Plano de ação}</a>
-                  <a class="btn btn-default btn-lg" ng-click="redirectAfterCompletedSurvey('avaliacoes_pex')">${Lista de avaliações}</a>
-                  <a class="btn btn-danger btn-lg" ng-click="redirectAfterCompletedSurvey('index_pex')">${Fechar}</a>
+                  <p data-ng-bind-html="data.survey.endNotes">
+                 </p>
+               </div>
+            </div>
+           <br/><br/>
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <a ng-disabled="!hasNotConformQuestion" class="btn btn-primary" ng-click="redirectAfterCompletedSurvey('plano_de_acao_pex')">${Plano de ação}</a>
+                  <!--a class="btn btn-default" ng-click="redirectAfterCompletedSurvey('avaliacoes_pex')">${Lista de avaliações}</a-->
+                  <a class="btn btn-danger" ng-click="redirectAfterCompletedSurvey('index_pex')">${Fechar}</a>
                </div>
             </div>
          </div>

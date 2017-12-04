@@ -6,6 +6,25 @@
             <element>responsible_area</element>
             <hint/>
             <inactive>false</inactive>
+            <label>Minha área</label>
+            <language>pb</language>
+            <name>x_alabs_pex_instance_survey_question</name>
+            <sequence>0</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-01 12:18:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7e098f4d6f7a43001fb18a6d6b3ee46d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-01 12:18:49</sys_updated_on>
+            <value>my_area</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>responsible_area</element>
+            <hint/>
+            <inactive>false</inactive>
             <label>My area</label>
             <language>en</language>
             <name>x_alabs_pex_instance_survey_question</name>
@@ -39,6 +58,25 @@
             <sys_updated_on>2017-10-25 23:46:03</sys_updated_on>
             <value>other_area</value>
         </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>responsible_area</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Outra área</label>
+            <language>pb</language>
+            <name>x_alabs_pex_instance_survey_question</name>
+            <sequence>1</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-01 12:19:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a31943c96f7a43001fb18a6d6b3ee424</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-01 12:19:08</sys_updated_on>
+            <value>other_area</value>
+        </sys_choice>
         <sys_choice_set action="INSERT_OR_UPDATE">
             <element>responsible_area</element>
             <name>x_alabs_pex_instance_survey_question</name>
@@ -46,7 +84,7 @@
             <sys_created_by>victor.leite</sys_created_by>
             <sys_created_on>2017-10-25 23:45:46</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>4d7307d56f020780218117164b3ee4bf</sys_id>
+            <sys_id>fdb364326f668300218117164b3ee428</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>responsible_area</sys_name>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>

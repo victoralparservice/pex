@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="state" label="Status" language="pb" table="x_alabs_pex_survey">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <help/>
+            <hint/>
+            <label>Status</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <plural>Status</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:04:19</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>4a8e47f46ffe03001fb18a6d6b3ee4e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Status</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_documentation_x_alabs_pex_survey_state_pb</sys_update_name>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:04:19</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

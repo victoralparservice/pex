@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element audit="true" label="Category" max_length="40" name="x_alabs_pex_question_category" type="collection">
-        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
-        <element label="description" max_length="1000" name="description" type="translated_text"/>
-        <element label="Name" mandatory="true" max_length="200" name="name" type="translated_text"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="true" label="Ativo" max_length="40" name="active" type="boolean"/>
+        <element label="Descrição" max_length="1000" name="description" type="translated_text"/>
+        <element label="Nome" mandatory="true" max_length="200" name="name" type="translated_text"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número" max_length="40" name="number" read_only="true" type="string"/>
     </element>
 </database>

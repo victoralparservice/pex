@@ -25,6 +25,44 @@
             <element>state</element>
             <hint/>
             <inactive>false</inactive>
+            <label>Rascunho</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>0</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:08:14</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>976fc3386ffe03001fb18a6d6b3ee438</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:08:14</sys_updated_on>
+            <value>draft</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Aguardando Aprovação</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>1</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:11:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7c3057386ffe03001fb18a6d6b3ee4e0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:11:36</sys_updated_on>
+            <value>waiting_approved</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
             <label>Waiting Approved</label>
             <language>en</language>
             <name>x_alabs_pex_survey</name>
@@ -38,6 +76,25 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:40</sys_updated_on>
             <value>waiting_approved</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Publicada</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>2</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:12:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>725053786ffe03001fb18a6d6b3ee46b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:12:16</sys_updated_on>
+            <value>published</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -82,6 +139,44 @@
             <element>state</element>
             <hint/>
             <inactive>false</inactive>
+            <label>Finalizada</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>3</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:12:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>967013786ffe03001fb18a6d6b3ee44f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:12:47</sys_updated_on>
+            <value>completed</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Cancelada</label>
+            <language>pb</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>4</sequence>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-30 18:13:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8e80d3786ffe03001fb18a6d6b3ee434</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:13:03</sys_updated_on>
+            <value>canceled</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
             <label>Canceled</label>
             <language>en</language>
             <name>x_alabs_pex_survey</name>
@@ -103,7 +198,7 @@
             <sys_created_by>victor.leite</sys_created_by>
             <sys_created_on>2017-10-24 12:45:19</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>28b223b06f8e8380218117164b3ee431</sys_id>
+            <sys_id>b2542c326f668300218117164b3ee4f6</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>state</sys_name>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>

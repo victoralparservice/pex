@@ -10,7 +10,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Applicabilities</column_label>
+        <column_label>Aplicabilidades</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -50,16 +50,16 @@
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-10-25 13:33:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>574778d56f8ac380218117164b3ee402</sys_id>
+        <sys_id>3733e4fe6f268300218117164b3ee426</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>Applicabilities</sys_name>
+        <sys_name>Aplicabilidades</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_question_applicabilities</sys_update_name>
-        <sys_updated_by>victor.leite</sys_updated_by>
-        <sys_updated_on>2017-10-25 13:33:48</sys_updated_on>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-11-30 17:58:43</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

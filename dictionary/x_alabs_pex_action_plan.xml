@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element audit="true" label="Action Plan" max_length="40" name="x_alabs_pex_action_plan" type="collection">
-        <element label="Notes" max_length="4000" name="notes" type="journal_input"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
-        <element label="Responsible" max_length="32" name="responsible" reference="sys_user" type="reference"/>
-        <element choice="3" default="pending" label="State" max_length="40" name="state" type="choice">
+        <element label="Notas" max_length="4000" name="notes" type="journal_input"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
+        <element choice="3" default="pending" label="Status" max_length="40" name="state" type="choice">
             <choice>
+                <element label="Pendente" language="pb" sequence="0" value="pending"/>
                 <element label="Pending" sequence="0" value="pending"/>
                 <element label="Completed" sequence="1" value="completed"/>
+                <element label="Finalizado" language="pb" sequence="1" value="completed"/>
+                <element label="Cancelado" language="pb" sequence="2" value="canceled"/>
                 <element label="Canceled" sequence="2" value="canceled"/>
             </choice>
         </element>
-        <element label="Survey Instance" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" type="reference"/>
+        <element label="Pesquisa" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" type="reference"/>
         <index name="index">
             <element name="responsible"/>
         </index>

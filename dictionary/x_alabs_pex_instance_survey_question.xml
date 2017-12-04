@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" label="Instance Survey Question" max_length="40" name="x_alabs_pex_instance_survey_question" type="collection">
-        <element label="Due Date" max_length="40" name="due_date" type="glide_date"/>
-        <element label="Notes" max_length="40" name="notes" type="journal_input"/>
-        <element label="Order" max_length="40" name="order" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Proposition" max_length="4000" name="proposition" type="string"/>
-        <element display="true" label="Question" mandatory="true" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" choice="1" label="Responsible area" max_length="40" name="responsible_area" type="string">
+    <element audit="true" label="Questão" max_length="40" name="x_alabs_pex_instance_survey_question" type="collection">
+        <element label="Prazo" max_length="40" name="due_date" type="glide_date"/>
+        <element label="Notas" max_length="40" name="notes" type="journal_input"/>
+        <element label="Ordem" max_length="40" name="order" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Proposta" max_length="4000" name="proposition" type="string"/>
+        <element display="true" label="Definição da Questão" mandatory="true" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Área responsável" max_length="40" name="responsible_area" type="string">
             <choice>
+                <element label="Minha área" language="pb" sequence="0" value="my_area"/>
                 <element label="My area" sequence="0" value="my_area"/>
                 <element label="Other area" sequence="1" value="other_area"/>
+                <element label="Outra área" language="pb" sequence="1" value="other_area"/>
             </choice>
         </element>
-        <element choice="1" label="Situation" max_length="40" name="situation" type="choice">
+        <element choice="1" label="Situação" max_length="40" name="situation" type="choice">
             <choice>
                 <element label="According" sequence="0" value="according"/>
                 <element label="Conforme" language="pb" sequence="0" value="according"/>
@@ -22,7 +24,7 @@
                 <element label="Not applicable" sequence="2" value="not_applicable"/>
             </choice>
         </element>
-        <element label="Survey Instance" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" reference_cascade_rule="delete" type="reference"/>
+        <element label="Pesquisa" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" reference_cascade_rule="delete" type="reference"/>
         <index name="index">
             <element name="question"/>
         </index>

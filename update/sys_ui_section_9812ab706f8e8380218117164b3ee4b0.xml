@@ -27,7 +27,7 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>9812ab706f8e8380218117164b3ee4b0</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_mod_count>3</sys_mod_count>
             <sys_name>History</sys_name>
             <sys_overrides/>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -35,8 +35,8 @@
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
             <sys_update_name>sys_ui_section_9812ab706f8e8380218117164b3ee4b0</sys_update_name>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-10-24 12:42:34</sys_updated_on>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-30 18:23:16</sys_updated_on>
             <sys_user/>
             <title>false</title>
             <view display_value="Default view" name="NULL">Default view</view>

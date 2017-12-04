@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element audit="true" label="Instance Survey" max_length="40" name="x_alabs_pex_instance_survey" type="collection">
-        <element label="First Level" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>
-        <element label="Notes" max_length="40" name="notes" type="journal_input"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
-        <element default="0" label="Number of questions" max_length="40" name="number_of_questions" type="integer"/>
-        <element default="0" label="Number of questions answered" max_length="40" name="number_of_questions_answered" type="integer"/>
-        <element label="Responsible" max_length="32" name="responsible" reference="sys_user" type="reference"/>
-        <element label="Second Level" max_length="32" name="second_level_notification" reference="sys_user" type="reference"/>
-        <element choice="3" default="pending" label="State" max_length="40" name="state" type="choice">
+    <element audit="true" label="Pesquisa" max_length="40" name="x_alabs_pex_instance_survey" type="collection">
+        <element label="Primeiro Nível" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>
+        <element label="Localidade" max_length="32" name="location" reference="x_alabs_pex_location_survey" type="reference"/>
+        <element label="Notas" max_length="40" name="notes" type="journal_input"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="0" label="Número de questões" max_length="40" name="number_of_questions" type="integer"/>
+        <element default="0" label="Número de questões respondidas" max_length="40" name="number_of_questions_answered" type="integer"/>
+        <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
+        <element label="Segundo Nível" max_length="32" name="second_level_notification" reference="sys_user" type="reference"/>
+        <element choice="3" default="pending" label="Status" max_length="40" name="state" type="choice">
             <choice>
+                <element label="Pendente" language="pb" sequence="0" value="pending"/>
                 <element label="Pending" sequence="0" value="pending"/>
+                <element label="Iniciada" language="pb" sequence="1" value="started"/>
                 <element label="Started" sequence="1" value="started"/>
                 <element label="Finished" sequence="2" value="finished"/>
+                <element label="Não Enviado" language="pb" sequence="2" value="finished"/>
                 <element label="Completed" sequence="3" value="completed"/>
+                <element label="Finalizada" language="pb" sequence="3" value="completed"/>
+                <element label="Cancelada" language="pb" sequence="4" value="canceled"/>
                 <element label="Canceled" sequence="4" value="canceled"/>
             </choice>
         </element>
-        <element label="Survey" max_length="32" name="survey" reference="x_alabs_pex_survey" type="reference"/>
+        <element label="Definição da Pesquisa" max_length="32" name="survey" reference="x_alabs_pex_survey" type="reference"/>
         <index name="index">
             <element name="first_level_notification"/>
         </index>
@@ -28,6 +34,9 @@
             <element name="survey"/>
         </index>
         <index name="index4">
+            <element name="location"/>
+        </index>
+        <index name="index5">
             <element name="second_level_notification"/>
         </index>
     </element>

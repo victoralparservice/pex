@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="ua_table_licensing_config">
+    <ua_table_licensing_config action="INSERT_OR_UPDATE">
+        <is_fulfillment>false</is_fulfillment>
+        <license_condition/>
+        <license_model>none</license_model>
+        <license_roles/>
+        <name>u_imp_tmpl_x_alabs_pex_question_subitem</name>
+        <op_delete>true</op_delete>
+        <op_insert>true</op_insert>
+        <op_update>true</op_update>
+        <owner_condition/>
+        <sys_class_name>ua_table_licensing_config</sys_class_name>
+        <sys_created_by>victor.leite</sys_created_by>
+        <sys_created_on>2017-11-14 13:51:38</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d443e4fe6f268300218117164b3ee49e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_imp_tmpl_x_alabs_pex_question_subitem</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>ua_table_licensing_config_d443e4fe6f268300218117164b3ee49e</sys_update_name>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2017-11-14 13:51:38</sys_updated_on>
+    </ua_table_licensing_config>
+</record_update>

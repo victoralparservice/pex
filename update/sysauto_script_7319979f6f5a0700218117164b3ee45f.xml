@@ -5,7 +5,7 @@
         <condition/>
         <conditional>false</conditional>
         <name>PEX - Survey Due Date Reminder</name>
-        <run_as display_value="Eli Lima">5959d2ce6f9ab6401fb18a6d6b3ee4ea</run_as>
+        <run_as display_value="">5959d2ce6f9ab6401fb18a6d6b3ee4ea</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
@@ -17,6 +17,15 @@
 surveyConditions.push({receiversRulesName : 'responsible', days : 5});
 surveyConditions.push({receiversRulesName : 'responsible,n1', days : 3});
 surveyConditions.push({receiversRulesName : 'responsible,n1,n2', days : 1});
+
+//States Definition
+var surveyStates = {};
+var grSurveyState = new GlideRecord("sys_choice");
+grSurveyState.addEncodedQuery("language=pb^nameSTARTSWITHx_alabs_pex_instance_survey^element=state");
+grSurveyState.query();
+while (grSurveyState.next()) {
+	surveyStates[grSurveyState.value.getDisplayValue()] = grSurveyState.label.getDisplayValue();
+}
 
 var receiversRules = {
 	
@@ -98,11 +107,12 @@ var receiversRules = {
 		surveyInstance.query();
 		while (surveyInstance.next()) {
 			var instance = {
-				id : surveyInstance.getValue("sys_id"),
-				number : surveyInstance.getValue("number"),
+				id : surveyInstance.getDisplayValue("sys_id"),
+				number : surveyInstance.getDisplayValue("number"),
+				location : surveyInstance.location?surveyInstance.location.name.getDisplayValue():'',
 				responsible : surveyInstance.getDisplayValue("responsible"),
 				firstLevel : surveyInstance.getDisplayValue("first_level_notification"),
-				state : surveyInstance.getDisplayValue("state"),
+				state : surveyStates[surveyInstance.getValue("state")],
 				numberOfQuestions : surveyInstance.getValue("number_of_questions"),
 				numberOfquestionsAnswered : surveyInstance.getValue("number_of_questions_answered")
 			};
@@ -124,6 +134,7 @@ var receiversRules = {
 	}
 };
 
+//Main Flow
 surveyConditions.forEach(function(surveyCondition) {
 	var survey = new GlideRecord("x_alabs_pex_survey");
 	survey.addEncodedQuery("state=published");
@@ -135,13 +146,14 @@ surveyConditions.forEach(function(surveyCondition) {
 		});
 	}
 });
+
 ]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>eli.lima</sys_created_by>
         <sys_created_on>2017-11-13 17:50:35</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>7319979f6f5a0700218117164b3ee45f</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>PEX - Survey Due Date Reminder</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -149,7 +161,7 @@ surveyConditions.forEach(function(surveyCondition) {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysauto_script_7319979f6f5a0700218117164b3ee45f</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-14 18:10:39</sys_updated_on>
+        <sys_updated_on>2017-12-01 17:45:05</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>

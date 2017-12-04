@@ -10,7 +10,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Number of questions answered</column_label>
+        <column_label>Número de questões respondidas</column_label>
         <comments/>
         <create_roles/>
         <default_value>0</default_value>
@@ -48,16 +48,16 @@
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-11-07 15:39:44</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>80e0d4a16f1a03001fb18a6d6b3ee4c4</sys_id>
+        <sys_id>0333a4fe6f268300218117164b3ee484</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>Number of questions answered</sys_name>
+        <sys_name>Número de questões respondidas</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_instance_survey_number_of_questions_answered</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-09 18:21:53</sys_updated_on>
+        <sys_updated_on>2017-11-30 17:39:27</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
