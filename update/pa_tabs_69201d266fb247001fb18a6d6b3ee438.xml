@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="pa_tabs">
+    <pa_tabs action="INSERT_OR_UPDATE">
+        <canvas_page display_value="PA New Tab">2d201d266fb247001fb18a6d6b3ee435</canvas_page>
+        <name>Surveys</name>
+        <page display_value="PA Pesquisas">ed201d266fb247001fb18a6d6b3ee434</page>
+        <sys_class_name>pa_tabs</sys_class_name>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2017-12-05 19:21:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>69201d266fb247001fb18a6d6b3ee438</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Surveys</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>pa_tabs_69201d266fb247001fb18a6d6b3ee438</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2017-12-05 19:25:29</sys_updated_on>
+    </pa_tabs>
+</record_update>
