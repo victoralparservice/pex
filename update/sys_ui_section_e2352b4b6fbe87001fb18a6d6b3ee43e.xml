@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="Não Conforme" section_id="e2352b4b6fbe87001fb18a6d6b3ee43e" sys_domain="global" table="x_alabs_pex_instance_survey_question" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>2d092f0f6fbe87001fb18a6d6b3ee438</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>due_date</element>
+            <position>1</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>ad092f0f6fbe87001fb18a6d6b3ee438</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>21092f0f6fbe87001fb18a6d6b3ee439</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>responsible_area</element>
+            <position>3</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>a1092f0f6fbe87001fb18a6d6b3ee439</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>4</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>25092f0f6fbe87001fb18a6d6b3ee439</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>proposition</element>
+            <position>5</position>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:46:23</sys_created_on>
+            <sys_id>a5092f0f6fbe87001fb18a6d6b3ee439</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Não Conforme" display_value="Não Conforme" name="x_alabs_pex_instance_survey_question" sys_domain="global" view="Default view">e2352b4b6fbe87001fb18a6d6b3ee43e</sys_ui_section>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:46:23</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Não Conforme</caption>
+            <header>false</header>
+            <name>x_alabs_pex_instance_survey_question</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-12-07 19:29:48</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e2352b4b6fbe87001fb18a6d6b3ee43e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Não Conforme</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_ui_section_e2352b4b6fbe87001fb18a6d6b3ee43e</sys_update_name>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-12-07 19:29:48</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

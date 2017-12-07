@@ -7,8 +7,11 @@
         <element label="Questão" max_length="32" name="question_instance" reference="x_alabs_pex_instance_survey_question" type="reference"/>
         <element choice="3" default="pending" label="Status" max_length="40" name="state" type="choice">
             <choice>
+                <element label="Pendente" language="pb" sequence="0" value="pending"/>
                 <element label="Pending" sequence="0" value="pending"/>
                 <element label="Completed" sequence="1" value="completed"/>
+                <element label="Finalizado" language="pb" sequence="1" value="completed"/>
+                <element label="Cancelado" language="pb" sequence="2" value="canceled"/>
                 <element label="Canceled" sequence="2" value="canceled"/>
             </choice>
         </element>

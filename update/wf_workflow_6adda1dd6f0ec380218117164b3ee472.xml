@@ -32,12 +32,12 @@
         <sys_created_by>eli.lima</sys_created_by>
         <sys_created_on>2017-12-05 19:31:09</sys_created_on>
         <sys_id>43529da66fb247001fb18a6d6b3ee4e1</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-05 19:33:22</sys_updated_on>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_updated_by>tamiris.oliveira</sys_updated_by>
+        <sys_updated_on>2017-12-07 19:56:17</sys_updated_on>
         <table>x_alabs_pex_survey</table>
         <timezone/>
-        <validated>false</validated>
+        <validated>true</validated>
         <workflow display_value="PEX - Aprovação">6adda1dd6f0ec380218117164b3ee472</workflow>
     </wf_workflow_version>
     <wf_workflow action="INSERT_OR_UPDATE">
