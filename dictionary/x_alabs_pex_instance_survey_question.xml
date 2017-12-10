@@ -8,10 +8,10 @@
         <element display="true" label="Definição da Questão" mandatory="true" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Área responsável" max_length="40" name="responsible_area" type="string">
             <choice>
-                <element label="Minha área" language="pb" sequence="0" value="my_area"/>
-                <element label="My area" sequence="0" value="my_area"/>
-                <element label="Other area" sequence="1" value="other_area"/>
-                <element label="Outra área" language="pb" sequence="1" value="other_area"/>
+                <element hint="Minha área" label="Minha área" language="pb" sequence="0" value="my_area"/>
+                <element hint="My area" label="My area" sequence="0" value="my_area"/>
+                <element hint="Other area" label="Other area" sequence="1" value="other_area"/>
+                <element hint="Outra área" label="Outra área" language="pb" sequence="1" value="other_area"/>
             </choice>
         </element>
         <element choice="1" label="Situação" max_length="40" name="situation" type="choice">

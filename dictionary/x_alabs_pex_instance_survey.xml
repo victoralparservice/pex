@@ -16,7 +16,7 @@
                 <element label="Iniciada" language="pb" sequence="1" value="started"/>
                 <element label="Started" sequence="1" value="started"/>
                 <element label="Finished" sequence="2" value="finished"/>
-                <element label="Não Enviado" language="pb" sequence="2" value="finished"/>
+                <element label="Não enviada" language="pb" sequence="2" value="finished"/>
                 <element label="Completed" sequence="3" value="completed"/>
                 <element label="Finalizada" language="pb" sequence="3" value="completed"/>
                 <element label="Cancelada" language="pb" sequence="4" value="canceled"/>
