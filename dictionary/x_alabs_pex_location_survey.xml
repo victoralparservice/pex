@@ -10,6 +10,10 @@
                 <element label="Base" sequence="1" value="base"/>
                 <element label="Loja" language="pb" sequence="2" value="store"/>
                 <element label="Store" sequence="2" value="store"/>
+                <element label="Point" sequence="3" value="ponto"/>
+                <element label="Ponto" language="pb" sequence="3" value="ponto"/>
+                <element label="TECA" sequence="4" value="teca"/>
+                <element label="TECA" language="pb" sequence="4" value="teca"/>
             </choice>
         </element>
         <index name="index">

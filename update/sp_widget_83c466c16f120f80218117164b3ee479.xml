@@ -365,7 +365,7 @@ p.action-text {
 	
 	var grQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
 	grQuestion.addEncodedQuery('survey_instance=' + survey.id);
-	//TODO add order
+	grQuestion.orderBy('order');
 	grQuestion.query();
 		
 	while(grQuestion.next()){
@@ -409,7 +409,7 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>924</sys_mod_count>
+        <sys_mod_count>931</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -417,7 +417,7 @@ p.action-text {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-01 18:18:16</sys_updated_on>
+        <sys_updated_on>2017-12-12 19:46:19</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
    <div class="row">
