@@ -4,122 +4,122 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>css</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>73b9044d6f47c7009ae430767b3ee46c</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>61998c316f4707409ae430767b3ee42f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>draft</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>7bb9044d6f47c7009ae430767b3ee46c</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>69998c316f4707409ae430767b3ee42f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>id</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>fbb9044d6f47c7009ae430767b3ee46c</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>e9998c316f4707409ae430767b3ee42f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>internal</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>7fb9044d6f47c7009ae430767b3ee46c</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>6d998c316f4707409ae430767b3ee42f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>public</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>ffb9044d6f47c7009ae430767b3ee46c</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>ed998c316f4707409ae430767b3ee42f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>roles</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>73b9044d6f47c7009ae430767b3ee46d</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>61998c316f4707409ae430767b3ee430</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>short_description</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>f3b9044d6f47c7009ae430767b3ee46d</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>e1998c316f4707409ae430767b3ee430</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>title</element>
-            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">77b9044d6f47c7009ae430767b3ee46b</list_id>
+            <list_id display_value="sp_page" element="NULL" name="sp_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">25998c316f4707409ae430767b3ee42e</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-12-13 08:38:43</sys_created_on>
-            <sys_id>77b9044d6f47c7009ae430767b3ee46d</sys_id>
+            <sys_created_on>2017-12-15 16:33:28</sys_created_on>
+            <sys_id>65998c316f4707409ae430767b3ee430</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-13 08:38:43</sys_updated_on>
+            <sys_updated_on>2017-12-15 16:33:28</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -148,7 +148,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-11-07 13:04:33</sys_updated_on>
             <sys_user display_value="victor leite">64a3eca26fbc3e04eb0d8a6d6b3ee4b1</sys_user>
-            <view display_value="Default view" name="NULL">Default view</view>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

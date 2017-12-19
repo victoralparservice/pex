@@ -45,10 +45,14 @@
 	
 	while(gr.next()){
 	
+		var surveyInstance = new GlideRecord("x_alabs_pex_instance_survey");
+		surveyInstance.get(gr.survey_instance);
+		
 		var item = [];
-		item.push($sp.getField(gr, 'number'));
+		//item.push($sp.getField(gr, 'number'));
+		item.push($sp.getField(surveyInstance, 'survey'));
 		item.push($sp.getField(gr, 'state'));		
-		item.push($sp.getField(gr, 'survey_instance'));	
+		//item.push($sp.getField(gr, 'survey_instance'));	
 		item[0].value = gr.getUniqueValue();
 		data.list.push(item);
 	}
@@ -59,7 +63,7 @@
         <sys_created_on>2017-11-07 16:41:15</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9dfe94e96f1a03001fb18a6d6b3ee423</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>PEX - Planos de ação Lista</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -67,7 +71,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_9dfe94e96f1a03001fb18a6d6b3ee423</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-09 13:57:47</sys_updated_on>
+        <sys_updated_on>2017-12-18 19:38:08</sys_updated_on>
         <template><![CDATA[<div class="panel panel-{{::c.options.color}} b">
    <div class="panel-heading">
       <h2 class="h4 panel-title">

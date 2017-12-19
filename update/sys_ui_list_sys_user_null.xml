@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sys_user" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>user_name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a1ec8df30fff7680d48d64aa42050e8d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>29ec8df30fff7680d48d64aa42050e8d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>email</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a9ec8df30fff7680d48d64aa42050e8d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>active</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>2dec8df30fff7680d48d64aa42050e8d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_on</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>adec8df30fff7680d48d64aa42050e8d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_updated_on</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>21ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>employee_number</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a1ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>company</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>25ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>last_login</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a5ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>manager</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>29ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_e_mail_do_gestor</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a9ec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_expire_date</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>2dec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_cpf</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>12</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>adec8df30fff7680d48d64aa42050e8e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_data_de_nascimento</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>13</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>21ec8df30fff7680d48d64aa42050e8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_nome_da_m_e</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>14</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a1ec8df30fff7680d48d64aa42050e8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>mobile_phone</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>15</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>25ec8df30fff7680d48d64aa42050e8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>phone</element>
+            <list_id display_value="sys_user" element="NULL" name="sys_user" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">69ec8df30fff7680d48d64aa42050e8c</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>16</position>
+            <sum>false</sum>
+            <sys_created_by>carlos.correia</sys_created_by>
+            <sys_created_on>2017-07-13 13:11:21</sys_created_on>
+            <sys_id>a5ec8df30fff7680d48d64aa42050e8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>carlos.correia</sys_updated_by>
+            <sys_updated_on>2017-07-13 13:11:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_user</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>victor.leite</sys_created_by>
+            <sys_created_on>2017-12-13 21:17:43</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4277b6c96f438b009ae430767b3ee429</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name/>
+            <sys_package/>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name/>
+            <sys_updated_by>victor.leite</sys_updated_by>
+            <sys_updated_on>2017-12-13 21:17:43</sys_updated_on>
+            <sys_user display_value="victor leite">64a3eca26fbc3e04eb0d8a6d6b3ee4b1</sys_user>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

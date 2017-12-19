@@ -19,7 +19,7 @@
         <chart_title_y_position>0</chart_title_y_position>
         <chart_width>600</chart_width>
         <color display_value="Default Color">de699435d7033100b4964ebfae610331</color>
-        <color_palette display_value="Default">68d08c72d700210096614251ce61039e</color_palette>
+        <color_palette display_value="Padrão">68d08c72d700210096614251ce61039e</color_palette>
         <colors/>
         <column/>
         <compute_percent>aggregate</compute_percent>
@@ -61,7 +61,7 @@
         <list_ui_view/>
         <location_field/>
         <lower_limit/>
-        <map display_value="World">93b8a3a2d7101200bd4a4ebfae61033a</map>
+        <map display_value="Mundo">93b8a3a2d7101200bd4a4ebfae61033a</map>
         <map_source/>
         <orderby_list/>
         <other_threshold>-2</other_threshold>

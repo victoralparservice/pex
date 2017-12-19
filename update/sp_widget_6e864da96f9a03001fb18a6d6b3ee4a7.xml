@@ -58,8 +58,13 @@
 	gr.query();
 	
 	while(gr.next()){		
+		
+		var surveyInstance = new GlideRecord('x_alabs_pex_instance_survey');
+		surveyInstance.get(gr.survey_instance);
+		
 		var item = [];
-		item.push($sp.getField(gr, 'number'));
+		//item.push($sp.getField(gr, 'number'));
+		item.push($sp.getField(surveyInstance, 'survey'));
 		item.push($sp.getField(gr, 'state'));		
 		item.push($sp.getField(gr, 'survey_instance'));	
 		item[0].value = gr.getUniqueValue();
@@ -76,7 +81,7 @@
         <sys_created_on>2017-11-07 19:34:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>6e864da96f9a03001fb18a6d6b3ee4a7</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>PEX - Plano de acao Lista / Card</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -84,7 +89,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_6e864da96f9a03001fb18a6d6b3ee4a7</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-09 16:52:43</sys_updated_on>
+        <sys_updated_on>2017-12-18 19:42:45</sys_updated_on>
         <template><![CDATA[<div class="buttons pull-right">
   <a ng-click = "data.selected = 'card'" class="btn btn-default fa fa-th" ng-class = "{'btn-active': data.selected == 'card' }"></a>
   <a ng-click = "data.selected = 'list'" class="btn btn-default fa fa-bars" ng-class = "{'btn-active': data.selected == 'list' }"></a>
