@@ -6,7 +6,7 @@
         <active>true</active>
         <advanced_condition/>
         <affected_field_on_event/>
-        <category display_value="Sem categoria">c97d83137f4432005f58108c3ffa917a</category>
+        <category display_value="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>x_alabs_pex_instance_survey</collection>
         <condition/>
         <content_type>text/html</content_type>
@@ -26,25 +26,24 @@
         <message/>
         <message_html><![CDATA[<div style="font-family: AzulHelveticaNeue,HelveticaNeueLTStd-Lt,Helvetica,sans-serif; padding: 20px;">
 <div id="topo">
-<div><hr style="background: #63b7cc; border: 0; padding: 1px;" /></div>
-<div>&nbsp;</div>
-<div style="float: right;"><img src="/sys_attachment.do?sys_id=ec50e4b66f838300571dd7aabb3ee489" width="208" height="130" /></div>
-<div>&nbsp;</div>
+<div>
+<div><br /><img style="width: 150px;" src="pex_logo.png" /></div>
+<div style="float: right; margin-top: -30px;"><span style="font-size: 30px; color: #082952; font-weight: bold;">${type}</span></div>
+</div>
+<div><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
+<div style="float: right;"><a style="font-size: 18px; color: #082952; font-weight: bold; text-decoration: none;" href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a></div>
 </div>
 <div>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>${mail_script:message_for_responsible}</p>
-<p>O prazo para envio da autoavalia&ccedil;&atilde;o &eacute; <span style="color: red;"><strong>${survey.valid_until}</strong></span>,&nbsp;impreterivelmente,&nbsp;ap&oacute;s essa data n&atilde;o ser&atilde;o aceitas.</p>
-<p>Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>. antes do prazo final de envio.</p>
-<p>Agradecemos.</p>
-<p style="font-weight: bold;">Equipe PEX</p>
-<div style="margin-top: 50px;"><hr style="background: #63b7cc; border: 0; padding: 1px;" /></div>
+<p style="font-family: Arial,sans-serif; font-size: 12.0pt; color: #1f497d;">${mail_script:message_for_responsible}</p>
+<p style="font-family: Arial,sans-serif; font-size: 12.0pt; color: #1f497d;">O prazo para envio da autoavalia&ccedil;&atilde;o &eacute; <strong>${survey.valid_until}</strong>,&nbsp;impreterivelmente,&nbsp;ap&oacute;s essa data n&atilde;o ser&atilde;o aceitas.</p>
+<p style="font-family: Arial,sans-serif; font-size: 12.0pt; color: #1f497d;">Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>. antes do prazo final de envio.</p>
+<p style="font-family: Arial,sans-serif; font-size: 12.0pt; color: #1f497d;">Agradecemos.</p>
+<p style="font-family: Arial,sans-serif; font-size: 12.0pt; color: #1f497d;"><strong>Equipe PEX</strong></p>
+<div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
 </div>
-</div>]]></message_html>
+</div>
+<p>&nbsp;</p>]]></message_html>
         <message_list/>
         <message_text/>
         <name>PEX-Valid date reminder for reponsible</name>
@@ -67,7 +66,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>77cb48aa6f5a8300218117164b3ee4c2</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>PEX-Valid date reminder for reponsible</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -75,8 +74,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_77cb48aa6f5a8300218117164b3ee4c2</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-19 11:15:05</sys_updated_on>
+        <sys_updated_by>efraimpassos.alpar</sys_updated_by>
+        <sys_updated_on>2017-12-21 15:30:05</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

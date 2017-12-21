@@ -11,15 +11,26 @@
 	
 	email.setSubject("Autoavaliação PEX " + current.survey.type.name + ": Falta(m) "+ dias +" dia(s)"); 
 	
-	var image = '<img src="'+dias+'%20dia.jpg" width="448" height="324" style="display:block; margin: 0 auto;"/><br/><br/>';
+	//var image = '<img src="'+dias+'%20dia.jpg" width="448" height="324" style="display:block; margin: 0 auto;"/><br/><br/>';
 	
-	var imageMessage = '<div style="text-align:center;"><span> Não deixe para última hora </span></div><br/><br/>';
+	
+	
+	var imageMessage = '<div style="text-align:center; font-family:Arial,sans-serif; font-size: 12.0pt; color: #1f497d;"><span><strong>Não deixe para última hora!</strong></span></div><br/>';
 	
 	var link = '<a href="'+ gs.getProperty("glide.servlet.uri") + 'sp?id=avaliacao_pex&sys_id=' + current.sys_id +'">' + gs.getMessage("clique aqui") + '</a>';
 	
-	var message = "<div><p>Você possui somente <b>" + notificationInfo.days + "</b> dia(s) para responder a avaliação que se encontra disponível no portal de serviço, para acessá-la " + link +"</p></div>";
+	var message = "<div><p style='font-family:Arial,sans-serif; font-size: 12.0pt; color: #1f497d;'>Você possui somente <b>" + notificationInfo.days + "</b> dia(s) para responder a avaliação que se encontra disponível no portal de serviço, para acessá-la " + link +"</p></div>";
 	
-	template.print(image);
+	var msgDias = '';
+	if(dias > 1){
+	msgDias = "<div> <p style='text-align: center; font-size: 50px; color: #1f497d;font-family:Arial,sans-serif; line-height:0%;'>Faltam <b>" + dias +"</b> dias</p></div>";
+		}
+	else{
+		msgDias = "<div> <p style='text-align: center; font-size: 50px; color: #1f497d;font-family:Arial,sans-serif;line-height:0%;'>Falta <b>" + dias +"</b> dia</p></div>";
+	}
+	
+	template.print(msgDias);
+	//template.print(image);
 	template.print(imageMessage);
 	template.print(message);
 
@@ -29,14 +40,14 @@
         <sys_created_on>2017-11-13 20:10:35</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a977c8676fda0700218117164b3ee42d</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>message_for_responsible</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_email_a977c8676fda0700218117164b3ee42d</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-19 11:13:39</sys_updated_on>
+        <sys_updated_by>efraimpassos.alpar</sys_updated_by>
+        <sys_updated_on>2017-12-21 15:42:40</sys_updated_on>
     </sys_script_email>
 </record_update>

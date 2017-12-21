@@ -26,7 +26,7 @@
         <element/>
         <element_reference>false</element_reference>
         <foreign_database/>
-        <internal_type display_value="Coleção">collection</internal_type>
+        <internal_type display_value="Collection">collection</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
         <name>u_imp_tmpl_x_alabs_pex_applicability</name>
