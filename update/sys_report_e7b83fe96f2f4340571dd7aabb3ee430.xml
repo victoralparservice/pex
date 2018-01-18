@@ -35,11 +35,11 @@
         <display_row_lines>false</display_row_lines>
         <donut_width_percent>50</donut_width_percent>
         <exp_report_attrs>true</exp_report_attrs>
-        <field>question.item</field>
-        <field_list>survey_instance.survey,survey_instance.survey.type,survey_instance.state,sys_created_on</field_list>
-        <filter table="x_alabs_pex_instance_survey_question">situation=not_conform^EQ^GROUPBYquestion.item<item endquery="false" field="situation" goto="false" newquery="false" operator="=" or="false" value="not_conform"/>
+        <field>action_plan.survey_instance.survey</field>
+        <field_list>,action_plan.survey_instance.location,question_instance.question.category,question_instance.question.item,question_instance.question.subitem,question_instance.question,question_instance.responsible_area,action_plan</field_list>
+        <filter table="x_alabs_pex_action_plan_action">question_instance.situation=not_conform^EQ^GROUPBYaction_plan.survey_instance.survey<item endquery="false" field="question_instance.situation" goto="false" newquery="false" operator="=" or="false" value="not_conform"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-            <item endquery="false" field="" goto="false" newquery="false" operator="GROUPBY" or="false" value="question.item"/>
+            <item endquery="false" field="" goto="false" newquery="false" operator="GROUPBY" or="false" value="action_plan.survey_instance.survey"/>
         </filter>
         <from/>
         <funnel_neck_percent>30</funnel_neck_percent>
@@ -92,17 +92,17 @@
         <sys_created_on>2018-01-09 11:51:16</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>e7b83fe96f2f4340571dd7aabb3ee430</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>PEX - Não conformidades por item</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>PEX - Não conformidades por Pesquisa</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_report_e7b83fe96f2f4340571dd7aabb3ee430</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-09 11:51:16</sys_updated_on>
-        <table>x_alabs_pex_instance_survey_question</table>
-        <title>PEX - Não conformidades por item</title>
+        <sys_updated_on>2018-01-18 13:10:00</sys_updated_on>
+        <table>x_alabs_pex_action_plan_action</table>
+        <title>PEX - Não conformidades por Pesquisa</title>
         <title_horizontal_alignment>center</title_horizontal_alignment>
         <title_vertical_alignment>top</title_vertical_alignment>
         <to/>

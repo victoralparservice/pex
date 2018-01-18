@@ -2,7 +2,7 @@
 <record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="PEX Pesquisas Publicadas">95528d5d6f8ac380218117164b3ee40e</application>
+        <application display_value="PEX Definição">0432859d6f8ac380218117164b3ee451</application>
         <assessment/>
         <content_page/>
         <device_type/>
@@ -29,8 +29,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>cf6051666fb247001fb18a6d6b3ee412</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Management Reports</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>PEX Dashboards</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -38,9 +38,9 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_app_module_cf6051666fb247001fb18a6d6b3ee412</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-05 19:25:14</sys_updated_on>
+        <sys_updated_on>2018-01-17 14:14:56</sys_updated_on>
         <timeline_page/>
-        <title>Management Reports</title>
+        <title>PEX Dashboards</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

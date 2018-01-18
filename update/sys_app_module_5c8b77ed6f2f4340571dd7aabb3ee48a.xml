@@ -2,7 +2,7 @@
 <record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="PEX Pesquisas Publicadas">95528d5d6f8ac380218117164b3ee40e</application>
+        <application display_value="PEX Definição">0432859d6f8ac380218117164b3ee451</application>
         <assessment/>
         <content_page/>
         <device_type/>
@@ -29,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5c8b77ed6f2f4340571dd7aabb3ee48a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Reports</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -38,7 +38,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_app_module_5c8b77ed6f2f4340571dd7aabb3ee48a</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-09 12:03:48</sys_updated_on>
+        <sys_updated_on>2018-01-17 14:14:46</sys_updated_on>
         <timeline_page/>
         <title>Reports</title>
         <uncancelable>false</uncancelable>

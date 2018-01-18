@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record_update node_type="sys_portal_page" unload_date="2018-01-09 12:17:40">
+<record_update node_type="sys_portal_page" unload_date="2018-01-18 13:27:55">
     <sys_portal_page action="INSERT_OR_UPDATE">
         <layout/>
         <order/>
@@ -13,8 +13,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>05fd54a56f674340571dd7aabb3ee484</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>PA Questions - Filters</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>PA Questões - Filtros</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -22,15 +22,15 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_portal_page_05fd54a56f674340571dd7aabb3ee484</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-08 20:38:01</sys_updated_on>
-        <title>PA Questions - Filters</title>
+        <sys_updated_on>2018-01-17 19:30:58</sys_updated_on>
+        <title>PA Questões - Filtros</title>
         <user/>
         <view>pa_nova_guia_5_1</view>
         <related_items_node>
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Questões</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
@@ -200,7 +200,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Área Pesquisa</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
@@ -304,7 +304,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Localidade</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
@@ -408,7 +408,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Resposta</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
@@ -512,7 +512,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Questão - Status Pesquisa</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
@@ -616,7 +616,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Questions - Filters">05fd54a56f674340571dd7aabb3ee484</page>
+                <page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</page>
                 <summary>Pilar</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>

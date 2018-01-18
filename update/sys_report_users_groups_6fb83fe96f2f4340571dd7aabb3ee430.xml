@@ -2,7 +2,7 @@
 <record_update table="sys_report_users_groups">
     <sys_report_users_groups action="INSERT_OR_UPDATE">
         <group_id/>
-        <report_id display_value="PEX - Não conformidades por item">e7b83fe96f2f4340571dd7aabb3ee430</report_id>
+        <report_id display_value="PEX - Não conformidades por Pesquisa">e7b83fe96f2f4340571dd7aabb3ee430</report_id>
         <sys_class_name>sys_report_users_groups</sys_class_name>
         <sys_created_by>eli.lima</sys_created_by>
         <sys_created_on>2018-01-09 11:51:16</sys_created_on>

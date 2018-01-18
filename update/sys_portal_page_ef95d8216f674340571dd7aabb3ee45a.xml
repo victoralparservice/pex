@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record_update node_type="sys_portal_page" unload_date="2018-01-09 12:17:53">
+<record_update node_type="sys_portal_page" unload_date="2018-01-18 13:28:12">
     <sys_portal_page action="INSERT_OR_UPDATE">
         <layout/>
         <order/>
@@ -13,8 +13,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ef95d8216f674340571dd7aabb3ee45a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>PA Surveys - Filters</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>PA Pesquisas - Filtros</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -22,15 +22,15 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_portal_page_ef95d8216f674340571dd7aabb3ee45a</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-08 20:37:52</sys_updated_on>
-        <title>PA Surveys - Filters</title>
+        <sys_updated_on>2018-01-17 19:31:01</sys_updated_on>
+        <title>PA Pesquisas - Filtros</title>
         <user/>
         <view>pa_nova_guia_4_1</view>
         <related_items_node>
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Localidade</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:38:49</sys_created_on>
@@ -134,7 +134,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Pesquisas</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:31:46</sys_created_on>
@@ -304,7 +304,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Definição da Pesquisa</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:44:51</sys_created_on>
@@ -408,7 +408,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Área Pesquisa</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:19:28</sys_created_on>
@@ -512,7 +512,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Status Pesquisa</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 20:18:35</sys_created_on>
@@ -616,7 +616,7 @@
             <sys_portal action="INSERT_OR_UPDATE">
                 <dropzone/>
                 <offset/>
-                <page display_value="PA Surveys - Filters">ef95d8216f674340571dd7aabb3ee45a</page>
+                <page display_value="PA Pesquisas - Filtros">ef95d8216f674340571dd7aabb3ee45a</page>
                 <summary>Ano</summary>
                 <sys_created_by>eli.lima</sys_created_by>
                 <sys_created_on>2018-01-08 19:49:06</sys_created_on>
