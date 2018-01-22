@@ -4,25 +4,26 @@
         <active>true</active>
         <admin_overrides>true</admin_overrides>
         <advanced>false</advanced>
-        <condition/>
-        <description>Default access control on x_alabs_pex_survey</description>
-        <name>x_alabs_pex_survey</name>
+        <condition table="x_alabs_pex_survey.type">state=draft^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <description>Allow write for all fields in x_alabs_pex_survey, for users with role x_alabs_pex.admin.</description>
+        <name>x_alabs_pex_survey.type</name>
         <operation display_value="write">write</operation>
         <script/>
         <sys_class_name>sys_security_acl</sys_class_name>
-        <sys_created_by>victor.leite</sys_created_by>
-        <sys_created_on>2017-10-23 21:28:11</sys_created_on>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2018-01-22 18:27:15</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>42c090746f8a8f841fb18a6d6b3ee4ed</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>x_alabs_pex_survey</sys_name>
+        <sys_id>2200940e6fff0700571dd7aabb3ee48d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_alabs_pex_survey.type</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-        <sys_update_name>sys_security_acl_42c090746f8a8f841fb18a6d6b3ee4ed</sys_update_name>
+        <sys_update_name>sys_security_acl_2200940e6fff0700571dd7aabb3ee48d</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-22 18:24:18</sys_updated_on>
+        <sys_updated_on>2018-01-22 18:27:15</sys_updated_on>
         <type display_value="record">record</type>
     </sys_security_acl>
 </record_update>
