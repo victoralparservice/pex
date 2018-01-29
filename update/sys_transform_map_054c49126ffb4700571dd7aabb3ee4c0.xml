@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>false</copy_empty_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>Transform Import Checklist Questao</name>
+        <order>100</order>
+        <run_business_rules>false</run_business_rules>
+        <run_script>true</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+	
+	target.active = true;
+	target.question = source.u_pergunta;
+	target.description = source.u_descrição;
+	
+	//PILAR
+	target.category = getRecord("x_alabs_pex_question_category", source.u_pilar);
+	
+	//ITEM
+	target.item = getRecord("x_alabs_pex_question_item", source.u_item);
+	
+	//SUBITEM
+	target.subitem = getRecordSubitem("x_alabs_pex_question_subitem", target.item, source.u_subitem);
+	
+	//APLICABILIDADE
+	target.applicabilities = getRecord("x_alabs_pex_applicability", source.u_aplicabilidade);
+	
+	
+})(source, target, map, log, action==="update");
+
+
+function getRecord(tableName, name) {
+	var gr = new GlideRecord(tableName);
+	gr.addQuery("name", name);
+	gr.query();
+	if (!gr.next()) {
+		gr.initialize();
+		gr.setValue("active", true);
+		gr.setValue("name", name);
+		gr.insert();
+	}
+	
+	return gr.getValue("sys_id");
+}
+
+function getRecordSubitem(tableName, item, name) {
+	var gr = new GlideRecord(tableName);
+	gr.addQuery("item", item);
+	gr.addQuery("name", name);
+	gr.query();
+	if (!gr.next()) {
+		gr.initialize();
+		gr.setValue("active", true);
+		gr.setValue("name", name);
+		gr.setValue("item", item);
+		gr.insert();
+	}
+	
+	return gr.getValue("sys_id");
+}
+
+]]></script>
+        <source_table>x_alabs_pex_import_checklist_questao</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2018-01-23 17:29:37</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>054c49126ffb4700571dd7aabb3ee4c0</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Transform Import Checklist Questao</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_map_054c49126ffb4700571dd7aabb3ee4c0</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2018-01-24 13:31:39</sys_updated_on>
+        <target_table>x_alabs_pex_question</target_table>
+    </sys_transform_map>
+</record_update>

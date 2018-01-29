@@ -6,7 +6,7 @@
         <active>true</active>
         <advanced_condition/>
         <affected_field_on_event/>
-        <category display_value="Sem categoria">c97d83137f4432005f58108c3ffa917a</category>
+        <category display_value="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>x_alabs_pex_instance_survey</collection>
         <condition table="x_alabs_pex_instance_survey">stateCHANGESTOcompleted^EQ<item endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="completed"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>

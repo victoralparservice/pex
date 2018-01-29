@@ -178,7 +178,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 15:38:58</sys_updated_on>
             <sys_user display_value="Eli Lima">4e872cb66f668300218117164b3ee4cc</sys_user>
-            <view display_value="Exibição padrão" name="NULL">Default view</view>
+            <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update table="pa_dashboards_permissions">
     <pa_dashboards_permissions action="INSERT_OR_UPDATE">
-        <dashboard display_value="Relatórios Gerenciais">beef49266fb247001fb18a6d6b3ee45b</dashboard>
+        <dashboard display_value="Management Reports">beef49266fb247001fb18a6d6b3ee45b</dashboard>
         <delete>false</delete>
         <group/>
         <identity>x_alabs_pex.admin</identity>
