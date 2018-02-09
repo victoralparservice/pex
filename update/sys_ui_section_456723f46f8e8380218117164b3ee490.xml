@@ -109,7 +109,7 @@
             <sys_updated_on>2017-10-24 13:05:50</sys_updated_on>
             <sys_user/>
             <title>true</title>
-            <view display_value="Default view" name="NULL">Default view</view>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_section>
     </sys_ui_section>
