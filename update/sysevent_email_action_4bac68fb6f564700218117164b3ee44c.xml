@@ -36,7 +36,7 @@
 <div style="padding-top: 30px; font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">
 <p>Ol&aacute; ${responsible.first_name},</p>
 <p>Voc&ecirc; possui um novo prazo para responder a avalia&ccedil;&atilde;o dispon&iacute;vel no portal de servi&ccedil;o.&nbsp;Para acess&aacute;-la, ${mail_script:clique_aqui_avaliacao_pex}.</p>
-<strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:</strong> ${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until}<br /><br />
+<strong>Pesquisa:</strong> ${survey}<br /><strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:</strong> ${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until}<br /><br />
 <p>Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>.</p>
 <p style="font-weight: bold;">Equipe PEX</p>
 <div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
@@ -55,7 +55,7 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>[PEX] -  Prorrogação prazo avaliação - ${number}</subject>
+        <subject>[PEX] -  Prorrogação prazo avaliação - ${survey}</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>eli.lima</sys_created_by>
@@ -64,7 +64,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4bac68fb6f564700218117164b3ee44c</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>AZUL - PEX - Prorrogação prazo avaliação</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -73,7 +73,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_4bac68fb6f564700218117164b3ee44c</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-18 13:26:22</sys_updated_on>
+        <sys_updated_on>2018-02-14 16:42:30</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

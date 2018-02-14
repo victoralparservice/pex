@@ -38,7 +38,8 @@
 <div style="padding-top: 30px; font-family: 'Roboto'; font-size: 19px;">
 <p style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Ol&aacute; ${responsible.first_name},</p>
 <p style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Voc&ecirc; possui uma nova avalia&ccedil;&atilde;o dispon&iacute;vel no portal de servi&ccedil;o para acessa-la, ${mail_script:clique_aqui_avaliacao_pex}.</p>
-<strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">N&uacute;mero:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${number}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Quantidade de quest&otilde;es:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${number_of_questions}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Descri&ccedil;&atilde;o:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${survey.description}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Prazo:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${survey.valid_until}</span><br /><br />
+</div>
+<div style="padding-top: 30px; font-family: 'Roboto'; font-size: 19px;"><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Pesquisa:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${survey}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">N&uacute;mero:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${number}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Quantidade de quest&otilde;es:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${number_of_questions}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Descri&ccedil;&atilde;o:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${survey.description}</span><br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Prazo:</strong> <span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${survey.valid_until}</span><br /><br />
 <p style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>.</p>
 <p style="font-weight: bold; font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Equipe PEX</p>
 <div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
@@ -57,7 +58,7 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>[PEX] - Nova avaliação disponível - ${number}</subject>
+        <subject>[PEX] - Nova avaliação disponível - ${survey}</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>victor.leite</sys_created_by>
@@ -66,7 +67,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2b4832116f020780218117164b3ee4b6</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>AZUL - PEX - Nova avaliação</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -74,8 +75,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_2b4832116f020780218117164b3ee4b6</sys_update_name>
-        <sys_updated_by>efraimpassos.alpar</sys_updated_by>
-        <sys_updated_on>2017-12-21 12:40:49</sys_updated_on>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2018-02-14 16:40:04</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
