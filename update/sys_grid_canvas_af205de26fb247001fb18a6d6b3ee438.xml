@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record_update node_type="sys_grid_canvas" unload_date="2018-02-14 16:47:10">
+<record_update node_type="sys_grid_canvas" unload_date="2018-04-07 14:26:53">
     <sys_grid_canvas action="INSERT_OR_UPDATE">
         <legacy_page display_value="PA Planos de Ação">e7205de26fb247001fb18a6d6b3ee438</legacy_page>
         <name>PA New Tab 2</name>
@@ -21,7 +21,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA New Tab 2">af205de26fb247001fb18a6d6b3ee438</grid_canvas>
                 <height>10</height>
-                <portal_widget display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_widget>
+                <portal_widget display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_widget>
                 <posx>0</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -55,7 +55,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA New Tab 2">af205de26fb247001fb18a6d6b3ee438</grid_canvas>
                                 <height>10</height>
-                                <portal_widget display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_widget>
+                                <portal_widget display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_widget>
                                 <posx>0</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -78,7 +78,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>17397c726f3e47001fb18a6d6b3ee496</sys_id>
@@ -89,7 +89,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>help_text_window</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>1f397c726f3e47001fb18a6d6b3ee496</sys_id>
@@ -100,7 +100,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>57397c726f3e47001fb18a6d6b3ee497</sys_id>
@@ -111,7 +111,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>5b397c726f3e47001fb18a6d6b3ee496</sys_id>
@@ -122,7 +122,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>report_type</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>93397c726f3e47001fb18a6d6b3ee497</sys_id>
@@ -133,7 +133,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_subscribe</name>
-                                <portal_section display_value="Criado em 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
+                                <portal_section display_value="Created 06-12-2017 10:19:53">13397c726f3e47001fb18a6d6b3ee496</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2017-12-06 12:19:53</sys_created_on>
                                 <sys_id>df397c726f3e47001fb18a6d6b3ee496</sys_id>

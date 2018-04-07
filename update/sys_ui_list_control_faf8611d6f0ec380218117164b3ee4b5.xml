@@ -12,7 +12,7 @@
         <label>Matrix PEX</label>
         <link_condition/>
         <link_roles/>
-        <list_edit_insert_row>false</list_edit_insert_row>
+        <list_edit_insert_row>true</list_edit_insert_row>
         <list_edit_ref_qual_tag/>
         <list_edit_type/>
         <name>x_alabs_pex_location_survey</name>
@@ -24,7 +24,7 @@
         <omit_filters>false</omit_filters>
         <omit_if_empty>false</omit_if_empty>
         <omit_links>false</omit_links>
-        <omit_new_button>true</omit_new_button>
+        <omit_new_button>false</omit_new_button>
         <related_list>x_alabs_pex_location_survey_types.location_survey</related_list>
         <sys_class_name>sys_ui_list_control</sys_class_name>
         <sys_created_by>victor.leite</sys_created_by>
@@ -33,7 +33,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>faf8611d6f0ec380218117164b3ee4b5</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>x_alabs_pex_location_survey</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -41,7 +41,7 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_ui_list_control_faf8611d6f0ec380218117164b3ee4b5</sys_update_name>
-        <sys_updated_by>victor.leite</sys_updated_by>
-        <sys_updated_on>2017-10-25 17:11:35</sys_updated_on>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2018-02-23 19:55:50</sys_updated_on>
     </sys_ui_list_control>
 </record_update>

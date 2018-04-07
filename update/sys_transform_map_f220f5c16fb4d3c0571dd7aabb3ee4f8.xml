@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>false</copy_empty_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>NewSkies - Definição de Vôo</name>
+        <order>100</order>
+        <run_business_rules>true</run_business_rules>
+        <run_script>true</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+	
+	// Conversão das Datas (Source para Target)
+	
+	 // Data chegada e Data Chegada Local 
+
+	var dataChegada = '';
+	var gdtChegada = new GlideDateTime(source.u_data_chegada_utc);
+	dataChegada = gdtChegada.getValue();
+	target.data_chegada_utc = dataChegada;
+	
+	var dataChegadaLocal = '';
+	var gdtChegLocal = new GlideDateTime(source.u_data_chegada_local);
+	dataChegadaLocal = gdtChegLocal.getValue();
+	target.data_chegada_local = dataChegadaLocal;
+	
+	// Data partida e Data partida Local
+	
+	var dataPartida = '';
+	var gdtPartida = new GlideDateTime(source.u_data_partida_utc);
+	dataPartida = gdtPartida.getValue();
+	target.data_partida_utc = dataPartida;
+	
+	var dataLocal = '';
+	var gdtLocal = new GlideDateTime(source.u_data_partida_local);
+	dataLocal = gdtLocal.getValue();
+	target.data_partida_local = dataLocal;
+	
+	// Atualizado em  
+	
+	var dataAtualizado = '';
+	var gdtAtualizado = new GlideDateTime(source.u_atualizado);
+	dataAtualizado = gdtAtualizado.getValue();
+	target.atualizado_em = dataAtualizado;
+
+	// STA 
+
+	var dataSTA = '';
+	var gdtSTA = new GlideDateTime(source.u_sta);
+	dataSTA = gdtSTA.getValue();
+	target.sta = dataSTA; 
+	
+	
+   // Data Vôo 
+	
+	var dataVoo = '';
+	var gdtVoo = new GlideDateTime(source.u_data_voo);
+	dataVoo = gdtVoo.getDate();
+	target.data_voo = dataVoo;
+	
+
+})(source, target, map, log, action==="update");]]></script>
+        <source_table>x_alabs_pex_definicao_de_voos</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>marcos.kassak</sys_created_by>
+        <sys_created_on>2018-03-10 15:56:32</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f220f5c16fb4d3c0571dd7aabb3ee4f8</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>NewSkies - Definição de Vôo</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_map_f220f5c16fb4d3c0571dd7aabb3ee4f8</sys_update_name>
+        <sys_updated_by>marcos.kassak</sys_updated_by>
+        <sys_updated_on>2018-03-22 18:32:11</sys_updated_on>
+        <target_table>x_alabs_pex_flights</target_table>
+    </sys_transform_map>
+</record_update>

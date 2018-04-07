@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="Import Pesquisas e Questoes" max_length="40" name="x_alabs_pex_import_pesquisas_e_questoes" type="collection">
+        <element attributes="import_attribute_name=Aplicabilidade,edge_encryption_enabled=true" label="Aplicabilidade" max_length="100" name="u_aplicabilidade" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Descrição" max_length="10000" name="u_descrição" type="string"/>
+        <element attributes="import_attribute_name=Item,edge_encryption_enabled=true" label="Item" max_length="40" name="u_item" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="N" max_length="40" name="u_n" type="string"/>
+        <element attributes="import_attribute_name=Numero" label="Numero" max_length="40" name="u_numero" type="integer"/>
+        <element attributes="import_attribute_name=Pergunta,edge_encryption_enabled=true" label="Pergunta" max_length="1000" name="u_pergunta" type="string"/>
+        <element attributes="import_attribute_name=Pesquisa,edge_encryption_enabled=true" label="Pesquisa" max_length="200" name="u_pesquisa" type="string"/>
+        <element attributes="import_attribute_name=Pilar,edge_encryption_enabled=true" label="Pilar" max_length="40" name="u_pilar" type="string"/>
+        <element attributes="import_attribute_name=Subitem,edge_encryption_enabled=true" label="Subitem" max_length="40" name="u_subitem" type="string"/>
+    </element>
+</database>

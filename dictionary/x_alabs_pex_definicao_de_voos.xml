@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="NewSkies - PEX - Definição de vôos" max_length="40" name="x_alabs_pex_definicao_de_voos" sizeclass="303331" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="ATUALIZADO" max_length="40" name="u_atualizado" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="CARRIER_CODE_AD" max_length="40" name="u_carrier_code_ad" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DATA_CHEGADA_LOCAL" max_length="40" name="u_data_chegada_local" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DATA_CHEGADA_UTC" max_length="40" name="u_data_chegada_utc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DATA_PARTIDA_LOCAL" max_length="40" name="u_data_partida_local" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DATA_PARTIDA_UTC" max_length="40" name="u_data_partida_utc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DATA_VOO" max_length="40" name="u_data_voo" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DESTINO" max_length="40" name="u_destino" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DIFERENCA_FUSO_CHEGADA" max_length="40" name="u_diferenca_fuso_chegada" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DIFERENCA_FUSO_PARTIDA" max_length="40" name="u_diferenca_fuso_partida" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="InventoryLegID" max_length="40" name="u_inventorylegid" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="InventoryLegKey" max_length="40" name="u_inventorylegkey" type="string"/>
+        <element attributes="import_attribute_name=IROP,edge_encryption_enabled=true" label="IROP" max_length="40" name="u_irop" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="NUMERO_VOO" max_length="40" name="u_numero_voo" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ORIGEM" max_length="40" name="u_origem" type="string"/>
+        <element attributes="import_attribute_name=PRBCCode,edge_encryption_enabled=true" label="PRBCCode" max_length="40" name="u_prbccode" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="PRB_CODE" max_length="40" name="u_prb_code" type="string"/>
+        <element attributes="import_attribute_name=STA" label="STA" max_length="40" name="u_sta" type="datetime"/>
+        <element attributes="edge_encryption_enabled=true" label="STATUS" max_length="40" name="u_status" type="string"/>
+        <element attributes="import_attribute_name=STAUTC" label="STAUTC" max_length="40" name="u_stautc" type="datetime"/>
+        <element attributes="import_attribute_name=STD" label="STD" max_length="40" name="u_std" type="datetime"/>
+    </element>
+</database>

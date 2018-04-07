@@ -15,7 +15,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Nome</column_label>
+        <column_label>Name</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -31,7 +31,7 @@
         <element>name</element>
         <element_reference>false</element_reference>
         <foreign_database/>
-        <internal_type display_value="">translated_text</internal_type>
+        <internal_type display_value="String">string</internal_type>
         <mandatory>true</mandatory>
         <max_length>200</max_length>
         <name>x_alabs_pex_question_category</name>
@@ -54,15 +54,15 @@
         <sys_created_on>2017-10-23 21:42:13</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9043e4fe6f268300218117164b3ee4a7</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Nome</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Name</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_question_category_name</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-30 18:00:30</sys_updated_on>
+        <sys_updated_on>2018-02-15 18:12:06</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

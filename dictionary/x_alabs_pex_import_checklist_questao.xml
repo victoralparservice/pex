@@ -15,8 +15,10 @@
         <element attributes="import_attribute_name=Item,edge_encryption_enabled=true" label="Item" max_length="40" name="u_item" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="J" max_length="40" name="u_j" type="string"/>
         <element attributes="import_attribute_name=N" label="N" max_length="40" name="u_n" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Numero" max_length="40" name="u_numero" type="string"/>
         <element label="Nº" max_length="40" name="u_nº" type="integer"/>
         <element attributes="import_attribute_name=Pergunta,edge_encryption_enabled=true" label="Pergunta" max_length="154" name="u_pergunta" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Pesquisa" max_length="40" name="u_pesquisa" type="string"/>
         <element attributes="import_attribute_name=Pilar,edge_encryption_enabled=true" label="Pilar" max_length="40" name="u_pilar" type="string"/>
         <element attributes="import_attribute_name=Subitem,edge_encryption_enabled=true" label="Subitem" max_length="40" name="u_subitem" type="string"/>
     </element>

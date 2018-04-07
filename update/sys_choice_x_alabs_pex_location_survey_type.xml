@@ -19,6 +19,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>base</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -38,6 +39,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>base</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -57,6 +59,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>store</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -76,6 +79,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>store</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -95,6 +99,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>ponto</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -114,6 +119,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>ponto</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -133,6 +139,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:18</sys_updated_on>
             <value>teca</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -152,6 +159,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-13 21:10:19</sys_updated_on>
             <value>teca</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice_set action="INSERT_OR_UPDATE">
             <element>type</element>

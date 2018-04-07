@@ -81,6 +81,7 @@
 			question : question
 		}
 		c.server.get(input).then(function(response){
+			  c.data.survey.totalAnswered = response.data.totalAnswered;
 		});
 	}
 	
@@ -309,7 +310,6 @@ p.action-text {
         <script><![CDATA[(function() {
 	
 	if(input) {
-		
 		if (input.action == "updateSurveyState") {
 			var grSurvey = new GlideRecord('x_alabs_pex_instance_survey');
 			grSurvey.get(input.survey.id);		
@@ -317,6 +317,7 @@ p.action-text {
 			grSurvey.update();
 			
 		} else if (input.action == "updateQuestion") {
+			
 			var question = input.question;
 			var grQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
 			grQuestion.get(question.id);		
@@ -325,6 +326,11 @@ p.action-text {
 			grQuestion.responsible_area = question.notConform.responsible_area;
 			grQuestion.due_date = question.notConform.due_date;
 			grQuestion.update();
+			 
+			var survey = new GlideRecord("x_alabs_pex_instance_survey");
+			if (survey.get(grQuestion.survey_instance.sys_id))
+				data.totalAnswered = survey.number_of_questions_answered.getDisplayValue();
+			return data;
 			
 		} else if (input.action == "getActionPlan") {
 			var grActionPlan = new GlideRecord("x_alabs_pex_action_plan");
@@ -350,12 +356,23 @@ p.action-text {
 	data.breadcrumbs.push({label: gs.getMessage('Avaliação'), url: '#'});
 	
 	//get instance state
-	var grSurvey = new GlideRecord('x_alabs_pex_instance_survey')
-	grSurvey.get($sp.getParameter('sys_id'));
+	var grSurvey = new GlideRecordSecure('x_alabs_pex_instance_survey')
+	//grSurvey.get($sp.getParameter('sys_id'));
+	grSurvey.addQuery('sys_id', $sp.getParameter('sys_id'));
+	grSurvey.addQuery('responsible', gs.getUserID());
+	grSurvey.query();
+	
+	if (!grSurvey.hasNext()) {
+		gs.addErrorMessage("Você não tem permissão para acessar esta pesquisa.");
+		return;
+	} else {
+		grSurvey.next();
+	}
 	
 	var survey = {
 		id : grSurvey.getValue("sys_id"),
 		state : grSurvey.getValue("state"),
+		totalAnswered : grSurvey.number_of_questions_answered.getDisplayValue(),
 		title : grSurvey.survey.name.getDisplayValue(), 
 		type : grSurvey.survey.type.getDisplayValue(),
 		introduction : grSurvey.survey.introduction.getDisplayValue(),
@@ -399,6 +416,7 @@ p.action-text {
 		responsibleAreas.push(responsibleArea);
 	}
 	
+	data.totalAnsweredQuestions = grSurvey.number_of_questions_answered.getDisplayValue();
 	data.responsibleAreas = responsibleAreas;
 	data.survey = survey;
 	
@@ -409,7 +427,7 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>932</sys_mod_count>
+        <sys_mod_count>946</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -417,7 +435,7 @@ p.action-text {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-13 21:08:40</sys_updated_on>
+        <sys_updated_on>2018-03-07 19:58:47</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
    <div class="row">
@@ -457,7 +475,7 @@ p.action-text {
                      <h2 class="number-question text-center">{{$index + 1}} / {{data.survey.questions.length}}</h2>
                      
                      <button type="button" class="btn btn-primary pull-right btn-description" data-toggle="modal" data-target="#modalDescription{{$index}}"><i class="fa fa-info-circle"></i></button>
-                     <a ng-disabled="!notConformForm.$valid" ng-if="data.survey.state=='finished'" class="btn btn-success pull-right btn-finished" ng-click="completeEvaluation(data.survey, question)"><i class="fa fa-check" aria-hidden="true"></i> Finalizar</a>
+                     <a ng-disabled="!notConformForm.$valid" ng-if="data.survey.state=='finished' && data.survey.totalAnswered==data.survey.questions.length" class="btn btn-success pull-right btn-finished" ng-click="completeEvaluation(data.survey, question)"><i class="fa fa-check" aria-hidden="true"></i> Finalizar</a>
                   </div>
                </div>
                <div class="row form-card">

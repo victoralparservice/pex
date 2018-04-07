@@ -19,6 +19,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:33</sys_updated_on>
             <value>draft</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -38,6 +39,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-07 20:52:05</sys_updated_on>
             <value>draft</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -57,6 +59,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-07 20:52:34</sys_updated_on>
             <value>waiting_approved</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -76,6 +79,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:40</sys_updated_on>
             <value>waiting_approved</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -95,6 +99,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-07 20:52:52</sys_updated_on>
             <value>published</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -114,6 +119,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:45</sys_updated_on>
             <value>published</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -133,6 +139,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:49</sys_updated_on>
             <value>completed</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -152,6 +159,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-07 20:53:35</sys_updated_on>
             <value>completed</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -171,6 +179,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-12-07 20:53:12</sys_updated_on>
             <value>canceled</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -190,6 +199,7 @@
             <sys_updated_by>victor.leite</sys_updated_by>
             <sys_updated_on>2017-10-24 12:45:53</sys_updated_on>
             <value>canceled</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice_set action="INSERT_OR_UPDATE">
             <element>state</element>

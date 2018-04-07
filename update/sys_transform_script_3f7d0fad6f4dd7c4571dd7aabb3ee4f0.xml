@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="Infos Colaborador &amp; Escala de Vôo">5e9040596f8197409ae430767b3ee434</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+
+	var str = source.u_infovoo;
+	var arr = str.split(';');
+	
+	var date = arr[5];
+	var year = date.substring(0,4);
+	var month = date.substring(6,4);
+	var day = date.substring(8,6);
+	var finalDate = year + '-' + month + '-' + day;
+
+	var origemId = '';
+	var origem = new GlideRecord('x_alabs_callcenter_location');
+	origem.addQuery('name', arr[12].toString());
+	origem.query();
+	if(origem.next()){
+		origemId = origem.getUniqueValue();
+	}
+
+	var destinoId = '';
+	var destino = new GlideRecord('x_alabs_callcenter_location');
+	destino.addQuery('name', arr[13].toString());
+	destino.query();
+	if(destino.next()){
+		destinoId = destino.getUniqueValue();
+	}
+
+	var gr = new GlideRecord('x_alabs_pex_flights');
+	gr.initialize();
+	gr.origem = origemId;
+	gr.destino = destinoId;
+	gr.inventorylegid = source.u_idleg;
+	gr.carrier_code = arr[2];
+	gr.data_voo = finalDate;
+	gr.numero_do_voo =  arr[3];
+	gr.insert();
+
+
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>marcos.kassak</sys_created_by>
+        <sys_created_on>2018-03-24 22:33:43</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3f7d0fad6f4dd7c4571dd7aabb3ee4f0</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>onBefore</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_3f7d0fad6f4dd7c4571dd7aabb3ee4f0</sys_update_name>
+        <sys_updated_by>marcos.kassak</sys_updated_by>
+        <sys_updated_on>2018-03-24 23:37:03</sys_updated_on>
+        <when>onBefore</when>
+    </sys_transform_script>
+</record_update>

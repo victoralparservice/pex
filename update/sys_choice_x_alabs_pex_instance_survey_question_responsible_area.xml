@@ -15,10 +15,11 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>f50c7f036f32c7001fb18a6d6b3ee408</sys_id>
-            <sys_mod_count>2</sys_mod_count>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-09 14:42:23</sys_updated_on>
+            <sys_mod_count>6</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2018-02-15 18:12:21</sys_updated_on>
             <value>my_area</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -34,10 +35,11 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>cd7307d56f020780218117164b3ee4be</sys_id>
-            <sys_mod_count>3</sys_mod_count>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-09 14:42:14</sys_updated_on>
+            <sys_mod_count>7</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2018-02-15 18:12:21</sys_updated_on>
             <value>my_area</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -53,10 +55,11 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>817307d56f020780218117164b3ee4c0</sys_id>
-            <sys_mod_count>3</sys_mod_count>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-09 14:42:38</sys_updated_on>
+            <sys_mod_count>7</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2018-02-15 18:12:21</sys_updated_on>
             <value>other_area</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -72,10 +75,11 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>5e1cb7036f32c7001fb18a6d6b3ee49d</sys_id>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-12-09 14:42:29</sys_updated_on>
+            <sys_mod_count>5</sys_mod_count>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2018-02-15 18:12:21</sys_updated_on>
             <value>other_area</value>
+            <x_alabs_rh_level/>
         </sys_choice>
         <sys_choice_set action="INSERT_OR_UPDATE">
             <element>responsible_area</element>

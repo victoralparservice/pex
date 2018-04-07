@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record_update node_type="sys_grid_canvas" unload_date="2018-02-14 16:47:15">
+<record_update node_type="sys_grid_canvas" unload_date="2018-04-07 14:26:57">
     <sys_grid_canvas action="INSERT_OR_UPDATE">
         <legacy_page display_value="PA Questões - Filtros">05fd54a56f674340571dd7aabb3ee484</legacy_page>
         <name>PA Nova guia 5</name>
@@ -21,7 +21,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>5</height>
-                <portal_widget display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_widget>
                 <posx>2</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -55,7 +55,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>5</height>
-                                <portal_widget display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_widget>
                                 <posx>2</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -78,7 +78,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>25c320a96f674340571dd7aabb3ee409</sys_id>
@@ -89,7 +89,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_publish</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>61c320a96f674340571dd7aabb3ee409</sys_id>
@@ -100,7 +100,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>69c320a96f674340571dd7aabb3ee408</sys_id>
@@ -111,7 +111,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>type</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>6dc320a96f674340571dd7aabb3ee409</sys_id>
@@ -122,7 +122,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>adc320a96f674340571dd7aabb3ee408</sys_id>
@@ -133,7 +133,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:20:47">65c320a96f674340571dd7aabb3ee408</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:20:47</sys_created_on>
                                 <sys_id>e5c320a96f674340571dd7aabb3ee409</sys_id>
@@ -161,7 +161,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>10</height>
-                                <portal_widget display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_widget>
                                 <posx>0</posx>
                                 <posy>5</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -184,7 +184,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_subscribe</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
                                 <sys_id>02d5a4a96f674340571dd7aabb3ee4e3</sys_id>
@@ -195,7 +195,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
                                 <sys_id>06d5a4a96f674340571dd7aabb3ee4e2</sys_id>
@@ -206,7 +206,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>show_border</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>41c6ece96f674340571dd7aabb3ee44e</sys_id>
@@ -217,7 +217,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>real_time</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>41c6ece96f674340571dd7aabb3ee44f</sys_id>
@@ -228,7 +228,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>45c6ece96f674340571dd7aabb3ee44e</sys_id>
@@ -239,7 +239,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>show_title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>49c6ece96f674340571dd7aabb3ee44d</sys_id>
@@ -250,7 +250,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>subscriber_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>49c6ece96f674340571dd7aabb3ee44e</sys_id>
@@ -261,7 +261,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title_align</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>4dc6ece96f674340571dd7aabb3ee44d</sys_id>
@@ -272,7 +272,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>filter_indicator</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:33:51</sys_created_on>
                                 <sys_id>4dc6ece96f674340571dd7aabb3ee44e</sys_id>
@@ -283,7 +283,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>help_text_window</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
                                 <sys_id>4ed5a4a96f674340571dd7aabb3ee4e2</sys_id>
@@ -294,7 +294,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
                                 <sys_id>8ad5a4a96f674340571dd7aabb3ee4e2</sys_id>
@@ -305,7 +305,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:29:50</sys_created_on>
                                 <sys_id>c2d5a4a96f674340571dd7aabb3ee4e3</sys_id>
@@ -333,7 +333,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>5</height>
-                                <portal_widget display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_widget>
                                 <posx>4</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -356,7 +356,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>type</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>17e1e8296f674340571dd7aabb3ee47b</sys_id>
@@ -367,7 +367,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_publish</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>1be1e8296f674340571dd7aabb3ee47a</sys_id>
@@ -378,7 +378,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>57e1e8296f674340571dd7aabb3ee47a</sys_id>
@@ -389,7 +389,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>9fe1e8296f674340571dd7aabb3ee47a</sys_id>
@@ -400,7 +400,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>dbe1e8296f674340571dd7aabb3ee47a</sys_id>
@@ -411,7 +411,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:12:43</sys_created_on>
                                 <sys_id>dfe1e8296f674340571dd7aabb3ee479</sys_id>
@@ -439,7 +439,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>5</height>
-                                <portal_widget display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_widget>
                                 <posx>6</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -462,7 +462,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_publish</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>22ae90a56f674340571dd7aabb3ee44c</sys_id>
@@ -473,7 +473,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>type</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>2eae90a56f674340571dd7aabb3ee44c</sys_id>
@@ -484,7 +484,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>6eae90a56f674340571dd7aabb3ee44b</sys_id>
@@ -495,7 +495,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>a6ae90a56f674340571dd7aabb3ee44c</sys_id>
@@ -506,7 +506,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>e2ae90a56f674340571dd7aabb3ee44c</sys_id>
@@ -517,7 +517,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
+                                <portal_section display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 19:58:27</sys_created_on>
                                 <sys_id>e6ae90a56f674340571dd7aabb3ee44b</sys_id>
@@ -545,7 +545,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>5</height>
-                                <portal_widget display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_widget>
                                 <posx>8</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -568,7 +568,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>05d0ace56f674340571dd7aabb3ee4e9</sys_id>
@@ -579,7 +579,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>4dd0ace56f674340571dd7aabb3ee4e9</sys_id>
@@ -590,7 +590,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>89d0ace56f674340571dd7aabb3ee4e9</sys_id>
@@ -601,7 +601,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>8dd0ace56f674340571dd7aabb3ee4e8</sys_id>
@@ -612,7 +612,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>type</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>c1d0ace56f674340571dd7aabb3ee4ea</sys_id>
@@ -623,7 +623,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_publish</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:07:54</sys_created_on>
                                 <sys_id>c5d0ace56f674340571dd7aabb3ee4e9</sys_id>
@@ -651,7 +651,7 @@
                             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                                 <height>5</height>
-                                <portal_widget display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_widget>
+                                <portal_widget display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_widget>
                                 <posx>0</posx>
                                 <posy>0</posy>
                                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -674,7 +674,7 @@
                         <related_items_node>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>sys_id</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>31d320a96f674340571dd7aabb3ee4e3</sys_id>
@@ -685,7 +685,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>type</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>35d320a96f674340571dd7aabb3ee4e4</sys_id>
@@ -696,7 +696,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>can_publish</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>39d320a96f674340571dd7aabb3ee4e3</sys_id>
@@ -707,7 +707,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>renderer</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>75d320a96f674340571dd7aabb3ee4e3</sys_id>
@@ -718,7 +718,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>title</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>bdd320a96f674340571dd7aabb3ee4e3</sys_id>
@@ -729,7 +729,7 @@
                             </sys_portal_preferences>
                             <sys_portal_preferences action="INSERT_OR_UPDATE">
                                 <name>publisher_widget</name>
-                                <portal_section display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
+                                <portal_section display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_section>
                                 <sys_created_by>eli.lima</sys_created_by>
                                 <sys_created_on>2018-01-08 20:21:04</sys_created_on>
                                 <sys_id>f9d320a96f674340571dd7aabb3ee4e3</sys_id>
@@ -745,7 +745,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>10</height>
-                <portal_widget display_value="Criado em 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 18:29:50">02d5a4a96f674340571dd7aabb3ee4e2</portal_widget>
                 <posx>0</posx>
                 <posy>5</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -767,7 +767,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>5</height>
-                <portal_widget display_value="Criado em 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 18:12:43">dbe1e8296f674340571dd7aabb3ee479</portal_widget>
                 <posx>4</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -789,7 +789,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>5</height>
-                <portal_widget display_value="Criado em 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 17:58:27">e2ae90a56f674340571dd7aabb3ee44b</portal_widget>
                 <posx>6</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -811,7 +811,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>5</height>
-                <portal_widget display_value="Criado em 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 18:07:54">89d0ace56f674340571dd7aabb3ee4e8</portal_widget>
                 <posx>8</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>
@@ -833,7 +833,7 @@
             <sys_grid_canvas_pane action="INSERT_OR_UPDATE">
                 <grid_canvas display_value="PA Nova guia 5">cdfd54a56f674340571dd7aabb3ee484</grid_canvas>
                 <height>5</height>
-                <portal_widget display_value="Criado em 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_widget>
+                <portal_widget display_value="Created 08-01-2018 18:21:04">3dd320a96f674340571dd7aabb3ee4e2</portal_widget>
                 <posx>0</posx>
                 <posy>0</posy>
                 <sys_class_name>sys_grid_canvas_pane</sys_class_name>

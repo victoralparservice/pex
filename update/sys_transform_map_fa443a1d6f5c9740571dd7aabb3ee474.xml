@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>false</copy_empty_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>Import Pesquisas e Questoes</name>
+        <order>100</order>
+        <run_business_rules>false</run_business_rules>
+        <run_script>true</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+
+	target.survey = getSurvey(source);
+	target.question = getQuestion(source);
+	target.order = source.u_numero;
+
+})(source, target, map, log, action==="update");
+
+function getQuestion(source) {
+	
+	var questionId;
+	var question = new GlideRecord("x_alabs_pex_question");
+	question.addQuery("question", source.u_pergunta);
+	question.addQuery("item.name", source.u_item);
+	question.addQuery("subitem.name", source.u_subitem);
+	question.addQuery("category.name", source.u_pilar);
+	question.query();
+	
+	if (question.next()) {
+		questionId = question.getValue("sys_id");
+	} else {
+		//insert new questions here in the future maybe
+		question.initialize();
+		question.active = true;
+		question.question = source.u_pergunta;
+		question.description = source.u_descrição;
+		//PILAR
+		question.category = getRecord("x_alabs_pex_question_category", source.u_pilar);
+	
+		//ITEM
+		question.item = getRecord("x_alabs_pex_question_item", source.u_item);
+	
+		//SUBITEM
+		question.subitem = getRecordSubitem("x_alabs_pex_question_subitem", question.item, source.u_subitem);
+	
+		//APLICABILIDADE
+		question.applicabilities = getRecord("x_alabs_pex_applicability", source.u_aplicabilidade);
+		
+		question.insert();
+		questionId = question.getValue("sys_id");
+	}
+	
+	return questionId;
+}
+
+function getSurvey(source) {
+	
+	var surveyId;
+	var survey = new GlideRecord("x_alabs_pex_survey");
+	survey.addQuery("name", source.u_pesquisa);
+	survey.query();
+	
+	if (survey.next()) {
+		surveyId = survey.getValue("sys_id");
+	} else {
+		survey.initialize();
+		survey.name = source.u_pesquisa;
+		survey.insert();
+		surveyId = survey.getValue("sys_id");
+	}
+	return surveyId;
+}
+
+function getRecord(tableName, name) {
+	var gr = new GlideRecord(tableName);
+	gr.addQuery("name", name);
+	gr.query();
+	if (!gr.next()) {
+		gr.initialize();
+		gr.setValue("active", true);
+		gr.setValue("name", name);
+		gr.insert();
+	}
+	
+	return gr.getValue("sys_id");
+}
+
+function getRecordSubitem(tableName, item, name) {
+	var gr = new GlideRecord(tableName);
+	gr.addQuery("item", item);
+	gr.addQuery("name", name);
+	gr.query();
+	if (!gr.next()) {
+		gr.initialize();
+		gr.setValue("active", true);
+		gr.setValue("name", name);
+		gr.setValue("item", item);
+		gr.insert();
+	}
+	
+	return gr.getValue("sys_id");
+}]]></script>
+        <source_table>x_alabs_pex_import_pesquisas_e_questoes</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>eli.lima</sys_created_by>
+        <sys_created_on>2018-02-14 19:06:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fa443a1d6f5c9740571dd7aabb3ee474</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Import Pesquisas e Questoes</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_map_fa443a1d6f5c9740571dd7aabb3ee474</sys_update_name>
+        <sys_updated_by>eli.lima</sys_updated_by>
+        <sys_updated_on>2018-02-14 19:06:35</sys_updated_on>
+        <target_table>x_alabs_pex_surveys_questions</target_table>
+    </sys_transform_map>
+</record_update>
