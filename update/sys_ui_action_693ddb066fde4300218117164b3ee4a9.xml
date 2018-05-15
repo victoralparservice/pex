@@ -24,7 +24,17 @@
         <onclick/>
         <order>100</order>
         <script><![CDATA[//reset state to finished
-current.state = 'finished';					
+current.state = 'finished';		
+current.number_of_questions_answered = '0';
+	var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
+	gr.addEncodedQuery('survey_instance=' + current.sys_id);
+	gr.query();
+
+	while(gr.next()) {
+		gr.situation = "";
+		gr.update();
+	}
+	
 action.setRedirectURL(current);
 current.update();]]></script>
         <show_insert>true</show_insert>
@@ -38,7 +48,7 @@ current.update();]]></script>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>693ddb066fde4300218117164b3ee4a9</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>Reopen Evaluation</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -46,8 +56,8 @@ current.update();]]></script>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_ui_action_693ddb066fde4300218117164b3ee4a9</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-13 13:31:02</sys_updated_on>
+        <sys_updated_by>isaac.vicentini</sys_updated_by>
+        <sys_updated_on>2018-04-19 21:23:41</sys_updated_on>
         <table>x_alabs_pex_instance_survey</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

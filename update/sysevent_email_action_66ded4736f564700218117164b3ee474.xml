@@ -38,11 +38,11 @@
 <div style="padding-top: 30px; font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">
 <p>Ol&aacute; ${responsible.first_name},</p>
 <p>Sua avalia&ccedil;&atilde;o foi cancelada. Para acess&aacute;-la, ${mail_script:clique_aqui_avaliacao_pex}.</p>
-<strong>Pesquisa:</strong> ${survey}<br /><strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:</strong> ${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until}<br /><br />
+<strong>Pesquisa:</strong> ${survey}<br /><strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:</strong> ${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until}<br /><strong style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">Base:&nbsp;</strong><span style="font-family: 'Arial','sans-serif'; font-size: 12.0pt; color: #1f497d;">${location.name}</span></div>
+<br /><br />
 <p>Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>.</p>
 <p style="font-weight: bold;">Equipe PEX</p>
 <div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
-</div>
 </div>]]></message_html>
         <message_list/>
         <message_text/>
@@ -66,7 +66,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>66ded4736f564700218117164b3ee474</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>AZUL - PEX - Avaliação Cancelada</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -74,8 +74,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_66ded4736f564700218117164b3ee474</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-02-14 16:43:13</sys_updated_on>
+        <sys_updated_by>isaac.vicentini</sys_updated_by>
+        <sys_updated_on>2018-04-18 21:00:20</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

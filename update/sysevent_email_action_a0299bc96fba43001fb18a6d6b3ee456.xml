@@ -40,12 +40,13 @@
 <p>&nbsp;</p>
 <p>Obrigado por participar de nossa pesquisa.</p>
 <p>&nbsp;</p>
-<strong>Pesquisa:</strong> ${survey}<br /><strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:&nbsp;</strong>${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until}<br /><br />
+<strong>Pesquisa:</strong> ${survey}<br /><strong>N&uacute;mero:</strong> ${number}<br /><strong>Quantidade de quest&otilde;es:&nbsp;</strong>${number_of_questions}<br /><strong>Descri&ccedil;&atilde;o:</strong> ${survey.description}<br /><strong>Prazo:</strong> ${survey.valid_until} <br /><strong>Base:</strong> ${location.name}<br /><br />
 <p>Para que d&uacute;vidas ou problemas possam ser sanados, entre em contato pelo e-mail <a href="mailto:pex@voeazul.com.br">pex@voeazul.com.br</a>.</p>
 <p style="font-weight: bold;">Equipe PEX</p>
 <div style="margin-top: 50px;"><hr style="background: #b1872d; border: 0; padding: 1px;" /></div>
 </div>
-</div>]]></message_html>
+</div>
+<p>&nbsp;</p>]]></message_html>
         <message_list/>
         <message_text/>
         <name>AZUL - PEX - Avaliação Finalizada</name>
@@ -68,7 +69,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a0299bc96fba43001fb18a6d6b3ee456</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>AZUL - PEX - Avaliação Finalizada</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -76,8 +77,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_a0299bc96fba43001fb18a6d6b3ee456</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-02-14 16:43:59</sys_updated_on>
+        <sys_updated_by>isaac.vicentini</sys_updated_by>
+        <sys_updated_on>2018-04-18 17:58:20</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
