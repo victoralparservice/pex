@@ -57,12 +57,12 @@
             <relationship/>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
-            <sys_created_by>eli.lima</sys_created_by>
-            <sys_created_on>2017-11-24 17:38:06</sys_created_on>
+            <sys_created_by>isaac.vicentini</sys_created_by>
+            <sys_created_on>2018-06-05 14:37:48</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>63fe8c876fa20300218117164b3ee4e4</sys_id>
+            <sys_id>9c90e141db225b0080567a30ba96198b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name/>
             <sys_package/>
@@ -70,9 +70,9 @@
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
             <sys_update_name/>
-            <sys_updated_by>eli.lima</sys_updated_by>
-            <sys_updated_on>2017-11-24 17:38:06</sys_updated_on>
-            <sys_user display_value="Eli Lima">4e872cb66f668300218117164b3ee4cc</sys_user>
+            <sys_updated_by>isaac.vicentini</sys_updated_by>
+            <sys_updated_on>2018-06-05 14:37:48</sys_updated_on>
+            <sys_user display_value="Isaac Vicentini">44fffbb86f815f84571dd7aabb3ee4f8</sys_user>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>

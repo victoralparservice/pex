@@ -70,14 +70,13 @@
 	gr.query();
 	
 	while(gr.next()){
-		var questionInstance = new GlideRecord('x_alabs_pex_instance_survey_question');
-		questionInstance.get(gr.question_instance);
-				
+		var questionInstance = gr.question_instance.getRefRecord();
+		var surveyInstance = questionInstance.survey_instance.getRefRecord(); 
 		var item = [];
 		
 		item.push($sp.getField(gr, 'number'));
 		item.push($sp.getField(gr, 'state'));		
-			
+		item.push($sp.getField(surveyInstance, 'location'));	
 		item.push($sp.getField(questionInstance, 'responsible_area'));
 		item.push($sp.getField(questionInstance, 'due_date'));	
 		
@@ -95,15 +94,15 @@
         <sys_created_on>2017-11-08 18:13:08</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>349d35716f1a43001fb18a6d6b3ee484</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>105</sys_mod_count>
         <sys_name>PEX - Plano e ações</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_349d35716f1a43001fb18a6d6b3ee484</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-21 19:55:49</sys_updated_on>
+        <sys_updated_by>isaac.vicentini</sys_updated_by>
+        <sys_updated_on>2018-06-05 20:51:08</sys_updated_on>
         <template><![CDATA[<div class="row">
   <div class="col-md-4">
     <div class="panel panel-default b">
