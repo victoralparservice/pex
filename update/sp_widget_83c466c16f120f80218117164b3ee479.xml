@@ -451,7 +451,7 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>1010</sys_mod_count>
+        <sys_mod_count>1011</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -459,7 +459,7 @@ p.action-text {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
         <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-04-20 15:09:54</sys_updated_on>
+        <sys_updated_on>2018-06-18 17:27:29</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
    <div class="row">
@@ -657,7 +657,7 @@ p.action-text {
                  <a ng-disabled="!hasNotConformQuestion" style="float: left" class="btn btn-primary" ng-click="redirectAfterCompletedSurvey('plano_de_acao_pex')">${Plano de ação}</a>
                   <!--a class="btn btn-default" ng-click="redirectAfterCompletedSurvey('avaliacoes_pex')">${Lista de avaliações}</a-->
                   <a class="btn btn-danger" style="float: left; margin:0px 0px 7px 7px" ng-click="redirectAfterCompletedSurvey('index_pex')">${Fechar}</a>
-                 <a ng-disabled="!hasNotConformQuestion" class="btn btn-warning" ng-click="getPDF()" style="float: right; margin:0px 0px 7px 7px"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Questões}</a>
+                 <a class="btn btn-warning" ng-click="getPDF()" style="float: right; margin:0px 0px 7px 7px"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Questões}</a>
                  <a ng-disabled="!hasNotConformQuestion" class="btn btn-warning" ng-click="getActionPlan()" style="float: right"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Plano de Ação}</a> 
                </div>
             </div>

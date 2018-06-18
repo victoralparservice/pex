@@ -162,22 +162,22 @@
             <relationship/>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
-            <sys_created_by>isaac.vicentini</sys_created_by>
-            <sys_created_on>2018-04-16 17:41:29</sys_created_on>
+            <sys_created_by>eli.lima</sys_created_by>
+            <sys_created_on>2017-11-13 19:25:44</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>ef1be8c9db69130080567a30ba9619a6</sys_id>
+            <sys_id>c92e33136fda0700218117164b3ee476</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name/>
-            <sys_package/>
+            <sys_name>sys_script</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-            <sys_update_name/>
-            <sys_updated_by>isaac.vicentini</sys_updated_by>
-            <sys_updated_on>2018-04-16 17:41:29</sys_updated_on>
-            <sys_user display_value="Isaac Vicentini">44fffbb86f815f84571dd7aabb3ee4f8</sys_user>
+            <sys_update_name>sys_ui_list_sys_script_null</sys_update_name>
+            <sys_updated_by>eli.lima</sys_updated_by>
+            <sys_updated_on>2017-11-13 19:25:44</sys_updated_on>
+            <sys_user display_value="">5959d2ce6f9ab6401fb18a6d6b3ee4ea</sys_user>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>
