@@ -18,7 +18,7 @@
         <sys_created_on>2017-11-07 18:11:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9ba33c696f5a03001fb18a6d6b3ee4f4</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -26,7 +26,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_instance_9ba33c696f5a03001fb18a6d6b3ee4f4</sys_update_name>
         <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-06-21 20:50:27</sys_updated_on>
+        <sys_updated_on>2018-06-22 17:51:10</sys_updated_on>
         <title/>
         <url/>
         <widget_parameters><![CDATA[{
@@ -39,8 +39,8 @@
 		"displayValue": "card"
 	},
 	"filtro": {
-		"value": "stateINpending,started",
-		"displayValue": "stateINpending,started"
+		"value": "stateINpending,started,completed",
+		"displayValue": "stateINpending,started,completed"
 	}
 }]]></widget_parameters>
     </sp_instance>
