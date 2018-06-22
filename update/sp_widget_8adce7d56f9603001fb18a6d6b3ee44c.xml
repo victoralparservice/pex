@@ -44,7 +44,7 @@
 		gr.setLimit(options.maximo);
 	}
 	gr.query();
-	
+
 	while(gr.next()){
 		var survey = new GlideRecord('x_alabs_pex_survey');
 		survey.get(gr.survey);
@@ -53,21 +53,20 @@
 		//item.push($sp.getField(gr, 'number'));
 		item.push($sp.getField(gr, 'survey'));
 		item.push($sp.getField(survey, 'type'));
-		item.push($sp.getField(survey, 'locations'));
+		item.push($sp.getField(gr, 'location'));
 		item.push(getQuestion(gr));
 		item.push($sp.getField(gr, 'state'));		
 		item.push($sp.getField(survey, 'valid_until'));	
-		console.log(gr.state);
-		console.log(JSON.stringify(gr));
 		item[0].value = gr.getUniqueValue();
 		data.list.push(item);
+		console.log(JSON.stringify(data.list));
 	}
 	
 	function getQuestion(gr){
 		
 		var nq = $sp.getField(gr, 'number_of_questions').value;
-		var nqa = $sp.getField(gr, 'number_of_questions_answered').value;
-		
+		var nqa = $sp.getField(gr, 'number_of_questions_answered').display_value;
+	
 		var question = {
 			'display_value' : nq + ' / ' + nqa,
 			'label' : gs.getMessage('Question'),
@@ -77,6 +76,7 @@
 		
 		return question;		
 	}
+	
 })()]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
@@ -84,7 +84,7 @@
         <sys_created_on>2017-11-07 13:02:18</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>8adce7d56f9603001fb18a6d6b3ee44c</sys_id>
-        <sys_mod_count>193</sys_mod_count>
+        <sys_mod_count>245</sys_mod_count>
         <sys_name>PEX - Avaliações Lista</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -92,7 +92,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_8adce7d56f9603001fb18a6d6b3ee44c</sys_update_name>
         <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-06-05 15:00:04</sys_updated_on>
+        <sys_updated_on>2018-06-22 02:12:30</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default b">
    <div class="panel-heading">
       <h2 class="h4 panel-title">
