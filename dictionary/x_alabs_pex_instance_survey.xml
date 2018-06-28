@@ -4,7 +4,7 @@
         <element label="Primeiro Nível" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>
         <element label="Localidade" max_length="32" name="location" reference="x_alabs_pex_location_survey" type="reference"/>
         <element label="Notas" max_length="40" name="notes" type="journal_input"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número" max_length="40" name="number" read_only="true" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Número" max_length="40" name="number" read_only="true" type="string"/>
         <element default="0" label="Número de questões" max_length="40" name="number_of_questions" type="integer"/>
         <element default="0" label="Número de questões respondidas" max_length="40" name="number_of_questions_answered" type="integer"/>
         <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>

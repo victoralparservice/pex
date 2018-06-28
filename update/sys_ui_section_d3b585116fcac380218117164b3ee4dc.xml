@@ -183,6 +183,20 @@
             <sys_user/>
             <type>formatter</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>criado_matriz</element>
+            <position>13</position>
+            <sys_created_by>isaac.vicentini</sys_created_by>
+            <sys_created_on>2018-06-26 04:58:44</sys_created_on>
+            <sys_id>2265a7e3dbba97400b2a32ffaa961995</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_alabs_pex_instance_survey" sys_domain="global" view="Default view">d3b585116fcac380218117164b3ee4dc</sys_ui_section>
+            <sys_updated_by>isaac.vicentini</sys_updated_by>
+            <sys_updated_on>2018-06-26 04:58:44</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>
