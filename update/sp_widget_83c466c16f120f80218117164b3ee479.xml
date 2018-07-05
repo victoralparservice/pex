@@ -5,7 +5,7 @@
 	$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.breadcrumbs);
 
 	var c = this;
-
+	
 	$scope.questaoArray = $scope.data.survey.questions;  
 
 	$scope.hasNotConformQuestion = _hasNotConformQuestion(c.data.survey);
@@ -451,7 +451,7 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>1011</sys_mod_count>
+        <sys_mod_count>1021</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -459,7 +459,7 @@ p.action-text {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
         <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-06-18 17:27:29</sys_updated_on>
+        <sys_updated_on>2018-07-05 04:48:45</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
    <div class="row">
@@ -487,9 +487,15 @@ p.action-text {
    </div>
 </div>
 <!-- FIM INTRODUÇÃO -->
-
+<!-- INICIO PESQUISA FINALIZADA -->
+<div ng-show="data.survey.state=='finished'">
+  	<h3>
+      Essa pesquisa não se encontra mais disponível.
+  </h3>
+</div>
+<!-- FIM PESQUISA FINALIZADA -->
 <!-- INICIO CAROUSEL -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" ng-if="data.survey.state=='started'||data.survey.state=='finished'">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" ng-if="data.survey.state=='started'">
    <div class="carousel-inner">
       <slide ng-repeat="question in data.survey.questions" active='{{$index==firstIndex}}' class="item" ng-class="{active:$index==firstIndex}">
          <div class="question">

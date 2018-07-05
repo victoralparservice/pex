@@ -41,34 +41,24 @@
 	pesquisa.query();
 	
     while (pesquisa.next()){
-		pesquisa.state = "finished";
+		pesquisa.setValue("responsible", current.responsible);
+		pesquisa.number_of_questions_answered = 0;
+		pesquisa.state = "pending";
 		pesquisa.update();
 	}
-	
-	var gr = new GlideRecord("x_alabs_pex_instance_survey");
-		gr.initialize(); 
-		gr.responsible = current.responsible;
-		gr.first_level_notification = current.first_level;
-		gr.second_level_notification = current.second_level;
-		gr.state = "pending";
-		gr.survey = pesquisa.survey;
-		gr.number_of_questions = pesquisa.number_of_questions;
-		gr.criado_matriz = true;
-		gr.insert();
-	
-	var grQ = new GlideRecord('x_alabs_pex_surveys_questions');
-	grQ.addEncodedQuery("survey.sys_id=" + gr.survey);
-	grQ.query();
-
-	while(grQ.next()){	
-		var grI = new GlideRecord("x_alabs_pex_instance_survey_question");
-		grI.initialize();
-		grI.survey_instance = gr.sys_id.toString();
-		grI.question = grQ.question;
-		grI.situation = "";
-		grI.insert();
-	}
 		
+	var grQuestao = new GlideRecord('x_alabs_pex_instance_survey_question');
+	grQuestao.addEncodedQuery("survey_instance=" + pesquisa.sys_id);
+	grQuestao.query();
+
+	while (grQuestao.next()) {
+        if (grQuestao.situation != '')
+		grQuestao.due_date = "";
+		grQuestao.responsible_area = "";
+		grQuestao.proposition = "";
+		grQuestao.situation = "";
+		grQuestao.update();
+	}
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -78,7 +68,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>441f28cddb69130080567a30ba96193c</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>PEX: Mudança responsável - pesquisas</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -87,7 +77,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_441f28cddb69130080567a30ba96193c</sys_update_name>
         <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-06-26 18:52:47</sys_updated_on>
+        <sys_updated_on>2018-07-05 03:54:56</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
