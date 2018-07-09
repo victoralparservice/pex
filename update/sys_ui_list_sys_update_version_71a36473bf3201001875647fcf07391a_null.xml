@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="sys_update_version" relationship="71a36473bf3201001875647fcf07391a" sys_domain="global" table="sys_update_version" version="2" view="">
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_update_version</name>
+            <parent>sys_update_version</parent>
+            <position/>
+            <relationship display_value="Version List">71a36473bf3201001875647fcf07391a</relationship>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>isaac.vicentini</sys_created_by>
+            <sys_created_on>2018-07-08 16:55:24</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f58c7727db03178080567a30ba961999</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name/>
+            <sys_package/>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name/>
+            <sys_updated_by>isaac.vicentini</sys_updated_by>
+            <sys_updated_on>2018-07-08 16:55:24</sys_updated_on>
+            <sys_user display_value="Isaac Vicentini">44fffbb86f815f84571dd7aabb3ee4f8</sys_user>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>
