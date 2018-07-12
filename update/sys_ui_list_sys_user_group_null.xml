@@ -162,22 +162,22 @@
             <relationship/>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
-            <sys_created_by>victor.leite</sys_created_by>
-            <sys_created_on>2017-11-13 16:22:37</sys_created_on>
+            <sys_created_by>isaac.vicentini</sys_created_by>
+            <sys_created_on>2018-07-12 19:01:25</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>6a345bdb6f5a0700218117164b3ee4d2</sys_id>
+            <sys_id>6ebff409db1b5f800b2a32ffaa96192b</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>sys_user_group</sys_name>
-            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_name/>
+            <sys_package/>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-            <sys_update_name>sys_ui_list_sys_user_group_null</sys_update_name>
-            <sys_updated_by>victor.leite</sys_updated_by>
-            <sys_updated_on>2017-11-13 16:22:37</sys_updated_on>
-            <sys_user display_value="victor leite">64a3eca26fbc3e04eb0d8a6d6b3ee4b1</sys_user>
+            <sys_update_name/>
+            <sys_updated_by>isaac.vicentini</sys_updated_by>
+            <sys_updated_on>2018-07-12 19:01:25</sys_updated_on>
+            <sys_user display_value="Isaac Vicentini">44fffbb86f815f84571dd7aabb3ee4f8</sys_user>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>
