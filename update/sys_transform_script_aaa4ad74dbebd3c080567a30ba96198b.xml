@@ -7,11 +7,13 @@
         <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
 	
 	var count = new GlideAggregate('x_alabs_pex_flight_crew');
+count.addEncodedQuery('flight.inventorylegid!=NULL');
 count.groupBy('flight');
 count.query();
 
 var membros = [];
 var idMembros = '';
+var sysIdMembros = [];
 while (count.next()) {
     //gs.info(count.flight.getDisplayValue());
 
@@ -21,12 +23,16 @@ while (count.next()) {
 
     while (gr.next()) {
         membros.push(gr.user.employee_number.toString());
-    }
+        sysIdMembros.push(gr.user.sys_id.toString());
 
-    idMembros = membros.join();
+    }
+    //gs.info(count.flight.getDisplayValue());
+gs.info(membros.length);
+gs.info(sysIdMembros.length);
+    idMembros = membros.join('');
 
     var gr2 = new GlideRecord('x_alabs_pex_crew_group');
-    gr2.addEncodedQuery('number' + idMembros);
+    gr2.addEncodedQuery('number=' + idMembros);
     gr.query();
 
     if (!gr2.next()) {
@@ -35,30 +41,30 @@ while (count.next()) {
         gr2.active = true;
         gr2.insert();
 
-    
 
-    var gr3 = new GlideRecord('x_alabs_pex_crew_group_m2m');
-   // for (i = 0; i < membros.length; i++) {
 
-        var gr4 = new GlideRecord('x_alabs_pex_crew_group');
-        gr4.addQuery('number', idMembros);
-        gr4.query();
+        var gr3 = new GlideRecord('x_alabs_pex_crew_group_m2m');
+        for (i = 0; i < sysIdMembros.length; i++) {
 
-        if (gr4.next()) {
+            var gr4 = new GlideRecord('x_alabs_pex_crew_group');
+            gr4.addQuery('number', idMembros);
+            gr4.query();
 
-            gr3.initialize();
-            gr3.group = gr4.sys_id.toString();
-            gr3.user = gr.user.sys_id.toString();
-            gr3.insert();
+            if (gr4.next()) {
 
-       // }
-        
-}
+                gr3.initialize();
+                gr3.group = gr4.sys_id.toString();
+                gr3.user = sysIdMembros[i];
+                gr3.insert();
+
+            }
+
+        }
 
     }
-	membros = [];
+    membros = [];
     idMembros = '';
-
+    sysIdMembros = [];
 }
 	
 })(source, map, log, target);]]></script>
@@ -67,7 +73,7 @@ while (count.next()) {
         <sys_created_on>2018-07-24 13:20:05</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>aaa4ad74dbebd3c080567a30ba96198b</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>onComplete</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -75,7 +81,7 @@ while (count.next()) {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_script_aaa4ad74dbebd3c080567a30ba96198b</sys_update_name>
         <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-07-24 19:48:36</sys_updated_on>
+        <sys_updated_on>2018-07-24 20:53:12</sys_updated_on>
         <when>onComplete</when>
     </sys_transform_script>
 </record_update>
