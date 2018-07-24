@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="PEX - Crew Manager">fc7382ebdb5b97c00b2a32ffaa9619ff</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+	
+	var count = new GlideAggregate('x_alabs_pex_flight_crew');
+count.groupBy('flight');
+count.query();
+
+var membros = [];
+var idMembros = '';
+while (count.next()) {
+    //gs.info(count.flight.getDisplayValue());
+
+    var gr = new GlideRecord('x_alabs_pex_flight_crew');
+    gr.addEncodedQuery('user.u_cargo.functional_groupINCopiloto,Comandante^flight=' + count.flight.sys_id.toString());
+    gr.query();
+
+    while (gr.next()) {
+        membros.push(gr.user.employee_number.toString());
+    }
+
+    idMembros = membros.join();
+
+    var gr2 = new GlideRecord('x_alabs_pex_crew_group');
+    gr2.addEncodedQuery('number' + idMembros);
+    gr.query();
+
+    if (!gr2.next()) {
+        gr2.initialize();
+        gr2.number = idMembros;
+        gr2.active = true;
+        gr2.insert();
+
+    
+
+    var gr3 = new GlideRecord('x_alabs_pex_crew_group_m2m');
+   // for (i = 0; i < membros.length; i++) {
+
+        var gr4 = new GlideRecord('x_alabs_pex_crew_group');
+        gr4.addQuery('number', idMembros);
+        gr4.query();
+
+        if (gr4.next()) {
+
+            gr3.initialize();
+            gr3.group = gr4.sys_id.toString();
+            gr3.user = gr.user.sys_id.toString();
+            gr3.insert();
+
+       // }
+        
+}
+
+    }
+	membros = [];
+    idMembros = '';
+
+}
+	
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>alpar.douglas.santos</sys_created_by>
+        <sys_created_on>2018-07-24 13:20:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>aaa4ad74dbebd3c080567a30ba96198b</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>onComplete</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_aaa4ad74dbebd3c080567a30ba96198b</sys_update_name>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-07-24 19:48:36</sys_updated_on>
+        <when>onComplete</when>
+    </sys_transform_script>
+</record_update>

@@ -38,7 +38,7 @@
         <scp_server/>
         <scp_user_name/>
         <sheet_number>0</sheet_number>
-        <sql_statement>SELECT Top 1000 InventoryLegID,&#13;
+        <sql_statement>SELECT InventoryLegID,&#13;
        InventoryLegKey,&#13;
 	   DepartureDate AS 'DATA VOO', &#13;
 	   CarrierCode 'CARRIER CODE AD', &#13;
@@ -68,7 +68,7 @@ WHERE (FLIGHTNUMBER &lt; '7000' OR FLIGHTNUMBER &gt; '7999')&#13;
         <sys_created_on>2018-02-28 19:03:14</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>b37afabd6f60d300571dd7aabb3ee4c6</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>NewSkies - PEX - Definição de vôos</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -76,7 +76,7 @@ WHERE (FLIGHTNUMBER &lt; '7000' OR FLIGHTNUMBER &gt; '7999')&#13;
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_data_source_b37afabd6f60d300571dd7aabb3ee4c6</sys_update_name>
         <sys_updated_by>marcos.kassak</sys_updated_by>
-        <sys_updated_on>2018-03-27 18:12:11</sys_updated_on>
+        <sys_updated_on>2018-07-23 12:05:22</sys_updated_on>
         <table_name/>
         <type>JDBC</type>
         <use_integrated_authentication>false</use_integrated_authentication>

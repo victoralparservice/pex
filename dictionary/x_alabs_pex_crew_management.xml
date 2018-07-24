@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Crew Management" max_length="40" name="x_alabs_pex_crew_management" sizeclass="20044" type="collection">
+        <element label="Ativo" max_length="40" name="active" type="boolean"/>
+        <element label="Tripulante" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="user"/>
+        </index>
+    </element>
+</database>
