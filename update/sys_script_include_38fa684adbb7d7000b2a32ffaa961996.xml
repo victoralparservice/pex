@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.SurveyInstanceVerticalUtils</api_name>
+        <client_callable>false</client_callable>
+        <description>Utilidades pesquisa vertical</description>
+        <name>SurveyInstanceVerticalUtils</name>
+        <script><![CDATA[var SurveyInstanceVerticalUtils = Class.create();
+SurveyInstanceVerticalUtils.prototype = {
+  type: 'SurveyInstanceVerticalUtils',
+  initialize: function () {},
+
+  /**************************************************************************/
+  /******************************* Constantes *******************************/
+  /**************************************************************************/
+
+  /***************************** Nomes de tabelas *****************************/
+  _crewGroup: 'x_alabs_pex_crew_group',
+
+  /**************************************************************************/
+  /*********************** Métodos para autenticações ***********************/
+  /**************************************************************************/
+
+
+  /**************************************************************************/
+  /********************* Metodos para obtenção de dados *********************/
+  /**************************************************************************/
+  _getGroups: function () {
+    var grupos = [];
+    var gr = new GlideRecord(this._crewGroup);
+    gr.addEncodedQuery('active=true^ja_recebeu_a_pesquisa=false');
+    gr.query();
+
+    while (gr.next()) {
+      grupos.push({
+        sys_id: gr.sys_id.toString().trim()
+      });
+    }
+
+    return grupos;
+  },
+
+  _getGroupMembers: function (group) {
+
+    var _getTitleType = function (title) {
+      switch (title) {
+        case 'FA':
+        case 'FE':
+        case 'CL':
+          return 'Comissario';
+        case 'CA':
+        case 'FO':
+          return 'Piloto';
+      }
+    };
+
+
+
+    group.members = [];
+    var gr = new GlideRecord('x_alabs_pex_crew_group_m2m');
+    gr.addEncodedQuery('group=' + group.sys_id);
+    // gr.addEncodedQuery('user_titleISNOTEMPTY');
+    gr.query();
+    
+    while (gr.next()) {
+      // gs.info(gr.user_title);
+      group.members.push({
+        sys_id: gr.user.sys_id.toString(),
+        re: parseInt(gr.user.employee_number),
+        cargo: {
+          sigla: gr.user_title.toString(),
+          tipo: _getTitleType(gr.user_title.toString())
+        }
+      });
+    }
+
+    return group;
+
+  },
+
+  _getTitleTypes: function(group) {
+
+
+    var _getLeaders =  function (members) {
+      var clLeaders = [];
+      var caLeaders = [];
+  
+      clLeaders = members.filter(function (member) {
+        if (member.cargo.sigla == 'CL') return true;
+      });
+      caLeaders = members.filter(function (member) {
+        if (member.cargo.sigla == 'CA') return true;
+      });
+  
+      //Ordenar por RE
+  
+      clLeaders.sort(this._sortCres);
+      caLeaders.sort(this._sortCres);
+  
+      return clLeaders.concat(caLeaders);
+  
+    };
+
+    var leaders = _getLeaders(group.members);
+
+    var others = group.members.filter(function (member) {
+      if (member.cargo.sigla != 'CL' && member.cargo.sigla != 'CA') return true;
+    });
+
+    group.members = {};
+
+    group.members.leaders = leaders;
+    group.members.others = others;
+
+    return group;
+  },
+
+  _sortCres: function (a, b) {
+    if (a.re < b.re) return -1;
+    else if (a.re > b.re) return 1;
+    else return 0;
+  },
+
+  /**************************************************************************/
+  /************************* Gera Pesquisa Vertical *************************/
+  /**************************************************************************/
+  generateByVertical: function () {
+    var self = this;
+
+    var grupos = self._getGroups();
+    gs.info(JSON.stringify(grupos));
+    
+    grupos = grupos.map(self._getGroupMembers);
+    gs.info(JSON.stringify(grupos));
+
+    grupos = grupos.map(self._getTitleTypes);
+    gs.info(JSON.stringify(grupos));
+  }
+
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>alpar.douglas.santos</sys_created_by>
+        <sys_created_on>2018-08-09 16:36:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>38fa684adbb7d7000b2a32ffaa961996</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_name>SurveyInstanceVerticalUtils</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_38fa684adbb7d7000b2a32ffaa961996</sys_update_name>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2018-11-08 10:58:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

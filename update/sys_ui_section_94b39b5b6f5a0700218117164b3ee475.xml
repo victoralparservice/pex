@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="" section_id="94b39b5b6f5a0700218117164b3ee475" sys_domain="global" table="sys_ui_list_control" version="3" view="pex">
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>name</element>

@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_list parent="" relationship="" sys_domain="global" table="x_alabs_pex_instance_survey_question" version="2" view="RPT0b4d16606fbf4300571dd7aabb3ee4ce">
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.survey</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="8f4d16606fbf4300571dd7aabb3ee4d4">806d1a206fbf4300571dd7aabb3ee404</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="dea710ce3773c3400f49008993990ea7">806d1a206fbf4300571dd7aabb3ee404</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -19,7 +18,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.survey.type</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="8f4d16606fbf4300571dd7aabb3ee4d4">806d1a206fbf4300571dd7aabb3ee404</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="dea710ce3773c3400f49008993990ea7">806d1a206fbf4300571dd7aabb3ee404</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
@@ -34,7 +33,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>situation</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="8f4d16606fbf4300571dd7aabb3ee4d4">806d1a206fbf4300571dd7aabb3ee404</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="dea710ce3773c3400f49008993990ea7">806d1a206fbf4300571dd7aabb3ee404</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
@@ -49,7 +48,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.location</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="8f4d16606fbf4300571dd7aabb3ee4d4">806d1a206fbf4300571dd7aabb3ee404</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="dea710ce3773c3400f49008993990ea7">806d1a206fbf4300571dd7aabb3ee404</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
@@ -64,7 +63,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>sys_created_on</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="8f4d16606fbf4300571dd7aabb3ee4d4">806d1a206fbf4300571dd7aabb3ee404</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="dea710ce3773c3400f49008993990ea7">806d1a206fbf4300571dd7aabb3ee404</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
@@ -103,7 +102,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2018-01-18 12:53:51</sys_updated_on>
             <sys_user/>
-            <view display_value="Rpt0b4d16606fbf4300571dd7aabb3ee4ce" name="RPT0b4d16606fbf4300571dd7aabb3ee4ce">8f4d16606fbf4300571dd7aabb3ee4d4</view>
+            <view display_value="Rpt0b4d16606fbf4300571dd7aabb3ee4ce" name="RPT0b4d16606fbf4300571dd7aabb3ee4ce">dea710ce3773c3400f49008993990ea7</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

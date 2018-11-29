@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element audit="true" label="Questão" max_length="40" name="x_alabs_pex_instance_survey_question" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="Questão" max_length="40" name="x_alabs_pex_instance_survey_question" sizeclass="25498" type="collection">
         <element label="Prazo" max_length="40" name="due_date" type="glide_date"/>
         <element label="Notas" max_length="40" name="notes" type="journal_input"/>
         <element label="Ordem" max_length="40" name="order" type="integer"/>
+        <element label="Pontuação obtida" max_length="200" name="pontuacao_obtida" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Proposta" max_length="4000" name="proposition" type="string"/>
         <element label="Definição da Questão" mandatory="true" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Área responsável" max_length="40" name="responsible_area" type="string">
             <choice>
-                <element hint="Minha área" label="Minha área" language="pb" sequence="0" value="my_area"/>
-                <element hint="My area" label="My area" sequence="0" value="my_area"/>
-                <element hint="Other area" label="Other area" sequence="1" value="other_area"/>
-                <element hint="Outra área" label="Outra área" language="pb" sequence="1" value="other_area"/>
+                <element hint="Minha área" inactive_on_update="false" label="Minha área" language="pb" sequence="0" value="my_area"/>
+                <element hint="My area" inactive_on_update="false" label="My area" sequence="0" value="my_area"/>
+                <element hint="Other area" inactive_on_update="false" label="Other area" sequence="1" value="other_area"/>
+                <element hint="Outra área" inactive_on_update="false" label="Outra área" language="pb" sequence="1" value="other_area"/>
             </choice>
         </element>
         <element choice="1" label="Situação" max_length="40" name="situation" type="choice">
             <choice>
-                <element label="According" sequence="0" value="according"/>
-                <element label="Conforme" language="pb" sequence="0" value="according"/>
-                <element label="Não Conforme" language="pb" sequence="1" value="not_conform"/>
-                <element label="Not conform" sequence="1" value="not_conform"/>
-                <element label="Não Aplicável" language="pb" sequence="2" value="not_applicable"/>
-                <element label="Not applicable" sequence="2" value="not_applicable"/>
+                <element inactive_on_update="false" label="According" sequence="0" value="according"/>
+                <element inactive_on_update="false" label="Conforme" language="pb" sequence="0" value="according"/>
+                <element inactive_on_update="false" label="Não Conforme" language="pb" sequence="1" value="not_conform"/>
+                <element inactive_on_update="false" label="Not conform" sequence="1" value="not_conform"/>
+                <element inactive_on_update="false" label="Não Aplicável" language="pb" sequence="2" value="not_applicable"/>
+                <element inactive_on_update="false" label="Not applicable" sequence="2" value="not_applicable"/>
             </choice>
         </element>
         <element label="Survey Instance" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" reference_cascade_rule="delete" type="reference"/>

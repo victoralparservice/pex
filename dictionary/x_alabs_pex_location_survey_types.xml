@@ -1,11 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" label="Matriz Responsabilidade" max_length="40" name="x_alabs_pex_location_survey_types" type="collection">
         <element label="Primeiro Nível" max_length="32" name="first_level" reference="sys_user" type="reference"/>
         <element label="Localidade" max_length="32" name="location_survey" reference="x_alabs_pex_location_survey" type="reference"/>
+        <element choice="1" label="Posição" max_length="40" name="posicao" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Comissário" value="Comissario"/>
+                <element inactive_on_update="false" label="Piloto" value="Piloto"/>
+            </choice>
+        </element>
         <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
         <element label="Segundo Nível" max_length="32" name="second_level" reference="sys_user" type="reference"/>
         <element label="Área" max_length="32" name="survey_type" reference="x_alabs_pex_survey_type" type="reference"/>
+        <element choice="3" default="Aeroportos" label="Tipo de pesquisa" max_length="40" name="tipo_de_pesquisa" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Comissários e Pilotos" value="Comissarios e Pilotos"/>
+                <element inactive_on_update="false" label="Outras Áreas" value="Aeroportos"/>
+            </choice>
+        </element>
+        <element label="Tripulante" max_length="32" name="tripulante" reference="x_alabs_pex_crew_management" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <index name="index">
             <element name="second_level"/>
         </index>
@@ -16,9 +28,12 @@
             <element name="first_level"/>
         </index>
         <index name="index4">
-            <element name="responsible"/>
+            <element name="tripulante"/>
         </index>
         <index name="index5">
+            <element name="responsible"/>
+        </index>
+        <index name="index6">
             <element name="survey_type"/>
         </index>
     </element>

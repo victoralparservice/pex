@@ -1,30 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" label="Pesquisa" max_length="40" name="x_alabs_pex_instance_survey" type="collection">
+        <element label="Data de Partida" max_length="200" name="data_de_partida" type="string"/>
+        <element label="Destino" max_length="200" name="destino" type="string"/>
         <element label="Primeiro Nível" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>
         <element label="Localidade" max_length="32" name="location" reference="x_alabs_pex_location_survey" type="reference"/>
         <element label="Notas" max_length="40" name="notes" type="journal_input"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Número" max_length="40" name="number" read_only="true" type="string"/>
         <element default="0" label="Número de questões" max_length="40" name="number_of_questions" type="integer"/>
         <element default="0" label="Número de questões respondidas" max_length="40" name="number_of_questions_answered" type="integer"/>
+        <element label="Número do Vôo" max_length="200" name="numero_do_voo" type="string"/>
+        <element label="Origem" max_length="200" name="origem" type="string"/>
+        <element label="Maximum possible score" max_length="200" name="pontuacao_maxima_possivel" type="string"/>
+        <element label="Score obtained in the survey" max_length="200" name="pontuacao_obtida_na_pesquisa" type="string"/>
         <element label="Prazo Expirado" max_length="40" name="prazo_expirado" type="boolean"/>
         <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
         <element label="Segundo Nível" max_length="32" name="second_level_notification" reference="sys_user" type="reference"/>
         <element choice="3" default="pending" label="Status" max_length="40" name="state" type="choice">
             <choice>
-                <element label="Pendente" language="pb" sequence="0" value="pending"/>
-                <element label="Pending" sequence="0" value="pending"/>
-                <element label="Iniciada" language="pb" sequence="1" value="started"/>
-                <element label="Started" sequence="1" value="started"/>
-                <element label="Finished" sequence="2" value="finished"/>
-                <element label="Não enviada" language="pb" sequence="2" value="finished"/>
-                <element label="Completed" sequence="3" value="completed"/>
-                <element label="Finalizada" language="pb" sequence="3" value="completed"/>
-                <element label="Cancelada" language="pb" sequence="4" value="canceled"/>
-                <element label="Canceled" sequence="4" value="canceled"/>
+                <element inactive_on_update="false" label="Pendente" language="pb" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Iniciada" language="pb" sequence="1" value="started"/>
+                <element inactive_on_update="false" label="Started" sequence="1" value="started"/>
+                <element inactive_on_update="false" label="Finalizada" language="pb" sequence="2" value="finished"/>
+                <element inactive_on_update="false" label="Finished" sequence="2" value="finished"/>
+                <element inactive_on_update="false" label="Completed" sequence="3" value="completed"/>
+                <element inactive_on_update="false" label="Completo" language="pb" sequence="3" value="completed"/>
+                <element inactive_on_update="false" label="Cancelada" sequence="4" value="canceled"/>
+                <element inactive_on_update="false" label="Canceled" sequence="4" value="canceled"/>
             </choice>
         </element>
         <element label="Definição da Pesquisa" max_length="32" name="survey" reference="x_alabs_pex_survey" type="reference"/>
+        <element label="Tripulante avaliado na pesquisa" max_length="32" name="tripulante_avaliado_na_pesquisa" reference="sys_user" type="reference"/>
         <index name="index">
             <element name="first_level_notification"/>
         </index>

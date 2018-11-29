@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Notas NPS" max_length="40" name="x_alabs_pex_nps_note" type="collection">
+        <element label="Destino" max_length="100" name="destination" type="string"/>
+        <element label="Vôo" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
+        <element label="Data e hora local do vôo" max_length="40" name="flight_local_date" type="glide_date_time"/>
+        <element label="Número do Vôo" max_length="100" name="flight_number" type="integer"/>
+        <element label="Nota NPS" max_length="100" name="grade" type="integer"/>
+        <element label="InventoryLegID" max_length="100" name="inventorylegid" type="integer"/>
+        <element label="Origem" max_length="100" name="origin" type="string"/>
+        <element choice="3" label="Cargo" max_length="100" name="role" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Comissário" value="Comissario"/>
+                <element inactive_on_update="false" label="Piloto" value="Piloto"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="flight"/>
+        </index>
+    </element>
+</database>

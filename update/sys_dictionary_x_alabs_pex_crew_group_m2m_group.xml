@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_dictionary action="INSERT_OR_UPDATE" element="group" table="x_alabs_pex_crew_group_m2m">
         <active>true</active>
         <array>false</array>
@@ -31,6 +30,8 @@
         <element>group</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <function_definition/>
+        <function_field>false</function_field>
         <internal_type display_value="Reference">reference</internal_type>
         <mandatory>false</mandatory>
         <max_length>32</max_length>
@@ -41,7 +42,7 @@
         <read_roles/>
         <reference display_value="" name="x_alabs_pex_crew_group">x_alabs_pex_crew_group</reference>
         <reference_cascade_rule/>
-        <reference_floats>false</reference_floats>
+        <reference_floats>true</reference_floats>
         <reference_key/>
         <reference_qual/>
         <reference_qual_condition/>
@@ -53,7 +54,7 @@
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-07-24 13:16:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>54a3ad34dbebd3c080567a30ba961982</sys_id>
+        <sys_id>92e9c33cdbe7d34c082c980c8a961928</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Group</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -61,8 +62,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_crew_group_m2m_group</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-07-24 13:16:31</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2018-09-17 21:08:56</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

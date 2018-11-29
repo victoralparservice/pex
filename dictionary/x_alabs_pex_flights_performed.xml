@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Flights performed" max_length="40" name="x_alabs_pex_flights_performed" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Ano" max_length="40" name="ano" type="string"/>
+        <element label="Flight boarding time" max_length="40" name="boarding_time" type="glide_date_time"/>
+        <element label="Nome do tripulante" max_length="32" name="crewman_name" reference="sys_user" type="reference"/>
+        <element label="RE do tripulante" max_length="4" name="crewman_re" type="integer"/>
+        <element label="Destination" max_length="20" name="destination" type="string"/>
+        <element label="Número do vôo" max_length="40" name="flight_number" type="integer"/>
+        <element label="Data local de Vôo" max_length="40" name="local_date_and_time_of_flight" type="glide_date"/>
+        <element label="Nota NPS" max_length="20" name="nps_note" type="integer"/>
+        <element label="Origem" max_length="20" name="origin" type="string"/>
+        <element label="Cargo" max_length="100" name="role" type="string"/>
+        <index name="index">
+            <element name="crewman_name"/>
+        </index>
+    </element>
+</database>

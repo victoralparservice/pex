@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="db_image">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
     <db_image action="INSERT_OR_UPDATE">
         <active>true</active>
         <category>system</category>
@@ -27,6 +26,7 @@
     </db_image>
     <sys_attachment action="INSERT_OR_UPDATE">
         <average_image_color>#618</average_image_color>
+        <chunk_size_bytes/>
         <compressed>true</compressed>
         <content_type>image/jpeg</content_type>
         <encryption_context/>
@@ -35,6 +35,7 @@
         <image_width>451</image_width>
         <size_bytes>14127</size_bytes>
         <size_compressed>12986</size_compressed>
+        <state/>
         <sys_created_by>eli.lima</sys_created_by>
         <sys_created_on>2017-12-18 20:15:07</sys_created_on>
         <sys_id>f11914366f838300571dd7aabb3ee494</sys_id>

@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_widget">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
         <client_script><![CDATA[function($scope,  $uibModal, $rootScope, $location) {
 	$rootScope.$broadcast('sp.update.breadcrumbs', $scope.data.breadcrumbs);
 
 	var c = this;
+	
+
+	
+	$scope.teste = '';
 	console.log('status: ' + $scope.data.status);
 	$scope.questaoArray = $scope.data.survey.questions;  
 
@@ -145,6 +149,11 @@
     }
     
   }
+}
+
+.prazo{
+     width: 30em;
+    height: 2.3em;
 }
 
 .separete{
@@ -345,7 +354,16 @@ p.action-text {
 			grQuestion.situation = question.situation;
 			grQuestion.proposition = question.notConform.proposition;	
 			grQuestion.responsible_area = question.notConform.responsible_area;
-			grQuestion.due_date = question.notConform.due_date;
+			
+			//gs.addInfoMessage(question.notConform.du_ate);			
+			var dueDate = new GlideDate();
+			
+		 
+				//2018-10-17T03:00:00.000Z
+			
+			var due_date_formatted = question.notConform.due_date.split("T");
+			dueDate.setValue(due_date_formatted[0]);
+			grQuestion.due_date = dueDate;
 			grQuestion.update();
 			 
 			var survey = new GlideRecord("x_alabs_pex_instance_survey");
@@ -452,223 +470,258 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>1017</sys_mod_count>
+        <sys_mod_count>1129</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
-        <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-07-09 01:11:19</sys_updated_on>
+        <sys_updated_by>alpar.david.santos</sys_updated_by>
+        <sys_updated_on>2018-10-07 06:20:24</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
-   <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-         <div class="card">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="text-center">{{data.survey.name}}</h1>
-                  <h4 class="text-center"><span>{{data.survey.type}}</span> | <span>Quantidade de questões: {{data.survey.questions.length}}</span></h4>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12 text-center">
-                  <p data-ng-bind-html="data.survey.introduction">
-                  </p>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12 text-center">
-                  <a class="btn btn-default btn-azul btn-lg" ng-click="startEvaluation(data.survey)">${Iniciar}</a>
-               </div>
-            </div>
-         </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">{{data.survey.name}}</h1>
+            <h4 class="text-center"><span>{{data.survey.type}}</span> | <span>Quantidade de questões: {{data.survey.questions.length}}</span></h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p data-ng-bind-html="data.survey.introduction">
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a class="btn btn-default btn-azul btn-lg" ng-click="startEvaluation(data.survey)">${Iniciar}</a>
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
+  </div>
 </div>
 <!-- FIM INTRODUÇÃO -->
 <div ng-if="data.survey.state=='finished'">
-   <h3>
-     Esta pesquisa não se encontra mais disponível.
+  <h3>
+    Esta pesquisa não se encontra mais disponível.
   </h3> 
 </div>
 <!-- INICIO CAROUSEL -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" ng-if="data.survey.state=='started'">
-   <div class="carousel-inner">
-      <slide ng-repeat="question in data.survey.questions" active='{{$index==firstIndex}}' class="item" ng-class="{active:$index==firstIndex}">
-         <div class="question">
-            <div class="slide-content">
-               <div class="row">
-                  <div class="col-md-offset-1 col-md-10">
-                     <h2 class="number-question text-center">{{$index + 1}} / {{data.survey.questions.length}}</h2>
-                     
-                     <button type="button" class="btn btn-primary pull-right btn-description" data-toggle="modal" data-target="#modalDescription{{$index}}"><i class="fa fa-info-circle"></i></button>
-                     <a ng-disabled="!notConformForm.$valid" ng-if="exibirFinalizar && data.survey.totalAnswered==data.survey.questions.length" class="btn btn-success pull-right btn-finished" ng-click="completeEvaluation(data.survey, question)"><i class="fa fa-check" aria-hidden="true"></i> Finalizar</a>
-                  </div>
-               </div>
-               <div class="row form-card">
-                  <div class="col-md-1">
-                     <div ng-if="!$first" class="arrow arrow-active pull-right" href="#myCarousel" data-slide="prev">
-                        <i class="fa fa-arrow-left"></i>
-                     </div>
-                  </div>
-                  <div class="col-md-10">
-                     <div class="card">
-                        <div class="row">
-                           <div class="col-md-12">
-                              <div class="question">
-                                <p><strong>Pilar:</strong> {{question.category}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Item:</strong> {{question.item}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Subitem:</strong> {{question.subitem}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Aplicabilidade:</strong> {{question.applicabilities}}</p>
-                                <h4><strong>${Pergunta}</strong></h4>
-                                <p>{{question.question}}</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <div class="col-md-4">
-                              <div class="center">
-                                 <div class="card-circle text-center" ng-class="question.situation=='according'?'icon-like-active':'icon-like'" ng-click="selectSituation(question, 'according', notConformForm.$valid, $last)">
-                                    <p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
-                                    <p class="action-text">${Conforme}</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="center">
-                                 <div class="card-circle text-center" ng-class="question.situation=='not_conform'?'icon-unlike-active':'icon-unlike'" ng-click="selectSituation(question, 'not_conform', notConformForm.$valid, $last)">
-                                    <p class="icon"><i class="fa fa-thumbs-o-down"></i></p>
-                                    <p class="action-text">${Não conforme}</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="center">
-                                 <div class="card-circle text-center" ng-class="question.situation=='not_applicable'?'icon-null-active':'icon-null'" ng-click="selectSituation(question, 'not_applicable', notConformForm.$valid, $last)">
-                                    <p class="icon"><i class="fa fa-times"></i></p>
-                                    <p class="action-text">${Não se aplica}</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <div ng-class="question.situation&&notConformForm.$valid?'arrow-active':'arrow'" ng-if="!$last"  href="{{question.situation&&notConformForm.$valid?'#myCarousel':''}}" data-slide="next" ng-click="saveAndNext(notConformForm.$valid,question)">
-                        <i class="fa fa-arrow-right"></i>
-                     </div>
-                  </div>
-               </div>
-               <!-- FIM ROW -->
+  <div class="carousel-inner">
+    <slide ng-repeat="question in data.survey.questions" active='{{$index==firstIndex}}' class="item" ng-class="{active:$index==firstIndex}">
+      <div class="question">
+        <div class="slide-content">
+          <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+              <h2 class="number-question text-center">{{$index + 1}} / {{data.survey.questions.length}}</h2>
+
+              <button type="button" class="btn btn-primary pull-right btn-description" data-toggle="modal" data-target="#modalDescription{{$index}}"><i class="fa fa-info-circle"></i></button>
+              <a ng-disabled="!notConformForm.$valid" ng-if="exibirFinalizar && data.survey.totalAnswered==data.survey.questions.length" class="btn btn-success pull-right btn-finished" ng-click="completeEvaluation(data.survey, question)"><i class="fa fa-check" aria-hidden="true"></i> Finalizar</a>
             </div>
-            <!-- Fim do slide-->
-            <!-- INICIO NÃO CONFORME -->
-            <form name="notConformForm">
-            <div class="row not-in" ng-if="question.situation=='not_conform'">
-               <div class="col-md-offset-1 col-md-10">
-                 <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group required">
-                           <label class="control-label" for="due_date">Prazo</label>
-                           <sp-date-picker name="due_date" id="due_date" ng-model="question.notConform.due_date" ng-required='question.notConform.required' ng-change="selectDate(notConformForm.$valid, $last, question)"></sp-date-picker>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="form-group required">
-                           <label class="control-label" for="responsible_area">Área Responsável</label>
-                           <select class="form-control" name="responsible_area" ng-options="responsibleArea.value as responsibleArea.label for responsibleArea in data.responsibleAreas" ng-required='question.notConform.required' ng-model="question.notConform.responsible_area" ng-change="selectDate(notConformForm.$valid, $last, question)">
-                             <option value="">Selecione a área responsável...</option>
-                           </select>
-                        </div>
-                     </div>
+          </div>
+          <div class="row form-card">
+            <div class="col-md-1">
+              <div ng-if="!$first" class="arrow arrow-active pull-right" href="#myCarousel" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="card">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="question">
+                      <p><strong>Pilar:</strong> {{question.category}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Item:</strong> {{question.item}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Subitem:</strong> {{question.subitem}}<strong class="separete"><i class="fa fa-circle"></i></strong><strong>Aplicabilidade:</strong> {{question.applicabilities}}</p>
+                      <h4><strong>${Pergunta}</strong></h4>
+                      <p>{{question.question}}</p>
                     </div>
-                 
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="form-group required">
-                           <label class="control-label" for="proposition">O que você pretende fazer para melhorar?</label>
-                           <textarea name="proposition" id="proposition" class="form-control" rows="3" ng-model="question.notConform.proposition"  ng-required='question.notConform.required' ng-blur="saveLastQuestion(notConformForm.$valid, $last, question)"></textarea>
-                        </div>
-                     </div>
                   </div>
-               </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="center">
+                      <div class="card-circle text-center" ng-class="question.situation=='according'?'icon-like-active':'icon-like'" ng-click="selectSituation(question, 'according', notConformForm.$valid, $last)">
+                        <p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
+                        <p class="action-text">${Conforme}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="center">
+                      <div class="card-circle text-center" ng-class="question.situation=='not_conform'?'icon-unlike-active':'icon-unlike'" ng-click="selectSituation(question, 'not_conform', notConformForm.$valid, $last)">
+                        <p class="icon"><i class="fa fa-thumbs-o-down"></i></p>
+                        <p class="action-text">${Não conforme}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="center">
+                      <div class="card-circle text-center" ng-class="question.situation=='not_applicable'?'icon-null-active':'icon-null'" ng-click="selectSituation(question, 'not_applicable', notConformForm.$valid, $last)">
+                        <p class="icon"><i class="fa fa-times"></i></p>
+                        <p class="action-text">${Não se aplica}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-           </form> 
-            <!-- FIM NÃO CONFORME -->
-         </div>
-         <!-- FIM INTRODUÇÃO -->
-        
-        <!-- INICIO MODAL DESCRICAO -->
-				<div class="modal fade" tabindex="-1" role="menu" tabindex="-1" data-backdrop="false" id="modalDescription{{$index}}" aria-labelledby="myModalLabel">
-  					<div class="modal-dialog" role="document">
-    					<div class="modal-content">
-      					<div class="modal-header">
-        					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        					<h4 class="modal-title" id="myModalLabel">${Description}</h4>
-      					</div>
-      					<div class="modal-body">
-        					<div data-ng-bind-html="question.description"></div>
-      					</div>
-      					<div class="modal-footer">
- 	       					<button type="button" class="btn btn-danger" data-dismiss="modal">${Close}</button>
-      					</div>
-    				</div>
-  				</div>
-				</div>
-				<!-- FIM MODAL DESCRICAO -->
-        
-      </slide>
-      <!-- FIM REPEAT -->
-   </div>
-   <!-- FIM CAROUSEL INNER -->
+            <div class="col-md-1">
+              <div ng-class="question.situation&&notConformForm.$valid?'arrow-active':'arrow'" ng-if="!$last"  href="{{question.situation&&notConformForm.$valid?'#myCarousel':''}}" data-slide="next" ng-click="saveAndNext(notConformForm.$valid,question)">
+                <i class="fa fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+          <!-- FIM ROW -->
+        </div>
+        <!-- Fim do slide-->
+        <!-- INICIO NÃO CONFORME -->
+        <!--  <form name="notConformForm">
+<div class="row not-in" ng-if="question.situation=='not_conform'">
+<div class="col-md-offset-1 col-md-10">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group required">
+<label class="control-label" for="due_date">Prazo</label>
+<sp-date-picker name="due_date" id="due_date" ng-model="question.notConform.due_date" ng-required='question.notConform.required' ng-change="selectDate(notConformForm.$valid, $last, question)"></sp-date-picker>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group required">
+<label class="control-label" for="responsible_area">Área Responsável</label>
+<select class="form-control" name="responsible_area" ng-options="responsibleArea.value as responsibleArea.label for responsibleArea in data.responsibleAreas" ng-required='question.notConform.required' ng-model="question.notConform.responsible_area" ng-change="selectDate(notConformForm.$valid, $last, question)">
+<option value="">Selecione a área responsável...</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="form-group required">
+<label class="control-label" for="proposition">O que você pretende fazer para melhorar?</label>
+<textarea name="proposition" id="proposition" class="form-control" rows="3" ng-model="question.notConform.proposition"  ng-required='question.notConform.required' ng-blur="saveLastQuestion(notConformForm.$valid, $last, question)"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form> -->
+
+        <form name="notConformForm">
+          <div class="row not-in" ng-if="question.situation=='not_conform'">
+            <div class="col-md-offset-1 col-md-10">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group required">
+                    <label class="control-label" for="due_date">Prazo</label>
+                    <input class='prazo' type="date"  name="due_date" id="due_date" ng-model="question.notConform.due_date" ng-required='question.notConform.required' ng-change="selectDate(notConformForm.$valid, $last, question)">
+                  	
+                    {{due_date}}
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group required">
+                    <label class="control-label" for="responsible_area">Área Responsável</label>
+                    <select class="form-control" name="responsible_area" ng-options="responsibleArea.value as responsibleArea.label for responsibleArea in data.responsibleAreas" ng-required='question.notConform.required' ng-model="question.notConform.responsible_area" ng-change="selectDate(notConformForm.$valid, $last, question)">
+                      <option value="">Selecione a área responsável...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group required">
+                    <label class="control-label" for="proposition">O que você pretende fazer para melhorar?</label>
+                    <textarea name="proposition" id="proposition" class="form-control" rows="3" ng-model="question.notConform.proposition"  ng-required='question.notConform.required' ng-blur="saveLastQuestion(notConformForm.$valid, $last, question)"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form> 
+        <!-- FIM NÃO CONFORME -->
+      </div>
+      <!-- FIM INTRODUÇÃO -->
+
+      <!-- INICIO MODAL DESCRICAO -->
+      <div class="modal fade" tabindex="-1" role="menu" tabindex="-1" data-backdrop="false" id="modalDescription{{$index}}" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">${Description}</h4>
+            </div>
+            <div class="modal-body">
+              <div data-ng-bind-html="question.description"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">${Close}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM MODAL DESCRICAO -->
+
+    </slide>
+    <!-- FIM REPEAT -->
+  </div>
+  <!-- FIM CAROUSEL INNER -->
 </div>
 <!-- FIM CAROUSEL -->
 
 <!-- INICIO NOTAS -->
 <div class="end-notes" ng-if="data.survey.state == 'completed'">
-   <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-         <div class="card">
-            <div class="row">
-               <div class="col-md-12" ng-if="data.survey.endNotes">
-                  <h3 class="text-center">Notas de finalização</h3>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12 text-center">
-                  <p data-ng-bind-html="data.survey.endNotes">
-                 </p>
-               </div>
-            </div>
-             <!-- Questões Respondidas -->
-              <div class="row">
-               <div class="col-md-12" ng-if="questaoArray">
-                  <h3 class="text-center">Revisão</h3>
-               </div><br><br><br><br>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                 <span ng-repeat="qst in questaoArray">
-                    <ul>
-                      <li>{{qst.questions.question}}</li>
-                     	<strong>Resposta:</strong> {{qst.questions.situation}}
-                   </ul>
-                 </span>
-               </div>
-            </div>
-             <!-- -->
-           <br/><br/>
-            <div class="row">
-               <div class="col-md-12 text-center">
-                 <a ng-disabled="!hasNotConformQuestion" style="float: left" class="btn btn-primary" ng-click="redirectAfterCompletedSurvey('plano_de_acao_pex')">${Plano de ação}</a>
-                  <!--a class="btn btn-default" ng-click="redirectAfterCompletedSurvey('avaliacoes_pex')">${Lista de avaliações}</a-->
-                  <a class="btn btn-danger" style="float: left; margin:0px 0px 7px 7px" ng-click="redirectAfterCompletedSurvey('index_pex')">${Fechar}</a>
-                 <a class="btn btn-warning" ng-click="getPDF()" style="float: right; margin:0px 0px 7px 7px"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Questões}</a>
-                 <a ng-disabled="!hasNotConformQuestion" class="btn btn-warning" ng-click="getActionPlan()" style="float: right"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Plano de Ação}</a> 
-               </div>
-            </div>
-         </div>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12" ng-if="data.survey.endNotes">
+            <h3 class="text-center">Notas de finalização</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p data-ng-bind-html="data.survey.endNotes">
+            </p>
+          </div>
+        </div>
+        <!-- Questões Respondidas -->
+        <div class="row">
+          <div class="col-md-12" ng-if="questaoArray">
+            <h3 class="text-center">Revisão</h3>
+          </div><br><br><br><br>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <span ng-repeat="qst in questaoArray">
+              <ul>
+                <li>{{qst.questions.question}}</li>
+                <strong>Resposta:</strong> {{qst.questions.situation}}
+              </ul>
+            </span>
+          </div>
+        </div>
+        <!-- -->
+        <br/><br/>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a ng-disabled="!hasNotConformQuestion" style="float: left" class="btn btn-primary" ng-click="redirectAfterCompletedSurvey('plano_de_acao_pex')">${Plano de ação}</a>
+            <!--a class="btn btn-default" ng-click="redirectAfterCompletedSurvey('avaliacoes_pex')">${Lista de avaliações}</a-->
+            <a class="btn btn-danger" style="float: left; margin:0px 0px 7px 7px" ng-click="redirectAfterCompletedSurvey('index_pex')">${Fechar}</a>
+            <a class="btn btn-warning" ng-click="getPDF()" style="float: right; margin:0px 0px 7px 7px"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Questões}</a>
+            <a ng-disabled="!hasNotConformQuestion" class="btn btn-warning" ng-click="getActionPlan()" style="float: right"><span class="glyphicon glyphicon-print" style="margin-right: 7px"></span>${Plano de Ação}</a> 
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
+  </div>
 </div>]]></template>
     </sp_widget>
 </record_update>

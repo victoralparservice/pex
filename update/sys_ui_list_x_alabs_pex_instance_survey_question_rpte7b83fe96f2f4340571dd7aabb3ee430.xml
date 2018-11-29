@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_list parent="" relationship="" sys_domain="global" table="x_alabs_pex_instance_survey_question" version="2" view="RPTe7b83fe96f2f4340571dd7aabb3ee430">
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.survey</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="bfb8bb6d6f2f4340571dd7aabb3ee486">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="06a710ce3773c3400f49008993990e6e">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -19,7 +18,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.survey.type</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="bfb8bb6d6f2f4340571dd7aabb3ee486">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="06a710ce3773c3400f49008993990e6e">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
@@ -34,7 +33,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>survey_instance.state</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="bfb8bb6d6f2f4340571dd7aabb3ee486">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="06a710ce3773c3400f49008993990e6e">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
@@ -49,7 +48,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>sys_created_on</element>
-            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="bfb8bb6d6f2f4340571dd7aabb3ee486">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
+            <list_id display_value="x_alabs_pex_instance_survey_question" element="NULL" name="x_alabs_pex_instance_survey_question" parent="NULL" relationship="NULL" sys_domain="global" view="06a710ce3773c3400f49008993990e6e">3bb8bb6d6f2f4340571dd7aabb3ee487</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
@@ -88,7 +87,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2018-01-09 11:51:16</sys_updated_on>
             <sys_user/>
-            <view display_value="Rpte7b83fe96f2f4340571dd7aabb3ee430" name="RPTe7b83fe96f2f4340571dd7aabb3ee430">bfb8bb6d6f2f4340571dd7aabb3ee486</view>
+            <view display_value="Rpte7b83fe96f2f4340571dd7aabb3ee430" name="RPTe7b83fe96f2f4340571dd7aabb3ee430">06a710ce3773c3400f49008993990e6e</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

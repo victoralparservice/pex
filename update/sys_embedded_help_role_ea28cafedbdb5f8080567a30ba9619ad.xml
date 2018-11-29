@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_embedded_help_role">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
     <sys_embedded_help_role action="INSERT_OR_UPDATE">
         <order>1000</order>
-        <role display_value="sn_sm_legal_dispatcher" name="sn_sm_legal_dispatcher">2c10bd12df132100dca6a5f59bf2633f</role>
+        <role display_value="">2c10bd12df132100dca6a5f59bf2633f</role>
         <sys_class_name>sys_embedded_help_role</sys_class_name>
         <sys_created_by>system</sys_created_by>
         <sys_created_on>2018-07-18 10:47:16</sys_created_on>

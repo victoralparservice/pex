@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="numero_do_voo" label="Número do Voo" language="en" table="x_alabs_pex_flights">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>numero_do_voo</element>

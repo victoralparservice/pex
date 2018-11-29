@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_page">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
     <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
         <css>main.body {&#13;
     padding-top: 0px !important;&#13;
 }&#13;
@@ -8,6 +8,7 @@
    padding-top: 1.5em;&#13;
 }</css>
         <draft>false</draft>
+        <dynamic_title_structure/>
         <id>index_pex</id>
         <internal>false</internal>
         <public>false</public>

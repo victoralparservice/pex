@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="" section_id="3719b6b8dbefd3c080567a30ba961902" sys_domain="global" table="x_alabs_pex_crew_group_m2m" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.begin_split</element>
@@ -70,6 +69,20 @@
             <sys_updated_on>2018-07-24 19:29:01</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>user_title</element>
+            <position>5</position>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-07-27 19:52:05</sys_created_on>
+            <sys_id>432b923ddb6f97c080567a30ba96190b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_alabs_pex_crew_group_m2m" sys_domain="global" view="Default view">3719b6b8dbefd3c080567a30ba961902</sys_ui_section>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-07-27 19:52:05</sys_updated_on>
+            <sys_user/>
+            <type/>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

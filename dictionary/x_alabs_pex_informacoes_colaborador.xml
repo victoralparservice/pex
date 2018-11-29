@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="sys_import_set_row" label="NewSkies - PEX - Informações colaborador" max_length="40" name="x_alabs_pex_informacoes_colaborador" sizeclass="8523594" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="NewSkies - PEX - Informações colaborador" max_length="40" name="x_alabs_pex_informacoes_colaborador" sizeclass="906600" type="collection">
         <element attributes="edge_encryption_enabled=true" label="BASE" max_length="40" name="u_base" type="string"/>
         <element attributes="import_attribute_name=BIRTHDATE" label="BIRTHDATE" max_length="40" name="u_birthdate" type="datetime"/>
         <element attributes="import_attribute_name=BOX,edge_encryption_enabled=true" label="BOX" max_length="40" name="u_box" type="string"/>

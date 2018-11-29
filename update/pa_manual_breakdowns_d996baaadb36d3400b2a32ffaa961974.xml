@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="pa_manual_breakdowns">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="pa_manual_breakdowns">
     <pa_manual_breakdowns action="INSERT_OR_UPDATE">
         <breakdown display_value="CMDB Class Manual">8a35ec16f3011200eaae19d854612b65</breakdown>
         <order>100</order>

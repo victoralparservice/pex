@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="question_instance" label="Question" language="en" table="x_alabs_pex_action_plan_action">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>question_instance</element>

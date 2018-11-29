@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Technical Performance" max_length="40" name="x_alabs_pex_technical_performances" type="collection">
+        <element label="Nota" max_length="40" name="grade" type="string"/>
+        <element label="RE" max_length="40" name="re" type="string"/>
+        <element display="true" label="Tripulante" max_length="32" name="tripulante" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="tripulante"/>
+        </index>
+    </element>
+</database>

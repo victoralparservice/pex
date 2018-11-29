@@ -1,13 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Flight Crew" max_length="40" name="x_alabs_pex_flight_crew" type="collection">
-        <element label="Flight" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
-        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;&#13;&#10;})(current);" label="Crewman RE" max_length="32" name="crewman_re" type="string" virtual="true"/>
+        <element active="false" label="Data de Partida" max_length="200" name="data_de_partida" type="string"/>
+        <element label="Data e hora de partida local" max_length="200" name="data_e_hora_de_partida" type="glide_date_time"/>
+        <element label="Data/Hora de partida UTC" max_length="200" name="data_hora_de_partida_utc" type="glide_date_time"/>
+        <element label="Destino" max_length="200" name="destino" type="string"/>
+        <element display="true" label="Flight" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
+        <element label="Número do Vôo" max_length="200" name="numero_do_voo" type="string"/>
+        <element label="Origem" max_length="200" name="origem" type="string"/>
+        <element label="User" max_length="32" name="user" reference="x_alabs_pex_crew_management" type="reference"/>
+        <element label="User Title" max_length="200" name="user_title" type="string"/>
         <index name="index">
             <element name="flight"/>
         </index>
         <index name="index2">
             <element name="user"/>
+        </index>
+        <index name="index3">
+            <element name="crewman_re"/>
         </index>
     </element>
 </database>

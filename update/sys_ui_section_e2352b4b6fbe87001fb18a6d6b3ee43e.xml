@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="Não Conforme" section_id="e2352b4b6fbe87001fb18a6d6b3ee43e" sys_domain="global" table="x_alabs_pex_instance_survey_question" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.begin_split</element>

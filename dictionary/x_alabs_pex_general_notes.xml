@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="General Notes" max_length="40" name="x_alabs_pex_general_notes" type="collection">
+        <element label="Ano da avaliação" max_length="40" name="ano" type="string"/>
+        <element label="MÉDIA" max_length="40" name="average" type="string"/>
+        <element label="NOTA FINAL" max_length="40" name="final_note" type="string"/>
+        <element label="Nome do Tripulante" max_length="32" name="name_of_crew_member" reference="sys_user" type="reference"/>
+        <element label="NPS" max_length="40" name="nps" type="string"/>
+        <element label="Cargo" max_length="40" name="position" type="string"/>
+        <element label="RE Tripulante" max_length="40" name="re_crewman" type="string"/>
+        <element label="Auto Avaliação" max_length="40" name="self_assessment" type="string"/>
+        <element default="0" label="Technical Performance" max_length="40" name="technical_performance" type="string"/>
+        <element choice="3" label="Tipo de Operação" max_length="40" name="type_of_operation" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Domestic" value="domestic"/>
+                <element inactive_on_update="false" label="Doméstico" language="pb" value="domestic"/>
+                <element inactive_on_update="false" label="Internacional" language="pb" value="international"/>
+                <element inactive_on_update="false" label="International" value="international"/>
+            </choice>
+        </element>
+        <element label="Avaliação Vertical" max_length="40" name="vertical_evaluation" type="string"/>
+        <index name="index">
+            <element name="name_of_crew_member"/>
+        </index>
+    </element>
+</database>

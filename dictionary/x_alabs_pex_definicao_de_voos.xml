@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="sys_import_set_row" label="NewSkies - PEX - Definição de vôos" max_length="40" name="x_alabs_pex_definicao_de_voos" sizeclass="303331" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="NewSkies - PEX - Definição de vôos" max_length="40" name="x_alabs_pex_definicao_de_voos" type="collection">
         <element attributes="edge_encryption_enabled=true" label="ATUALIZADO" max_length="40" name="u_atualizado" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="CARRIER_CODE_AD" max_length="40" name="u_carrier_code_ad" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="DATA_CHEGADA_LOCAL" max_length="40" name="u_data_chegada_local" type="string"/>

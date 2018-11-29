@@ -1,17 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_script_client">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
         <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description/>
-        <field>active</field>
+        <field>type</field>
         <global>true</global>
+        <isolate_script>false</isolate_script>
         <messages/>
         <name>PEX Location Mandatory before approval</name>
         <order/>
-        <script><![CDATA[function onLoad() {
-	if (g_form.isNewRecord()) {
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '' || g_form.isNewRecord()) {
+		return;
+	}
+	
+	var type = g_form.getValue('type');
+	if(type == 'b560c7c9db271fc00b2a32ffaa961959' || type == '7323bf2adbeb53040b2a32ffaa961968' || type == '3a3377a2db2f53040b2a32ffaa961997'){
 		return;
 	}
 	g_form.setMandatory("locations", true);
@@ -23,7 +28,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9e71808e6fbf0700571dd7aabb3ee4db</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>PEX Location Mandatory before approval</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -31,10 +36,10 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_client_9e71808e6fbf0700571dd7aabb3ee4db</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-22 17:25:01</sys_updated_on>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-08-08 15:27:56</sys_updated_on>
         <table>x_alabs_pex_survey</table>
-        <type>onLoad</type>
+        <type>onChange</type>
         <ui_type>10</ui_type>
         <view/>
     </sys_script_client>

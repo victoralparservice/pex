@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Questão da Pesquisa" max_length="40" name="x_alabs_pex_surveys_questions" type="collection">
         <element label="Ordem" max_length="40" name="order" type="integer"/>
         <element label="Definição da Questão" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>

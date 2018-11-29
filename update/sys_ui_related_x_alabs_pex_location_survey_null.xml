@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_related sys_domain="global" table="x_alabs_pex_location_survey" version="2" view="">
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Location Survey - Default view" name="x_alabs_pex_location_survey" related_list="NULL" sys_domain="global" view="Default view">6709a11d6f0ec380218117164b3ee4ad</list_id>
+            <list_id display_value="Localidade - Default view" name="x_alabs_pex_location_survey" related_list="NULL" sys_domain="global" view="Default view">6709a11d6f0ec380218117164b3ee4ad</list_id>
             <order_by/>
             <position>0</position>
             <related_list>x_alabs_pex_location_survey_types.location_survey</related_list>
@@ -17,7 +16,7 @@
         </sys_ui_related_list_entry>
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Location Survey - Default view" name="x_alabs_pex_location_survey" related_list="NULL" sys_domain="global" view="Default view">6709a11d6f0ec380218117164b3ee4ad</list_id>
+            <list_id display_value="Localidade - Default view" name="x_alabs_pex_location_survey" related_list="NULL" sys_domain="global" view="Default view">6709a11d6f0ec380218117164b3ee4ad</list_id>
             <order_by/>
             <position>1</position>
             <related_list>x_alabs_pex_survey.locations</related_list>
@@ -30,7 +29,7 @@
             <sys_updated_on>2017-10-25 17:10:49</sys_updated_on>
         </sys_ui_related_list_entry>
         <sys_ui_related_list action="INSERT_OR_UPDATE">
-            <calculated_name>Location Survey - Default view</calculated_name>
+            <calculated_name>Localidade - Default view</calculated_name>
             <filter/>
             <name>x_alabs_pex_location_survey</name>
             <order_by/>

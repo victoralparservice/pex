@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="u_carrier_code_ad" label="CARRIER_CODE_AD" language="en" table="x_alabs_pex_definicao_de_voos">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>u_carrier_code_ad</element>

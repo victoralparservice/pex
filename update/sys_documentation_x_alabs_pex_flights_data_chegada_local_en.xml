@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="data_chegada_local" label="Data chegada Local" language="en" table="x_alabs_pex_flights">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>data_chegada_local</element>

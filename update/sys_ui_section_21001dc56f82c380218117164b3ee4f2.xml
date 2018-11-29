@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="" section_id="21001dc56f82c380218117164b3ee4f2" sys_domain="global" table="u_imp_tmpl_x_alabs_pex_location_survey" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>u_location</element>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_script">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
     <sys_script action="INSERT_OR_UPDATE">
         <abort_action>false</abort_action>
         <access>package_private</access>
@@ -16,9 +15,7 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_alabs_pex_survey">stateCHANGESTOpublished^EQ<item endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="published"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter_condition>
+        <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
         <name>Generete Instances</name>
@@ -43,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1fba3a516f020780218117164b3ee48a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Generete Instances</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -51,10 +48,10 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_1fba3a516f020780218117164b3ee48a</sys_update_name>
-        <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-07-24 22:39:28</sys_updated_on>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-10-18 11:07:38</sys_updated_on>
         <template/>
-        <when>after</when>
+        <when>before_display</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=1fba3a516f020780218117164b3ee48a"/>
     <sys_translated_text action="INSERT_OR_UPDATE">

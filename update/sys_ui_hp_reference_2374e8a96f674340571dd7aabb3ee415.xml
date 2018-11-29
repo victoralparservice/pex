@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_ui_hp_reference">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_hp_reference">
     <sys_ui_hp_reference action="INSERT_OR_UPDATE">
         <publisher_reference display_value="Localidade">272a9ce16f674340571dd7aabb3ee4c5</publisher_reference>
         <reference_field>survey_instance.location</reference_field>

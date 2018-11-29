@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_data_source">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source">
     <sys_data_source action="INSERT_OR_UPDATE">
         <category/>
         <connection_timeout>0</connection_timeout>
-        <connection_url>jdbc:sqlserver://ods-test.azul.corp:52900;selectMethod=cursor;databaseName=TSTADOD01</connection_url>
+        <connection_url>jdbc:sqlserver://ods.azul.corp:52900;selectMethod=cursor;databaseName=REZADOD01</connection_url>
         <connection_url_parameters/>
         <csv_delimiter/>
-        <database_name>TSTADOD01</database_name>
+        <database_name>REZADOD01</database_name>
         <database_port>52900</database_port>
         <expand_node_children>false</expand_node_children>
         <file_path/>
@@ -18,14 +17,14 @@
         <import_set_table_name>x_alabs_pex_definicao_de_voos</import_set_table_name>
         <instance_name/>
         <jdbc_password>fvUxD19/NH5bFebQVXWsyQ==</jdbc_password>
-        <jdbc_server>ods-test.azul.corp</jdbc_server>
+        <jdbc_server>ods.azul.corp</jdbc_server>
         <jdbc_user_name>ADODSUSER8</jdbc_user_name>
         <jpath_root_node/>
         <last_run_database_field/>
         <last_run_datetime/>
         <ldap_target/>
         <maximum_rows/>
-        <mid_server display_value="SNMID1TB578H - DEV">7e1d67646f8f43009ae430767b3ee4f4</mid_server>
+        <mid_server display_value="SNOWDMZTB578A">d3b83de36f5e3200656917164b3ee471</mid_server>
         <name>NewSkies - PEX - Definição de vôos</name>
         <oracle_port>1521</oracle_port>
         <oracle_sid>orcl</oracle_sid>
@@ -54,7 +53,7 @@
 	   PRBCCode AS 'PRB CODE', &#13;
 	   Status as 'STATUS',&#13;
 	   ModifiedDate AS 'ATUALIZADO'&#13;
-FROM [TSTADOD01].[dbo].[InventoryLeg]&#13;
+FROM [REZADOD01].[dbo].[InventoryLeg]&#13;
 WHERE (FLIGHTNUMBER &lt; '7000' OR FLIGHTNUMBER &gt; '7999')&#13;
 	   AND PRBCCode NOT IN ('TP','UA','B6')&#13;
 	   AND Status IN (0,1,5)&#13;
@@ -68,15 +67,15 @@ WHERE (FLIGHTNUMBER &lt; '7000' OR FLIGHTNUMBER &gt; '7999')&#13;
         <sys_created_on>2018-02-28 19:03:14</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>b37afabd6f60d300571dd7aabb3ee4c6</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>NewSkies - PEX - Definição de vôos</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_data_source_b37afabd6f60d300571dd7aabb3ee4c6</sys_update_name>
-        <sys_updated_by>marcos.kassak</sys_updated_by>
-        <sys_updated_on>2018-07-23 12:05:22</sys_updated_on>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2018-04-07 21:31:17</sys_updated_on>
         <table_name/>
         <type>JDBC</type>
         <use_integrated_authentication>false</use_integrated_authentication>

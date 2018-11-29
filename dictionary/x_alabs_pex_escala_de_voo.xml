@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element extends="sys_import_set_row" label="NewSkies - PEX - Escala de vôo" max_length="40" name="x_alabs_pex_escala_de_voo" type="collection">
         <element attributes="import_attribute_name=BASE" label="BASE" max_length="40" name="u_base" type="char"/>
         <element attributes="import_attribute_name=CARGO,edge_encryption_enabled=true" label="CARGO" max_length="40" name="u_cargo" type="string"/>

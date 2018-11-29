@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type_of_operation" table="x_alabs_pex_general_notes" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type_of_operation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Domestic</label>
+            <language>en</language>
+            <name>x_alabs_pex_general_notes</name>
+            <sequence/>
+            <sys_created_by>alpar.mariana.maciel</sys_created_by>
+            <sys_created_on>2018-10-03 19:16:04</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d60f587bdb3827400b2a32ffaa96195f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alpar.mariana.maciel</sys_updated_by>
+            <sys_updated_on>2018-10-03 19:16:04</sys_updated_on>
+            <value>domestic</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type_of_operation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Doméstico</label>
+            <language>pb</language>
+            <name>x_alabs_pex_general_notes</name>
+            <sequence/>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-10-10 16:42:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a4febbb1db8da74080567a30ba9619a8</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-10-10 16:42:35</sys_updated_on>
+            <value>domestic</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type_of_operation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Internacional</label>
+            <language>pb</language>
+            <name>x_alabs_pex_general_notes</name>
+            <sequence/>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-10-10 16:42:23</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>aafef7b9db4da74080567a30ba961948</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-10-10 16:42:37</sys_updated_on>
+            <value>international</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type_of_operation</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>International</label>
+            <language>en</language>
+            <name>x_alabs_pex_general_notes</name>
+            <sequence/>
+            <sys_created_by>alpar.mariana.maciel</sys_created_by>
+            <sys_created_on>2018-10-03 19:15:53</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>27eed47bdb3827400b2a32ffaa96194b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alpar.mariana.maciel</sys_updated_by>
+            <sys_updated_on>2018-10-03 19:15:53</sys_updated_on>
+            <value>international</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type_of_operation</element>
+            <name>x_alabs_pex_general_notes</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>alpar.mariana.maciel</sys_created_by>
+            <sys_created_on>2018-10-03 19:15:53</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>fbfed83bdb3827400b2a32ffaa96199a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type_of_operation</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_choice_x_alabs_pex_general_notes_type_of_operation</sys_update_name>
+            <sys_updated_by>alpar.mariana.maciel</sys_updated_by>
+            <sys_updated_on>2018-10-03 19:15:53</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" label="Localidade" max_length="40" name="x_alabs_pex_location_survey" type="collection">
         <element default="true" label="Ativo" max_length="40" name="active" type="boolean"/>
         <element label="Localização" max_length="32" name="location" reference="cmn_location" type="reference"/>
         <element label="Nome" max_length="200" name="name" type="string"/>
         <element choice="1" label="Tipo" max_length="40" name="type" type="choice">
             <choice>
-                <element label="Base" language="pb" sequence="1" value="base"/>
-                <element label="Base" sequence="1" value="base"/>
-                <element label="Loja" language="pb" sequence="2" value="store"/>
-                <element label="Store" sequence="2" value="store"/>
-                <element label="Point" sequence="3" value="ponto"/>
-                <element label="Ponto" language="pb" sequence="3" value="ponto"/>
-                <element label="TECA" sequence="4" value="teca"/>
-                <element label="TECA" language="pb" sequence="4" value="teca"/>
+                <element inactive_on_update="false" label="Base" sequence="1" value="base"/>
+                <element inactive_on_update="false" label="Base" sequence="1" value="base"/>
+                <element inactive_on_update="false" label="Loja" sequence="2" value="store"/>
+                <element inactive_on_update="false" label="Store" sequence="2" value="store"/>
+                <element inactive_on_update="false" label="Point" sequence="3" value="ponto"/>
+                <element inactive_on_update="false" label="Ponto" sequence="3" value="ponto"/>
+                <element inactive_on_update="false" label="TECA" sequence="4" value="teca"/>
+                <element inactive_on_update="false" label="TECA" sequence="4" value="teca"/>
             </choice>
         </element>
         <index name="index">

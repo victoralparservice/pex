@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_ui_hp_reference">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_hp_reference">
     <sys_ui_hp_reference action="INSERT_OR_UPDATE">
         <publisher_reference display_value="Pilar">d3ae54a56f674340571dd7aabb3ee469</publisher_reference>
         <reference_field>question.category</reference_field>

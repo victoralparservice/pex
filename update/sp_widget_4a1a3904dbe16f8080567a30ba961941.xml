@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $element, $http, spUtil) {
+  /* widget controller */
+  var c = this;
+  $scope.last_notes = $scope.data.last_notes;
+  $scope.year = $scope.last_notes.year_assetment;
+  $scope.actualYear = new Date().getFullYear();
+  $scope.notes = $scope.data.notes;
+
+  var yearsArray = $scope.data.years;
+  $scope.yearsArray = yearsArray;
+
+  $scope.preferences = function () {
+    $($element).find('.prefs-modal').modal('show');
+  }
+
+  $scope.assetment = function () {
+    $($element).find('.assetment-modal').modal('show');
+  }
+ 
+  $scope.change = function (val) {
+    $scope.modelChoices = val.modelChoices;
+  }
+
+  $scope.setPreferences = function () {
+    $scope.year = $scope.yearsArray[$scope.modelChoices];
+    c.data.setPrefs = "true";
+    c.data.year = $scope.yearsArray[$scope.modelChoices];
+    c.server.update().then(function (response) {
+      $scope.last_notes = $scope.data.last_notes_new;
+			$scope.notasAutoAvaliacao();
+			$scope.notasDesempenhoTecnico();
+			$scope.notasNps();
+			$scope.notasVertical();
+    })
+    $($element).find('.prefs-modal').modal('hide');
+  }
+
+  $scope.showAssetment = function () {
+    $($element).find('.assetment-modal').modal('hide');
+  }
+
+  $scope.notasAutoAvaliacao = function () {
+    switch ($scope.last_notes.self_assessment) {
+      case '10':
+        $scope.happy = true;
+        $scope.sad = false;
+        $scope.regular = false;
+        break;
+      case '0':
+        $scope.happy = false;
+        $scope.sad = true;
+        $scope.regular = false;
+        break;
+      default:
+        $scope.happy = false;
+        $scope.sad = false;
+        $scope.regular = true;
+        break;
+    }
+  }
+
+  $scope.notasDesempenhoTecnico = function () {
+    switch ($scope.last_notes.technical_performance) {
+      case '10':
+        $scope.happyTec = true;
+        $scope.sadTec = false;
+        $scope.regularTec = false;
+        break;
+      case '0':
+        $scope.happyTec = false;
+        $scope.sadTec = true;
+        $scope.regularTec = false;
+        break;
+      default:
+        $scope.happyTec = false;
+        $scope.sadTec = false;
+        $scope.regularTec = true;
+        break;
+    }
+  }
+
+  $scope.notasNps = function () {
+    var nps = parseInt($scope.last_notes.nps);
+    if (nps <= 6.99) {
+      $scope.happyNps = false;
+      $scope.sadNps = true;
+      $scope.regularNps = false;
+    } else if (nps > 7 && nps <= 8.99) {
+      $scope.happyNps = false;
+      $scope.sadNps = false;
+      $scope.regularNps = true;
+    } else if (nps >= 9) {
+      $scope.happyNps = true;
+      $scope.sadNps = false;
+      $scope.regularNps = false;
+    } else {
+      $scope.happyNps = false;
+      $scope.sadNps = false;
+      $scope.undefinedNps = true;
+    }
+  }
+
+  $scope.notasVertical = function () {
+    var vertical = parseInt($scope.last_notes.vertical_evaluation);
+    if (vertical <= 6.99) {
+      $scope.happyVertical = false;
+      $scope.sadVertical = true;
+      $scope.regularVertical = false;
+    } else if (vertical > 7 && vertical <= 8.99) {
+      $scope.happyVertical = false;
+      $scope.sadVertical = false;
+      $scope.regularVertical = true;
+    } else if (vertical >= 9) {
+      $scope.happyVertical = true;
+      $scope.sadVertical = false;
+      $scope.regularVertical = false;
+    } else {
+      $scope.undefinedVertical = true;
+      $scope.happyVertical = false;
+      $scope.sadVertical = false;
+      $scope.regularVertical = false;
+    }
+
+  }
+
+  $scope.showTopAccording = $scope.data.topAccording ? false : true;
+  $scope.showNotConforms = $scope.data.notConforms ? false : true;
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.card {
+  float: left;
+  padding: 10px;
+  flex: auto;
+  height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+}
+
+.slot{
+  padding: 10px;
+  text-align: center;
+}
+
+.list-group-item{
+  text-align: center;
+  font-weight: 500;
+}
+
+.fade-scale {
+  transform: scale(0.5);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
+}
+
+.fade-scale.in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.columnLeft{
+ 	width: 49.5%;
+  float: left;
+}
+
+.columnRight {
+    width: 49.5%;
+    float: right;
+}
+.modal-content{
+ 	 width: 200%;
+   margin-left: -50%; 
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pex_-_crewman_assessments</id>
+        <internal>false</internal>
+        <link/>
+        <name>PEX - Crewman Assessments</name>
+        <option_schema>[{"name":"title","section":"other","default_value":"Minhas avaliações","label":"Título","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var util = new GeneralNotesUtils();
+	data.user = gs.getUserID();
+	data.re = util.getUserRE(data.user);
+	data.haveSurvey = util.canSee(data.user);
+	
+	if(!input) {
+		if(data.user)
+		data.years = util.getAllYearsByUser(data.re);
+		data.last_notes = util.getLastNotes(data.re);
+		data.notes = util.getAllNotes(data.re);
+	}
+	
+	if (input) {
+		if(input.setPrefs == 'true') {
+			data.last_notes_new = util.updateNotesByPreferences(data.re, input.year);
+		}
+	}
+	
+	var gr = new GlideRecord('x_alabs_pex_instance_survey');
+	//gr.addEncodedQuery('responsible=' + gs.getUserID());
+	gr.addEncodedQuery('survey.tipo_de_pesquisa=vertical^responsible=' + gs.getUserID());
+	gr.query();
+	var countSurvey = gr.getRowCount();
+
+	if(countSurvey >= 3){
+		data.showNotesPanel = true;
+	}
+	
+	data.topAccording = new global.TopQuestionsVerticalUtils().topAccording();
+	data.notConforms = new global.TopQuestionsVerticalUtils().notConform();
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2018-10-29 17:03:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4a1a3904dbe16f8080567a30ba961941</sys_id>
+        <sys_mod_count>426</sys_mod_count>
+        <sys_name>PEX - Crewman Assessments</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_widget_4a1a3904dbe16f8080567a30ba961941</sys_update_name>
+        <sys_updated_by>isaac.vicentini</sys_updated_by>
+        <sys_updated_on>2018-11-21 19:18:57</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b" ng-show="data.showNotesPanel">
+  <div class="panel-heading">
+    <div>
+      <h2 class="h4 panel-title ng-binding" style="display: inline-block;"> {{options.title}} - {{year || actualYear}}
+      </h2>
+      <div ng-click="preferences()" style="float: right;">
+        <img src="settings.png" width="16" title="Preferências" height="16" />
+      </div>
+    </div>
+  </div>
+  <ul class="list-group">
+    <!--
+Sem nenhum estrela: < 55
+*                               : de 55 à 66,999
+**                              : de 67 à 76,999
+***                            : de 77 à 86,999
+****                          : de 87 à 96,999
+*****                         : de 97 à 99,999
+******                       : 100
+-->
+    <li class="list-group-item">
+      <span ng-show="last_notes.final_note < 55 || last_notes.final_note == undefined || last_notes.final_note == null">Você
+        ainda não foi classificado</span>
+      <span ng-show="last_notes.final_note >= 55"> VOCÊ É UM TRIPULANTE:</span><br />
+      <img ng-show="last_notes.final_note >= 55" src="star.png" alt="Avatar" width="16px" height="16px">
+      <img ng-show="last_notes.final_note >= 67" src="star.png" alt="Avatar" width="16px" height="16px">
+      <img ng-show="last_notes.final_note >= 77" src="star.png" alt="Avatar" width="16px" height="16px">
+      <img ng-show="last_notes.final_note >= 87" src="star.png" alt="Avatar" width="16px" height="16px">
+      <img ng-show="last_notes.final_note > 97" src="star.png" alt="Avatar" width="16px" height="16px">
+      <img ng-show="last_notes.final_note > 99.99" src="star.png" alt="Avatar" width="16px" height="16px"></li>
+  </ul>
+  <div class="cards">
+    <div class="card" ng-init="notasAutoAvaliacao()">
+      <img ng-show="happy" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="sad" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="regular" src="regular-emoji.png" width="32" height="32" alt="Avatar" style="margin: 0 auto;">
+      <div class="slot">
+        <p>Auto avaliação</p>
+      </div>
+    </div>
+    <div class="card" ng-init="notasDesempenhoTecnico()">
+      <img ng-show="happyTec" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="sadTec" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="regularTec" src="regular-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <div class="slot">
+        <p>Desempenho Tec.</p>
+      </div>
+    </div>
+    <div class="card" ng-init="notasNps()">
+      <!--
+Triste: 0 até 6,99
+Normal: de 7 à 8,99
+Feliz: => 9
+-->
+      <img ng-show="sadNps" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="regularNps" src="regular-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="happyNps" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="undefinedNps" src="regular-emoji.png" width="32" height="32" alt="Avatar" style="margin: 0 auto;">
+      <div class="slot">
+        <p>NPS</p>
+      </div>
+    </div>
+    <div class="card" ng-click="assetment()" ng-init="notasVertical()">
+      <!--
+Triste: 0 até 6,99
+Normal: de 7 à 8,99
+Feliz: => 9
+-->
+      <img ng-show="sadVertical" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="regularVertical" src="regular-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="happyVertical" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
+      <img ng-show="undefinedVertical" src="regular-emoji.png" width="32" height="32" alt="Avatar" style="margin: 0 auto;">
+      <div class="slot">
+        <p><a href="#">Avaliação Vertical</a> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade-scale" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>Preferências do usuário</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <span ng-if="yearsArray.length == 0">Você ainda não participou de pesquisas.</span>
+          <div ng-if="yearsArray.length > 0">
+            <label>Selecione o ano:</label>
+            <select class="form-control" ng-model="modelChoices" ng-options="choice as choice for choice in yearsArray">
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="setPreferences()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ------------------------------------------------ -->
+<!-- ------------  Modal de preferencias ------------ -->
+<!-- ------------------------------------------------ -->
+<div class="modal fade prefs-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Preferências do usuário</h4>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <div class="form-group">
+            <span ng-if="yearsArray.length == 0">Você ainda não participou de pesquisas.</span>
+            <div ng-if="yearsArray.length > 0">
+              <label>Selecione o ano:</label>
+              <!-- ng-options="choice as choice for choice in yearsArray" -->
+              <select class="form-control" ng-change="change(this)" ng-model="modelChoices" convert-to-number>
+                <option ng-repeat="yearSel in yearsArray track by $index" value="{{$index}}">{{yearSel}}</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" ng-click="setPreferences()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade assetment-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-full">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Pesquisas verticais</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel panel-default columnLeft" ng-show="showTopAccording">
+          <div class="panel-heading">
+            <h3 class="panel-title">Pontos Fortes</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <tr>
+                <th scope="col">Qtde.</th>
+                <th scope="col" class="text-center">Questão</th>
+                <tbody>
+                  <tr ng-repeat="question in data.topAccording">
+                    <th scope="row" class="text-center">{{::question.countQuestion}}</th>
+                    <td>{{::question.question}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel panel-default columnLeft" ng-show="!showTopAccording">
+          <div class="panel-heading">
+            <h3 class="panel-title">Pontos Fortes</h3>
+          </div>
+          <div class="panel-body">
+            <h4 class="text-center">Não há questões avaliadas.</h4>
+          </div>
+        </div>
+
+        <div class="panel panel-default columnRight" ng-show="showNotConforms">
+          <div class="panel-heading">
+            <h3 class="panel-title">Pontos de Melhoria</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <tr>
+                <th scope="col">Qtde.</th>
+                <th scope="col" class="text-center">Questão</th>
+                <tbody>
+                  <tr ng-repeat="question in data.notConforms">
+                    <th scope="row" class="text-center">{{::question.countQuestion}}</th>
+                    <td>{{::question.question}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel panel-default columnRight" ng-show="!showNotConforms">
+          <div class="panel-heading">
+            <h3 class="panel-title">Pontos de Melhoria</h3>
+          </div>
+          <div class="panel-body">
+            <h4 class="text-center">Não há questões avaliadas.</h4>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_related sys_domain="global" table="x_alabs_pex_question" version="2" view="">
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Question - Default view" name="x_alabs_pex_question" related_list="NULL" sys_domain="global" view="Default view">aad94d156fcac380218117164b3ee44f</list_id>
+            <list_id display_value="Definição da Questão - Default view" name="x_alabs_pex_question" related_list="NULL" sys_domain="global" view="Default view">aad94d156fcac380218117164b3ee44f</list_id>
             <order_by/>
             <position>0</position>
             <related_list>x_alabs_pex_surveys_questions.question</related_list>
@@ -17,7 +16,7 @@
         </sys_ui_related_list_entry>
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Question - Default view" name="x_alabs_pex_question" related_list="NULL" sys_domain="global" view="Default view">aad94d156fcac380218117164b3ee44f</list_id>
+            <list_id display_value="Definição da Questão - Default view" name="x_alabs_pex_question" related_list="NULL" sys_domain="global" view="Default view">aad94d156fcac380218117164b3ee44f</list_id>
             <order_by/>
             <position>1</position>
             <related_list>x_alabs_pex_instance_survey_question.question</related_list>
@@ -30,7 +29,7 @@
             <sys_updated_on>2017-10-25 14:54:29</sys_updated_on>
         </sys_ui_related_list_entry>
         <sys_ui_related_list action="INSERT_OR_UPDATE">
-            <calculated_name>Question - Default view</calculated_name>
+            <calculated_name>Definição da Questão - Default view</calculated_name>
             <filter/>
             <name>x_alabs_pex_question</name>
             <order_by/>

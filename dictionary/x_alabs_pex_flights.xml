@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element label="Flights" max_length="40" name="x_alabs_pex_flights" sizeclass="252146" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Flights" max_length="40" name="x_alabs_pex_flights" sizeclass="345145" type="collection">
         <element label="Atualizado em" max_length="40" name="atualizado_em" type="glide_date_time"/>
         <element label="Carrier Code" max_length="10" name="carrier_code" type="string"/>
         <element label="Data chegada Local" max_length="40" name="data_chegada_local" type="glide_date_time"/>
@@ -20,9 +19,9 @@
         <element label="STA" max_length="40" name="sta" type="string"/>
         <element choice="1" label="Status" max_length="40" name="status" type="choice">
             <choice>
-                <element label="0" sequence="0" value="0"/>
-                <element label="1" sequence="0" value="1"/>
-                <element label="5" sequence="0" value="5"/>
+                <element inactive_on_update="false" label="0" sequence="0" value="0"/>
+                <element inactive_on_update="false" label="1" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="5" sequence="0" value="5"/>
             </choice>
         </element>
         <index name="index">
@@ -30,6 +29,9 @@
         </index>
         <index name="index2">
             <element name="destino"/>
+        </index>
+        <index name="index3">
+            <element name="inventorylegid"/>
         </index>
     </element>
 </database>

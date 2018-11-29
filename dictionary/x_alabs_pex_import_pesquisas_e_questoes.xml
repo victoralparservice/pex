@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element extends="sys_import_set_row" label="Import Pesquisas e Questoes" max_length="40" name="x_alabs_pex_import_pesquisas_e_questoes" type="collection">
         <element attributes="import_attribute_name=Aplicabilidade,edge_encryption_enabled=true" label="Aplicabilidade" max_length="100" name="u_aplicabilidade" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Descrição" max_length="10000" name="u_descrição" type="string"/>

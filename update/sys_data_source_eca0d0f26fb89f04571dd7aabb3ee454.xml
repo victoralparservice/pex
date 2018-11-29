@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_data_source">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source">
     <sys_data_source action="INSERT_OR_UPDATE">
         <category/>
         <connection_timeout>0</connection_timeout>
@@ -25,7 +24,7 @@
         <last_run_datetime/>
         <ldap_target/>
         <maximum_rows/>
-        <mid_server display_value="SNMID1TB578H - DEV">7e1d67646f8f43009ae430767b3ee4f4</mid_server>
+        <mid_server display_value="SNOWDMZTB578A">d3b83de36f5e3200656917164b3ee471</mid_server>
         <name>PEX - Infos Colaborador &amp; Escala de Vôo</name>
         <oracle_port>1521</oracle_port>
         <oracle_sid>SBCC_ODS</oracle_sid>
@@ -58,23 +57,22 @@ JOIN RM_LIVE.CRWCAT CRWCT ON CRWCT.IDCRWCAT = EMPQUAL.IDCRWCAT&#13;
 INNER JOIN RM_LIVE.EMPASSIGN EP ON EP.IDEMPNO = EMP.IDEMPNO&#13;
 WHERE EMPQUAL.ENDDATE &gt;= SYSDATE&#13;
 AND EB.ENDDATE &gt;= SYSDATE&#13;
-AND EP.IDLEG IS NOT NULL&#13;
-AND ROWNUM &lt;= 1000</sql_statement>
+AND EP.IDLEG IS NOT NULL</sql_statement>
         <ssh_keyfile_path/>
         <sys_class_name>sys_data_source</sys_class_name>
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2018-03-15 19:29:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>eca0d0f26fb89f04571dd7aabb3ee454</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>PEX - Infos Colaborador &amp; Escala de Vôo</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_data_source_eca0d0f26fb89f04571dd7aabb3ee454</sys_update_name>
-        <sys_updated_by>marcos.kassak</sys_updated_by>
-        <sys_updated_on>2018-03-26 12:07:34</sys_updated_on>
+        <sys_updated_by>victor.leite</sys_updated_by>
+        <sys_updated_on>2018-04-09 12:42:02</sys_updated_on>
         <table_name/>
         <type>JDBC</type>
         <use_integrated_authentication>false</use_integrated_authentication>

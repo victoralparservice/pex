@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_related sys_domain="global" table="x_alabs_pex_question_subitem" version="2" view="">
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Question Subitem - Default view" name="x_alabs_pex_question_subitem" related_list="NULL" sys_domain="global" view="Default view">85886bf46f8e8380218117164b3ee460</list_id>
+            <list_id display_value="Subitem - Default view" name="x_alabs_pex_question_subitem" related_list="NULL" sys_domain="global" view="Default view">85886bf46f8e8380218117164b3ee460</list_id>
             <order_by/>
             <position>0</position>
             <related_list>x_alabs_pex_question.subitem</related_list>
@@ -16,7 +15,7 @@
             <sys_updated_on>2017-10-24 13:10:44</sys_updated_on>
         </sys_ui_related_list_entry>
         <sys_ui_related_list action="INSERT_OR_UPDATE">
-            <calculated_name>Question Subitem - Default view</calculated_name>
+            <calculated_name>Subitem - Default view</calculated_name>
             <filter/>
             <name>x_alabs_pex_question_subitem</name>
             <order_by/>

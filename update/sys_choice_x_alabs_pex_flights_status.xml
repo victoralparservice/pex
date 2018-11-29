@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_choice action="INSERT_OR_UPDATE" field="status" table="x_alabs_pex_flights" version="3">
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -10,14 +9,14 @@
             <language>en</language>
             <name>x_alabs_pex_flights</name>
             <sequence>0</sequence>
-            <sys_created_by>marcos.kassak</sys_created_by>
-            <sys_created_on>2018-03-10 16:53:52</sys_created_on>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2018-04-07 14:35:20</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d96db90d6fb8d3c0571dd7aabb3ee4e1</sys_id>
+            <sys_id>743a25cadbd1d740664ea19b8a96190d</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>marcos.kassak</sys_updated_by>
-            <sys_updated_on>2018-03-10 16:53:52</sys_updated_on>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2018-04-07 14:35:20</sys_updated_on>
             <value>0</value>
             <x_alabs_rh_level/>
         </sys_choice>
@@ -30,14 +29,14 @@
             <language>en</language>
             <name>x_alabs_pex_flights</name>
             <sequence>0</sequence>
-            <sys_created_by>marcos.kassak</sys_created_by>
-            <sys_created_on>2018-03-10 16:53:52</sys_created_on>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2018-04-07 14:35:20</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>556d39896fb8d3c0571dd7aabb3ee47f</sys_id>
+            <sys_id>b43a25cadbd1d740664ea19b8a96190d</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>marcos.kassak</sys_updated_by>
-            <sys_updated_on>2018-03-10 16:53:52</sys_updated_on>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2018-04-07 14:35:20</sys_updated_on>
             <value>1</value>
             <x_alabs_rh_level/>
         </sys_choice>
@@ -50,14 +49,14 @@
             <language>en</language>
             <name>x_alabs_pex_flights</name>
             <sequence>0</sequence>
-            <sys_created_by>marcos.kassak</sys_created_by>
-            <sys_created_on>2018-03-10 16:53:52</sys_created_on>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2018-04-07 14:35:20</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>ad6df90d6fb8d3c0571dd7aabb3ee431</sys_id>
+            <sys_id>f43a25cadbd1d740664ea19b8a96190d</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>marcos.kassak</sys_updated_by>
-            <sys_updated_on>2018-03-10 16:53:52</sys_updated_on>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2018-04-07 14:35:20</sys_updated_on>
             <value>5</value>
             <x_alabs_rh_level/>
         </sys_choice>
@@ -65,10 +64,10 @@
             <element>status</element>
             <name>x_alabs_pex_flights</name>
             <sys_class_name>sys_choice_set</sys_class_name>
-            <sys_created_by>marcos.kassak</sys_created_by>
-            <sys_created_on>2018-03-10 16:53:52</sys_created_on>
+            <sys_created_by>system</sys_created_by>
+            <sys_created_on>2018-04-07 14:35:20</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>1d6db90d6fb8d3c0571dd7aabb3ee4d9</sys_id>
+            <sys_id>f83a25cadbd1d740664ea19b8a96190d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>status</sys_name>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -76,8 +75,8 @@
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
             <sys_update_name>sys_choice_x_alabs_pex_flights_status</sys_update_name>
-            <sys_updated_by>marcos.kassak</sys_updated_by>
-            <sys_updated_on>2018-03-10 16:53:52</sys_updated_on>
+            <sys_updated_by>system</sys_updated_by>
+            <sys_updated_on>2018-04-07 14:35:20</sys_updated_on>
         </sys_choice_set>
     </sys_choice>
 </record_update>

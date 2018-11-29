@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">5dd9f504dbe16f8080567a30ba961908</sp_column>
+        <sp_widget display_value="PEX - Avalições Verticais Lista">025ef8eddb0467400b2a32ffaa9619af</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>alpar.douglas.santos</sys_created_by>
+        <sys_created_on>2018-08-20 17:54:02</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0456e1eddb0867400b2a32ffaa9619dd</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Avaliações Verticais Pendentes</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_instance_0456e1eddb0867400b2a32ffaa9619dd</sys_update_name>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2018-10-29 17:02:40</sys_updated_on>
+        <title>Avaliações Verticais Pendentes</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"filtro": {
+		"value": "stateINpending,started,published",
+		"displayValue": "stateINpending,started,published"
+	},
+	"mostrar_tudo": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"title": {
+		"value": "Avaliações Verticais Pendentes",
+		"displayValue": "Avaliações Verticais Pendentes"
+	},
+	"maximo": {
+		"value": 5,
+		"displayValue": "5"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+</record_update>

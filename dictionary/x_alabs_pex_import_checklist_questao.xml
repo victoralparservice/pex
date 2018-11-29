@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element extends="sys_import_set_row" label="Import Checklist Questao" max_length="40" name="x_alabs_pex_import_checklist_questao" type="collection">
         <element attributes="edge_encryption_enabled=true" label="A" max_length="40" name="u_a" type="string"/>
         <element attributes="import_attribute_name=Aplicabilidade,edge_encryption_enabled=true" label="Aplicabilidade" max_length="54" name="u_aplicabilidade" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="B" max_length="40" name="u_b" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="C" max_length="40" name="u_c" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="D" max_length="40" name="u_d" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Descrição" max_length="40" name="u_descrição" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Descrição" max_length="10000" name="u_descrição" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="E" max_length="40" name="u_e" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="F" max_length="40" name="u_f" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="G" max_length="40" name="u_g" type="string"/>
@@ -17,7 +16,7 @@
         <element attributes="import_attribute_name=N" label="N" max_length="40" name="u_n" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Numero" max_length="40" name="u_numero" type="string"/>
         <element label="Nº" max_length="40" name="u_nº" type="integer"/>
-        <element attributes="import_attribute_name=Pergunta,edge_encryption_enabled=true" label="Pergunta" max_length="154" name="u_pergunta" type="string"/>
+        <element attributes="import_attribute_name=Pergunta,edge_encryption_enabled=true" label="Pergunta" max_length="500" name="u_pergunta" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Pesquisa" max_length="40" name="u_pesquisa" type="string"/>
         <element attributes="import_attribute_name=Pilar,edge_encryption_enabled=true" label="Pilar" max_length="40" name="u_pilar" type="string"/>
         <element attributes="import_attribute_name=Subitem,edge_encryption_enabled=true" label="Subitem" max_length="40" name="u_subitem" type="string"/>

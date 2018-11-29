@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.CalculateScoreUtils</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CalculateScoreUtils</name>
+        <script><![CDATA[var CalculateScoreUtils = Class.create();
+CalculateScoreUtils.prototype = {
+	initialize: function() {
+	},
+	
+	calculatePilar : function(pesquisa){
+		
+		var pilares = [];
+		
+		var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
+		gr.addEncodedQuery('survey_instance='+pesquisa.sys_id.toString());
+		gr.query();
+		
+		while(gr.next()){
+			if(pilares.indexOf(gr.question.category.name.toString()) == -1){
+				pilares.push(gr.question.category.name.toString());
+				
+				}
+			}
+			//var pilares = ['OPA','Gestão','Apresentação Visual','Conhecimento'];
+			
+			var pontuacao = {pesoQuestoes : 0, pontosAtingidos : 0};
+				
+				var resultado = {porcentagemTotal : 0, notaPilar : 0, notaGeral : 0};
+					var somaPilares = 0;
+					
+					pilares.forEach(function(item){
+						
+						pontuacao.pesoQuestões = 0;
+						pontuacao.pontosAtingidos = 0;
+						resultado.porcentagemTotal = 0;
+						resultado.notaPilar = 0;
+						var pesoPilar = 0;
+						var calcular = 0;
+						
+						var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
+						gr.addEncodedQuery('survey_instance.number='+pesquisa.number+'^question.category.nameLIKE'+item);
+						gr.query();
+						while(gr.next()){
+							if(gr.pontuacao_obtida.toString() != 'N'){
+								pontuacao.pesoQuestões += parseFloat(gr.question.peso_da_questao);
+								pontuacao.pontosAtingidos += parseFloat(gr.pontuacao_obtida);
+								pesoPilar = gr.question.category.peso_do_pilar;
+								//gs.addInfoMessage(gr.question.category.peso_do_pilar);
+								//gs.addInfoMessage(gr.question.category.getDisplayValue());
+								
+								calcular = 1;
+							}else{
+								//gs.addInfoMessage(gr.pontuacao_obtida);
+							}
+							
+							
+						}
+						somaPilares += pesoPilar;
+						//gs.addInfoMessage(JSON.stringify(pontuacao.pesoQuestoes));
+						if(calcular){
+							resultado.porcentagemTotal = pontuacao.pontosAtingidos/pontuacao.pesoQuestões;
+							resultado.notaPilar = resultado.porcentagemTotal*parseFloat(pesoPilar);
+							resultado.notaGeral += resultado.notaPilar;
+						}
+					});
+					resultado.notaGeral = (10*resultado.notaGeral)/somaPilares;
+					
+					return resultado.notaGeral;
+				},
+				
+				type: 'CalculateScoreUtils'
+			};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>alpar.douglas.santos</sys_created_by>
+        <sys_created_on>2018-08-07 14:45:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>355df5d5dbfb17000b2a32ffaa961925</sys_id>
+        <sys_mod_count>123</sys_mod_count>
+        <sys_name>CalculateScoreUtils</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_355df5d5dbfb17000b2a32ffaa961925</sys_update_name>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-10-05 20:03:58</sys_updated_on>
+    </sys_script_include>
+</record_update>

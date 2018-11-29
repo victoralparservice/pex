@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="tipo_de_pesquisa" table="x_alabs_pex_location_survey_types" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>tipo_de_pesquisa</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Outras Áreas</label>
+            <language>en</language>
+            <name>x_alabs_pex_location_survey_types</name>
+            <sequence/>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-10-02 14:28:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>639356d7db74a3400b2a32ffaa96196c</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-10-17 18:30:56</sys_updated_on>
+            <value>Aeroportos</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>tipo_de_pesquisa</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Comissários e Pilotos</label>
+            <language>en</language>
+            <name>x_alabs_pex_location_survey_types</name>
+            <sequence/>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-10-02 14:28:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>baa316d7db74a3400b2a32ffaa9619eb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-10-02 14:28:56</sys_updated_on>
+            <value>Comissarios e Pilotos</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>tipo_de_pesquisa</element>
+            <name>x_alabs_pex_location_survey_types</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>alpar.douglas.santos</sys_created_by>
+            <sys_created_on>2018-10-02 14:28:35</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>a1a356d7db74a3400b2a32ffaa961916</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>tipo_de_pesquisa</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_choice_x_alabs_pex_location_survey_types_tipo_de_pesquisa</sys_update_name>
+            <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+            <sys_updated_on>2018-10-02 14:28:35</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

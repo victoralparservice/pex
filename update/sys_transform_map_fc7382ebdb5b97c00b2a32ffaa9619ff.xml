@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_transform_map">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_map">
     <sys_transform_map action="INSERT_OR_UPDATE">
         <active>true</active>
         <copy_empty_fields>false</copy_empty_fields>
@@ -10,22 +9,35 @@
         <run_script>true</run_script>
         <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
 
-	var gr = new GlideRecord('sys_user');
-	gr.addEncodedQuery('employee_number='+source.u_re);
+	//var gr = new GlideRecord('sys_user');
+	//gr.addEncodedQuery('employee_number='+source.u_re);
+	//gr.query();
+
+	//Recupera vôos
+	function ConverterDataHora(data){
+		var fullDate = data.split(' ');
+		var dateFormat = fullDate[0].split('-').reverse().join('-');
+		var finalDate = dateFormat+' '+ fullDate[1];
+		return finalDate;
+	}
+	
+	var gr = new GlideRecord('x_alabs_pex_flights');
+	gr.addEncodedQuery('numero_do_voo='+source.u_numero_voo.toString());
 	gr.query();
 	
 	if(gr.next()){
-		target.user = gr.getUniqueValue();
-	}
-	
-	var gr2 = new GlideRecord('x_alabs_pex_flights');
-	gr2.addEncodedQuery('numero_do_voo='+source.u_numero_voo);
-	gr2.query();
-	
-	if(gr2.next()){
-		target.flight = gr2.getUniqueValue();
+		target.flight = gr.sys_id.toString();
 	}
 
+	
+	target.user_title = source.u_cargo;
+	target.data_de_partida = source.u_dtt_partida;
+	target.data_hora_de_partida_utc = ConverterDataHora(source.u_dtt_partida);
+	target.origem = source.u_origem;
+	target.destino = source.u_destino;
+	target.numero_do_voo = source.u_numero_voo;
+	target.crewman_re = source.u_re.toString();
+	
 })(source, target, map, log, action==="update");]]></script>
         <source_table>x_alabs_pex_crew</source_table>
         <sys_class_name>sys_transform_map</sys_class_name>
@@ -33,15 +45,15 @@
         <sys_created_on>2018-07-20 18:22:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>fc7382ebdb5b97c00b2a32ffaa9619ff</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>PEX - Crew Manager</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_map_fc7382ebdb5b97c00b2a32ffaa9619ff</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-07-23 17:45:26</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2018-11-08 15:08:17</sys_updated_on>
         <target_table>x_alabs_pex_flight_crew</target_table>
     </sys_transform_map>
 </record_update>

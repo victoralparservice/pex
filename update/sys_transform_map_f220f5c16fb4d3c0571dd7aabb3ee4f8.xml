@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_transform_map">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_map">
     <sys_transform_map action="INSERT_OR_UPDATE">
         <active>true</active>
         <copy_empty_fields>false</copy_empty_fields>
@@ -12,53 +11,75 @@
 	
 	// Conversão das Datas (Source para Target)
 	
-	 // Data chegada e Data Chegada Local 
-
-	var dataChegada = '';
-	var gdtChegada = new GlideDateTime(source.u_data_chegada_utc);
-	dataChegada = gdtChegada.getValue();
-	target.data_chegada_utc = dataChegada;
+	// Data chegada e Data Chegada Local
+	function ConverterDataHora(data){
+		var fullDate = data.split(' ');
+		var dateFormat = fullDate[0].split('-').reverse().join('-');
+		var finalDate = dateFormat+' '+ fullDate[1];
+		return finalDate;
+	}
 	
-	var dataChegadaLocal = '';
+	target.data_chegada_utc = ConverterDataHora(source.u_data_chegada_utc);
+	target.data_chegada_local = ConverterDataHora(source.u_data_chegada_local);
+	target.data_partida_utc = ConverterDataHora(source.u_data_partida_utc);
+	target.data_partida_local = source.u_data_partida_local;
+	target.atualizado_em = ConverterDataHora(source.u_atualizado);
+	target.sta = source.u_sta;
+	
+	// Data Vôo
+	var dataVoo = '';
+	var gdtVoo = new GlideDateTime(source.u_data_voo);
+	dataVoo = gdtVoo.getDate();
+	target.data_voo = dataVoo;
+	
+	//var dataChegada = '';
+	//var gdtChegada = new GlideDateTime(source.u_data_chegada_utc);
+	//dataChegada = gdtChegada.getValue();
+	//dataChegada = gdtChegada.getDate();
+	
+	//target.data_chegada_utc = dataChegada;
+	
+	
+	/*var dataChegadaLocal = '';
 	var gdtChegLocal = new GlideDateTime(source.u_data_chegada_local);
-	dataChegadaLocal = gdtChegLocal.getValue();
+	//dataChegadaLocal = gdtChegLocal.getValue();
+	dataChegadaLocal = gdtChegLocal.getDate();
 	target.data_chegada_local = dataChegadaLocal;
 	
 	// Data partida e Data partida Local
 	
 	var dataPartida = '';
 	var gdtPartida = new GlideDateTime(source.u_data_partida_utc);
-	dataPartida = gdtPartida.getValue();
+	//dataPartida = gdtPartida.getValue();
+	dataPartida = gdtPartida.getDate();
 	target.data_partida_utc = dataPartida;
 	
 	var dataLocal = '';
 	var gdtLocal = new GlideDateTime(source.u_data_partida_local);
-	dataLocal = gdtLocal.getValue();
+	//dataLocal = gdtLocal.getValue();
+	dataLocal = gdtLocal.getDate();
 	target.data_partida_local = dataLocal;
 	
-	// Atualizado em  
+	// Atualizado em
 	
 	var dataAtualizado = '';
 	var gdtAtualizado = new GlideDateTime(source.u_atualizado);
-	dataAtualizado = gdtAtualizado.getValue();
+	//dataAtualizado = gdtAtualizado.getValue();
+	dataAtualizado = gdtAtualizado.getDate();
 	target.atualizado_em = dataAtualizado;
-
-	// STA 
-
+	
+	// STA
+	
 	var dataSTA = '';
 	var gdtSTA = new GlideDateTime(source.u_sta);
-	dataSTA = gdtSTA.getValue();
-	target.sta = dataSTA; 
+	//dataSTA = gdtSTA.getValue();
+	dataSTA = gdtSTA.getDate();
+	target.sta = dataSTA;
+	*/
 	
 	
-   // Data Vôo 
 	
-	var dataVoo = '';
-	var gdtVoo = new GlideDateTime(source.u_data_voo);
-	dataVoo = gdtVoo.getDate();
-	target.data_voo = dataVoo;
 	
-
 })(source, target, map, log, action==="update");]]></script>
         <source_table>x_alabs_pex_definicao_de_voos</source_table>
         <sys_class_name>sys_transform_map</sys_class_name>
@@ -66,15 +87,15 @@
         <sys_created_on>2018-03-10 15:56:32</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>f220f5c16fb4d3c0571dd7aabb3ee4f8</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>NewSkies - Definição de Vôo</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_map_f220f5c16fb4d3c0571dd7aabb3ee4f8</sys_update_name>
-        <sys_updated_by>marcos.kassak</sys_updated_by>
-        <sys_updated_on>2018-03-22 18:32:11</sys_updated_on>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-08-27 16:38:53</sys_updated_on>
         <target_table>x_alabs_pex_flights</target_table>
     </sys_transform_map>
 </record_update>

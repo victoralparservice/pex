@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.SurveyInstanceTempUtil</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>SurveyInstanceTempUtil</name>
+        <script><![CDATA[var SurveyInstanceTempUtil = Class.create();
+SurveyInstanceTempUtil.prototype = {
+    initialize: function() {
+    },
+Generate : function(survey){
+		//var number = survey.type.number.toString();
+		//switch(number){
+			//Aeroportos
+		//	case 'SRT0001002':
+			//Azul cargo
+		//	case 'SRT0001003':
+			this._generateByMatriz(survey);
+			//break;
+			//Comissários
+		//	case 'SRT0001008':
+		//	case 'SRT0001009':
+			//Pilotos
+		//	case 'SRT0001011':
+//case 'SRT0001012':
+			//this._generateByVertical(survey);
+	//	var util = new SurveyInstanceVerticalUtils();
+	//	util.generateByVertical(survey);
+		
+		//break;
+		//}
+	},
+	
+	
+	
+	_generateByMatriz : function(survey){
+		var scope = this;
+		var locations = survey.locations.toString().split(',');
+		var questions = this._getSurveyQuestions(survey);
+		
+		//locations.forEach(function(location){
+		var index = locations.indexOf('e0e6a0dc6f3ac300218117164b3ee481');
+			var instance = scope._newInstance(locations[index], survey, questions.length);
+			scope._newInstanceQuestion(instance, questions);
+		//});
+	},
+	
+	_newInstance : function(location, survey, numberOfQuestions){
+		
+		var matrix = this._getMatrix(location, survey);
+		var gr = new GlideRecord('x_alabs_pex_instance_survey');
+		gr.initialize();
+		gr.survey = survey.sys_id.getDisplayValue();
+		gr.responsible = matrix.responsible;
+		gr.first_level_notification = matrix.firstLevel;
+		gr.second_level_notification = matrix.secondLevel;
+		gr.location = matrix.location;
+		gr.number_of_questions = numberOfQuestions;
+		var newId = gr.insert();
+		
+		return newId;
+	},
+	
+	
+	
+	_getMatrix : function(location, survey){
+		var matrix = {};
+			
+			
+			
+			var gr = new GlideRecord('x_alabs_pex_location_survey_types');
+			gr.addEncodedQuery('survey_type='+ survey.type +'^location_survey=' + location);
+			gr.query();
+			
+			if(gr.next()){
+				matrix.responsible = gr.responsible.toString();
+				matrix.firstLevel = gr.first_level.toString();
+				matrix.secondLevel = gr.second_level.toString();
+				matrix.location = gr.location_survey.toString();
+			}
+			
+			return matrix;
+		},
+		
+		_getSurveyQuestions : function(survey) {
+			var questions = [];
+			var grSurveyQuestion = new GlideRecord('x_alabs_pex_surveys_questions');
+			grSurveyQuestion.addEncodedQuery('survey=' + survey.sys_id.getDisplayValue());
+			grSurveyQuestion.query();
+			
+			while(grSurveyQuestion.next()){
+				questions.push({
+					question : grSurveyQuestion.getValue('question'),
+					order : grSurveyQuestion.getValue('order')});
+				}
+				return questions;
+			},
+			
+			_newInstanceQuestion : function(instance, questions){
+				questions.forEach(function(question) {
+					var grInstanceQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
+					grInstanceQuestion.initialize();
+					grInstanceQuestion.question = question.question;
+					grInstanceQuestion.order = question.order;
+					grInstanceQuestion.survey_instance = instance;
+					grInstanceQuestion.insert();
+				});
+			},
+			
+			
+			
+			
+			
+			
+    type: 'SurveyInstanceTempUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>alpar.douglas.santos</sys_created_by>
+        <sys_created_on>2018-08-14 16:09:16</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0eb45a6bdbb7d70080567a30ba9619ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SurveyInstanceTempUtil</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_0eb45a6bdbb7d70080567a30ba9619ff</sys_update_name>
+        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
+        <sys_updated_on>2018-08-14 16:09:16</sys_updated_on>
+    </sys_script_include>
+</record_update>

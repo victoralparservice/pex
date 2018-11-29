@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="PEX - Crew Manager">fc7382ebdb5b97c00b2a32ffaa9619ff</map>
+        <order>500</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+
+  /**************************************************************************/
+  /************************** Obtenção dos grupos ***************************/
+
+  var groups = getGroups();
+  /**************************************************************************/
+  /************************** Obtenção dos membros **************************/
+  groups.map(getMembers);
+
+  /**************************************************************************/
+  /********************* Instancia pesquisas verticais **********************/
+  groups.forEach(instanceSurveys);
+
+})(source, map, log, target);
+
+/**************************************************************************/
+/******************* Funções para grupos de tripulantes *******************/
+/**************************************************************************/
+
+/**************************************************************************/
+/*************************** Obtenção de grupos ***************************/
+function getGroups() {
+  var gr = new GlideRecord('x_alabs_pex_crew_group');
+  // Condição: Não recebeu pesquisa e está ativo
+  gr.addEncodedQuery('ja_recebeu_a_pesquisa=false^active=true');
+  gr.query();
+  var groups = [];
+  while (gr.next()) {
+    groups.push({
+      sys_id: gr.sys_id.toString(),
+      number: gr.number.toString(),
+      type: gr.type.toString(),
+      flight: gr.numero_do_voo.toString(),
+      members: []
+    });
+  }
+  return groups;
+}
+
+/**************************************************************************/
+/************************* Manipulações de grupos *************************/
+function getMembers(group) {
+  var gr = new GlideRecord('x_alabs_pex_crew_group_m2m');
+  // Condição: Registros que pertencem ao grupo em questão
+  gr.addEncodedQuery('group.sys_id=' + group.sys_id);
+  gr.orderBy('user.employee_number'); //Ordena por RE
+  gr.query();
+  var members = [];
+  while (gr.next()) {
+    members.push({
+      sys_id: gr.user.sys_id.toString(),
+      title: gr.user_title.toString()
+    });
+  }
+  //Ordena membros por título
+  // (CA -> FO)
+  if (group.type == 'Piloto') // Caso o grupo seja de piltos
+    members.sort(function (a, b) {
+      if (a.type == 'CA' && b.type == 'FO') return -1;
+      else if (a.type == 'FO' && b.type == 'CA') return 1;
+      else return 0;
+    });
+  // (CL -> OTHERS)
+  if (group.type == 'Comissario') // Caso o grupo seja de comissário
+    members.sort(function (a, b) {
+      if (a.type == 'CL' && b.type != 'CL') return -1;
+      else if (a.type != 'CL' && b.type == 'CL') return 1;
+      else return 0;
+    });
+
+  members.forEach(function (a) {
+    group.members.push(a);
+  });
+
+  return group;
+}
+/**************************************************************************/
+/************************ Operações para pesquisas ************************/
+/**************************************************************************/
+var SurveysInstanced = 0; // Contagem de pesquisas instanciadas
+/**************************************************************************/
+/************** Mapeamento para gerar Instancias de pesquisa **************/
+function instanceSurveys(group) {
+  var gr = new GlideRecord('x_alabs_pex_survey');
+  //Condição: Pesquisa ativa, Tipo ser Vertical e Posição do campo corresponder ao tipo de grupo
+  gr.addEncodedQuery('state=draft^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=' + group.type);
+  // gr.addEncodedQuery('state!=completed^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=' + group.type);
+  gr.orderByDesc('sys_created_on');
+  gr.setLimit(1);
+  gr.query();
+
+  if (gr.next()) {
+    var questions = getSurveyQuestions(gr.sys_id.toString());
+    if (group.type == 'Comissario') {
+      InstanceComissarySurveys(group.members, questions, gr.sys_id.toString());
+    } else if (group.type == 'Piloto') {
+      InstancePilotSurveys(group.members, questions, gr.sys_id.toString());
+    }
+  }
+}
+/**************************************************************************/
+/******************** Instancia pesquisa para pilotos *********************/
+function InstancePilotSurveys(crew, questions, surveyId) {
+  var instancedSurveys = [];
+  crew.forEach(function (memberA, idA) {
+    crew.forEach(function (memberB, idB) {
+      if (idA != idB && (memberA.title != memberB.title)) {
+        var gr = new GlideRecord('x_alabs_pex_instance_survey');
+        gr.initialize();
+        // Informações sobre a pontuação
+        gr.number_of_questions = questions.list.length; // Quantidade de questões
+        gr.pontuacao_maxima_possivel = questions.maxPoints; // Máxima pontuação possível - object OBJET
+        gr.number_of_questions_answered = 0; // Quantidade de questões respondidas
+        // Informações sobre os membros da tripulação
+        gr.responsible = memberA.sys_id; // Reponsável por realizar a pesquisa
+        gr.tripulante_avaliado_na_pesquisa = memberB.sys_id; // Membro avaliado
+        // Informações sobre a pesquisa
+        gr.survey = surveyId; // Pesquisa associada
+        // Outras informações
+        gr.state = 'pending'; // Inicializa o status da pesquisa em pendente
+        var id = gr.insert(); // Insere instância de pesquisa
+        instancedSurveys.push(id);
+      }
+    }); //End ForEach member B
+  }); //End ForEach member A
+  SurveysInstanced = instancedSurveys.length;
+  generateInstSurveyQuestion(instancedSurveys, questions);
+}
+/**************************************************************************/
+/****************** Instancia pesquisa para comissários *******************/
+function InstanceComissarySurveys(crew, questions, surveyId) {
+  var instancedSurveys = [];
+  crew.forEach(function (memberA, idA) {
+    crew.forEach(function (memberB, idB) {
+      //Condições para realização da pesquisa
+      var crCL0toFE = idA != idB && idA == 0 && memberB.title == 'FE'; // Cruzamento CL[0]->FE
+      var crFEtoCL0 = idA != idB && idA == 0 && memberB.title == 'FE'; // Cruzamento FE->CL[0]
+      var crCLtoFA = idA != idB && idA != 0 && memberB.title == 'CL' && memberB.title == 'FA'; // Cruzamento CL->FA
+      var crFAtoCL = idA != idB && idA == 0 && memberB.title == 'FE'; // Cruzamento FA->CL
+      if (crCL0toFE | crFEtoCL0 | crCLtoFA | crFAtoCL) {
+        var gr = new GlideRecord('x_alabs_pex_instance_survey');
+        gr.initialize();
+        // Informações sobre a pontuação
+        gr.number_of_questions = questions.list.length; // Quantidade de questões
+        gr.pontuacao_maxima_possivel = questions.maxPoints; // Máxima pontuação possível
+        gr.number_of_questions_answered = 0; // Quantidade de questões respondidas
+        // Informações sobre os membros da tripulação
+        gr.responsible = memberA.sys_id; // Reponsável por realizar a pesquisa
+        gr.tripulante_avaliado_na_pesquisa = memberB.sys_id; // Membro avaliado
+        // Informações sobre a pesquisa
+        gr.survey = surveyId; // Pesquisa associada
+        // Outras informações
+        gr.state = 'pending'; // Inicializa o status da pesquisa em pendente
+        var id = gr.insert(); // Insere instância de pesquisa
+        instancedSurveys.push(id);
+      }
+    }); //End ForEach member B
+  }); //End ForEach member A
+  SurveysInstanced = instancedSurveys.length;
+  generateInstSurveyQuestion(instancedSurveys, questions);
+}
+/**************************************************************************/
+/*********************** Obtém questões da pesquisa ***********************/
+function getSurveyQuestions(surveyId) {
+  var gr = new GlideRecord('x_alabs_pex_surveys_questions');
+  gr.addEncodedQuery('survey.sys_id=' + surveyId);
+  gr.query();
+  var questions = {
+    list: [],
+    maxPoints: 0
+  };
+  while (gr.next()) {
+    questions.list.push({
+      sys_id: gr.question.sys_id.toString(),
+      weight: gr.question.peso_da_questao.toString(),
+      maxPoint: (gr.question.pontuacao_maxima_possivel.toString()) ? gr.question.pontuacao_maxima_possivel.toString() : 0
+    });
+  }
+  // Cálculo do máximo de pontos possível para a pesquisa
+  if (questions.list.length > 0) {
+    questions.maxPoints = questions.list.reduce(function (total, points) {
+      return total + points;
+    });
+  }
+  return questions;
+}
+
+function generateInstSurveyQuestion(instSurvId, questions) {
+  instSurvId.forEach(function (instSurvId) {
+    questions.list.forEach(function (question) {
+      var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
+      gr.initialize();
+      gr.survey_instance = instSurvId;
+      gr.question = question;
+      gr.insert();
+    });
+  });
+}]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>yuhri.bernardes</sys_created_by>
+        <sys_created_on>2018-11-05 17:28:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7c1106dadb2d670080567a30ba961939</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>onComplete</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_7c1106dadb2d670080567a30ba961939</sys_update_name>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2018-11-20 20:55:49</sys_updated_on>
+        <when>onComplete</when>
+    </sys_transform_script>
+</record_update>

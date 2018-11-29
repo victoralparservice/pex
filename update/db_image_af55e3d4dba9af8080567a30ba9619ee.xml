@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category/>
+        <format>png</format>
+        <height>88</height>
+        <image>d9a52f18dba9af8080567a30ba961962</image>
+        <name>happy-emoji.png</name>
+        <size_bytes>1508</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2018-10-30 19:32:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>af55e3d4dba9af8080567a30ba9619ee</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>happy-emoji.png</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>db_image_af55e3d4dba9af8080567a30ba9619ee</sys_update_name>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2018-10-30 19:32:09</sys_updated_on>
+        <thumbnail/>
+        <width>87</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#5ebdb2</average_image_color>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <image_height>88</image_height>
+        <image_width>87</image_width>
+        <size_bytes>1508</size_bytes>
+        <size_compressed>1531</size_compressed>
+        <state>available</state>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2018-10-30 19:32:09</sys_created_on>
+        <sys_id>d9a52f18dba9af8080567a30ba961962</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2018-10-30 19:32:09</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>af55e3d4dba9af8080567a30ba9619ee</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="d9a52f18dba9af8080567a30ba961962">d9a52f18dba9af8080567a30ba961962</sys_attachment>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2018-10-30 19:32:09</sys_created_on>
+        <sys_id>1da52f18dba9af8080567a30ba961962</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>2028</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="d9a52f18dba9af8080567a30ba961962">d9a52f18dba9af8080567a30ba961962</sys_attachment>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2018-10-30 19:32:09</sys_created_on>
+        <sys_id>9da52f18dba9af8080567a30ba961962</sys_id>
+    </sys_attachment_doc>
+</record_update>

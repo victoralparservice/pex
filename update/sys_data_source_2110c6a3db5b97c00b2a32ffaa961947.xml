@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_data_source">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source">
     <sys_data_source action="INSERT_OR_UPDATE">
         <category/>
         <connection_timeout>0</connection_timeout>
@@ -25,7 +24,7 @@
         <last_run_datetime/>
         <ldap_target/>
         <maximum_rows/>
-        <mid_server display_value="SNMID1TB578H - DEV">7e1d67646f8f43009ae430767b3ee4f4</mid_server>
+        <mid_server display_value="DEV-S1-M1">cd3a846ddb74670080567a30ba96193e</mid_server>
         <name>PEX - Crew Manager</name>
         <oracle_port>1521</oracle_port>
         <oracle_sid>SABREODS</oracle_sid>
@@ -39,74 +38,131 @@
         <scp_user_name/>
         <sheet_number>0</sheet_number>
         <sql_statement>SELECT  DISTINCT&#13;
+&#13;
             CREW.STAFFNUMBER AS RE,&#13;
+&#13;
             CREWONFLIGHT.ACTINGPOSITIONCODE AS CARGO,&#13;
+&#13;
             INFO.FIRSTNAME AS FIRST_NAME,&#13;
+&#13;
             INFO.LASTNAME AS LAST_NAME,&#13;
+&#13;
             EMAIL.EMAIL_VALUE AS EMAIL,&#13;
+&#13;
             FLIGHTKEY.AIRLINECODE AS EMPRESA,&#13;
+&#13;
             FLIGHTLEG.DEPARTUREAIRPORTCODE AS ORIGEM,&#13;
+&#13;
             FLIGHTLEG.ARRIVALAIRPORTCODE AS DESTINO,&#13;
+&#13;
             FLIGHTKEY.FLIGHTNUMBER AS NUMERO_VOO,&#13;
+&#13;
             FLIGHTKEY.FLIGHTDATE AS DTT_PARTIDA,&#13;
+&#13;
             FUNCTION.EFFECTIVEDATE AS DTT_INICIO_CARGO,&#13;
+&#13;
             FUNCTION.EXPIRYDATE AS DTT_FIM_CARGO&#13;
+&#13;
     FROM    CREW&#13;
+&#13;
     JOIN    CREWPERSONALINFO INFO ON    CREW.ID = INFO.FK_CREW&#13;
+&#13;
     JOIN    CREWEMAIL EMAIL ON CREW.ID = EMAIL.FK_CREW&#13;
-    JOIN    CREWFUNCTION FUNCTION ON CREW.ID = FUNCTION.FK_CREW &#13;
+&#13;
+    JOIN    CREWFUNCTION FUNCTION ON CREW.ID = FUNCTION.FK_CREW&#13;
+&#13;
     JOIN    CREWONFLIGHT ON CREW.STAFFNUMBER = CREWONFLIGHT.STAFFNUMBER&#13;
+&#13;
     JOIN    FLIGHTLEG ON    CREWONFLIGHT.FLIGHTLEGID = FLIGHTLEG.FLIGHTLEGID&#13;
+&#13;
     JOIN    FLIGHTLEG_FLIGHTKEY FLIGHTKEY ON FLIGHTLEG.ID = FLIGHTKEY.FK_FLIGHTLEG&#13;
-    &#13;
+&#13;
+   &#13;
+&#13;
     LEFT JOIN (&#13;
-    &#13;
+&#13;
+   &#13;
+&#13;
         SELECT  CREW.STAFFNUMBER,&#13;
+&#13;
                 FLIGHTLEG.DEPARTUREAIRPORTCODE,&#13;
+&#13;
                 FLIGHTLEG.ARRIVALAIRPORTCODE,&#13;
+&#13;
                 FLIGHTKEY.AIRLINECODE,&#13;
+&#13;
                 FLIGHTKEY.FLIGHTNUMBER,&#13;
+&#13;
                 FLIGHTKEY.FLIGHTDATE&#13;
+&#13;
         FROM    FLIGHTLEGTIMES TIMES&#13;
+&#13;
         JOIN    FLIGHTLEG ON FLIGHTLEG.ID = TIMES.FK_FLIGHTLEG&#13;
+&#13;
         JOIN    FLIGHTLEG_FLIGHTKEY FLIGHTKEY ON FLIGHTLEG.ID = FLIGHTKEY.FK_FLIGHTLEG&#13;
+&#13;
         JOIN    CREWONPAIRING_FLIGHTLEG CREWFLIGHT ON CREWFLIGHT.FLIGHTLEGID = FLIGHTLEG.FLIGHTLEGID&#13;
+&#13;
         JOIN    CREWONPAIRING ON CREWONPAIRING.ID = CREWFLIGHT.FK_CREWONPAIRING&#13;
+&#13;
         JOIN    CREWONPAIRING_CREW CREW ON CREWONPAIRING.ID = CREW.FK_CREWONPAIRING&#13;
+&#13;
         JOIN    CREWONFLIGHT ON CREW.STAFFNUMBER = CREWONFLIGHT.STAFFNUMBER&#13;
+&#13;
         JOIN    PAIRING ON CREWONPAIRING.PATTERNLABEL = PAIRING.PATTERNLABEL&#13;
+&#13;
         JOIN    PAIRING_DUTY DUTY ON PAIRING.ID = DUTY.FK_PAIRING&#13;
+&#13;
         JOIN    DUTY_ACTIVITYACCUMULATOR DUTYACT ON DUTY.ID = DUTYACT.FK_DUTY&#13;
+&#13;
         JOIN    FLYINGACTIVITY FLYACT ON DUTYACT.ID = FLYACT.FK_ACTIVITYACCUMULATOR&#13;
-        WHERE   FLYACT.Type = 'DEADHEAD' &#13;
+&#13;
+        WHERE   FLYACT.Type = 'DEADHEAD'&#13;
+&#13;
+           AND CREWONFLIGHT.ACTIVITYTYPECODE NOT IN ('DHD','TVL')&#13;
+&#13;
             AND CREWONFLIGHT.REMOVED = 'false'&#13;
-            &#13;
+&#13;
+           &#13;
+&#13;
     ) DHD ON    CREW.STAFFNUMBER = DHD.STAFFNUMBER AND&#13;
+&#13;
                 FLIGHTKEY.FLIGHTDATE = DHD.FLIGHTDATE AND&#13;
+&#13;
                 FLIGHTLEG.DEPARTUREAIRPORTCODE = DHD.DEPARTUREAIRPORTCODE AND&#13;
+&#13;
                 FLIGHTLEG.ARRIVALAIRPORTCODE = DHD.ARRIVALAIRPORTCODE AND&#13;
+&#13;
                 FLIGHTKEY.FLIGHTNUMBER = DHD.FLIGHTNUMBER&#13;
-    &#13;
-    WHERE   FLIGHTLEG.FLIGHTLEGSTATUS = 'SCHEDULED'         &#13;
+&#13;
+   &#13;
+&#13;
+    WHERE   FLIGHTLEG.FLIGHTLEGSTATUS = 'SCHEDULED'        &#13;
+&#13;
         AND CREWONFLIGHT.REMOVED = 'false'&#13;
+&#13;
         AND DHD.STAFFNUMBER IS NULL&#13;
-        AND CREWONFLIGHT.ACTINGPOSITIONCODE = FUNCTION.FUNCTIONCODE&#13;
-        AND FUNCTION.EXPIRYDATE &gt;= SYSDATE</sql_statement>
+&#13;
+    /*   AND CREWONFLIGHT.ACTINGPOSITIONCODE = FUNCTION.FUNCTIONCODE */&#13;
+&#13;
+        AND FUNCTION.EXPIRYDATE &gt;= SYSDATE&#13;
+&#13;
+        AND ROWNUM &lt;= 1000</sql_statement>
         <ssh_keyfile_path/>
         <sys_class_name>sys_data_source</sys_class_name>
         <sys_created_by>marcos.kassak</sys_created_by>
         <sys_created_on>2018-07-20 18:09:05</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2110c6a3db5b97c00b2a32ffaa961947</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>PEX - Crew Manager</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_data_source_2110c6a3db5b97c00b2a32ffaa961947</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-07-23 17:16:27</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2018-11-06 12:22:38</sys_updated_on>
         <table_name/>
         <type>JDBC</type>
         <use_integrated_authentication>false</use_integrated_authentication>
