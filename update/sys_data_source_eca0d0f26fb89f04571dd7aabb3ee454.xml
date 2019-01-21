@@ -24,7 +24,7 @@
         <last_run_datetime/>
         <ldap_target/>
         <maximum_rows/>
-        <mid_server display_value="SNOWDMZTB578A">d3b83de36f5e3200656917164b3ee471</mid_server>
+        <mid_server/>
         <name>PEX - Infos Colaborador &amp; Escala de Vôo</name>
         <oracle_port>1521</oracle_port>
         <oracle_sid>SBCC_ODS</oracle_sid>
