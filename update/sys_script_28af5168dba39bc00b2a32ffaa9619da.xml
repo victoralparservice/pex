@@ -5,7 +5,7 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -15,11 +15,9 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="sys_user">u_cargo=fd5b89dd6f01d7409ae430767b3ee418^ORu_cargo=158b41dd6f01d7409ae430767b3ee4f8^ORu_cargo=dc8bc9dd6f01d7409ae430767b3ee46c^ORu_cargo=82fc8783db0723c0cceb5e7cf3961979^ORu_cargo=f3257b63dbb55bc09e7509a0ba9619c5^EQ<item display_table="x_alabs_rh_role" display_value="COMISSÁRIO" endquery="false" field="u_cargo" goto="false" newquery="false" operator="=" or="false" value="fd5b89dd6f01d7409ae430767b3ee418"/>
-            <item display_table="x_alabs_rh_role" display_value="Comissario Lider" endquery="false" field="u_cargo" goto="false" newquery="false" operator="=" or="true" value="158b41dd6f01d7409ae430767b3ee4f8"/>
-            <item display_table="x_alabs_rh_role" display_value="Comissario Classe Executiva" endquery="false" field="u_cargo" goto="false" newquery="false" operator="=" or="true" value="dc8bc9dd6f01d7409ae430767b3ee46c"/>
-            <item display_table="x_alabs_rh_role" display_value="Piloto" endquery="false" field="u_cargo" goto="false" newquery="false" operator="=" or="true" value="82fc8783db0723c0cceb5e7cf3961979"/>
-            <item display_table="x_alabs_rh_role" display_value="COPILOTO" endquery="false" field="u_cargo" goto="false" newquery="false" operator="=" or="true" value="f3257b63dbb55bc09e7509a0ba9619c5"/>
+        <filter_condition table="sys_user">u_cargoSTARTSWITHPiloto^ORu_cargoSTARTSWITHComissario^ORu_cargoSTARTSWITHComissário^EQ<item endquery="false" field="u_cargo" goto="false" newquery="false" operator="STARTSWITH" or="false" value="Piloto"/>
+            <item endquery="false" field="u_cargo" goto="false" newquery="false" operator="STARTSWITH" or="true" value="Comissario"/>
+            <item endquery="false" field="u_cargo" goto="false" newquery="false" operator="STARTSWITH" or="true" value="Comissário"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
@@ -34,13 +32,26 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	var gr;
+	var rgPiloto = /(piloto)/gi;
+	var rgCopiloto = /(copiloto)/gi;
+	var rgcomisario = /(comissario)/gi;
 
-	var gr = new GlideRecord('x_alabs_pex_crew_management');
+	gr = new GlideRecord("x_alabs_pex_crew_management");
+
 	gr.initialize();
 	gr.user = current.getUniqueValue();
+	if (
+		rgPiloto.test(current.u_cargo.name.toString()) ||
+		rgCopiloto.test(current.u_cargo.name.toString())
+	) {
+		current.type = "Piloto";
+	} else if (rgcomisario.test(current.u_cargo.name.toString())) {
+		current.type = "Comissario";
+	}
 	gr.insert();
-
-})(current, previous);]]></script>
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-07-23 18:22:58</sys_created_on>
@@ -48,7 +59,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>28af5168dba39bc00b2a32ffaa9619da</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Criar tripulante na Crew Management</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -57,7 +68,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_28af5168dba39bc00b2a32ffaa9619da</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-01-21 20:35:44</sys_updated_on>
+        <sys_updated_on>2019-01-22 14:23:04</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
