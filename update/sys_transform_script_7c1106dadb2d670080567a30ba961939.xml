@@ -89,7 +89,7 @@ var SurveysInstanced = 0; // Contagem de pesquisas instanciadas
 function instanceSurveys(group) {
   var gr = new GlideRecord('x_alabs_pex_survey');
   //Condição: Pesquisa ativa, Tipo ser Vertical e Posição do campo corresponder ao tipo de grupo
-  gr.addEncodedQuery('state=draft^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=' + group.type);
+  gr.addEncodedQuery('state=published^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=' + group.type);
   // gr.addEncodedQuery('state!=completed^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=' + group.type);
   gr.orderByDesc('sys_created_on');
   gr.setLimit(1);
@@ -207,15 +207,15 @@ function generateInstSurveyQuestion(instSurvId, questions) {
         <sys_created_on>2018-11-05 17:28:33</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>7c1106dadb2d670080567a30ba961939</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>onComplete</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_script_7c1106dadb2d670080567a30ba961939</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2018-11-20 20:55:49</sys_updated_on>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2019-01-22 01:57:31</sys_updated_on>
         <when>onComplete</when>
     </sys_transform_script>
 </record_update>
