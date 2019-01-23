@@ -11,6 +11,9 @@
         </element>
         <element label="Tripulante" max_length="32" name="user" reference="sys_user" type="reference"/>
         <index name="index">
+            <element name="re"/>
+        </index>
+        <index name="index2">
             <element name="user"/>
         </index>
     </element>
