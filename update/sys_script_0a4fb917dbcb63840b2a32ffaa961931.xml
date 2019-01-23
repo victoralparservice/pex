@@ -27,18 +27,11 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[/*
-|--------------------------------------------------------------------------
-|	Após inserção de registro
-|--------------------------------------------------------------------------
-|
-|	1. Deleta todos os registros de questão que existam
-| 2. Instancia qustões corretamente
-|
-*/
-(function executeRule(current, previous /*null when async*/) {
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 	var gr;
 	var questionModels = [];
+	var points = [];
+
 	/**************************************************************************/
 	/*************** Deleta instâncias de questão relacionadas ****************/
 	gr = new GlideRecord("x_alabs_pex_instance_survey_question");
@@ -55,18 +48,26 @@
 
 	while (gr.next()) {
 		questionModels.push(gr.question.toString());
+		points.push(
+			gr.question.pontuacao_maxima_possivel.toString() !== ""
+				? gr.question.pontuacao_maxima_possivel.toString()
+				: 0
+		);
 	}
 
 	questionModels.forEach(function(questionModel) {
 		gr = new GlideRecord("x_alabs_pex_instance_survey_question");
-
 		gr.initialize();
 		gr.survey_instance = current.sys_id.toString();
 		gr.question = questionModel;
-
 		gr.insert();
 	});
 
+	current.number_of_questions = questionModels.length;
+	current.pontuacao_maxima_possivel = points.reduce(function(acm, point) {
+		return parseInt(point) + acm;
+	}, 0.0);
+	current.update();
 	//
 })(current, previous);
 ]]></script>
@@ -77,7 +78,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0a4fb917dbcb63840b2a32ffaa961931</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>ALP: After Insert</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -86,7 +87,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_0a4fb917dbcb63840b2a32ffaa961931</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-01-23 16:35:14</sys_updated_on>
+        <sys_updated_on>2019-01-23 17:10:34</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
