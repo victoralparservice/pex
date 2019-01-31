@@ -5,8 +5,8 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>true</action_update>
-        <active>true</active>
+        <action_update>false</action_update>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Capturar horário local</name>
+        <name>ALP: On Insert</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -27,21 +27,76 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	On insert data
+|--------------------------------------------------------------------------
+|
+|	Após inserir um registro de tripulação de Voo, executa as seguintes ações:
+|
+| 1- Obtém usuário a partir do RE
+| 2- Obtém voo a partir da origem, destino e nº do voo
+|
+*/
 
-	var gr = new GlideRecord('x_alabs_pex_flights');
-	gr.addQuery('data_partida_utc','STARTSWITH',current.data_hora_de_partida_utc);
-	gr.addQuery('origem.name',current.origem);
-	gr.addQuery('destino.name',current.destino);
-	gr.addQuery('numero_do_voo',current.numero_do_voo);
+(function executeRule(current, previous /*null when async*/) {
+	var gr;
+
+	/**************************************************************************/
+	/*********************************** 1 ************************************/
+	/**************************************************************************/
+	gr = new GlideRecord("x_alabs_pex_crew_management");
+	gr.addEncodedQuery("re=" + current.crewman_re.toString());
+	// gr.addEncodedQuery("active=true^re=" + current.crewman_re.toString());
 	gr.query();
-	
-	if(gr.next()){
-		current.data_e_hora_de_partida = gr.data_partida_local;
-		current.update();
-	}
 
-})(current, previous);]]></script>
+	if (gr.next()) current.user = gr.sys_id.toString();
+	/**************************************************************************/
+	/*********************************** 2 ************************************/
+	/**************************************************************************/
+
+	var flightInfo = {
+		origem: current.origem.toString().origem,
+		destino: current.destino.toString(),
+		number: current.numero_do_voo.toString(),
+		localDepDate: current.data_e_hora_de_partida.toString()
+	};
+
+	/**************************************************************************/
+	/******************** Obter SYS_ID do local de origem *********************/
+
+	gr = new GlideRecord("x_alabs_callcenter_location");
+	gr.addEncodedQuery("name=".concat(flightInfo.origem));
+	gr.query();
+	flightInfo.origem = gr.next() ? gr.sys_id.toString() : null;
+
+	/**************************************************************************/
+	/******************** Obter SYS_ID do local de origem *********************/
+
+	gr = new GlideRecord("x_alabs_callcenter_location");
+	gr.addEncodedQuery("name=".concat(flightInfo.destino));
+	gr.query();
+	flightInfo.destino = gr.next() ? gr.sys_id.toString() : null;
+
+	/**************************************************************************/
+	/******************** Associa ao registro encontrado **********************/
+
+	gr = new GlideRecord("x_alabs_pex_flights");
+	gr.addEncodedQuery(
+		"origem=".concat(flightInfo.origem) + // Filtra por origem,
+		"^destino=".concat(flightInfo.destino) + // Destino,
+		"^numero_do_voo=".concat(flightInfo.number) + // Número do voo
+			"^data_partida_local=".concat(flightInfo.localDepDate) // e Data de partida
+	);
+	gr.query();
+	if (gr.next()) current.flight = current.sys_id.toString();
+
+	/**************************************************************************/
+	/*************************** Atualiza Registro ****************************/
+	/**************************************************************************/
+	current.update();
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-08-27 20:23:35</sys_created_on>
@@ -49,16 +104,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>443a4effdb88af400b2a32ffaa96193b</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>Capturar horário local</sys_name>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>ALP: On Insert</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_443a4effdb88af400b2a32ffaa96193b</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-08-27 20:51:00</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-01-28 20:55:04</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_sys_id" label="Sys ID" language="en" table="u_imp_tmpl_x_alabs_pex_crew_management">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_sys_id</element>
+            <help/>
+            <hint/>
+            <label>Sys ID</label>
+            <language>en</language>
+            <name>u_imp_tmpl_x_alabs_pex_crew_management</name>
+            <plural>Sys IDs</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-01-24 19:40:12</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>313066ccdb9be3c40b2a32ffaa9619f7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Sys ID</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_documentation_u_imp_tmpl_x_alabs_pex_crew_management_u_sys_id_en</sys_update_name>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-01-24 19:40:12</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -7,14 +7,14 @@
         <element label="Data partida Local" max_length="40" name="data_partida_local" type="glide_date_time"/>
         <element label="Data partida UTC" max_length="40" name="data_partida_utc" type="glide_date_time"/>
         <element label="Data voo" max_length="40" name="data_voo" type="glide_date"/>
-        <element label="Destino" max_length="32" name="destino" reference="x_alabs_callcenter_location" type="reference"/>
+        <element label="Destino" max_length="32" name="destino" reference="cmn_location" type="reference"/>
         <element label="Diferencia fuso chegada" max_length="40" name="diferencia_fuso_chegada" type="string"/>
         <element label="Diferencia fuso partida" max_length="40" name="diferencia_fuso_partida" type="string"/>
         <element display="true" label="InventoryLegID" max_length="45" name="inventorylegid" type="string"/>
         <element label="InventoryLegKey" max_length="45" name="inventorylegkey" type="string"/>
         <element label="IROP" max_length="100" name="irop" type="string"/>
         <element label="Número do Voo" max_length="15" name="numero_do_voo" type="string"/>
-        <element label="Origem" max_length="32" name="origem" reference="x_alabs_callcenter_location" type="reference"/>
+        <element label="Origem" max_length="32" name="origem" reference="cmn_location" type="reference"/>
         <element label="PRBCCode" max_length="100" name="prbccode" type="string"/>
         <element label="STA" max_length="40" name="sta" type="string"/>
         <element choice="1" label="Status" max_length="40" name="status" type="choice">

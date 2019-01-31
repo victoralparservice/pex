@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="PEX - Crew Control">36a2f548db1ba3c40b2a32ffaa9619e5</map>
+        <order>200</order>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	Ao completar a integração
+|--------------------------------------------------------------------------
+|
+|	Gera as pesquisas verticais
+|
+*/
+(function runTransformScript(source, map, log, target /*undefined onStart*/) {
+	/**************************************************************************/
+	/************************** Obtenção dos grupos ***************************/
+
+	var groups = getGroups();
+	/**************************************************************************/
+	/************************** Obtenção dos membros **************************/
+	groups = groups.map(getMembers);
+
+	/**************************************************************************/
+	/********************* Instancia pesquisas verticais **********************/
+	groups.forEach(instanceSurveys);
+})(source, map, log, target);
+
+/**************************************************************************/
+/******************* Funções para grupos de tripulantes *******************/
+/**************************************************************************/
+
+/**************************************************************************/
+/*************************** Obtenção de grupos ***************************/
+function getGroups() {
+	var gr = new GlideRecord("x_alabs_pex_crew_group");
+	// Condição: Não recebeu pesquisa e está ativo
+	gr.addEncodedQuery("ja_recebeu_a_pesquisa=false^active=true");
+	gr.query();
+	var groups = [];
+	while (gr.next()) {
+		groups.push({
+			sys_id: gr.sys_id.toString(),
+			number: gr.number.toString(),
+			type: gr.type.toString(),
+			flight: {
+				number: gr.numero_do_voo.toString(),
+				localDepDate: gr.data_e_hora_de_partida.toString(),
+				origem: gr.origem.toString(),
+				destino: gr.destino.toString()
+			},
+			members: []
+		});
+		gr.ja_recebeu_a_pesquisa = true;
+		gr.update();
+	}
+	return groups;
+}
+
+/**************************************************************************/
+/************************* Manipulações de grupos *************************/
+function getMembers(group) {
+	var gr = new GlideRecord("x_alabs_pex_crew_group_m2m");
+	// Condição: Registros que pertencem ao grupo em questão
+	gr.addEncodedQuery("group.sys_id=" + group.sys_id);
+	gr.orderBy("user.employee_number"); //Ordena por RE
+	gr.query();
+	var members = [];
+	while (gr.next()) {
+		members.push({
+			sys_id: gr.user.sys_id.toString(),
+			title: gr.user_title.toString()
+		});
+	}
+	//Ordena membros por título
+	// (CA -> FO)
+	if (group.type == "Piloto")
+		// Caso o grupo seja de piltos
+		members.sort(function(a, b) {
+			if (a.type == "CA" && b.type == "FO") return -1;
+			else if (a.type == "FO" && b.type == "CA") return 1;
+			else return 0;
+		});
+	// (CL -> OTHERS)
+	if (group.type == "Comissario")
+		// Caso o grupo seja de comissário
+		members.sort(function(a, b) {
+			if (a.type == "CL" && b.type != "CL") return -1;
+			else if (a.type != "CL" && b.type == "CL") return 1;
+			else return 0;
+		});
+
+	members.forEach(function(a) {
+		group.members.push(a);
+	});
+
+	return group;
+}
+/**************************************************************************/
+/************************ Operações para pesquisas ************************/
+/**************************************************************************/
+
+/**************************************************************************/
+/************** Mapeamento para gerar Instancias de pesquisa **************/
+function instanceSurveys(group) {
+	var gr = new GlideRecord("x_alabs_pex_survey");
+	//Condição: Pesquisa ativa, Tipo ser Vertical e Posição do campo corresponder ao tipo de grupo
+	gr.addEncodedQuery(
+		"state=published^active=true^tipo_de_pesquisa=vertical^posicao_do_tripulante=" +
+			group.type
+	);
+
+	gr.orderByDesc("sys_created_on");
+	gr.setLimit(1);
+	gr.query();
+
+	if (gr.next()) {
+		if (group.type == "Comissario") {
+			InstanceComissarySurveys(group, group.members, gr.sys_id.toString());
+		} else if (group.type == "Piloto") {
+			InstancePilotSurveys(group, group.members, gr.sys_id.toString());
+		}
+	}
+}
+/**************************************************************************/
+/******************** Instancia pesquisa para pilotos *********************/
+function InstancePilotSurveys(group, crew, surveyId) {
+	var instancedSurveys = [];
+	crew.forEach(function(memberA, idA) {
+		crew.forEach(function(memberB, idB) {
+			if (idA != idB && memberA.title != memberB.title) {
+				var gr = new GlideRecord("x_alabs_pex_instance_survey");
+				gr.initialize();
+				// Informações sobre os membros da tripulação
+				gr.responsible = memberA.sys_id; // Reponsável por realizar a pesquisa
+				gr.tripulante_avaliado_na_pesquisa = memberB.sys_id; // Membro avaliado
+				// Informações sobre a pesquisa
+				gr.survey = surveyId; // Pesquisa associada
+				// Informações do Voo
+				gr.origem = group.flight.origem;
+				gr.destino = group.flight.destino;
+				gr.data_de_partida = group.flight.localDepDate;
+				gr.numero_do_voo = group.flight.number;
+				// Outras informações
+				gr.state = "pending"; // Inicializa o status da pesquisa em pendente
+				gr.insert(); // Insere instância de pesquisa
+			}
+		}); //End ForEach member B
+	}); //End ForEach member A
+}
+/**************************************************************************/
+/****************** Instancia pesquisa para comissários *******************/
+function InstanceComissarySurveys(group, crew, surveyId) {
+	crew.forEach(function(memberA, idA) {
+		crew.forEach(function(memberB, idB) {
+			/**************************************************************************/
+			/****************** Condições para geração de pesquisas *******************/
+			var crCL0toFE = idA != idB && idA == 0 && memberB.title == "FE"; // Cruzamento CL[0]->FE
+			var crFEtoCL0 = idA != idB && idB == 0 && memberA.title == "FE"; // Cruzamento FE->CL[0]
+			var crCLtoFA =
+				idA != idB &&
+				idA != 0 &&
+				memberA.title == "CL" &&
+				memberB.title == "FA"; // Cruzamento CL->FA
+			var crFAtoCL =
+				idA != idB &&
+				idA != 0 &&
+				memberB.title == "CL" &&
+				memberA.title == "FA"; // Cruzamento FA->CL
+
+			/**************************************************************************/
+			/************************* Criação das pesquisas **************************/
+			if (crCL0toFE | crFEtoCL0 | crCLtoFA | crFAtoCL) {
+				var gr = new GlideRecord("x_alabs_pex_instance_survey");
+				gr.initialize();
+				// Informações sobre os membros da tripulação
+				gr.responsible = memberA.sys_id; // Reponsável por realizar a pesquisa
+				gr.tripulante_avaliado_na_pesquisa = memberB.sys_id; // Membro avaliado
+				// Informações sobre a pesquisa
+				gr.survey = surveyId; // Pesquisa associada
+				// Informações do Voo
+				gr.origem = group.flight.origem;
+				gr.destino = group.flight.destino;
+				gr.data_de_partida = group.flight.localDepDate;
+				gr.numero_do_voo = group.flight.number;
+				// Outras informações
+				gr.state = "pending"; // Inicializa o status da pesquisa em pendente
+				gr.insert(); // Insere instância de pesquisa
+			}
+		}); //End ForEach member B
+	}); //End ForEach member A
+}
+]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>yuhri.bernardes</sys_created_by>
+        <sys_created_on>2019-01-29 20:35:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>36bc9c3ddb9367400b2a32ffaa96198c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>onComplete</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_36bc9c3ddb9367400b2a32ffaa96198c</sys_update_name>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-01-30 17:23:10</sys_updated_on>
+        <when>onComplete</when>
+    </sys_transform_script>
+</record_update>

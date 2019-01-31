@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_alabs_pex_crew" version="2" view="sys_ref_list">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_import_row</element>
+            <list_id display_value="x_alabs_pex_crew" element="NULL" name="x_alabs_pex_crew" parent="NULL" relationship="NULL" sys_domain="global" view="a5ce36106f201200218117164b3ee45c">909f9310db1f67000b2a32ffaa961926</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-01-25 18:55:28</sys_created_on>
+            <sys_id>dc9f9310db1f67000b2a32ffaa961926</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-01-25 18:55:28</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_alabs_pex_crew</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-01-25 18:55:28</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>909f9310db1f67000b2a32ffaa961926</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_alabs_pex_crew</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_ui_list_x_alabs_pex_crew_sys_ref_list</sys_update_name>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-01-25 18:55:28</sys_updated_on>
+            <sys_user/>
+            <view display_value="Reference List" name="sys_ref_list">a5ce36106f201200218117164b3ee45c</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

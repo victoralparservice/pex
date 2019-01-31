@@ -54,22 +54,22 @@
         <sys_created_on>2018-10-09 14:00:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9a0012e1dbc5674080567a30ba96197c</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Crewman RE</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_flight_crew_crewman_re</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-23 14:13:53</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-01-26 13:47:08</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
-        <virtual>true</virtual>
+        <virtual>false</virtual>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>

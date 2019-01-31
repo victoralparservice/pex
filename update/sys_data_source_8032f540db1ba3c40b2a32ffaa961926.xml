@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source">
+    <sys_data_source action="INSERT_OR_UPDATE">
+        <category/>
+        <connection_timeout>0</connection_timeout>
+        <connection_url>jdbc:oracle:thin:@ORAODSTB578A:1521/SBCC_ODS</connection_url>
+        <connection_url_parameters/>
+        <csv_delimiter/>
+        <database_name>SABREODS</database_name>
+        <database_port>1521</database_port>
+        <expand_node_children>false</expand_node_children>
+        <file_path/>
+        <file_retrieval_method>Attachment</file_retrieval_method>
+        <format>oracle.jdbc.OracleDriver</format>
+        <glide_keystore>false</glide_keystore>
+        <header_row>0</header_row>
+        <import_set_table_label>crew</import_set_table_label>
+        <import_set_table_name>x_alabs_pex_crew</import_set_table_name>
+        <instance_name/>
+        <jdbc_password>emjo14SukCR1G2ST+k+h+Q==</jdbc_password>
+        <jdbc_server>ORAODSTB578A</jdbc_server>
+        <jdbc_user_name>sabrecc_rpt</jdbc_user_name>
+        <jpath_root_node/>
+        <last_run_database_field/>
+        <last_run_datetime/>
+        <ldap_target/>
+        <maximum_rows/>
+        <mid_server display_value="DEV-S1-M1">cd3a846ddb74670080567a30ba96193e</mid_server>
+        <name>PEX - Crew Control</name>
+        <oracle_port>1521</oracle_port>
+        <oracle_sid>SBCC_ODS</oracle_sid>
+        <properties/>
+        <query>Specific SQL</query>
+        <query_timeout>0</query_timeout>
+        <scp_authentication>Username and Password</scp_authentication>
+        <scp_password/>
+        <scp_port/>
+        <scp_server/>
+        <scp_user_name/>
+        <sheet_number>0</sheet_number>
+        <sql_statement>SELECT DISTINCT emp.EMPNO AS RE,&#13;
+&#13;
+CRWCT.CRWCAT AS CARGO,&#13;
+&#13;
+name.FIRSTNAME AS Name,&#13;
+&#13;
+Middlename,&#13;
+&#13;
+name.LASTNAME AS Lastnamel,&#13;
+&#13;
+mail.EMAILADDRESS AS Email,&#13;
+&#13;
+Base,&#13;
+&#13;
+EP.IDLEG,&#13;
+&#13;
+EMPQUAL.IDEMPNO,&#13;
+&#13;
+EP.ACTIVITYINFO AS InfoVoo&#13;
+&#13;
+FROM RM_LIVE.EMPLOYEE emp&#13;
+&#13;
+INNER JOIN RM_LIVE.EMPNAME name ON emp.IDEMPNO = name.IDEMPNO&#13;
+&#13;
+INNER JOIN RM_LIVE.EMPEMAIL mail ON emp.IDEMPNO = mail.IDEMPNO&#13;
+&#13;
+JOIN RM_LIVE.EMPBASE EB ON EB.IDEMPNO = EMP.IDEMPNO&#13;
+&#13;
+JOIN RM_LIVE.CRWBASE CB ON CB.IDCRWBASE = EB.IDCRWBASE&#13;
+&#13;
+JOIN RM_LIVE.EMPQUALCAT EMPQUAL ON EMPQUAL.IDEMPNO = EMP.IDEMPNO&#13;
+&#13;
+JOIN RM_LIVE.CRWCAT CRWCT ON CRWCT.IDCRWCAT = EMPQUAL.IDCRWCAT&#13;
+&#13;
+INNER JOIN RM_LIVE.EMPASSIGN EP ON EP.IDEMPNO = EMP.IDEMPNO&#13;
+&#13;
+WHERE EMPQUAL.ENDDATE &gt;= SYSDATE&#13;
+&#13;
+AND EB.ENDDATE &gt;= SYSDATE&#13;
+&#13;
+AND EP.ASGACTEND BETWEEN TO_DATE('25/01/19', 'DD/MM/YY') AND TO_DATE('26/01/19', 'DD/MM/YY')&#13;
+&#13;
+AND EP.IDLEG IS NOT NULL&#13;
+&#13;
+and substr(EP.ACTIVITYINFO, instr(EP.ACTIVITYINFO, ';', 1, 1) + 1, 3)  not in ('DEL')&#13;
+&#13;
+AND ROWNUM &lt;= 10000</sql_statement>
+        <ssh_keyfile_path/>
+        <sys_class_name>sys_data_source</sys_class_name>
+        <sys_created_by>yuhri.bernardes</sys_created_by>
+        <sys_created_on>2019-01-24 16:19:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8032f540db1ba3c40b2a32ffaa961926</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>PEX - Crew Control</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_data_source_8032f540db1ba3c40b2a32ffaa961926</sys_update_name>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-01-28 21:16:56</sys_updated_on>
+        <table_name/>
+        <type>JDBC</type>
+        <use_integrated_authentication>false</use_integrated_authentication>
+        <use_last_run_datetime>false</use_last_run_datetime>
+        <xpath_root_node/>
+        <zipped>false</zipped>
+    </sys_data_source>
+</record_update>

@@ -40,7 +40,7 @@
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference display_value="" name="x_alabs_callcenter_location">x_alabs_callcenter_location</reference>
+        <reference display_value="" name="cmn_location">cmn_location</reference>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -55,15 +55,15 @@
         <sys_created_on>2018-03-05 10:18:59</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3c3ae1cadbd1d740664ea19b8a9619fa</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Destino</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_flights_destino</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-09-17 21:09:03</sys_updated_on>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2019-01-30 19:59:13</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

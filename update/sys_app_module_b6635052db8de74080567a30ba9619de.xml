@@ -28,18 +28,18 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b6635052db8de74080567a30ba9619de</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Desempenho Técnicos</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Technical Performances</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_app_module_b6635052db8de74080567a30ba9619de</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-11 13:16:37</sys_updated_on>
+        <sys_updated_by>alpar.custodio</sys_updated_by>
+        <sys_updated_on>2019-01-24 13:24:02</sys_updated_on>
         <timeline_page/>
-        <title>Desempenho Técnicos</title>
+        <title>Technical Performances</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

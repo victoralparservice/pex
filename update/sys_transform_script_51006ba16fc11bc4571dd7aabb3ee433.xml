@@ -3,47 +3,72 @@
         <active>true</active>
         <map display_value="Infos Colaborador &amp; Escala de Vôo">5e9040596f8197409ae430767b3ee434</map>
         <order>900</order>
-        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+        <script><![CDATA[/*
+		|--------------------------------------------------------------------------
+		|	After transform
+		|--------------------------------------------------------------------------
+		|
+		|	Após inserção do registro, relaciona o vôo ao usuário (sys_user)
+		|
+		*/
+(function runTransformScript(source, map, log, target /*undefined onStart*/) {
+	var src = {
+		legID: source.u_idleg.toString(),
+		re: source.u_re.toString()
+	};
+	var relation = {};
+	var gr;
+	/**************************************************************************/
+	/********************** Informações para Inserção *************************/
+	/**************************************************************************/
 
-	var flightId = '';
-	var flight = new GlideRecord('x_alabs_pex_flights');
-	flight.addEncodedQuery('inventorylegid=' + source.u_idleg);
+	/**************************************************************************/
+	/****************************** Obtém vôo *********************************/
+	var flight = new GlideRecord("x_alabs_pex_flights");
+	flight.addEncodedQuery("inventorylegid=" + src.legID);
 	flight.query();
-	if(flight.next()) {
-		flightId = flight.getUniqueValue();
-	}
+	relation.flight = flight.next() ? flight.sys_id.toString() : null;
 
-	var userId = '';
-	var user = new GlideRecord('sys_user');
-	user.addEncodedQuery('employee_number=' + source.u_re);
+	/**************************************************************************/
+	/***************************** Obtém usuário ******************************/
+	var user = new GlideRecord("sys_user");
+	user.addEncodedQuery("employee_number=" + src.re);
 	user.query();
-	if(user.next()) {
-		userId = user.getUniqueValue();
-	}
+	relation.user = user.next() ? user.sys_id.toString() : null;
 
-	if(flightId && userId != '') {
-		var gr = new GlideRecord('x_alabs_pex_m2m_users_flights');
+	/**************************************************************************/
+	/************************* Inserção do registro ***************************/
+	/**************************************************************************/
+	gr = new GlideRecord("x_alabs_pex_m2m_users_flights");
+	gr.addEncodedQuery(
+		"flights=".concat(relation.flight) + "^user=".concat(relation.user)
+	);
+
+	gr.query();
+
+	if (relation.flight && relation.user && !gr.next()) {
+		gr = new GlideRecord("x_alabs_pex_m2m_users_flights");
 		gr.initialize();
-		gr.flights = flightId;
-		gr.user = userId;
+		gr.flights = relation.flight;
+		gr.user = relation.user;
 		gr.insert();
 	}
-
-})(source, map, log, target);]]></script>
+})(source, map, log, target);
+]]></script>
         <sys_class_name>sys_transform_script</sys_class_name>
         <sys_created_by>marcos.kassak</sys_created_by>
         <sys_created_on>2018-03-24 23:42:52</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>51006ba16fc11bc4571dd7aabb3ee433</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>onAfter</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_script_51006ba16fc11bc4571dd7aabb3ee433</sys_update_name>
-        <sys_updated_by>marcos.kassak</sys_updated_by>
-        <sys_updated_on>2018-03-24 23:42:52</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-01-28 20:22:45</sys_updated_on>
         <when>onAfter</when>
     </sys_transform_script>
 </record_update>
