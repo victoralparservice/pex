@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_alabs_pex_nps_note</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>ALP: On insert</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	OnInsert
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Yuhri Bernardes - 05/02/2019
+|	]
+|
+|	Ações: [
+|		1 - Mapeamento do registro de voo
+|		2 - Atualização do registro atual
+|		3 - Atualização das notas gerais
+|	]
+|
+*/
+
+(function executeRule(current, previous /*null when async*/ ) {
+
+	var util = new x_alabs_pex.PexScoreUtils();
+
+	//OBS é necessário fazer a ação 1 para que a ação 3 funcione
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação 1
+	|--------------------------------------------------------------------------
+	*/
+
+	var query = {
+		numero_do_voo: current.flight_number.toString().replace(/[.|,]/g, "").trim(),
+		"origem.u_iata": current.origin.toString().trim(),
+		"destino.u_iata": current.destination.toString().trim(),
+		data_partida_utc: current.flight_local_date.toString().trim()
+	};
+
+
+	util.Flight.get(query);
+
+	if (util.Flight.count)
+		current.flight = util.Flight.data[0].getUniqueValue();
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação 2
+	|--------------------------------------------------------------------------
+	*/
+	current.update();
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação 3
+	|--------------------------------------------------------------------------
+	*/
+
+	util.NPS.getByID(current.getUniqueValue());
+
+	util.updateNPS();
+
+
+
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>yuhri.bernardes</sys_created_by>
+        <sys_created_on>2019-02-05 14:19:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b1d94fffdb53ef400b2a32ffaa9619bb</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>ALP: On insert</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_b1d94fffdb53ef400b2a32ffaa9619bb</sys_update_name>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-05 17:59:33</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=b1d94fffdb53ef400b2a32ffaa9619bb"/>
+</record_update>

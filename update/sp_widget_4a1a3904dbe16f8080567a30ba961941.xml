@@ -10,8 +10,9 @@
   $scope.notes = $scope.data.notes;
 
   var yearsArray = $scope.data.years;
-  $scope.yearsArray = yearsArray;
-
+  $scope.modelChoices = yearsArray.length === 0 ? 0 : yearsArray.length - 1;
+	$scope.yearsArray = yearsArray;
+	
   $scope.preferences = function () {
     $($element).find('.prefs-modal').modal('show');
   }
@@ -123,12 +124,11 @@
       $scope.sadVertical = false;
       $scope.regularVertical = false;
     }
-
   }
 
-  $scope.showTopAccording = $scope.data.topAccording ? false : true;
-  $scope.showNotConforms = $scope.data.notConforms ? false : true;
-
+	
+  $scope.showTopAccording = $scope.data.topAccording.length > 0 ? true : false;
+  $scope.showNotConforms = $scope.data.notConforms.length > 0 ? true : false;
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.card {
@@ -166,22 +166,7 @@
 .fade-scale.in {
   opacity: 1;
   transform: scale(1);
-}
-
-.columnLeft{
- 	width: 49.5%;
-  float: left;
-}
-
-.columnRight {
-    width: 49.5%;
-    float: right;
-}
-.modal-content{
- 	 width: 200%;
-   margin-left: -50%; 
-}
-</css>
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -225,8 +210,8 @@
 		data.showNotesPanel = true;
 	}
 	
-	data.topAccording = new global.TopQuestionsVerticalUtils().topAccording();
-	data.notConforms = new global.TopQuestionsVerticalUtils().notConform();
+	data.topAccording = new global.GetVerticalQuestions().topAccording();
+	data.notConforms = new global.GetVerticalQuestions().notConform();
 
 })();]]></script>
         <servicenow>false</servicenow>
@@ -235,16 +220,16 @@
         <sys_created_on>2018-10-29 17:03:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>4a1a3904dbe16f8080567a30ba961941</sys_id>
-        <sys_mod_count>426</sys_mod_count>
+        <sys_mod_count>457</sys_mod_count>
         <sys_name>PEX - Crewman Assessments</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_4a1a3904dbe16f8080567a30ba961941</sys_update_name>
-        <sys_updated_by>isaac.vicentini</sys_updated_by>
-        <sys_updated_on>2018-11-21 19:18:57</sys_updated_on>
-        <template><![CDATA[<div class="panel panel-default b" ng-show="data.showNotesPanel">
+        <sys_updated_by>alpar.douglas.silva</sys_updated_by>
+        <sys_updated_on>2019-02-05 17:26:32</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b">
   <div class="panel-heading">
     <div>
       <h2 class="h4 panel-title ng-binding" style="display: inline-block;"> {{options.title}} - {{year || actualYear}}
@@ -276,6 +261,7 @@ Sem nenhum estrela: < 55
       <img ng-show="last_notes.final_note > 99.99" src="star.png" alt="Avatar" width="16px" height="16px"></li>
   </ul>
   <div class="cards">
+    
     <div class="card" ng-init="notasAutoAvaliacao()">
       <img ng-show="happy" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
       <img ng-show="sad" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
@@ -284,6 +270,7 @@ Sem nenhum estrela: < 55
         <p>Auto avaliação</p>
       </div>
     </div>
+    
     <div class="card" ng-init="notasDesempenhoTecnico()">
       <img ng-show="happyTec" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
       <img ng-show="sadTec" src="sad-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
@@ -292,6 +279,7 @@ Sem nenhum estrela: < 55
         <p>Desempenho Tec.</p>
       </div>
     </div>
+    
     <div class="card" ng-init="notasNps()">
       <!--
 Triste: 0 até 6,99
@@ -306,6 +294,7 @@ Feliz: => 9
         <p>NPS</p>
       </div>
     </div>
+    
     <div class="card" ng-click="assetment()" ng-init="notasVertical()">
       <!--
 Triste: 0 até 6,99
@@ -317,7 +306,7 @@ Feliz: => 9
       <img ng-show="happyVertical" src="happy-emoji.png" alt="Avatar" style="margin: 0 auto;" width="32" height="32">
       <img ng-show="undefinedVertical" src="regular-emoji.png" width="32" height="32" alt="Avatar" style="margin: 0 auto;">
       <div class="slot">
-        <p><a href="#">Avaliação Vertical</a> </p>
+        <p><a href="javascript:void(0)">Avaliação Vertical</a> </p>
       </div>
     </div>
   </div>
@@ -341,7 +330,6 @@ Feliz: => 9
             <select class="form-control" ng-model="modelChoices" ng-options="choice as choice for choice in yearsArray">
             </select>
           </div>
-
         </div>
       </div>
       <div class="modal-footer">
@@ -355,8 +343,8 @@ Feliz: => 9
 <!-- ------------------------------------------------ -->
 <!-- ------------  Modal de preferencias ------------ -->
 <!-- ------------------------------------------------ -->
-<div class="modal fade prefs-modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-full">
+<div class="modal fade prefs-modal" bs-example-modal-smtabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -371,8 +359,8 @@ Feliz: => 9
             <div ng-if="yearsArray.length > 0">
               <label>Selecione o ano:</label>
               <!-- ng-options="choice as choice for choice in yearsArray" -->
-              <select class="form-control" ng-change="change(this)" ng-model="modelChoices" convert-to-number>
-                <option ng-repeat="yearSel in yearsArray track by $index" value="{{$index}}">{{yearSel}}</option>
+              <select class="form-control" ng-model="modelChoices" ng-change="change(this)" convert-to-number>
+                <option ng-repeat="yearSel in yearsArray track by $index" ng-value="{{$index}}">{{yearSel}}</option>
               </select>
             </div>
 
@@ -388,7 +376,7 @@ Feliz: => 9
 </div>
 
 <div class="modal fade assetment-modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-full">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -397,64 +385,70 @@ Feliz: => 9
         <h4 class="modal-title">Pesquisas verticais</h4>
       </div>
       <div class="modal-body">
-        <div class="panel panel-default columnLeft" ng-show="showTopAccording">
-          <div class="panel-heading">
-            <h3 class="panel-title">Pontos Fortes</h3>
+        <div class="row">
+          
+          <div class="col-md-6">
+            <div class="panel panel-default" ng-show="showTopAccording">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos Fortes</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <tr>
+                    <th scope="col">Qtde.</th>
+                    <th scope="col" class="text-center">Questão</th>
+                    <tbody>
+                      <tr ng-repeat="question in data.topAccording">
+                        <th scope="row" class="text-center">{{::question.countQuestion}}</th>
+                        <td>{{::question.question}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-show="!showTopAccording">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos Fortes</h3>
+              </div>
+              <div class="panel-body">
+                <h4 class="text-center">Não há questões avaliadas.</h4>
+              </div>
+            </div>
           </div>
-          <div class="panel-body">
-            <table class="table table-bordered">
-              <tr>
-                <th scope="col">Qtde.</th>
-                <th scope="col" class="text-center">Questão</th>
-                <tbody>
-                  <tr ng-repeat="question in data.topAccording">
-                    <th scope="row" class="text-center">{{::question.countQuestion}}</th>
-                    <td>{{::question.question}}</td>
-                  </tr>
-                </tbody>
-            </table>
+          
+          <div class="col-md-6">
+            <div class="panel panel-default" ng-show="showNotConforms">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos de Melhoria</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <tr>
+                    <th scope="col">Qtde.</th>
+                    <th scope="col" class="text-center">Questão</th>
+                    <tbody>
+                      <tr ng-repeat="question in data.notConforms">
+                        <th scope="row" class="text-center">{{::question.countQuestion}}</th>
+                        <td>{{::question.question}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="panel panel-default" ng-show="!showNotConforms">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos de Melhoria</h3>
+              </div>
+              <div class="panel-body">
+                <h4 class="text-center">Não há questões avaliadas.</h4>
+              </div>
+            </div>
+
+          </div>
           </div>
         </div>
-
-        <div class="panel panel-default columnLeft" ng-show="!showTopAccording">
-          <div class="panel-heading">
-            <h3 class="panel-title">Pontos Fortes</h3>
-          </div>
-          <div class="panel-body">
-            <h4 class="text-center">Não há questões avaliadas.</h4>
-          </div>
-        </div>
-
-        <div class="panel panel-default columnRight" ng-show="showNotConforms">
-          <div class="panel-heading">
-            <h3 class="panel-title">Pontos de Melhoria</h3>
-          </div>
-          <div class="panel-body">
-            <table class="table table-bordered">
-              <tr>
-                <th scope="col">Qtde.</th>
-                <th scope="col" class="text-center">Questão</th>
-                <tbody>
-                  <tr ng-repeat="question in data.notConforms">
-                    <th scope="row" class="text-center">{{::question.countQuestion}}</th>
-                    <td>{{::question.question}}</td>
-                  </tr>
-                </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="panel panel-default columnRight" ng-show="!showNotConforms">
-          <div class="panel-heading">
-            <h3 class="panel-title">Pontos de Melhoria</h3>
-          </div>
-          <div class="panel-body">
-            <h4 class="text-center">Não há questões avaliadas.</h4>
-          </div>
-        </div>
-
-      </div>
-      <br>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>

@@ -1,92 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
-        <api_name>x_alabs_pex.CalculateScoreUtils</api_name>
+        <api_name>x_alabs_pex.PexScoreUtils</api_name>
         <client_callable>false</client_callable>
         <description/>
-        <name>CalculateScoreUtils</name>
-        <script><![CDATA[var CalculateScoreUtils = Class.create();
-CalculateScoreUtils.prototype = {
-	initialize: function() {
-	},
-	
-	calculatePilar : function(pesquisa){
-		
-		var pilares = [];
-		
-		var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
-		gr.addEncodedQuery('survey_instance='+pesquisa.sys_id.toString());
-		gr.query();
-		
-		while(gr.next()){
-			if(pilares.indexOf(gr.question.category.name.toString()) == -1){
-				pilares.push(gr.question.category.name.toString());
-				
-				}
-			}
-			//var pilares = ['OPA','Gestão','Apresentação Visual','Conhecimento'];
-			
-			var pontuacao = {pesoQuestoes : 0, pontosAtingidos : 0};
-				
-				var resultado = {porcentagemTotal : 0, notaPilar : 0, notaGeral : 0};
-					var somaPilares = 0;
-					
-					pilares.forEach(function(item){
-						
-						pontuacao.pesoQuestões = 0;
-						pontuacao.pontosAtingidos = 0;
-						resultado.porcentagemTotal = 0;
-						resultado.notaPilar = 0;
-						var pesoPilar = 0;
-						var calcular = 0;
-						
-						var gr = new GlideRecord('x_alabs_pex_instance_survey_question');
-						gr.addEncodedQuery('survey_instance.number='+pesquisa.number+'^question.category.nameLIKE'+item);
-						gr.query();
-						while(gr.next()){
-							if(gr.pontuacao_obtida.toString() != 'N'){
-								pontuacao.pesoQuestões += parseFloat(gr.question.peso_da_questao);
-								pontuacao.pontosAtingidos += parseFloat(gr.pontuacao_obtida);
-								pesoPilar = gr.question.category.peso_do_pilar;
-								//gs.addInfoMessage(gr.question.category.peso_do_pilar);
-								//gs.addInfoMessage(gr.question.category.getDisplayValue());
-								
-								calcular = 1;
-							}else{
-								//gs.addInfoMessage(gr.pontuacao_obtida);
-							}
-							
-							
-						}
-						somaPilares += pesoPilar;
-						//gs.addInfoMessage(JSON.stringify(pontuacao.pesoQuestoes));
-						if(calcular){
-							resultado.porcentagemTotal = pontuacao.pontosAtingidos/pontuacao.pesoQuestões;
-							resultado.notaPilar = resultado.porcentagemTotal*parseFloat(pesoPilar);
-							resultado.notaGeral += resultado.notaPilar;
-						}
-					});
-					resultado.notaGeral = (10*resultado.notaGeral)/somaPilares;
-					
-					return resultado.notaGeral;
-				},
-				
-				type: 'CalculateScoreUtils'
-			};]]></script>
+        <name>PexScoreUtils</name>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	PexScoreUtils
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Douglas Santos - 07/08/2018
+|		Yuhri Bernardes - 05/02/2019
+|	]
+|
+|	Métodos: [
+|		
+|	]
+|
+|	Atributos: [
+|		type: Retorna nome do objeto (Construtor)
+|		NPS: Objeto para manipular a tabela de notas NPS
+|		generalScore: Objeto com informações das notas gerais
+|	]
+|
+*/
+
+var PexScoreUtils = function () {
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Instâncias para manipulação das tabelas
+	|--------------------------------------------------------------------------
+	*/
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Tabelas relacionadas a notas
+	*/
+	this.NPS = new global.TableCRUD('x_alabs_pex_nps_note'); //Notas NPS
+	this.VertSurveyInst = new global.TableCRUD('x_alabs_pex_instance_survey'); // Pesquisas (Verticais, auto avaliações)
+	this.TechnicalPerformance = new global.TableCRUD('x_alabs_pex_technical_performances'); // Desempenho técnico
+	this.GeneralScore = new global.TableCRUD('x_alabs_pex_general_notes'); // Notas gerais
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Tabelas relacionadas à informações necessárias
+	*/
+	this.Flight = new global.TableCRUD('x_alabs_pex_flights'); // Vôos
+	this.FlightCrew = new global.TableCRUD('x_alabs_pex_flight_crew'); //Tripulantes de voo
+	this.CrewManagement = new global.TableCRUD('x_alabs_pex_crew_management'); // Gestão de tripulantes
+	this.CrewGroup = new global.TableCRUD('x_alabs_pex_crew_group'); // Grupos de tripulantes
+	this.CrewGroupMember = new global.TableCRUD('x_alabs_pex_crew_group_m2m'); // Grupos de tripulantes
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Atualiza nota NPS
+	|--------------------------------------------------------------------------
+	*/
+	this.updateNPS = function () {
+		var self = this;
+		var query;
+		var options;
+		var insertValues;
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtenção do grupo
+		*/
+		var flight = self.Flight.data[0];
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtém grupos a partir do voo
+		*/
+		query = {
+			ja_recebeu_a_pesquisa: "true",
+			origem: flight.origem.u_iata.toString(),
+			destino: flight.destino.u_iata.toString(),
+			numero_do_voo: flight.numero_do_voo.toString(),
+			type: self.NPS.data.role.toString(),
+			data_e_hora_de_partida: flight.data_partida_utc.toString()
+		};
+		options = {
+			setLimit: 1,
+			orderByDesc: "sys_created_on"
+		};
+		self.CrewGroup.get(query, options);
+
+		query = {
+			group: self.CrewGroup.data[0].getUniqueValue()
+		};
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtém usuários a partir do grupo
+		*/
+		var users = self.CrewGroupMember.get(query).map(function (gr) {
+			return gr.user.toString();
+		});
+		users.forEach(function (user) {
+			insertValues = {
+				name_of_crew_member: user,
+				ano: flight.data_partida_utc.toString().replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1").trim(),
+				nps: "C"
+			};
+			self.GeneralScore.createOrUpdate(insertValues, ["name_of_crew_member", "ano"]); // Insere/Atualiza
+		});
+
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Calcula nota NPS para atribução no registro de Notas Gerais
+	|--------------------------------------------------------------------------
+	*/
+	this.calculateNPSAvg = function (user, year) {
+		var self = this;
+		var query;
+		var options;
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtenção dos grupos
+		|--------------------------------------------------------------------------
+		*/
+		query = "user=".concat(user) + "^group.data_e_hora_de_partidaDATEPART".concat(year, "@javascript:gs.datePart('year','", year, "','EE')");
+		self.CrewGroupMember.get(query);
+
+		var NPSs = self.CrewGroupMember.data.map(function (gMember) {
+			query = {
+				flight_number: gMember.group.numero_do_voo.toString(),
+				origin: gMember.group.origem.toString(),
+				destination: gMember.group.destino.toString(),
+				flight_local_date: gMember.group.data_e_hora_de_partida.toString(),
+				role: gMember.group.type.toString()
+			};
+
+			self.NPS.get(query);
+
+			if (self.NPS.count > 0)
+				return self.NPS.data[0];
+			else
+				return null;
+		}).filter(function (nps) {
+			return nps !== null;
+		});
+
+		notaNPS = NPSs.reduce(function (acm, nps) {
+			return acm + parseInt(nps.grade);
+		}, 0);
+
+		notaNPS /= NPSs.length;
+
+		return notaNPS;
+
+	};
+
+	this.type = 'PexScoreUtils';
+
+};]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-08-07 14:45:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>355df5d5dbfb17000b2a32ffaa961925</sys_id>
-        <sys_mod_count>123</sys_mod_count>
-        <sys_name>CalculateScoreUtils</sys_name>
+        <sys_mod_count>136</sys_mod_count>
+        <sys_name>PexScoreUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_355df5d5dbfb17000b2a32ffaa961925</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-05 20:03:58</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-05 19:45:29</sys_updated_on>
     </sys_script_include>
 </record_update>

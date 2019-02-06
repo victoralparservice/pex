@@ -8,7 +8,7 @@
         <element label="Cargo" max_length="40" name="position" type="string"/>
         <element label="RE Tripulante" max_length="40" name="re_crewman" type="string"/>
         <element label="Auto Avaliação" max_length="40" name="self_assessment" type="string"/>
-        <element default="0" label="Technical Performance" max_length="40" name="technical_performance" type="string"/>
+        <element label="Technical Performance" max_length="40" name="technical_performance" type="string"/>
         <element choice="3" label="Tipo de Operação" max_length="40" name="type_of_operation" type="string">
             <choice>
                 <element inactive_on_update="false" label="Domestic" value="domestic"/>

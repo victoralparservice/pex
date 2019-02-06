@@ -21,7 +21,7 @@
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Update General Notes Autoavaliacao</name>
+        <name>ALP: On Change Self Evaluation Score</name>
         <order>200</order>
         <priority>100</priority>
         <rest_method/>
@@ -63,8 +63,8 @@ function insertGeneralNotes(current, ano){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d6f08ddadbc963800b2a32ffaa961986</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Update General Notes Autoavaliacao</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>ALP: On Change Self Evaluation Score</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -72,7 +72,7 @@ function insertGeneralNotes(current, ano){
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_d6f08ddadbc963800b2a32ffaa961986</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-01-22 09:20:50</sys_updated_on>
+        <sys_updated_on>2019-02-05 10:29:39</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

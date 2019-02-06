@@ -22,7 +22,7 @@
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>PEX-Cancel Action Plans and Actions</name>
+        <name>ALP: To Cancel Action Plans</name>
         <order>200</order>
         <priority>100</priority>
         <rest_method/>
@@ -63,8 +63,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>474ce2576f1a0700218117164b3ee471</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>PEX-Cancel Action Plans and Actions</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>ALP: To Cancel Action Plans</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -72,7 +72,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_474ce2576f1a0700218117164b3ee471</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-01-22 09:20:50</sys_updated_on>
+        <sys_updated_on>2019-02-05 10:36:34</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>
