@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>Calcular nota final</name>
-        <order>200</order>
+        <order>300</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -40,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2c2aa492db012b4080567a30ba961958</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Calcular nota final</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -49,7 +49,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_2c2aa492db012b4080567a30ba961958</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-05 19:30:25</sys_updated_on>
+        <sys_updated_on>2019-02-12 12:20:38</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="position" label="Position" language="en" table="x_alabs_pex_general_notes">
+    <sys_documentation element="u_grade" label="Grade" language="en" table="u_imp_tmpl_x_alabs_pex_nps_note">
         <sys_documentation action="INSERT_OR_UPDATE">
-            <element>position</element>
+            <element>u_grade</element>
             <help/>
             <hint/>
-            <label>Position</label>
+            <label>Grade</label>
             <language>en</language>
-            <name>x_alabs_pex_general_notes</name>
-            <plural>Positions</plural>
+            <name>u_imp_tmpl_x_alabs_pex_nps_note</name>
+            <plural>Grades</plural>
             <sys_class_name>sys_documentation</sys_class_name>
-            <sys_created_by>alpar.mariana.maciel</sys_created_by>
-            <sys_created_on>2018-10-03 19:14:39</sys_created_on>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-26 11:43:05</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>e5bedcf7db3827400b2a32ffaa961984</sys_id>
+            <sys_id>a27fe2eadbb3eb400b2a32ffaa961965</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>Position</sys_name>
+            <sys_name>Grade</sys_name>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-            <sys_update_name>sys_documentation_x_alabs_pex_general_notes_position_en</sys_update_name>
-            <sys_updated_by>alpar.mariana.maciel</sys_updated_by>
-            <sys_updated_on>2018-10-03 19:14:39</sys_updated_on>
+            <sys_update_name>sys_documentation_u_imp_tmpl_x_alabs_pex_nps_note_u_grade_en</sys_update_name>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-26 11:43:05</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

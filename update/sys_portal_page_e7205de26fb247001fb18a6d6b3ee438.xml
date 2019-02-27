@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-02-06 12:20:41">
+<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-02-27 16:49:42">
     <sys_portal_page action="INSERT_OR_UPDATE">
         <layout/>
         <order/>
-        <read_roles/>
+        <read_roles>snc_internal</read_roles>
         <roles/>
         <selectable>false</selectable>
         <sys_class_name>sys_portal_page</sys_class_name>
@@ -12,7 +12,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>e7205de26fb247001fb18a6d6b3ee438</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>PA Planos de Ação</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -20,8 +20,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_portal_page_e7205de26fb247001fb18a6d6b3ee438</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-12-05 19:25:37</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-02-22 11:59:57</sys_updated_on>
         <title>PA Planos de Ação</title>
         <user/>
         <view>pa_new_tab_2_1</view>

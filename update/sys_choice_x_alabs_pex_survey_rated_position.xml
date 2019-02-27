@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="rated_position" table="x_alabs_pex_survey" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>FE</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CL</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>0</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:12:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f068b401db7327400b2a32ffaa9619b5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:12:27</sys_updated_on>
+            <value>CL</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>FA</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CL</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>0</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:12:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f288f801db7327400b2a32ffaa9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:12:35</sys_updated_on>
+            <value>CL</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>CL</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>FA</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>2</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:15:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2d297041db7327400b2a32ffaa9619b2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:15:13</sys_updated_on>
+            <value>FA</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>CL</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>FE</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>3</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:15:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b0397c01db7327400b2a32ffaa961998</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:15:26</sys_updated_on>
+            <value>FE</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>CA</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>FO</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>4</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:15:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d5497041db7327400b2a32ffaa961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:15:45</sys_updated_on>
+            <value>FO</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value>FO</dependent_value>
+            <element>rated_position</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>CA</label>
+            <language>en</language>
+            <name>x_alabs_pex_survey</name>
+            <sequence>5</sequence>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:15:55</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fb497041db7327400b2a32ffaa961997</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:15:55</sys_updated_on>
+            <value>CA</value>
+            <x_alabs_rh_level/>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>rated_position</element>
+            <name>x_alabs_pex_survey</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>yuhri.bernardes</sys_created_by>
+            <sys_created_on>2019-02-21 11:12:27</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>4988b801db7327400b2a32ffaa961925</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>rated_position</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_choice_x_alabs_pex_survey_rated_position</sys_update_name>
+            <sys_updated_by>yuhri.bernardes</sys_updated_by>
+            <sys_updated_on>2019-02-21 11:12:27</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

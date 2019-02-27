@@ -21,7 +21,7 @@
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>PEX-Update answered questions on survey</name>
+        <name>ALP: On Question Answered</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -30,29 +30,50 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	OnQuestionAnswered
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Eli Lima - 09/11/2017
+|	]
+|
+|	Ações: [
+|		1 - Obtém número de questões respondidas
+|		2 - Atribui à pesquisa relacionada
+|	]
+|
+*/
+
+(function executeRule(current, previous /*null when async*/ ) {
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação 1 - Obtém número de questões respondidas
+	|--------------------------------------------------------------------------
+	*/
 	var questionsCount = new GlideAggregate('x_alabs_pex_instance_survey_question');
-	questionsCount.addEncodedQuery('situation!=^survey_instance='+current.survey_instance.sys_id);
+	questionsCount.addEncodedQuery('situation!=^survey_instance=' + current.survey_instance.sys_id.toString());
 	questionsCount.addAggregate('COUNT');
 	questionsCount.query();
-	
+
 	if (questionsCount.next()) {
-		
+
 		var numberOfQuestionsAnswered = questionsCount.getAggregate('COUNT');
-		
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Ação 2 - Atribui à pesquisa relacionada
+		|--------------------------------------------------------------------------
+		*/
 		var surveyInstance = new GlideRecord("x_alabs_pex_instance_survey");
 		if (surveyInstance.get(current.survey_instance.sys_id)) {
 			surveyInstance.number_of_questions_answered = numberOfQuestionsAnswered;
-			
-			//STRY00028
-			if (surveyInstance.number_of_questions == numberOfQuestionsAnswered)
-				surveyInstance.state = 'finished';
-			
+
 			surveyInstance.update();
 		}
 	}
-	
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>eli.lima</sys_created_by>
@@ -61,16 +82,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2b860f866f9e4300218117164b3ee470</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>PEX-Update answered questions on survey</sys_name>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>ALP: On Question Answered</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_2b860f866f9e4300218117164b3ee470</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2017-11-09 19:31:29</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-25 18:11:21</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

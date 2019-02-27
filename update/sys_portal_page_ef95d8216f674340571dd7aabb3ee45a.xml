@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-02-06 12:20:42">
+<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2019-02-27 16:49:43">
     <sys_portal_page action="INSERT_OR_UPDATE">
         <layout/>
         <order/>
-        <read_roles/>
+        <read_roles>snc_internal</read_roles>
         <roles/>
         <selectable>false</selectable>
         <sys_class_name>sys_portal_page</sys_class_name>
@@ -12,7 +12,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ef95d8216f674340571dd7aabb3ee45a</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>PA Pesquisas - Filtros</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -20,8 +20,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_portal_page_ef95d8216f674340571dd7aabb3ee45a</sys_update_name>
-        <sys_updated_by>eli.lima</sys_updated_by>
-        <sys_updated_on>2018-01-17 19:31:01</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-02-22 11:59:58</sys_updated_on>
         <title>PA Pesquisas - Filtros</title>
         <user/>
         <view>pa_nova_guia_4_1</view>

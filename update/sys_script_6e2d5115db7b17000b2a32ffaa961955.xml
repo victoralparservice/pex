@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Calculate Score</name>
+        <name>ALP: On Change Situation</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -27,22 +27,30 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var util = new x_alabs_pex.CalculateScoreUtils();
-	if(current.situation == 'according'){
-		current.pontuacao_obtida = current.question.peso_da_questao;
-		//current.pontuacao_obtida = util.CalculateQuestionScore();
-		//current.pontuacao_obtida = current.question.peso_da_questao;;
-	}else if(current.situation == 'not_conform' && current.responsible_area == 'my_area'){
-		current.pontuacao_obtida = '0';
-	}else if(current.situation == 'not_conform' && current.responsible_area == 'other_area'){
-		current.pontuacao_obtida = 'N';
-	}else if(current.situation == 'not_applicable'){
-		current.pontuacao_obtida = 'N';
-	}
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	OnChangeSituation
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Douglas Santos - 07/08/2018
+|		Yuhri Bernardes - 08/02/2019
+|	]
+|
+|	Ações: [
+|
+|	]
+|
+*/
+
+(function executeRule(current, previous /*null when async*/ ) {
+	if (current.situation == "according" || current.situation == "not_applicable") {
+		current.pontuacao_obtida = parseInt(
+			current.question.peso_da_questao.toString()
+		);
+	} else current.pontuacao_obtida = "0";
+
 	current.update();
-	
-	
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
@@ -51,16 +59,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6e2d5115db7b17000b2a32ffaa961955</sys_id>
-        <sys_mod_count>13</sys_mod_count>
-        <sys_name>Calculate Score</sys_name>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>ALP: On Change Situation</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_6e2d5115db7b17000b2a32ffaa961955</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-04 14:45:17</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-11 11:39:18</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

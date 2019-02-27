@@ -6,7 +6,8 @@
         <client_callable>false</client_callable>
         <description/>
         <name>PexScoreUtils</name>
-        <script><![CDATA[/*
+        <script><![CDATA[/* eslint-disable no-unused-vars */
+/*
 |--------------------------------------------------------------------------
 |	PexScoreUtils
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@
 |	]
 |
 |	Métodos: [
-|		
+|
 |	]
 |
 |	Atributos: [
@@ -26,10 +27,12 @@
 |		generalScore: Objeto com informações das notas gerais
 |	]
 |
+|	Observações: [
+|	]
+|
 */
 
 var PexScoreUtils = function () {
-
 	/*
 	|--------------------------------------------------------------------------
 	|	Instâncias para manipulação das tabelas
@@ -40,20 +43,22 @@ var PexScoreUtils = function () {
 	|--------------------------------------------------------------------------
 	|	Tabelas relacionadas a notas
 	*/
-	this.NPS = new global.TableCRUD('x_alabs_pex_nps_note'); //Notas NPS
-	this.VertSurveyInst = new global.TableCRUD('x_alabs_pex_instance_survey'); // Pesquisas (Verticais, auto avaliações)
-	this.TechnicalPerformance = new global.TableCRUD('x_alabs_pex_technical_performances'); // Desempenho técnico
-	this.GeneralScore = new global.TableCRUD('x_alabs_pex_general_notes'); // Notas gerais
+	this.NPS = new global.TableCRUD("x_alabs_pex_nps_note"); //Notas NPS
+	this.VertSurveyInst = new global.TableCRUD("x_alabs_pex_instance_survey"); // Pesquisas (Verticais, auto avaliações)
+	this.TechnicalPerformance = new global.TableCRUD(
+		"x_alabs_pex_technical_performances"
+	); // Desempenho técnico
+	this.GeneralScore = new global.TableCRUD("x_alabs_pex_general_notes"); // Notas gerais
 
 	/*
 	|--------------------------------------------------------------------------
 	|	Tabelas relacionadas à informações necessárias
 	*/
-	this.Flight = new global.TableCRUD('x_alabs_pex_flights'); // Vôos
-	this.FlightCrew = new global.TableCRUD('x_alabs_pex_flight_crew'); //Tripulantes de voo
-	this.CrewManagement = new global.TableCRUD('x_alabs_pex_crew_management'); // Gestão de tripulantes
-	this.CrewGroup = new global.TableCRUD('x_alabs_pex_crew_group'); // Grupos de tripulantes
-	this.CrewGroupMember = new global.TableCRUD('x_alabs_pex_crew_group_m2m'); // Grupos de tripulantes
+	this.Flight = new global.TableCRUD("x_alabs_pex_flights"); // Vôos
+	this.FlightCrew = new global.TableCRUD("x_alabs_pex_flight_crew"); //Tripulantes de voo
+	this.CrewManagement = new global.TableCRUD("x_alabs_pex_crew_management"); // Gestão de tripulantes
+	this.CrewGroup = new global.TableCRUD("x_alabs_pex_crew_group"); // Grupos de tripulantes
+	this.CrewGroupMember = new global.TableCRUD("x_alabs_pex_crew_group_m2m"); // Grupos de tripulantes
 
 	/*
 	|--------------------------------------------------------------------------
@@ -82,16 +87,16 @@ var PexScoreUtils = function () {
 			destino: flight.destino.u_iata.toString(),
 			numero_do_voo: flight.numero_do_voo.toString(),
 			type: self.NPS.data.role.toString(),
-			data_e_hora_de_partida: flight.data_partida_utc.toString()
+			data_e_hora_de_partida: flight.data_partida_utc.toString(),
 		};
 		options = {
 			setLimit: 1,
-			orderByDesc: "sys_created_on"
+			orderByDesc: "sys_created_on",
 		};
 		self.CrewGroup.get(query, options);
 
 		query = {
-			group: self.CrewGroup.data[0].getUniqueValue()
+			group: self.CrewGroup.data[0].getUniqueValue(),
 		};
 
 		/*
@@ -104,12 +109,17 @@ var PexScoreUtils = function () {
 		users.forEach(function (user) {
 			insertValues = {
 				name_of_crew_member: user,
-				ano: flight.data_partida_utc.toString().replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1").trim(),
-				nps: "C"
+				ano: flight.data_partida_utc
+					.toString()
+					.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+					.trim(),
+				nps: "",
 			};
-			self.GeneralScore.createOrUpdate(insertValues, ["name_of_crew_member", "ano"]); // Insere/Atualiza
+			self.GeneralScore.createOrUpdate(insertValues, [
+				"name_of_crew_member",
+				"ano",
+			]); // Insere/Atualiza
 		});
-
 	};
 
 	/*
@@ -117,37 +127,44 @@ var PexScoreUtils = function () {
 	|	Calcula nota NPS para atribução no registro de Notas Gerais
 	|--------------------------------------------------------------------------
 	*/
-	this.calculateNPSAvg = function (user, year) {
+	this.updateGeneralNPS = function (user, year) {
 		var self = this;
 		var query;
-		var options;
+		// var options; // Unused
 
 		/*
 		|--------------------------------------------------------------------------
 		|	Obtenção dos grupos
 		|--------------------------------------------------------------------------
 		*/
-		query = "user=".concat(user) + "^group.data_e_hora_de_partidaDATEPART".concat(year, "@javascript:gs.datePart('year','", year, "','EE')");
+		query =
+			"user=".concat(user) +
+			"^group.data_e_hora_de_partidaDATEPART".concat(
+				year,
+				"@javascript:gs.datePart('year','",
+				year,
+				"','EE')"
+			);
 		self.CrewGroupMember.get(query);
 
-		var NPSs = self.CrewGroupMember.data.map(function (gMember) {
-			query = {
-				flight_number: gMember.group.numero_do_voo.toString(),
-				origin: gMember.group.origem.toString(),
-				destination: gMember.group.destino.toString(),
-				flight_local_date: gMember.group.data_e_hora_de_partida.toString(),
-				role: gMember.group.type.toString()
-			};
+		var NPSs = self.CrewGroupMember.data
+			.map(function (gMember) {
+				query = {
+					flight_number: gMember.group.numero_do_voo.toString(),
+					origin: gMember.group.origem.toString(),
+					destination: gMember.group.destino.toString(),
+					flight_local_date: gMember.group.data_e_hora_de_partida.toString(),
+					role: gMember.group.type.toString(),
+				};
 
-			self.NPS.get(query);
+				self.NPS.get(query);
 
-			if (self.NPS.count > 0)
-				return self.NPS.data[0];
-			else
-				return null;
-		}).filter(function (nps) {
-			return nps !== null;
-		});
+				if (self.NPS.count > 0) return self.NPS.data[0];
+				else return null;
+			})
+			.filter(function (nps) {
+				return nps !== null;
+			});
 
 		notaNPS = NPSs.reduce(function (acm, nps) {
 			return acm + parseInt(nps.grade);
@@ -156,18 +173,229 @@ var PexScoreUtils = function () {
 		notaNPS /= NPSs.length;
 
 		return notaNPS;
+	};
+
+	/*
+  |--------------------------------------------------------------------------
+  |	Atualiza desempenho técnico do tripulante
+  |--------------------------------------------------------------------------
+  */
+	this.updateTechnicalPerformance = function (user, year, score) {
+		insertValues = {
+			name_of_crew_member: user,
+			ano: year,
+			technical_performance: score >= 95 ? 100 : 0,
+		};
+
+		this.GeneralScore.createOrUpdate(insertValues, [
+			"name_of_crew_member",
+			"ano",
+		]);
+	};
+
+	/*
+  |--------------------------------------------------------------------------
+  |	Calcula nota do registro de pesquisa vertical atual (BR)
+  |--------------------------------------------------------------------------
+  */
+	this.calculateCurrentVertical = function (surveyInstance) {
+		var score = {
+			maxScore: 0,
+			relevantCount: 0,
+			according: [],
+			not_conform: [],
+			not_applicable: [],
+			adicionalScore: 0
+		};
+
+		var isRelevant = false;
+
+
+		var ga = new GlideAggregate("x_alabs_pex_instance_survey_question");
+		ga.addQuery("survey_instance", current.sys_id);
+		ga.addAggregate("SUM", "pontuacao_obtida");
+		ga.addAggregate("SUM", "question.peso_da_questao");
+		ga.addAggregate("COUNT", "situation");
+		ga.groupBy("question");
+		ga.groupBy("responsible_area");
+		ga.groupBy("situation");
+		ga.query();
+
+		while (ga.next()) {
+			isRelevant = false;
+
+			var situation = ga.situation.toString();
+			var points = parseInt(ga.getAggregate("SUM", "pontuacao_obtida"));
+			var max = parseInt(ga.getAggregate("SUM", "question.peso_da_questao"));
+			score.maxScore += max ? max : 0;
+
+			isRelevant |= situation === 'not_applicable';
+			isRelevant |= situation === 'not_conform' && ga.responsible_area.toString() === 'other_area';
+
+			if (isRelevant) {
+				score.not_applicable.push(max);
+			} else {
+				score[situation].push(points);
+				score.relevantCount += parseInt(ga.getAggregate("COUNT", "situation"));
+			}
+			/*
+			|--------------------------------------------------------------------------
+			|	Logs
+			*/
+			// gs.info("Situação: " + situation);
+			// gs.info("Area Responsável: " + ga.responsible_area.toString());
+			// gs.info("Quantidade: " + ga.getAggregate("COUNT", "situation"));
+			// gs.info("Obtido: " + points);
+			// gs.info("Máximo: " + max);
+			// gs.info("=================================================================================");
+		}
+
+		score.not_applicable = score.not_applicable.reduce(function (acm, curr) {
+			return acm + parseInt(curr);
+		}, 0);
+
+		score.adicionalScore = parseInt(score.relevantCount) !== 0 ? parseFloat(score.not_applicable) / parseFloat(score.relevantCount) : 0.0;
+		score.adicionalScore = score.adicionalScore.toFixed(2);
+
+		score.according = score.according.reduce(function (acm, curr) {
+			return acm + parseFloat(curr) + parseFloat(score.adicionalScore);
+		}, 0.0);
+
+		var resume = {
+			max: score.maxScore,
+			obtained: score.according
+		};
+
+		return resume;
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Atualiza autoavaliação (Caso não exista, insere registro)
+	|--------------------------------------------------------------------------
+	*/
+	this.updateSelfEvaluation = function (user, year) {
+		insertValues = {
+			name_of_crew_member: user,
+			ano: year
+				.toString()
+				.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+				.trim(),
+			self_assessment: "",
+		};
+
+		this.GeneralScore.createOrUpdate(insertValues, [
+			"name_of_crew_member",
+			"ano",
+		]);
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Calcula Auto avaliação para atualização das notas gerais
+	|--------------------------------------------------------------------------
+	*/
+	this.updateGeneralSelfEvaluation = function (user, year) {
+
+		var res = 0.0;
+
+		var ga = new GlideAggregate('x_alabs_pex_instance_survey');
+
+		ga.addQuery("tripulante_avaliado_na_pesquisa", user); // que pretença ao usuário X
+
+		ga.addQuery('pontuacao_obtida_na_pesquisa', "!=", ''); // Pontuação obtida não está vazia
+
+		ga.addQuery('sys_created_on', "DATEPART", "".concat(
+			year,
+			"@javascript:gs.datePart('year','",
+			year,
+			"','EE')")); // Pesquisas realizadas em 2019
+
+		ga.addQuery('survey.tipo_de_pesquisa', 'matriz_tripulante'); // Tipo de pesquisa
+
+		ga.addAggregate("AVG", 'pontuacao_obtida_na_pesquisa'); // Média das pontuações obtidas
+
+		ga.groupBy('tripulante_avaliado_na_pesquisa'); // Agrupa por tripulante
+
+		ga.query();
+
+
+		if (ga.next()) {
+			res = parseFloat(ga.getAggregate("AVG", 'pontuacao_obtida_na_pesquisa')).toFixed(1); // Pega média fixando 1 casa decimal
+		}
+
+		return res;
 
 	};
 
-	this.type = 'PexScoreUtils';
+	/*
+	|--------------------------------------------------------------------------
+	|	Atualiza nota de pesquisa vertical (Caso não exista, insere registro)
+	|--------------------------------------------------------------------------
+	*/
+	this.updateVertical = function (user, year) {
+		insertValues = {
+			name_of_crew_member: user,
+			ano: year
+				.toString()
+				.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+				.trim(),
+			vertical_evaluation: "",
+		};
 
+		this.GeneralScore.createOrUpdate(insertValues, [
+			"name_of_crew_member",
+			"ano",
+		]);
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Calcula persquisas vertical para atualização das notas gerais
+	|--------------------------------------------------------------------------
+	*/
+	this.updateGeneralVertical = function (user, year) {
+		var res = 0.0;
+
+		var ga = new GlideAggregate('x_alabs_pex_instance_survey');
+		ga.addQuery("tripulante_avaliado_na_pesquisa", user); // que pretença ao usuário X
+
+		ga.addQuery('state', 'completed'); // Pontuação obtida não está vazia
+
+		ga.addQuery('sys_created_on', "DATEPART", "".concat(
+			year,
+			"@javascript:gs.datePart('year','",
+			year,
+			"','EE')")); // Pesquisas realizadas em 2019
+
+		ga.addQuery('survey.tipo_de_pesquisa', 'vertical'); // Tipo de pesquisa
+
+		ga.addAggregate("SUM", 'pontuacao_obtida_na_pesquisa'); // Soma das pontuações obtidas
+		ga.addAggregate("SUM", 'pontuacao_maxima_possivel'); // Soma das máximas pontuações possíveis
+
+		ga.addAggregate("COUNT"); // Número de pesquisas completas ou finalizadas
+
+		ga.groupBy('tripulante_avaliado_na_pesquisa'); // Agrupa por tripulante
+		ga.query();
+
+		if (ga.next()) {
+			if (parseInt(ga.getAggregate("COUNT")) >= 3)
+				res = parseFloat(ga.getAggregate("SUM", 'pontuacao_obtida_na_pesquisa')) / parseFloat(ga.getAggregate("SUM", 'pontuacao_maxima_possivel')) * 100.0;
+		}
+
+		res = res.toFixed(1);
+
+		return res;
+	};
+
+	this.type = "PexScoreUtils";
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-08-07 14:45:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>355df5d5dbfb17000b2a32ffaa961925</sys_id>
-        <sys_mod_count>136</sys_mod_count>
+        <sys_mod_count>161</sys_mod_count>
         <sys_name>PexScoreUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
@@ -175,6 +403,6 @@ var PexScoreUtils = function () {
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_355df5d5dbfb17000b2a32ffaa961925</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-05 19:45:29</sys_updated_on>
+        <sys_updated_on>2019-02-12 14:01:39</sys_updated_on>
     </sys_script_include>
 </record_update>

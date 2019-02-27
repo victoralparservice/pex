@@ -20,7 +20,7 @@
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Update general notes</name>
+        <name>ALP: On Change Grade</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -29,43 +29,39 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var note = 0;
-	var anogr;
-	var ano = new GlideDateTime(current.sys_created_on);
-	ano = ano.getYearUTC();
-	insertGeneralNotes(current, ano);
-	
-})(current, previous);
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	OnChangeGrade
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Yuhri Bernardes - 08/02/2019
+|	]
+|
+|	Ações: [
+|		 - Obtém o ano de Inserção/Atualização do registro
+|		 - Dispara Trigger da BR na nota geral do tripulante para 
+|	]
+|
+*/
 
-function insertGeneralNotes(current, ano){
-	var gr = new GlideRecord('x_alabs_pex_general_notes');
-	gr.addEncodedQuery('name_of_crew_member='+current.tripulante+'^ano='+ano);
-	gr.query();
-	
-	if(gr.next()){
-		if(parseFloat(current.grade) >= 95){
-			//gr.technical_performance = current.grade;
-			gr.technical_performance = 10;
-		}else{
-			gr.technical_performance = 0;
-		}
-		gr.update();
-	}else{
-		var grInsert = new GlideRecord('x_alabs_pex_general_notes');
-		grInsert.initialize();
-		grInsert.name_of_crew_member = current.tripulante;
-		grInsert.re_crewman = current.re;
-		//grInsert.technical_performance = current.grade;
-		if(parseFloat(current.grade) >= 95){
-			grInsert.technical_performance = 10;
-		}else{
-			grInsert.technical_performance = 0;
-		}
-		grInsert.ano = ano;
-		grInsert.insert();
-	}
-}]]></script>
+(function executeRule(current, previous /*null when async*/ ) {
+	var util = new PexScoreUtils();
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação  - Obtém o ano de Inserção/Atualização do registro
+	|--------------------------------------------------------------------------
+	*/
+	var modCount = parseInt(current.sys_mod_count.toString()),
+		year = (modCount <= 1) ? current.sys_created_on.toString() : current.sys_updated_on.toString(),
+		score = parseInt((current.grade.toString())),
+		user = current.tripulante.toString();
+
+	year = year.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1");
+
+	util.updateTechnicalPerformance(user, year, score);
+
+})(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>erickngomes</sys_created_by>
         <sys_created_on>2018-10-11 15:50:11</sys_created_on>
@@ -73,18 +69,18 @@ function insertGeneralNotes(current, ano){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ad9b3016dbc963800b2a32ffaa96190e</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Update general notes</sys_name>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>ALP: On Change Grade</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_ad9b3016dbc963800b2a32ffaa96190e</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-16 19:48:41</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-08 18:53:53</sys_updated_on>
         <template/>
-        <when>before</when>
+        <when>after</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=ad9b3016dbc963800b2a32ffaa96190e"/>
 </record_update>

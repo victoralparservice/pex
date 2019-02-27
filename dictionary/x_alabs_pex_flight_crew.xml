@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Flight Crew" max_length="40" name="x_alabs_pex_flight_crew" sizeclass="8462" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
         <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;&#13;&#10;})(current);" label="Crewman RE" max_length="32" name="crewman_re" type="string"/>
         <element active="false" label="Data de Partida" max_length="200" name="data_de_partida" type="string"/>
         <element label="Data e hora de partida local" max_length="200" name="data_e_hora_de_partida" type="glide_date_time"/>

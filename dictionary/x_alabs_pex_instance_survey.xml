@@ -11,7 +11,7 @@
         <element label="Número do Vôo" max_length="200" name="numero_do_voo" type="string"/>
         <element label="Origem" max_length="200" name="origem" type="string"/>
         <element label="Maximum possible score" max_length="200" name="pontuacao_maxima_possivel" type="string"/>
-        <element label="Score obtained in the survey" max_length="200" name="pontuacao_obtida_na_pesquisa" type="string"/>
+        <element default="0" label="Score obtained in the survey" max_length="200" name="pontuacao_obtida_na_pesquisa" type="string"/>
         <element label="Prazo Expirado" max_length="40" name="prazo_expirado" type="boolean"/>
         <element label="Responsável" max_length="32" name="responsible" reference="sys_user" type="reference"/>
         <element label="Segundo Nível" max_length="32" name="second_level_notification" reference="sys_user" type="reference"/>

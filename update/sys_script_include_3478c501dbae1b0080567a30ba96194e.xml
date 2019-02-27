@@ -13,9 +13,9 @@ ValidUntilSurvey.prototype = {
 	
 	checkDay: function(){
 		var survey = new GlideRecord('x_alabs_pex_survey');
-		var today = new GlideDateTime().getValue();
+		var today = new GlideDate().getDisplayValueInternal();
 
-		survey.addEncodedQuery('state!=canceled^valid_until<' + today);
+		survey.addEncodedQuery('state!=canceled^valid_until<=' + today);
 		survey.query();
 
 		while(survey.next()){
@@ -32,14 +32,14 @@ ValidUntilSurvey.prototype = {
         <sys_created_on>2018-06-05 13:20:22</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3478c501dbae1b0080567a30ba96194e</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>ValidUntilSurvey</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_3478c501dbae1b0080567a30ba96194e</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-08-20 14:00:12</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-21 00:25:47</sys_updated_on>
     </sys_script_include>
 </record_update>

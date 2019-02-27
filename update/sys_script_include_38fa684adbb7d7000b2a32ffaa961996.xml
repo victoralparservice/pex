@@ -2,157 +2,232 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_alabs_pex.SurveyInstanceVerticalUtils</api_name>
+        <api_name>x_alabs_pex.VerticalSurveyUtils</api_name>
         <client_callable>false</client_callable>
         <description>Utilidades pesquisa vertical</description>
-        <name>SurveyInstanceVerticalUtils</name>
-        <script><![CDATA[//tetetete
-var SurveyInstanceVerticalUtils = Class.create();
-SurveyInstanceVerticalUtils.prototype = {
-  type: 'SurveyInstanceVerticalUtils',
-  initialize: function () {},
+        <name>VerticalSurveyUtils</name>
+        <script><![CDATA[var VerticalSurveyUtils = function() {
+	this.maxCount = parseInt(gs.getProperty("x_alabs_pex.max_surveys_per_crewman"));
 
-  /**************************************************************************/
-  /******************************* Constantes *******************************/
-  /**************************************************************************/
+	this.generateVerticalInstances = function() {
+		var self = this;
+		var groups = self.getGroups();
 
-  /***************************** Nomes de tabelas *****************************/
-  _crewGroup: 'x_alabs_pex_crew_group',
+		if (!groups) {
+			gs.info("Crew Control - Instance Verticals: Grupos não encontrados");
+			return null;
+		}
 
-  /**************************************************************************/
-  /*********************** Métodos para autenticações ***********************/
-  /**************************************************************************/
+		groups.forEach(function(group) {
+			var members = self.getGroupMembers(group.sys_id);
 
+			if (!members) {
+				// ANCHOR remover log após testes
+				gs.info("Crew Control - Instance Verticals: Membros não encontrados");
+				return;
+			}
 
-  /**************************************************************************/
-  /********************* Metodos para obtenção de dados *********************/
-  /**************************************************************************/
-  _getGroups: function () {
-    var grupos = [];
-    var gr = new GlideRecord(this._crewGroup);
-    gr.addEncodedQuery('active=true^ja_recebeu_a_pesquisa=false');
-    gr.query();
+			// ANCHOR remover log após testes
+			gs.info("Crew Control - Instance Verticals:\n Início da criação de instâncias");
+			self.createVerticalInstances(members, group.flight);
+			self.updateAlreadyRecivedSurveyGroups(group.sys_id);
+		});
 
-    while (gr.next()) {
-      grupos.push({
-        sys_id: gr.sys_id.toString().trim()
-      });
-    }
+		//
+	};
 
-    return grupos;
-  },
+	this.getGroups = function() {
+		var gr = new GlideRecord("x_alabs_pex_crew_group");
+		gr.addEncodedQuery("ja_recebeu_a_pesquisa=false^active=true");
+		gr.query();
 
-  _getGroupMembers: function (group) {
+		var groups = false;
 
-    var _getTitleType = function (title) {
-      switch (title) {
-        case 'FA':
-        case 'FE':
-        case 'CL':
-          return 'Comissario';
-        case 'CA':
-        case 'FO':
-          return 'Piloto';
-      }
-    };
+		while (gr.next()) {
+			if (!groups) groups = [];
+			groups.push({
+				sys_id: gr.sys_id.toString(),
+				type: gr.type.toString(),
+				flight: {
+					number: gr.numero_do_voo.toString(),
+					localDepDate: gr.data_e_hora_de_partida.toString(),
+					origem: gr.origem.toString(),
+					destino: gr.destino.toString()
+				}
+			});
+		}
 
+		return groups;
+	};
 
+	this.getGroupMembers = function(group) {
+		var gr = new GlideRecord("x_alabs_pex_crew_group_m2m");
+		gr.addEncodedQuery("group.sys_id=" + group);
+		gr.orderBy("user.employee_number"); //Ordena por RE
+		gr.query();
 
-    group.members = [];
-    var gr = new GlideRecord('x_alabs_pex_crew_group_m2m');
-    gr.addEncodedQuery('group=' + group.sys_id);
-    // gr.addEncodedQuery('user_titleISNOTEMPTY');
-    gr.query();
-    
-    while (gr.next()) {
-      // gs.info(gr.user_title);
-      group.members.push({
-        sys_id: gr.user.sys_id.toString(),
-        re: parseInt(gr.user.employee_number),
-        cargo: {
-          sigla: gr.user_title.toString(),
-          tipo: _getTitleType(gr.user_title.toString())
-        }
-      });
-    }
+		var members = false;
 
-    return group;
+		while (gr.next()) {
+			if (!members) members = [];
+			members.push({
+				sys_id: gr.user.sys_id.toString(),
+				title: gr.user_title.toString()
+			});
+		}
+		if (!members) return members;
 
-  },
+		members.sort(function(a, b) {
+			if (a.title == "CA" && b.title == "FO") return -1;
+			else if (a.title == "FO" && b.title == "CA") return 1;
+			else if (a.title == "CL" && b.title != "CL") return -1;
+			else if (a.title != "CL" && b.title == "CL") return 1;
+			else return 0;
+		});
 
-  _getTitleTypes: function(group) {
+		return members;
+	};
 
+	this.createVerticalInstances = function(members, flightInfo) {
+		var self = this;
+		members.forEach(function(responsibleCrewman, idResponsible) {
+			members.forEach(function(ratedCrewman, idRated) {
+				if (responsibleCrewman.sys_id == ratedCrewman.sys_id) {
+					return;
+				}
 
-    var _getLeaders =  function (members) {
-      var clLeaders = [];
-      var caLeaders = [];
-  
-      clLeaders = members.filter(function (member) {
-        if (member.cargo.sigla == 'CL') return true;
-      });
-      caLeaders = members.filter(function (member) {
-        if (member.cargo.sigla == 'CA') return true;
-      });
-  
-      //Ordenar por RE
-  
-      clLeaders.sort(this._sortCres);
-      caLeaders.sort(this._sortCres);
-  
-      return clLeaders.concat(caLeaders);
-  
-    };
+				if (!self.canReciveSurvey(ratedCrewman.sys_id)) {
+					// ANCHOR remover log após testes
+					gs.info("Crew Control - Instance Verticals: Não pode receber pesquisa");
+					return;
+				}
 
-    var leaders = _getLeaders(group.members);
+				// ANCHOR remover log após testes
+				gs.info("Crew Control - Instance Verticals:\nPode receceber Pesquisa");
 
-    var others = group.members.filter(function (member) {
-      if (member.cargo.sigla != 'CL' && member.cargo.sigla != 'CA') return true;
-    });
+				var canRate = self.canRate(
+					{ title: responsibleCrewman.title, id: idResponsible },
+					{ title: ratedCrewman.title, id: idRated }
+				);
 
-    group.members = {};
+				if (!canRate) {
+					// ANCHOR remover log após testes
+					gs.info("Crew Control - Instance Verticals: Membros não pode avaliar");
+					return;
+				}
+				// ANCHOR remover log após testes
+				gs.info("Crew Control - Instance Verticals:\nPode avaliar");
 
-    group.members.leaders = leaders;
-    group.members.others = others;
+				var survey = self.getSurveyModel(responsibleCrewman.title, ratedCrewman.title);
+				if (!survey) {
+					// ANCHOR remover log após testes
+					gs.info("Crew Control - Instance Verticals: Não existe pesquisa para cruzamento");
+					return;
+				}
+				// ANCHOR remover log após testes
+				gs.info("Crew Control - Instance Verticals:\nPossui Modelo de pesquisa disponível");
 
-    return group;
-  },
+				self.createVertical({
+					responsible: responsibleCrewman.sys_id,
+					tripulante_avaliado_na_pesquisa: ratedCrewman.sys_id,
+					rated: ratedCrewman.sys_id,
+					survey: survey,
+					origem: flightInfo.origem,
+					destino: flightInfo.destino,
+					data_de_partida: flightInfo.localDepDate,
+					numero_do_voo: flightInfo.number
+				});
+			});
+		});
+	};
 
-  _sortCres: function (a, b) {
-    if (a.re < b.re) return -1;
-    else if (a.re > b.re) return 1;
-    else return 0;
-  },
+	this.canReciveSurvey = function(crewmanSysId) {
+		var self = this;
+		if (!crewmanSysId) return null;
+		var gr = new GlideRecord("x_alabs_pex_instance_survey");
+		gr.addEncodedQuery(
+			"tripulante_avaliado_na_pesquisa=".concat(crewmanSysId) +
+				"survey.tipo_de_pesquisa=vertical^state=pending^ORstate=started"
+		);
+		gr.query();
+		gs.info(gr.getRowCount() + "<=" + self.maxCount);
+		var insideLimit = gr.getRowCount() <= self.maxCount;
 
-  /**************************************************************************/
-  /************************* Gera Pesquisa Vertical *************************/
-  /**************************************************************************/
-  generateByVertical: function () {
-    var self = this;
+		return insideLimit;
 
-    var grupos = self._getGroups();
-    gs.info(JSON.stringify(grupos));
-    
-    grupos = grupos.map(self._getGroupMembers);
-    gs.info(JSON.stringify(grupos));
+		//
+	};
 
-    grupos = grupos.map(self._getTitleTypes);
-    gs.info(JSON.stringify(grupos));
-  }
+	this.canRate = function(responsible, rated) {
+		var canRate = false;
 
-};]]></script>
+		//Cruzamento CL[0]-FE
+		var crCL0toFE = responsible.id == 0 && responsible.title == "CL" && rated.title == "FE"; // Cruzamento CL[0]->FE
+		var crFEtoCL0 = rated.id == 0 && responsible.title == "FE" && rated.title == "CL"; // Cruzamento FE->CL[0]
+		var crCLtoFA = responsible.id != 0 && responsible.title == "CL" && rated.title == "FA"; // Cruzamento CL->FA
+		var crFAtoCL = rated.id == 0 && responsible.title == "FA" && rated.title == "CL"; // Cruzamento FA->CL
+		var crCAtoFO = responsible.title == "CA" && rated.title == "FO"; // Cruzamento CA->FO
+		var crFOtoCA = responsible.title == "FO" && rated.title == "CA"; // Cruzamento FO->CA
+
+		return crCL0toFE || crFEtoCL0 || crCLtoFA || crFAtoCL || crCAtoFO || crFOtoCA;
+	};
+
+	this.getSurveyModel = function(responsibleTitle, ratedTitle) {
+		if (!responsibleTitle || !ratedTitle) return false;
+		var survey = false;
+		var gr = new GlideRecord("x_alabs_pex_survey");
+
+		gr.addEncodedQuery(
+			"responsible_position=".concat(responsibleTitle) +
+				"^rated_position=".concat(ratedTitle) +
+				"^state=published" +
+				"^active=true" +
+				"^tipo_de_pesquisa=vertical"
+		);
+		gr.orderByDesc("sys_created_on");
+
+		gr.query();
+		if (gr.next()) survey = gr.sys_id.toString();
+
+		return survey;
+	};
+
+	this.createVertical = function(obj) {
+		var gr = new GlideRecord("x_alabs_pex_instance_survey");
+		gr.initialize();
+		for (var f in obj) {
+			gr[f] = obj[f];
+		}
+		return gr.insert();
+	};
+
+	this.updateAlreadyRecivedSurveyGroups = function(group) {
+		var gr = new GlideRecord("x_alabs_pex_crew_group");
+		var existst = gr.get(group);
+		if (existst) {
+			gr.ja_recebeu_a_pesquisa = true;
+			gr.update();
+		}
+
+		return existst;
+	};
+
+	this.type = "VerticalSurveyUtils";
+};
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>alpar.douglas.santos</sys_created_by>
         <sys_created_on>2018-08-09 16:36:26</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>38fa684adbb7d7000b2a32ffaa961996</sys_id>
-        <sys_mod_count>56</sys_mod_count>
-        <sys_name>SurveyInstanceVerticalUtils</sys_name>
+        <sys_mod_count>80</sys_mod_count>
+        <sys_name>VerticalSurveyUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_38fa684adbb7d7000b2a32ffaa961996</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-01-30 17:48:28</sys_updated_on>
+        <sys_updated_on>2019-02-25 16:43:55</sys_updated_on>
     </sys_script_include>
 </record_update>

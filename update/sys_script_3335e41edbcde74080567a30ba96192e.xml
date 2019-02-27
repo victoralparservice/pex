@@ -6,7 +6,7 @@
         <action_insert>false</action_insert>
         <action_query>false</action_query>
         <action_update>true</action_update>
-        <active>true</active>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>Calcular nota média</name>
-        <order>300</order>
+        <order>400</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -28,15 +28,7 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	
-	var pNPS = gs.getProperty('x_alabs_pex.porcentagem.nota.nps');
-	var pAvaliacaoVertical = gs.getProperty('x_alabs_pex.porcentagem_nota_avaliacao_vertical_para_calculo_final');
-	var pAutoAvaliacao = gs.getProperty('x_alabs_pex.porcentagem_nota_auto_avaliacao_para_calculo_final');
-	var pDesempenhoTecnico = gs.getProperty('x_alabs_pex.porcentagem_nota_desempenho_tecnico_para_calculo_final');
-	
-	var media = (current.self_assessment * pAutoAvaliacao/100) + (current.technical_performance * pDesempenhoTecnico/1000) + (current.vertical_evaluation * pAvaliacaoVertical/100) + (current.nps * pNPS/100);
-	
-	current.average = media;
+
 	current.update();
 	
 })(current, previous);]]></script>
@@ -47,7 +39,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3335e41edbcde74080567a30ba96192e</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Calcular nota média</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -56,7 +48,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_3335e41edbcde74080567a30ba96192e</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-05 19:30:25</sys_updated_on>
+        <sys_updated_on>2019-02-12 12:20:01</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

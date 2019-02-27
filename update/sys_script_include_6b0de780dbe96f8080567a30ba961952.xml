@@ -2,123 +2,128 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_alabs_pex.GeneralNotesUtils</api_name>
+        <api_name>x_alabs_pex.GeneralScoreUtil</api_name>
         <client_callable>false</client_callable>
         <description/>
-        <name>GeneralNotesUtils</name>
-        <script><![CDATA[var GeneralNotesUtils = Class.create();
-GeneralNotesUtils.prototype = {
-	initialize: function() {
-	},
+        <name>GeneralScoreUtil</name>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	GeneralScoreUtil
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Marcos Santos - 30/10/2018
+|		Yuhri Bernardes - 11/02/2019
+|	]
+|
+|	Métodos: [
+|		getYear : Obtém os anos em que o usuário possui pesquisa
+|	]
+|
+|	Atributos: [
+|		user: sys_id do usuário relacionado às pesquisas
+|	]
+|
+*/
 
-	getUserRE : function(id) {
-		var gr = new GlideRecord('sys_user');
-		gr.addEncodedQuery('sys_id=' + id);
-		gr.query();
-		if(gr.next()) {
-			return gr.employee_number.toString();
+var GeneralScoreUtil = function (user) {
+	/*
+	|--------------------------------------------------------------------------
+	|	Atributos
+	|--------------------------------------------------------------------------
+	*/
+	this.user = user;
+	this.yearsArr = [];
+	this.result = null;
+
+
+	/*
+	|--------------------------------------------------------------------------
+	|	Get Years
+	|--------------------------------------------------------------------------
+	|
+	|	Obtém todos os anos onde o tripulante foi avaliado
+	|
+	*/
+
+	this.getYears = function () {
+		var self = this;
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Reset de valores
+		*/
+		self.yearsArr = [];
+
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtençào dos anos
+		|--------------------------------------------------------------------------
+		*/
+		var ga = new GlideAggregate('x_alabs_pex_general_notes');
+		ga.addQuery('name_of_crew_member', self.user); // Notas relacionados ao usuário
+		ga.groupBy('ano'); // Agrupadas por ano
+		ga.orderByDesc('ano');
+		ga.query();
+
+		while (ga.next()) {
+			self.yearsArr.push(ga.ano.toString());
 		}
-		return '';
-	},
 
-	getLastNotes : function(re) {
-		var response = {};
-		var gr = new GlideRecord('x_alabs_pex_general_notes');
-		gr.addEncodedQuery('name_of_crew_member.employee_number=' + re + '^re_crewmanISNOTEMPTY');
-		gr.orderByDesc('ano');
-		gr.query();
-		if(gr.next()) {
-			response.re_crewman = gr.getValue('re_crewman');
-			response.name_of_crew_member = gr.name_of_crew_member.getDisplayValue();
-			response.position = gr.getValue('position');
-			response.year_assetment = gr.getValue('ano');
-			response.type_of_operation = gr.type_of_operation.getDisplayValue();
-			response.technical_performance = gr.getValue('technical_performance');
-			response.vertical_evaluation = parseInt(gr.vertical_evaluation.getDisplayValue());
-			response.nps = parseInt(gr.nps.getDisplayValue());
-			response.self_assessment = gr.getValue('self_assessment');
-			response.average = gr.getValue('average');
-			response.final_note = gr.getValue('final_note');
+		return self.yearsArr;
 
-		}
-		return response;
-	},
+	};
 
-	getAllNotes : function(re) {
-		var notes = [];
-		var gr = new GlideRecord('x_alabs_pex_general_notes');
-		gr.addEncodedQuery('name_of_crew_member.employee_number=' + re + '^re_crewmanISNOTEMPTY');
-		gr.query();
-		while(gr.next()) {
-			var response = {};
-			response.re_crewman = gr.getValue('re_crewman');
-			response.name_of_crew_member = gr.name_of_crew_member.getDisplayValue();
-			response.position = gr.getValue('position');
-			response.year_assetment = gr.getValue('ano');
-			response.type_of_operation = gr.type_of_operation.getDisplayValue();
-			response.technical_performance = gr.getValue('technical_performance');
-			response.vertical_evaluation = gr.getValue('vertical_evaluation');
-			response.nps = gr.getValue('nps');
-			response.self_assessment = gr.getValue('self_assessment');
-			response.average = gr.getValue('average');
-			response.final_note = gr.getValue('final_note');
-			notes.push(response);
-		}
-		return notes;
-	},
+	/*
+	|--------------------------------------------------------------------------
+	|	Get Last Score
+	|--------------------------------------------------------------------------
+	|
+	|	Obtém os dados da última pesquisa recebida pelo tripulante
+	|
+	*/
 
-	getAllYearsByUser : function(re) {
-		var years = [];
-		var gr = new GlideRecord('x_alabs_pex_general_notes');
-		gr.addEncodedQuery('name_of_crew_member.employee_number=' + re + '^re_crewmanISNOTEMPTY');
-		gr.query();
-		while(gr.next()) {
-			years.push(gr.getValue('ano'));
-		}
-		return years;
-	},
+	this.getScore = function (year) {
+		var self = this;
+		var query;
 
-	updateNotesByPreferences : function(re, year) {
-		var response = {};
-		var gr = new GlideRecord('x_alabs_pex_general_notes');
-		gr.addEncodedQuery('name_of_crew_member.employee_number=' + re + '^re_crewmanISNOTEMPTY' + '^ano=' + year );
-		gr.query();
-		if(gr.next()) {
-			response.re_crewman = gr.getValue('re_crewman');
-			response.name_of_crew_member = gr.name_of_crew_member.getDisplayValue();
-			response.position = gr.getValue('position');
-			response.year_assetment = gr.getValue('ano');
-			response.type_of_operation = gr.type_of_operation.getDisplayValue();
-			response.technical_performance = gr.getValue('technical_performance');
-			response.vertical_evaluation = parseInt(gr.vertical_evaluation.getDisplayValue());
-			response.nps = parseInt(gr.nps.getDisplayValue());
-			response.self_assessment = gr.getValue('self_assessment');
-			response.average = gr.getValue('average');
-			response.final_note = gr.getValue('final_note');
-		}
-		return response;
-	},
-	
-	canSee : function() {
-		var response = true;
-	},
+		/*
+		|--------------------------------------------------------------------------
+		|	Obtenção do registro
+		|--------------------------------------------------------------------------
+		*/
+		var GeneralScore = new global.TableCRUD('x_alabs_pex_general_notes');
+
+		query = 'name_of_crew_member='.concat(self.user) + '^ano='.concat(year);
+
+		GeneralScore.get(query);
+
+		if (GeneralScore.count > 0)
+			self.result = GeneralScore.data[0];
+		else self.result = null;
+
+		return self.result;
+
+	};
 
 
-	type: 'GeneralNotesUtils'
+
+	this.type = 'GeneralScoreUtil';
+
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>alparservice.marcos</sys_created_by>
         <sys_created_on>2018-10-30 01:30:35</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>6b0de780dbe96f8080567a30ba961952</sys_id>
-        <sys_mod_count>13</sys_mod_count>
-        <sys_name>GeneralNotesUtils</sys_name>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>GeneralScoreUtil</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_6b0de780dbe96f8080567a30ba961952</sys_update_name>
-        <sys_updated_by>alparservice.marcos</sys_updated_by>
-        <sys_updated_on>2018-11-05 14:25:35</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-02-12 09:44:06</sys_updated_on>
     </sys_script_include>
 </record_update>

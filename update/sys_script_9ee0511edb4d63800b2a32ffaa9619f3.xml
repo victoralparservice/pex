@@ -30,44 +30,34 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var note = 0;
-	var anogr;
-	var ano = new GlideDateTime(current.survey.valid_until);
-	ano = ano.getYearUTC();
-	var gr = new GlideRecord('x_alabs_pex_instance_survey');
-	gr.addEncodedQuery('tripulante_avaliado_na_pesquisa='+ current.tripulante_avaliado_na_pesquisa);
-	gr.query();
-	var division = gr.getRowCount();
-	while(gr.next()){
-		anogr = new GlideDateTime(gr.survey.valid_until);
-		anogr = anogr.getYearUTC();
-		if(ano == anogr)
-			note += parseFloat(gr.getValue('pontuacao_obtida_na_pesquisa'));
-	}
-	var average = note / division;
-	insertGeneralNotes(current, average, ano);
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	OnChangeVerticalScore
+|--------------------------------------------------------------------------
+|
+|	Autores:[
+|		Erick Gomes - 11/10/2018
+|		Yuhri Bernardes - 11/02/2019
+|	]
+|
+|	Ações: [
+|		1 - Atualizar Nota Avaliação vertical geral
+|	]
+|
+*/
 
-})(current, previous);
+(function executeRule(current, previous /*null when async*/ ) {
 
-function insertGeneralNotes(current, average, ano){
-	var gr = new GlideRecord('x_alabs_pex_general_notes');
-	gr.addEncodedQuery('name_of_crew_member='+current.tripulante_avaliado_na_pesquisa+'^ano='+ano);
-	gr.query();
+	var util = new PexScoreUtils();
 
-	if(gr.next()){
-		gr.vertical_evaluation = average;
-		gr.update();
-	}else{
-		var grInsert = new GlideRecord('x_alabs_pex_general_notes');
-		grInsert.initialize();
-		grInsert.name_of_crew_member = current.tripulante_avaliado_na_pesquisa;
-		grInsert.re_crewman = current.tripulante_avaliado_na_pesquisa.employee_number;
-		grInsert.vertical_evaluation = average;
-		grInsert.ano = ano;
-		grInsert.insert();
-	}
-}]]></script>
+	/*
+	|--------------------------------------------------------------------------
+	|	Ação 1 - Atualizar Nota Avaliação vertical geral
+	|--------------------------------------------------------------------------
+	*/
+	util.updateVertical(current.tripulante_avaliado_na_pesquisa.toString(), current.sys_created_on.toString());
+
+})(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>erickngomes</sys_created_by>
         <sys_created_on>2018-10-11 17:18:47</sys_created_on>
@@ -75,7 +65,7 @@ function insertGeneralNotes(current, average, ano){
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9ee0511edb4d63800b2a32ffaa9619f3</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>ALP: On Change Vertical Score</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -84,7 +74,7 @@ function insertGeneralNotes(current, average, ano){
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_9ee0511edb4d63800b2a32ffaa9619f3</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-05 10:34:15</sys_updated_on>
+        <sys_updated_on>2019-02-11 19:42:23</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

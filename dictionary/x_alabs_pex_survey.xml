@@ -15,6 +15,25 @@
             </choice>
         </element>
         <element label="Prazo Expirado" max_length="40" name="prazo_expirado" type="boolean"/>
+        <element choice="1" dependent="responsible_position" dependent_on_field="responsible_position" label="Cargo Avaliado" max_length="40" name="rated_position" type="choice" use_dependent_field="true">
+            <choice>
+                <element dependent_value="FE" inactive_on_update="false" label="CL" sequence="0" value="CL"/>
+                <element dependent_value="FA" inactive_on_update="false" label="CL" sequence="0" value="CL"/>
+                <element dependent_value="CL" inactive_on_update="false" label="FA" sequence="2" value="FA"/>
+                <element dependent_value="CL" inactive_on_update="false" label="FE" sequence="3" value="FE"/>
+                <element dependent_value="CA" inactive_on_update="false" label="FO" sequence="4" value="FO"/>
+                <element dependent_value="FO" inactive_on_update="false" label="CA" sequence="5" value="CA"/>
+            </choice>
+        </element>
+        <element choice="1" dependent="posicao_do_tripulante" dependent_on_field="posicao_do_tripulante" label="Cargo Responsável" max_length="40" name="responsible_position" type="choice" use_dependent_field="true">
+            <choice>
+                <element dependent_value="Comissario" inactive_on_update="false" label="CL" sequence="0" value="CL"/>
+                <element dependent_value="Comissario" inactive_on_update="false" label="FA" sequence="1" value="FA"/>
+                <element dependent_value="Comissario" inactive_on_update="false" label="FE" sequence="2" value="FE"/>
+                <element dependent_value="Piloto" inactive_on_update="false" label="FO" sequence="3" value="FO"/>
+                <element dependent_value="Piloto" inactive_on_update="false" label="CA" sequence="4" value="CA"/>
+            </choice>
+        </element>
         <element choice="3" default="draft" label="Status" max_length="40" name="state" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
