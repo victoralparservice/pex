@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>ALP: On Delete</name>
+        <name>ALP: Deactive Flight Crew Member</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -63,8 +63,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>107d87b8db6b2f40cceb5e7cf396194e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>ALP: On Delete</sys_name>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ALP: Deactive Flight Crew Member</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -72,7 +72,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_107d87b8db6b2f40cceb5e7cf396194e</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-08 17:09:14</sys_updated_on>
+        <sys_updated_on>2019-03-01 14:26:22</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

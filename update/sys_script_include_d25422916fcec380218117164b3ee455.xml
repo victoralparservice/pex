@@ -2,186 +2,142 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_alabs_pex.SurveyInstanceUtils</api_name>
+        <api_name>x_alabs_pex.SelfEvaluationUtils</api_name>
         <client_callable>false</client_callable>
         <description/>
-        <name>SurveyInstanceUtils</name>
-        <script><![CDATA[var SurveyInstanceUtils = Class.create();
-SurveyInstanceUtils.prototype = {
-	
-	initialize: function() {
-	},
-	Generate : function(survey){
-		
-		if(survey.tipo_de_pesquisa.toString() == 'matriz_tripulante'){
-			this._generateByMatrizTripulante(survey);
-			
-		}
-		if(survey.tipo_de_pesquisa.toString() == 'matriz'){
-			this._generateByMatriz(survey);
-		}
-		
-	},
-	
-	_generateByMatrizTripulante : function(survey){
-		var scope = this;
-		var questions = this._getSurveyQuestions(survey);
-		
-		var matriz = new GlideRecord('x_alabs_pex_location_survey_types');
-		matriz.addQuery('posicao',survey.posicao_do_tripulante);
-		matriz.query();
-		while(matriz.next()){
-			var instance = scope._newInstanceTripulante(matriz, survey, questions.length);
-			if(instance){
-				scope._newInstanceQuestion(instance, questions);
-			}
-		}
-		
-	},
-	
-	
-	_newInstanceTripulante : function(matriz, survey, numberOfQuestions){
-		
-		var ativo = this._verifyActive(matriz.responsible);
-		
-		if(ativo){
-			var gr = new GlideRecord('x_alabs_pex_instance_survey');
-			gr.initialize();
-			gr.survey = survey.sys_id.getDisplayValue();
-			gr.responsible = matriz.responsible.toString();
-			gr.first_level_notification = matriz.first_level.toString();
-			gr.second_level_notification = matriz.second_level.toString();
-			
-			gr.number_of_questions = numberOfQuestions;
-			var newId = gr.insert();
-			
-			return newId;
-		}
-		return false;
-	},
-	
-	_verifyActive : function(responsible){
-		
-		var gr = new GlideRecord('x_alabs_pex_crew_management');
-		gr.addQuery('user.employee_number='+responsible.employee_number);
-		gr.addQuery('active',true);
-		gr.query();
-		
-		return gr.next() ? true : false;
-		
-	},
-	
-	_getMatrixTripulante : function(survey){
-		var matrix = {};
-			
-			var gr = new GlideRecord('x_alabs_pex_location_survey_types');
-			gr.addEncodedQuery('tipo_de_pesquisa=Comissarios e Pilotos^posicao='+ survey.posicao);
-			gr.query();
-			
-			if(gr.next()){
-				matrix.responsible = gr.responsible.toString();
-				matrix.firstLevel = gr.first_level.toString();
-				matrix.secondLevel = gr.second_level.toString();
-				matrix.location = gr.location_survey.toString();
-			}
-			
-			return matrix;
-		},
-		
-		
-		_generateByMatriz : function(survey){
-			var scope = this;
-			var locations = survey.locations.toString().split(',');
-			var questions = this._getSurveyQuestions(survey);
-			
-			locations.forEach(function(location){
-				var instance = scope._newInstance(location, survey, questions.length);
-				scope._newInstanceQuestion(instance, questions);
+        <name>SelfEvaluationUtils</name>
+        <script><![CDATA[var SelfEvaluationUtils = function(_survey) {
+	this.survey = _survey;
+
+	/*
+	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------------
+	*/
+	this.generateSelfEvaluation = function(survey) {
+		var self = this;
+		var selectedSurvey = survey || this.survey;
+
+		var surveyLocation = selectedSurvey.locations.toString();
+		var surveyType = selectedSurvey.type.toString();
+		var surveyMatrixType = selectedSurvey.tipo_de_pesquisa.toString();
+
+		var matrices = this._getMatrices(
+			surveyType,
+			surveyLocation,
+			surveyMatrixType
+		);
+		var matrixUsers = this._getMatrixUsers(matrices);
+
+		// gs.info(
+		// 	"Generate Self Evaluation - Found Matrices\n".concat(
+		// 		JSON.stringify(JSON.stringify(matrices))
+		// 	)
+		// );
+		// gs.info(
+		// 	"Generate Self Evaluation - Found Matrix Users\n".concat(
+		// 		JSON.stringify(JSON.stringify(matrixUsers))
+		// 	)
+		// );
+		// gs.info(
+		// 	"Generate Self Evaluation\nLocation: ".concat(surveyLocation) +
+		// 		"\nType: ".concat(surveyType) +
+		// 		"\nTipo de pesquisa: ".concat(surveyMatrixType)
+		// );
+
+		matrixUsers.forEach(function(matrix) {
+			self._generateSuveyInstance(matrix, selectedSurvey);
+		});
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------------
+	*/
+	this._getMatrixUsers = function(matrices) {
+		var users;
+
+		if (matrices) {
+			users = matrices.map(function(matrix) {
+				return {
+					user: matrix.responsible.toString(),
+					first_level: matrix.first_level.toString(),
+					second_level: matrix.second_level.toString()
+				};
 			});
-		},
-		
-		_newInstance : function(location, survey, numberOfQuestions){
-			
-			var matrix = this._getMatrix(location, survey);
-			var gr = new GlideRecord('x_alabs_pex_instance_survey');
-			gr.initialize();
-			gr.survey = survey.sys_id.getDisplayValue();
-			gr.responsible = matrix.responsible;
-			gr.first_level_notification = matrix.firstLevel;
-			gr.second_level_notification = matrix.secondLevel;
-			gr.location = matrix.location;
-			gr.number_of_questions = numberOfQuestions;
-			var newId = gr.insert();
-			
-			return newId;
-		},
-		
-		
-		
-		_getMatrix : function(location, survey){
-			var matrix = {};
-				
-				
-				
-				var gr = new GlideRecord('x_alabs_pex_location_survey_types');
-				gr.addEncodedQuery('survey_type='+ survey.type +'^location_survey=' + location);
-				gr.query();
-				
-				if(gr.next()){
-					matrix.responsible = gr.responsible.toString();
-					matrix.firstLevel = gr.first_level.toString();
-					matrix.secondLevel = gr.second_level.toString();
-					matrix.location = gr.location_survey.toString();
-				}
-				
-				return matrix;
-			},
-			
-			_getSurveyQuestions : function(survey) {
-				var questions = [];
-				var grSurveyQuestion = new GlideRecord('x_alabs_pex_surveys_questions');
-				grSurveyQuestion.addEncodedQuery('survey=' + survey.sys_id.getDisplayValue());
-				grSurveyQuestion.query();
-				
-				while(grSurveyQuestion.next()){
-					questions.push({
-						question : grSurveyQuestion.getValue('question'),
-						order : grSurveyQuestion.getValue('order')});
-					}
-					return questions;
-				},
-				
-				_newInstanceQuestion : function(instance, questions){
-					questions.forEach(function(question) {
-						var grInstanceQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
-						grInstanceQuestion.initialize();
-						grInstanceQuestion.question = question.question;
-						grInstanceQuestion.order = question.order;
-						grInstanceQuestion.survey_instance = instance;
-						grInstanceQuestion.insert();
-					});
-				},
-				
-				
-				
-				
-				
-				
-				type: 'SurveyInstanceUtils'
-			};]]></script>
+		}
+
+		return users;
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------------
+	*/
+	this._getMatrices = function(type, location, matrixType) {
+		var gr = new GlideRecord("x_alabs_pex_location_survey_types");
+		gr.addQuery("survey_type", type);
+		gr.addQuery("location_survey", "IN", location);
+
+		if (matrixType == "matriz_tripulante")
+			gr.addQuery("tipo_de_pesquisa", "Comissarios e Pilotos");
+
+		gr.query();
+
+		var matrix;
+
+		while (gr.next()) {
+			if (!matrix) matrix = [];
+			matrix.push({
+				responsible: gr.responsible.toString(),
+				first_level: gr.first_level.toString(),
+				second_level: gr.second_level.toString()
+			});
+		}
+
+		return matrix;
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------------
+	*/
+
+	this._generateSuveyInstance = function(matrix, survey) {
+		var gr = new GlideRecord("x_alabs_pex_instance_survey");
+		gr.initialize();
+
+		gr.responsible = matrix.user;
+
+		gr.survey = survey.sys_id.toString();
+
+		gr.first_level_notification = matrix.first_level;
+		gr.second_level_notification = matrix.second_level;
+
+		gr.location = survey.location;
+
+		gr.insert();
+	};
+
+	/*
+	|--------------------------------------------------------------------------
+	|--------------------------------------------------------------------------
+	*/
+	this.type = "SelfEvaluationUtils";
+};
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-10-25 21:29:52</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d25422916fcec380218117164b3ee455</sys_id>
-        <sys_mod_count>89</sys_mod_count>
-        <sys_name>SurveyInstanceUtils</sys_name>
+        <sys_mod_count>99</sys_mod_count>
+        <sys_name>SelfEvaluationUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_d25422916fcec380218117164b3ee455</sys_update_name>
-        <sys_updated_by>alpar.douglas.santos</sys_updated_by>
-        <sys_updated_on>2018-10-18 11:30:00</sys_updated_on>
+        <sys_updated_by>yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-03-01 15:01:21</sys_updated_on>
     </sys_script_include>
 </record_update>

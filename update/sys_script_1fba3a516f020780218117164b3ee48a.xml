@@ -3,9 +3,9 @@
         <abort_action>false</abort_action>
         <access>package_private</access>
         <action_delete>false</action_delete>
-        <action_insert>true</action_insert>
+        <action_insert>false</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -15,13 +15,15 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_alabs_pex_survey">tipo_de_pesquisa=matriz^locationsISNOTEMPTY^EQ<item endquery="false" field="tipo_de_pesquisa" goto="false" newquery="false" operator="=" or="false" value="matriz"/>
+        <filter_condition table="x_alabs_pex_survey">tipo_de_pesquisa=matriz^ORtipo_de_pesquisa=matriz_tripulante^locationsISNOTEMPTY^stateCHANGESTOpublished^EQ<item endquery="false" field="tipo_de_pesquisa" goto="false" newquery="false" operator="=" or="false" value="matriz"/>
+            <item endquery="false" field="tipo_de_pesquisa" goto="false" newquery="false" operator="=" or="true" value="matriz_tripulante"/>
             <item endquery="false" field="locations" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="published"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Generete Instances</name>
+        <name>ALP: Generate Self Evaluation</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -32,8 +34,8 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	var util = new SurveyInstanceUtils();
-	util.Generate(current);
+	var util = new x_alabs_pex.SelfEvaluationUtils(current);
+	util.generateSelfEvaluation();
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -43,8 +45,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1fba3a516f020780218117164b3ee48a</sys_id>
-        <sys_mod_count>14</sys_mod_count>
-        <sys_name>Generete Instances</sys_name>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>ALP: Generate Self Evaluation</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -52,7 +54,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_1fba3a516f020780218117164b3ee48a</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-13 12:36:54</sys_updated_on>
+        <sys_updated_on>2019-03-01 14:43:20</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

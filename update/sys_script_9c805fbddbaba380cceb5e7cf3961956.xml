@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>ALP: On Calcuated Request</name>
+        <name>ALP: Get All Scores</name>
         <order>200</order>
         <priority>100</priority>
         <rest_method/>
@@ -27,41 +27,18 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[/*
-|--------------------------------------------------------------------------
-|	OnChangeNPS
-|--------------------------------------------------------------------------
-|
-|	Autores:[
-|		Yuhri Bernardes - 05/02/2019
-|	]
-|
-|	Ações: [
-|		1 - Atualiza Notas NPS
-|		2 - Atualiza Nota Avaliação vertical
-|		3 - Atualiza Nota Auto Avaliação
-|	]
-|
-*/
-
-(function executeRule(current, previous /*null when async*/ ) {
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 	var util = new PexScoreUtils();
 
 	var user = current.name_of_crew_member.toString();
 	var year = current.ano.toString();
-	var id = current.sys_id.toString();
-	var table = current.getTableName();
-	
-	current.setAbortAction(true);
-	current = new GlideRecord(table);
-	current.get(id);
 	/*
 	|--------------------------------------------------------------------------
 	|	Ação 1 - Atualiza Notas NPS
 	|--------------------------------------------------------------------------
 	*/
 	var nps = util.updateGeneralNPS(user, year);
-	gs.info("YUHRI LOG\n"+nps);
+	gs.info("YUHRI LOG\n" + nps);
 	current.nps = isNaN(nps) ? 0 : nps;
 
 	/*
@@ -79,19 +56,30 @@
 	*/
 	var selfEv = util.updateGeneralSelfEvaluation(user, year);
 	current.self_assessment = isNaN(selfEv) ? 0 : selfEv;
-	
+
 	// ============================ temporario
-	var pNPS = gs.getProperty('x_alabs_pex.porcentagem.nota.nps');
-	var pAvaliacaoVertical = gs.getProperty('x_alabs_pex.porcentagem_nota_avaliacao_vertical_para_calculo_final');
-	var pAutoAvaliacao = gs.getProperty('x_alabs_pex.porcentagem_nota_auto_avaliacao_para_calculo_final');
-	var pDesempenhoTecnico = gs.getProperty('x_alabs_pex.porcentagem_nota_desempenho_tecnico_para_calculo_final');
-	
-	var media = (current.self_assessment * pAutoAvaliacao/100) + (current.technical_performance * pDesempenhoTecnico/1000) + (current.vertical_evaluation * pAvaliacaoVertical/1000) + (current.nps * pNPS/100);
-	
+	var pNPS = gs.getProperty("x_alabs_pex.porcentagem.nota.nps");
+	var pAvaliacaoVertical = gs.getProperty(
+		"x_alabs_pex.porcentagem_nota_avaliacao_vertical_para_calculo_final"
+	);
+	var pAutoAvaliacao = gs.getProperty(
+		"x_alabs_pex.porcentagem_nota_auto_avaliacao_para_calculo_final"
+	);
+	var pDesempenhoTecnico = gs.getProperty(
+		"x_alabs_pex.porcentagem_nota_desempenho_tecnico_para_calculo_final"
+	);
+
+	var media =
+		(current.self_assessment * pAutoAvaliacao) / 100 +
+		(current.technical_performance * pDesempenhoTecnico) / 1000 +
+		(current.vertical_evaluation * pAvaliacaoVertical) / 1000 +
+		(current.nps * pNPS) / 100;
+
 	current.average = media;
 
 	current.update();
-})(current, previous);]]></script>
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>yuhri.bernardes</sys_created_by>
         <sys_created_on>2019-02-11 19:56:15</sys_created_on>
@@ -99,8 +87,8 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9c805fbddbaba380cceb5e7cf3961956</sys_id>
-        <sys_mod_count>13</sys_mod_count>
-        <sys_name>ALP: On Calcuated Request</sys_name>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>ALP: Get All Scores</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -108,9 +96,9 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_9c805fbddbaba380cceb5e7cf3961956</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-26 15:36:23</sys_updated_on>
+        <sys_updated_on>2019-03-01 16:38:01</sys_updated_on>
         <template/>
-        <when>after</when>
+        <when>before</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=9c805fbddbaba380cceb5e7cf3961956"/>
 </record_update>
