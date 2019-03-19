@@ -66,7 +66,7 @@
         <vars/>
     </wf_workflow>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Approval - User">35433da80a0a029a0028c639a1e51eb4</activity_definition>
+        <activity_definition display_value="Aprovação - Usuário">35433da80a0a029a0028c639a1e51eb4</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>3</databus_lookup_id>
         <height/>
@@ -813,7 +813,7 @@ answer = 0;</value>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Wait for condition">d93a02ae0a0a0aa30077abad3fdac035</activity_definition>
+        <activity_definition display_value="Aguardar condição">d93a02ae0a0a0aa30077abad3fdac035</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>9</databus_lookup_id>
         <height/>
@@ -923,7 +923,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Wait for condition">d93a02ae0a0a0aa30077abad3fdac035</activity_definition>
+        <activity_definition display_value="Aguardar condição">d93a02ae0a0a0aa30077abad3fdac035</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>4</databus_lookup_id>
         <height/>
@@ -1033,7 +1033,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Begin">c7a5e32c0a0a0b3a002377c24ed8ea76</activity_definition>
+        <activity_definition display_value="Começo">c7a5e32c0a0a0b3a002377c24ed8ea76</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>1</databus_lookup_id>
         <height/>
@@ -1083,7 +1083,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="End">c7a66f7d0a0a0b3a004544a6d2f14076</activity_definition>
+        <activity_definition display_value="Término">c7a66f7d0a0a0b3a004544a6d2f14076</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>2</databus_lookup_id>
         <height/>
@@ -1112,7 +1112,7 @@ answer = true;&#13;
     </wf_activity>
     <sys_variable_value action="delete_multiple" query="document_key=8f529da66fb247001fb18a6d6b3ee4e2"/>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Branch">a246173ac0a8016400a47421cd41e42c</activity_definition>
+        <activity_definition display_value="Filial">a246173ac0a8016400a47421cd41e42c</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>6</databus_lookup_id>
         <height/>
@@ -1162,7 +1162,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Set Values">1ca8d7cf0a0a0b265e9a000c2c08248c</activity_definition>
+        <activity_definition display_value="Valores Definidos">1ca8d7cf0a0a0b265e9a000c2c08248c</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>5</databus_lookup_id>
         <height/>
@@ -1240,7 +1240,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Rollback To">bd5711773b230000dada82c09ccf3d0d</activity_definition>
+        <activity_definition display_value="Reverter para">bd5711773b230000dada82c09ccf3d0d</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>8</databus_lookup_id>
         <height/>
@@ -1290,7 +1290,7 @@ answer = true;&#13;
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
     </wf_condition>
     <wf_activity action="INSERT_OR_UPDATE">
-        <activity_definition display_value="Set Values">1ca8d7cf0a0a0b265e9a000c2c08248c</activity_definition>
+        <activity_definition display_value="Valores Definidos">1ca8d7cf0a0a0b265e9a000c2c08248c</activity_definition>
         <activity_definition_updated>false</activity_definition_updated>
         <databus_lookup_id>7</databus_lookup_id>
         <height/>

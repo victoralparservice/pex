@@ -158,7 +158,7 @@
             <name>sys_dictionary</name>
             <parent>sys_db_object</parent>
             <position/>
-            <relationship display_value="Table Columns">4344f6f5bf1320001875647fcf0739ad</relationship>
+            <relationship display_value="Colunas da Tabela">4344f6f5bf1320001875647fcf0739ad</relationship>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>eli.lima</sys_created_by>
@@ -177,7 +177,7 @@
             <sys_updated_by>eli.lima</sys_updated_by>
             <sys_updated_on>2017-11-10 19:20:28</sys_updated_on>
             <sys_user display_value="">5959d2ce6f9ab6401fb18a6d6b3ee4ea</sys_user>
-            <view display_value="Default view" name="NULL">Default view</view>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

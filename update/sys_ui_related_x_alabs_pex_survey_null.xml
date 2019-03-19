@@ -2,7 +2,7 @@
     <sys_ui_related sys_domain="global" table="x_alabs_pex_survey" version="2" view="">
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Survey - Default view" name="x_alabs_pex_survey" related_list="NULL" sys_domain="global" view="Default view">0aa7e95ddb7b17000b2a32ffaa961986</list_id>
+            <list_id display_value="Definição da Pesquisa - Default view" name="x_alabs_pex_survey" related_list="NULL" sys_domain="global" view="Default view">0aa7e95ddb7b17000b2a32ffaa961986</list_id>
             <order_by/>
             <position>0</position>
             <related_list>x_alabs_pex_surveys_questions.survey</related_list>
@@ -16,7 +16,7 @@
         </sys_ui_related_list_entry>
         <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
             <filter/>
-            <list_id display_value="Survey - Default view" name="x_alabs_pex_survey" related_list="NULL" sys_domain="global" view="Default view">0aa7e95ddb7b17000b2a32ffaa961986</list_id>
+            <list_id display_value="Definição da Pesquisa - Default view" name="x_alabs_pex_survey" related_list="NULL" sys_domain="global" view="Default view">0aa7e95ddb7b17000b2a32ffaa961986</list_id>
             <order_by/>
             <position>1</position>
             <related_list>x_alabs_pex_instance_survey.survey</related_list>
@@ -29,7 +29,7 @@
             <sys_updated_on>2018-08-07 13:05:44</sys_updated_on>
         </sys_ui_related_list_entry>
         <sys_ui_related_list action="INSERT_OR_UPDATE">
-            <calculated_name>Survey - Default view</calculated_name>
+            <calculated_name>Definição da Pesquisa - Default view</calculated_name>
             <filter/>
             <name>x_alabs_pex_survey</name>
             <order_by/>
@@ -52,7 +52,7 @@
             <sys_updated_by>alpar.douglas.santos</sys_updated_by>
             <sys_updated_on>2018-08-07 13:05:44</sys_updated_on>
             <sys_user/>
-            <view display_value="Default view" name="NULL">Default view</view>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_related_list>
     </sys_ui_related>

@@ -19,7 +19,7 @@
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
         <sys_updated_on>2019-03-01 11:38:05</sys_updated_on>
         <table>x_alabs_pex_survey</table>
-        <ui_policy display_value="ALP: Type and Location Fields">5b70e69fdbb4a3400b2a32ffaa96196d</ui_policy>
+        <ui_policy display_value="ALP: On Airport Self Evaluation">5b70e69fdbb4a3400b2a32ffaa96196d</ui_policy>
         <visible>true</visible>
     </sys_ui_policy_action>
 </record_update>

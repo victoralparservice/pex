@@ -42,7 +42,7 @@
             <sys_updated_by>alpar.douglas.santos</sys_updated_by>
             <sys_updated_on>2018-08-28 16:29:18</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">a5ce36106f201200218117164b3ee45c</view>
+            <view display_value="Lista de Referência" name="sys_ref_list">a5ce36106f201200218117164b3ee45c</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

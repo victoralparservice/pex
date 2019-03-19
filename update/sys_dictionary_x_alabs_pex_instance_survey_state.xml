@@ -32,7 +32,7 @@
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Choice">choice</internal_type>
+        <internal_type display_value="Opção">choice</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
         <name>x_alabs_pex_instance_survey</name>

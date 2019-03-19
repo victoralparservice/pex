@@ -38,7 +38,7 @@
             <sys_updated_by>marcos.kassak</sys_updated_by>
             <sys_updated_on>2018-07-30 13:27:03</sys_updated_on>
             <sys_user/>
-            <view display_value="Default view" name="NULL">Default view</view>
+            <view display_value="Exibição padrão" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_related_list>
     </sys_ui_related>
