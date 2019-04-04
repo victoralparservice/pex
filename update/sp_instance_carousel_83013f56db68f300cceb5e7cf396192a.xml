@@ -11,22 +11,22 @@
         <roles/>
         <short_description/>
         <size>md</size>
-        <sp_column display_value="1">9734c95f6f420b80218117164b3ee446</sp_column>
+        <sp_column display_value="1">4e013396db68f300cceb5e7cf39619b1</sp_column>
         <sp_widget display_value="PEX - Carousel">c8a4e6c16f120f80218117164b3ee4b5</sp_widget>
         <sys_class_name>sp_instance_carousel</sys_class_name>
-        <sys_created_by>eli.lima</sys_created_by>
-        <sys_created_on>2017-11-06 14:34:22</sys_created_on>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2019-04-04 04:38:10</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>fc5872c56f520f80218117164b3ee408</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_id>83013f56db68f300cceb5e7cf396192a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-        <sys_update_name>sp_instance_carousel_fc5872c56f520f80218117164b3ee408</sys_update_name>
+        <sys_update_name>sp_instance_carousel_83013f56db68f300cceb5e7cf396192a</sys_update_name>
         <sys_updated_by>alparservice.marcos</sys_updated_by>
-        <sys_updated_on>2018-10-29 17:02:35</sys_updated_on>
+        <sys_updated_on>2019-04-04 04:38:10</sys_updated_on>
         <title/>
         <url/>
         <widget_parameters/>

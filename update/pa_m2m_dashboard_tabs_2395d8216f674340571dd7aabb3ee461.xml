@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="pa_m2m_dashboard_tabs">
     <pa_m2m_dashboard_tabs action="INSERT_OR_UPDATE">
-        <dashboard display_value="Relatórios Gerenciais">beef49266fb247001fb18a6d6b3ee45b</dashboard>
+        <dashboard display_value="Management Reports">beef49266fb247001fb18a6d6b3ee45b</dashboard>
         <home>false</home>
         <homepage/>
         <order>4</order>
@@ -21,6 +21,6 @@
         <sys_update_name>pa_m2m_dashboard_tabs_2395d8216f674340571dd7aabb3ee461</sys_update_name>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2018-01-08 19:18:56</sys_updated_on>
-        <tab display_value="Pesquisas - Filtros">2b95d8216f674340571dd7aabb3ee45e</tab>
+        <tab display_value="Surveys - Filters">2b95d8216f674340571dd7aabb3ee45e</tab>
     </pa_m2m_dashboard_tabs>
 </record_update>

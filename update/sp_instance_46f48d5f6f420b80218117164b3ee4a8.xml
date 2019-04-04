@@ -11,7 +11,7 @@
         <short_description/>
         <size>md</size>
         <sp_column display_value="1">51e4459f6f420b80218117164b3ee4b8</sp_column>
-        <sp_widget display_value="trilhas">0fb269305b3212000d7ec7ad31f91ae2</sp_widget>
+        <sp_widget display_value="breadcrumbs">0fb269305b3212000d7ec7ad31f91ae2</sp_widget>
         <sys_class_name>sp_instance</sys_class_name>
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-10-31 19:41:01</sys_created_on>

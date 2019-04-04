@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Imp Tmpl X Alabs Pex Question" max_length="40" name="u_imp_tmpl_x_alabs_pex_question" type="collection">
+        <element attributes="import_attribute_name=Applicabilities,edge_encryption_enabled=true" label="Applicabilities" max_length="1024" name="u_applicabilities" type="string"/>
+        <element attributes="import_attribute_name=Category,edge_encryption_enabled=true" label="Category" max_length="32" name="u_category" type="string"/>
+        <element attributes="import_attribute_name=Description,edge_encryption_enabled=true" label="Description" max_length="10000" name="u_description" type="string"/>
+        <element attributes="import_attribute_name=Item,edge_encryption_enabled=true" label="Item" max_length="32" name="u_item" type="string"/>
+        <element label="Peso da questão" max_length="40" name="u_peso_da_questão" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Questão" max_length="500" name="u_questão" type="string"/>
+        <element attributes="import_attribute_name=Subitem,edge_encryption_enabled=true" label="Subitem" max_length="32" name="u_subitem" type="string"/>
+    </element>
+</database>

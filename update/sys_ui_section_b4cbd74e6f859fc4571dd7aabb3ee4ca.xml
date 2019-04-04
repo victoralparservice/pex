@@ -94,7 +94,7 @@
             <sys_updated_on>2018-03-26 12:35:46</sys_updated_on>
             <sys_user/>
             <title>true</title>
-            <view display_value="Exibição padrão" name="NULL">Default view</view>
+            <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_section>
     </sys_ui_section>
