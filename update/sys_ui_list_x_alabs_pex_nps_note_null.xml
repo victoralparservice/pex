@@ -3,62 +3,107 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>flight</element>
-            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">d6d7e578dbd8ab0080567a30ba961957</list_id>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
-            <sys_created_by>alpar.kevin</sys_created_by>
-            <sys_created_on>2018-08-30 20:21:01</sys_created_on>
-            <sys_id>52d7e578dbd8ab0080567a30ba961958</sys_id>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>f260ae81db69b700cceb5e7cf3961930</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>alpar.kevin</sys_updated_by>
-            <sys_updated_on>2018-08-30 20:21:01</sys_updated_on>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>flight_number</element>
-            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">d6d7e578dbd8ab0080567a30ba961957</list_id>
+            <element>role</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
-            <sys_created_by>alpar.kevin</sys_created_by>
-            <sys_created_on>2018-08-30 20:21:01</sys_created_on>
-            <sys_id>d6d7e578dbd8ab0080567a30ba961958</sys_id>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>ba60ae81db69b700cceb5e7cf3961930</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>alpar.kevin</sys_updated_by>
-            <sys_updated_on>2018-08-30 20:21:01</sys_updated_on>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>inventorylegid</element>
-            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">d6d7e578dbd8ab0080567a30ba961957</list_id>
+            <element>origin</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
-            <sys_created_by>alpar.kevin</sys_created_by>
-            <sys_created_on>2018-08-30 20:21:01</sys_created_on>
-            <sys_id>5ad7e578dbd8ab0080567a30ba961958</sys_id>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>3e60ae81db69b700cceb5e7cf3961930</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>alpar.kevin</sys_updated_by>
-            <sys_updated_on>2018-08-30 20:21:01</sys_updated_on>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>note</element>
-            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">d6d7e578dbd8ab0080567a30ba961957</list_id>
+            <element>grade</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
-            <sys_created_by>alpar.kevin</sys_created_by>
-            <sys_created_on>2018-08-30 20:21:01</sys_created_on>
-            <sys_id>dad7e578dbd8ab0080567a30ba961958</sys_id>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>be60ae81db69b700cceb5e7cf3961930</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>alpar.kevin</sys_updated_by>
-            <sys_updated_on>2018-08-30 20:21:01</sys_updated_on>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>flight_number</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>3260ae81db69b700cceb5e7cf3961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>inventorylegid</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>b260ae81db69b700cceb5e7cf3961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>flight_local_date</element>
+            <list_id display_value="x_alabs_pex_nps_note" element="NULL" name="x_alabs_pex_nps_note" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3660ae81db69b700cceb5e7cf396192f</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
+            <sys_id>3660ae81db69b700cceb5e7cf3961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -71,12 +116,12 @@
             <relationship/>
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
-            <sys_created_by>alpar.kevin</sys_created_by>
-            <sys_created_on>2018-08-30 20:21:01</sys_created_on>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 18:36:17</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>d6d7e578dbd8ab0080567a30ba961957</sys_id>
+            <sys_id>3660ae81db69b700cceb5e7cf396192f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_alabs_pex_nps_note</sys_name>
             <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -84,8 +129,8 @@
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
             <sys_update_name>sys_ui_list_x_alabs_pex_nps_note_null</sys_update_name>
-            <sys_updated_by>alpar.kevin</sys_updated_by>
-            <sys_updated_on>2018-08-30 20:21:01</sys_updated_on>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:36:17</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

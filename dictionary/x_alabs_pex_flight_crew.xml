@@ -9,7 +9,7 @@
         <element display="true" label="Flight" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
         <element label="Número do Vôo" max_length="200" name="numero_do_voo" type="string"/>
         <element label="Origem" max_length="200" name="origem" type="string"/>
-        <element label="User" max_length="32" name="user" reference="x_alabs_pex_crew_management" type="reference"/>
+        <element label="User" max_length="32" name="user" reference="x_alabs_pex_crew_management" reference_cascade_rule="delete" type="reference"/>
         <element label="User Title" max_length="200" name="user_title" type="string"/>
         <index name="index">
             <element name="flight"/>

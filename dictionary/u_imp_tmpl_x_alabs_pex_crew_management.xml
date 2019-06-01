@@ -4,5 +4,6 @@
         <element attributes="edge_encryption_enabled=true" label="RE" max_length="40" name="u_re" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Sys ID" max_length="40" name="u_sys_id" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Type" max_length="40" name="u_type" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Usuário Ativo" max_length="40" name="u_usuário_ativo" type="string"/>
     </element>
 </database>

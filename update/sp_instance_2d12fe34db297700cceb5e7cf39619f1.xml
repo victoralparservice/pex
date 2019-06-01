@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">fe02b274db297700cceb5e7cf39619aa</sp_column>
+        <sp_widget display_value="PEX: Import">9df17274db297700cceb5e7cf3961941</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>alparservice.marcos</sys_created_by>
+        <sys_created_on>2019-05-19 01:15:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2d12fe34db297700cceb5e7cf39619f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sp_instance_2d12fe34db297700cceb5e7cf39619f1</sys_update_name>
+        <sys_updated_by>alparservice.marcos</sys_updated_by>
+        <sys_updated_on>2019-05-19 01:15:00</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+</record_update>

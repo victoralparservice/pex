@@ -8,18 +8,27 @@
         <element attributes="import_attribute_name=CITIZEN,edge_encryption_enabled=true" label="CITIZEN" max_length="40" name="u_citizen" type="string"/>
         <element attributes="import_attribute_name=CIVILID,edge_encryption_enabled=true" label="CIVILID" max_length="40" name="u_civilid" type="string"/>
         <element attributes="import_attribute_name=COUNTRYOFBIRTH,edge_encryption_enabled=true" label="COUNTRYOFBIRTH" max_length="40" name="u_countryofbirth" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="DESTINO" max_length="40" name="u_destino" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Data Chegada Local" max_length="40" name="u_dtt_chegada_horario_loc" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Data Partida Local" max_length="40" name="u_dtt_partida_horario_loc" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="EMAIL" max_length="40" name="u_email" type="string"/>
         <element attributes="import_attribute_name=EMPDATE" label="EMPDATE" max_length="40" name="u_empdate" type="datetime"/>
         <element attributes="import_attribute_name=EMPNO,edge_encryption_enabled=true" label="EMPNO" max_length="40" name="u_empno" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="EMPRESA" max_length="40" name="u_empresa" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="FIRST_NAME" max_length="40" name="u_first_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Inventory Leg ID" max_length="40" name="u_flightlegid" type="string"/>
         <element attributes="import_attribute_name=IDEMPNO" label="IDEMPNO" max_length="15" name="u_idempno" type="decimal"/>
         <element attributes="edge_encryption_enabled=true" label="IDLEG" max_length="40" name="u_idleg" type="string"/>
         <element attributes="import_attribute_name=IDWORKSET" label="IDWORKSET" max_length="15" name="u_idworkset" type="decimal"/>
         <element attributes="edge_encryption_enabled=true" label="INFOVOO" max_length="100000" name="u_infovoo" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="LASTNAMEL" max_length="40" name="u_lastnamel" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="LAST_NAME" max_length="40" name="u_last_name" type="string"/>
         <element attributes="import_attribute_name=LTLFREEZETIME" label="LTLFREEZETIME" max_length="40" name="u_ltlfreezetime" type="datetime"/>
         <element attributes="import_attribute_name=MARITAL,edge_encryption_enabled=true" label="MARITAL" max_length="40" name="u_marital" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="MIDDLENAME" max_length="40" name="u_middlename" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="NAME" max_length="40" name="u_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Número do Voo" max_length="40" name="u_numero_voo" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ORIGEM" max_length="40" name="u_origem" type="string"/>
         <element attributes="import_attribute_name=PASSWORD,edge_encryption_enabled=true" label="PASSWORD" max_length="64" name="u_password" type="string"/>
         <element attributes="import_attribute_name=PLACEOFBIRTH,edge_encryption_enabled=true" label="PLACEOFBIRTH" max_length="40" name="u_placeofbirth" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="RE" max_length="40" name="u_re" type="string"/>

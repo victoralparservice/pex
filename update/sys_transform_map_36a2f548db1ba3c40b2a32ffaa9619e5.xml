@@ -91,7 +91,10 @@
 	/**************************************************************************/
 	/*********************** Cargo dentro dos exigidos ************************/
 	var crewType = ["FA", "FE", "CL", "CA", "FO"];
-	if (crewType.indexOf(src.user.title) === -1) ignore = true;
+	if (crewType.indexOf(src.user.title) === -1) {
+		gs.info("[PEX CREW CONTROL] - (IGNORED)INVALID TYPE");
+		ignore = true;
+	}
 
 	/**************************************************************************/
 	/******************** Verifica existência do usuário **********************/
@@ -104,7 +107,10 @@
 	if (gr.next()) {
 		src.user.active = gr.active.toString();
 		src.user.sys_id = gr.sys_id.toString();
-	} else ignore = true;
+	} else {
+		gs.info("[PEX CREW CONTROL] - (IGNORED)USER ALREADY EXISTS");
+		ignore = true;
+	}
 
 	/**************************************************************************/
 	/**************** Verifica existência de registro do voo ******************/
@@ -114,7 +120,10 @@
 	);
 	gr.query();
 	if (gr.next()) src.flightInfo.sys_id = gr.sys_id.toString();
-	else ignore = true;
+	else {
+		gs.info("[PEX CREW CONTROL] - (IGNORED)FLIGHT NOT FOUND");
+		ignore = true;
+	}
 
 	/**************************************************************************/
 	/**************** Verifica existencia de registro idêntico ****************/
@@ -138,7 +147,10 @@
 		target.data_e_hora_de_partida = src.flightInfo.localDepDate; // Data/Hora de partida local
 		target.origem = src.flightInfo.origem; // Nome do local origem
 		target.destino = src.flightInfo.destino; // Nome do local destino
-	} else ignore = true;
+	} else {
+		gs.info("[PEX CREW CONTROL] - (IGNORED)FLIGHT CREW ALREADY EXISTS");
+		ignore = true;
+	}
 
 	//
 })(source, target, map, log, action === "update");]]></script>
@@ -148,7 +160,7 @@
         <sys_created_on>2019-01-24 16:21:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>36a2f548db1ba3c40b2a32ffaa9619e5</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>56</sys_mod_count>
         <sys_name>PEX - Crew Control</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -156,7 +168,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_transform_map_36a2f548db1ba3c40b2a32ffaa9619e5</sys_update_name>
         <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-08 17:22:34</sys_updated_on>
+        <sys_updated_on>2019-04-24 17:50:53</sys_updated_on>
         <target_table>x_alabs_pex_flight_crew</target_table>
     </sys_transform_map>
 </record_update>

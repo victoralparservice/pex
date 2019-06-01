@@ -2,7 +2,7 @@
     <sys_data_source action="INSERT_OR_UPDATE">
         <category/>
         <connection_timeout>0</connection_timeout>
-        <connection_url>jdbc:oracle:thin:@ORAODSTB578A:1521/SBCC_ODS</connection_url>
+        <connection_url>jdbc:oracle:thin:@ORAODSTB578A:1521:SBCC_ODS</connection_url>
         <connection_url_parameters/>
         <csv_delimiter/>
         <database_name>SABREODS</database_name>
@@ -25,7 +25,7 @@
         <ldap_target/>
         <maximum_rows/>
         <mid_server display_value="DEV-S1-M1">cd3a846ddb74670080567a30ba96193e</mid_server>
-        <name>PEX - Crew Control</name>
+        <name>PEX - Verticals - Ctrl</name>
         <oracle_port>1521</oracle_port>
         <oracle_sid>SBCC_ODS</oracle_sid>
         <properties/>
@@ -77,7 +77,7 @@ WHERE EMPQUAL.ENDDATE &gt;= SYSDATE&#13;
 &#13;
 AND EB.ENDDATE &gt;= SYSDATE&#13;
 &#13;
-AND EP.ASGACTEND BETWEEN TO_DATE('25/01/19', 'DD/MM/YY') AND TO_DATE('28/01/19', 'DD/MM/YY')&#13;
+AND EP.ASGACTEND &gt;= TO_DATE('01/01/19', 'DD/MM/YY')&#13;
 &#13;
 AND EP.IDLEG IS NOT NULL&#13;
 &#13;
@@ -94,15 +94,15 @@ OR trim(replace(substr(EP.ACTIVITYINFO, instr(EP.ACTIVITYINFO, ';', 1, 20) + 1, 
         <sys_created_on>2019-01-24 16:19:06</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>8032f540db1ba3c40b2a32ffaa961926</sys_id>
-        <sys_mod_count>9</sys_mod_count>
-        <sys_name>PEX - Crew Control</sys_name>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>PEX - Verticals - Ctrl</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_data_source_8032f540db1ba3c40b2a32ffaa961926</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-07 10:00:54</sys_updated_on>
+        <sys_updated_by>alpar.yuhri.bernardes</sys_updated_by>
+        <sys_updated_on>2019-05-07 16:54:16</sys_updated_on>
         <table_name/>
         <type>JDBC</type>
         <use_integrated_authentication>false</use_integrated_authentication>

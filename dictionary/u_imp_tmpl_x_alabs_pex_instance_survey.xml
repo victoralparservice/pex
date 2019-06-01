@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Imp Tmpl X Alabs Pex Instance Survey" max_length="40" name="u_imp_tmpl_x_alabs_pex_instance_survey" type="collection">
+        <element attributes="import_attribute_name=Data de Partida,edge_encryption_enabled=true" label="Data de Partida" max_length="200" name="u_data_de_partida" type="string"/>
+        <element attributes="import_attribute_name=Destino,edge_encryption_enabled=true" label="Destino" max_length="200" name="u_destino" type="string"/>
+        <element attributes="import_attribute_name=First Level,edge_encryption_enabled=true" label="First Level" max_length="32" name="u_first_level" type="string"/>
+        <element attributes="import_attribute_name=Locale,edge_encryption_enabled=true" label="Locale" max_length="32" name="u_locale" type="string"/>
+        <element attributes="import_attribute_name=Maximum possible score,edge_encryption_enabled=true" label="Maximum possible score" max_length="200" name="u_maximum_possible_score" type="string"/>
+        <element attributes="import_attribute_name=Number of questions,edge_encryption_enabled=true" label="Number of questions" max_length="40" name="u_number_of_questions" type="string"/>
+        <element attributes="import_attribute_name=Number of questions answered,edge_encryption_enabled=true" label="Number of questions answered" max_length="40" name="u_number_of_questions_answered" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Número do Vôo" max_length="40" name="u_número_do_vôo" type="string"/>
+        <element attributes="import_attribute_name=Origem,edge_encryption_enabled=true" label="Origem" max_length="200" name="u_origem" type="string"/>
+        <element attributes="import_attribute_name=Prazo Expirado,edge_encryption_enabled=true" label="Prazo Expirado" max_length="40" name="u_prazo_expirado" type="string"/>
+        <element attributes="import_attribute_name=Responsible,edge_encryption_enabled=true" label="Responsible" max_length="32" name="u_responsible" type="string"/>
+        <element attributes="import_attribute_name=Score obtained in the survey,edge_encryption_enabled=true" label="Score obtained in the survey" max_length="200" name="u_score_obtained_in_the_survey" type="string"/>
+        <element attributes="import_attribute_name=Second Level,edge_encryption_enabled=true" label="Second Level" max_length="32" name="u_second_level" type="string"/>
+        <element attributes="import_attribute_name=State,edge_encryption_enabled=true" label="State" max_length="40" name="u_state" type="string"/>
+        <element attributes="import_attribute_name=Survey,edge_encryption_enabled=true" label="Survey" max_length="32" name="u_survey" type="string"/>
+        <element attributes="import_attribute_name=Tripulante avaliado na pesquisa,edge_encryption_enabled=true" label="Tripulante avaliado na pesquisa" max_length="32" name="u_tripulante_a_do_na_pesquisa" type="string"/>
+    </element>
+</database>

@@ -14,9 +14,9 @@
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>30103949db6d630080567a30ba961966</sys_id>
-            <sys_mod_count>4</sys_mod_count>
-            <sys_updated_by>yuhri.bernardes</sys_updated_by>
-            <sys_updated_on>2018-11-02 12:08:42</sys_updated_on>
+            <sys_mod_count>7</sys_mod_count>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 18:08:20</sys_updated_on>
             <value>Comissario</value>
             <x_alabs_rh_level/>
         </sys_choice>

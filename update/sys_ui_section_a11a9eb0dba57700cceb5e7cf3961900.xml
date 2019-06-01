@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="PEX" section_id="a11a9eb0dba57700cceb5e7cf3961900" sys_domain="global" table="u_imp_tmpl_x_alabs_pex_crew_management" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_ativo</element>
+            <position>0</position>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-18 23:30:20</sys_created_on>
+            <sys_id>942adeb0dba57700cceb5e7cf39619d6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="PEX" display_value="PEX" name="u_imp_tmpl_x_alabs_pex_crew_management" sys_domain="global" view="Default view">a11a9eb0dba57700cceb5e7cf3961900</sys_ui_section>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-18 23:30:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_active</element>
+            <position>1</position>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-18 23:30:20</sys_created_on>
+            <sys_id>5c2adeb0dba57700cceb5e7cf39619d6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="PEX" display_value="PEX" name="u_imp_tmpl_x_alabs_pex_crew_management" sys_domain="global" view="Default view">a11a9eb0dba57700cceb5e7cf3961900</sys_ui_section>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-18 23:30:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_tripulante</element>
+            <position>2</position>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-18 23:30:20</sys_created_on>
+            <sys_id>dc2adeb0dba57700cceb5e7cf39619d6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="PEX" display_value="PEX" name="u_imp_tmpl_x_alabs_pex_crew_management" sys_domain="global" view="Default view">a11a9eb0dba57700cceb5e7cf3961900</sys_ui_section>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-18 23:30:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>u_re</element>
+            <position>3</position>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-18 23:30:20</sys_created_on>
+            <sys_id>502adeb0dba57700cceb5e7cf39619d7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="PEX" display_value="PEX" name="u_imp_tmpl_x_alabs_pex_crew_management" sys_domain="global" view="Default view">a11a9eb0dba57700cceb5e7cf3961900</sys_ui_section>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-18 23:30:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>PEX</caption>
+            <header>false</header>
+            <name>u_imp_tmpl_x_alabs_pex_crew_management</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-18 23:30:09</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a11a9eb0dba57700cceb5e7cf3961900</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>PEX</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_ui_section_a11a9eb0dba57700cceb5e7cf3961900</sys_update_name>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-18 23:30:09</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

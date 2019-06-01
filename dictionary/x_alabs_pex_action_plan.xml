@@ -13,7 +13,7 @@
                 <element inactive_on_update="false" label="Canceled" sequence="2" value="canceled"/>
             </choice>
         </element>
-        <element label="Pesquisa" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" type="reference"/>
+        <element label="Survey Instance" max_length="32" name="survey_instance" reference="x_alabs_pex_instance_survey" reference_cascade_rule="delete" type="reference"/>
         <index name="index">
             <element name="responsible"/>
         </index>

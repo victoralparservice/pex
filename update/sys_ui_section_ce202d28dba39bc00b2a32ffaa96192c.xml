@@ -112,6 +112,20 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active_user</element>
+            <position>8</position>
+            <sys_created_by>alparservice.marcos</sys_created_by>
+            <sys_created_on>2019-05-19 00:04:00</sys_created_on>
+            <sys_id>add1ae3cdba57700cceb5e7cf3961957</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_alabs_pex_crew_management" sys_domain="global" view="Default view">ce202d28dba39bc00b2a32ffaa96192c</sys_ui_section>
+            <sys_updated_by>alparservice.marcos</sys_updated_by>
+            <sys_updated_on>2019-05-19 00:04:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>
