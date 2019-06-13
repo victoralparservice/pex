@@ -3,7 +3,7 @@
         <active>false</active>
         <condition/>
         <conditional>false</conditional>
-        <data_source display_value="PEX - Verticals - Ctrl">8032f540db1ba3c40b2a32ffaa961926</data_source>
+        <data_source display_value="PEX - Crew Control">8032f540db1ba3c40b2a32ffaa961926</data_source>
         <map/>
         <name>PEX Crew Control</name>
         <order/>
@@ -12,7 +12,7 @@
         <post_script_bool>false</post_script_bool>
         <pre_script/>
         <pre_script_bool>false</pre_script_bool>
-        <run_as display_value="Marcos Santos">187637796ff3c7009ae430767b3ee4c9</run_as>
+        <run_as display_value="">187637796ff3c7009ae430767b3ee4c9</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
@@ -32,8 +32,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>scheduled_import_set_becb463edba47700cceb5e7cf3961946</sys_update_name>
-        <sys_updated_by>alpar.yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-05-07 16:49:50</sys_updated_on>
+        <sys_updated_by>alparservice.yuhri</sys_updated_by>
+        <sys_updated_on>2019-04-05 11:13:18</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </scheduled_import_set>
 </record_update>

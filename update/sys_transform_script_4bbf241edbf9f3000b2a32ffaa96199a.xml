@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="PEX - Crew Management">faf6f431db2dbb00cceb5e7cf3961949</map>
+        <order>100</order>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	After transform
+|--------------------------------------------------------------------------
+|
+|	Após inserção do registro, relaciona o vôo ao usuário (sys_user)
+|
+*/
+(function runTransformScript(source, map, log, target /*undefined onStart*/) {
+  var logs = new global.LogGenerator(
+    "x_alabs_pex",
+    "[JDBC Integration] - Informações do Colaborador (After)"
+  );
+
+  var src = {
+    legId: source.u_idleg.toString(),
+    re: source.u_re.toString()
+  };
+
+  /*
+  |--------------------------------------------------------------------------
+  |	Logs
+  */
+  logs.addInfo("Integration Source Variable");
+  logs.addInfo(src.legId, "Leg ID");
+  logs.addInfo(src.re, "Crewman RE");
+  /*
+  |--------------------------------------------------------------------------
+  |--------------------------------------------------------------------------
+  */
+
+  var relation = {};
+  var gr;
+
+  var flight = new GlideRecord("x_alabs_pex_flights");
+  flight.addEncodedQuery("inventorylegid=" + src.legId);
+  flight.query();
+  relation.flight = flight.next() ? flight.sys_id.toString() : null;
+
+  logs.addInfo(flight || "Not Found", "Flight");
+
+  var crewman = new GlideRecord("sys_user");
+  crewman.addEncodedQuery("active=true^employee_number=" + src.re);
+  crewman.query();
+  relation.crewman = crewman.next() ? crewman.sys_id.toString() : null;
+
+  logs.addInfo(crewman.name || "Not Found", "Crewman");
+
+  gr = new GlideRecord("x_alabs_pex_m2m_users_flights");
+  gr.addEncodedQuery(
+    "flights=".concat(relation.flight) + "^user=".concat(relation.crewman)
+  );
+  gr.query();
+  var exists = gr.next();
+  logs.addInfo(gr.getEncodedQuery() + " | " + gr.getRowCount(), "M2M encoded query | FoundedRecords");
+  logs.addInfo(!!relation.flight && !!relation.crewman && !exists, "Condition to insert");
+// 	logs.execute();
+  if (relation.flight && relation.crewman && !exists) {
+    logs.addInfo("Not Found", "Relation");
+
+    gr = new GlideRecord("x_alabs_pex_m2m_users_flights");
+    gr.initialize();
+    gr.flights = relation.flight;
+    gr.user = relation.crewman;
+    var id = gr.insert();
+
+    logs.addInfo(id, "Relation inserted");
+  }
+  logs.execute();
+})(source, map, log, target);
+]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>alpar.egomes</sys_created_by>
+        <sys_created_on>2019-06-04 17:52:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4bbf241edbf9f3000b2a32ffaa96199a</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>onAfter</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_4bbf241edbf9f3000b2a32ffaa96199a</sys_update_name>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-11 14:35:23</sys_updated_on>
+        <when>onAfter</when>
+    </sys_transform_script>
+</record_update>

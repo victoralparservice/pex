@@ -9,6 +9,8 @@
         <script><![CDATA[var VerticalSurveyUtils = function() {
 	this.maxCount = parseInt(gs.getProperty("x_alabs_pex.max_surveys_per_crewman"));
 
+	this.logs = new global.LogGenerator("x_alabs_pex", "[PEX] Vertical Rules");
+
 	this.generateVerticalInstances = function() {
 		var self = this;
 		var groups = self.getGroups();
@@ -147,11 +149,18 @@
 		var gr = new GlideRecord("x_alabs_pex_instance_survey");
 		gr.addEncodedQuery(
 			"tripulante_avaliado_na_pesquisa=".concat(crewmanSysId) +
-				"survey.tipo_de_pesquisa=vertical^state=pending^ORstate=started"
+			"^survey.tipo_de_pesquisa=vertical^state=pending^ORstate=started"
 		);
 		gr.query();
+		this.logs.addInfo(gr.getEncodedQuery(), "Encoded Query");
+		this.logs.addInfo(gr.getRowCount(), "Count");
+		this.logs.addInfo(self.maxCount, "Max Count");
 		gs.info(gr.getRowCount() + "<=" + self.maxCount);
-		var insideLimit = gr.getRowCount() <= self.maxCount;
+
+		var insideLimit = gr.getRowCount() < self.maxCount;
+		this.logs.addInfo(insideLimit ? "Yes" : "No", "Inside Limit?");
+
+		this.logs.execute();
 
 		return insideLimit;
 
@@ -179,10 +188,10 @@
 
 		gr.addEncodedQuery(
 			"responsible_position=".concat(responsibleTitle) +
-				"^rated_position=".concat(ratedTitle) +
-				"^state=published" +
-				"^active=true" +
-				"^tipo_de_pesquisa=vertical"
+			"^rated_position=".concat(ratedTitle) +
+			"^state=published" +
+			"^active=true" +
+			"^tipo_de_pesquisa=vertical"
 		);
 		gr.orderByDesc("sys_created_on");
 
@@ -220,14 +229,14 @@
         <sys_created_on>2018-08-09 16:36:26</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>38fa684adbb7d7000b2a32ffaa961996</sys_id>
-        <sys_mod_count>80</sys_mod_count>
+        <sys_mod_count>86</sys_mod_count>
         <sys_name>VerticalSurveyUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_38fa684adbb7d7000b2a32ffaa961996</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-25 16:43:55</sys_updated_on>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-11 20:52:54</sys_updated_on>
     </sys_script_include>
 </record_update>

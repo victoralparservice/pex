@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="sys_import_set_row" label="Imp Tmpl X Alabs Pex Nps Note" max_length="40" name="u_imp_tmpl_x_alabs_pex_nps_note" sizeclass="16801" type="collection">
+    <element extends="sys_import_set_row" label="Imp Tmpl X Alabs Pex Nps Note" max_length="40" name="u_imp_tmpl_x_alabs_pex_nps_note" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Destination" max_length="40" name="u_destination" type="string"/>
         <element label="Flight" max_length="40" name="u_flight" type="float"/>
         <element label="Flight Date UTC" max_length="40" name="u_flight_date_utc" type="glide_date_time"/>

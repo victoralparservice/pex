@@ -106,7 +106,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a77903a7c0a8006641af7c9b1d34444e</variable>
+        <variable display_value="">a77903a7c0a8006641af7c9b1d34444e</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -120,7 +120,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a775f59ac0a8006665d72362ae687035</variable>
+        <variable display_value="">a775f59ac0a8006665d72362ae687035</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -134,7 +134,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a774138dc0a80066000be7af20961c7d</variable>
+        <variable display_value="">a774138dc0a80066000be7af20961c7d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -148,7 +148,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76b8c6ec0a800664bb14d5d8b9cd7c4</variable>
+        <variable display_value="">a76b8c6ec0a800664bb14d5d8b9cd7c4</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -162,7 +162,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>reject</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">502163410a6a803f0356332b24dc7945</variable>
+        <variable display_value="">502163410a6a803f0356332b24dc7945</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -185,7 +185,7 @@
 //    counts.not_required = # of users that approval is not required&#13;
 //&#13;
 </value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02c86d780a0a0b261e6a356bc893d348</variable>
+        <variable display_value="">02c86d780a0a0b261e6a356bc893d348</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -199,7 +199,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>all</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e5bdd0a0a0ba96248a709f495c9ae</variable>
+        <variable display_value="">c35e5bdd0a0a0ba96248a709f495c9ae</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -213,7 +213,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>3bf802c20a0a0b52008e2859cd8abcf2</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76c6257c0a8006645cff43883470e64</variable>
+        <variable display_value="">a76c6257c0a8006645cff43883470e64</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -227,7 +227,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>approval_history</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e863e3b80a0004f911d67787e77e0f16</variable>
+        <variable display_value="">e863e3b80a0004f911d67787e77e0f16</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -241,7 +241,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e37b77ac0a0004f973283ad13b341c5b</variable>
+        <variable display_value="">e37b77ac0a0004f973283ad13b341c5b</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -255,7 +255,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a7781cb6c0a80066147dc7a5244d5d16</variable>
+        <variable display_value="">a7781cb6c0a80066147dc7a5244d5d16</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -269,7 +269,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">4485eef70a6a803f6bc4bafa9e999640</variable>
+        <variable display_value="">4485eef70a6a803f6bc4bafa9e999640</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -283,7 +283,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a77191a4c0a800662b403f7dff5f1bbd</variable>
+        <variable display_value="">a77191a4c0a800662b403f7dff5f1bbd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -297,7 +297,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e4cc40a0a0ba96248a7098ec9cb06</variable>
+        <variable display_value="">c35e4cc40a0a0ba96248a7098ec9cb06</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -311,7 +311,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>approval</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e846198f0a0004f91fba434a514ba8b8</variable>
+        <variable display_value="">e846198f0a0004f91fba434a514ba8b8</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -325,7 +325,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76680b9c0a8006661b107d0f21fae67</variable>
+        <variable display_value="">a76680b9c0a8006661b107d0f21fae67</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -339,7 +339,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value>0</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02ca01820a0a0b261cf923fb95f5e1d0</variable>
+        <variable display_value="">02ca01820a0a0b261cf923fb95f5e1d0</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -353,7 +353,7 @@
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e37a96e80a0004f978b47d2d6c5e0b22</variable>
+        <variable display_value="">e37a96e80a0004f978b47d2d6c5e0b22</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -368,7 +368,7 @@
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>// Set 'answer' to the number of seconds this timer should wait&#13;
 answer = 0;</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a782cde9c0a8006608f39abdd85c8395</variable>
+        <variable display_value="">a782cde9c0a8006608f39abdd85c8395</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -382,7 +382,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:42</sys_updated_on>
         <value>1a029da66fb247001fb18a6d6b3ee473</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02c618170a0a0b26436f5c2c9f7a3901</variable>
+        <variable display_value="">02c618170a0a0b26436f5c2c9f7a3901</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -402,7 +402,7 @@ answer = 0;</value>
 //       answer.push('id1');&#13;
 //       answer.push('id2');&#13;
 </value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e582f0a0a0ba96248a70985207e63</variable>
+        <variable display_value="">c35e582f0a0a0ba96248a70985207e63</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -416,7 +416,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>08fcd0830a0a0b2600079f56b1adb9ae</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a7754e91c0a800664938d0ef6d2664d7</variable>
+        <variable display_value="">a7754e91c0a800664938d0ef6d2664d7</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -430,7 +430,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a769a182c0a8006629db7fa3fc2a863d</variable>
+        <variable display_value="">a769a182c0a8006629db7fa3fc2a863d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -444,7 +444,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">4485eef70a6a803f6bc4bafa9e999640</variable>
+        <variable display_value="">4485eef70a6a803f6bc4bafa9e999640</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -458,7 +458,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>all</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e5bdd0a0a0ba96248a709f495c9ae</variable>
+        <variable display_value="">c35e5bdd0a0a0ba96248a709f495c9ae</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -472,7 +472,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>approval</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e846198f0a0004f91fba434a514ba8b8</variable>
+        <variable display_value="">e846198f0a0004f91fba434a514ba8b8</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -486,7 +486,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e37b77ac0a0004f973283ad13b341c5b</variable>
+        <variable display_value="">e37b77ac0a0004f973283ad13b341c5b</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -500,7 +500,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e37a96e80a0004f978b47d2d6c5e0b22</variable>
+        <variable display_value="">e37a96e80a0004f978b47d2d6c5e0b22</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -514,7 +514,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a77191a4c0a800662b403f7dff5f1bbd</variable>
+        <variable display_value="">a77191a4c0a800662b403f7dff5f1bbd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -528,7 +528,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76680b9c0a8006661b107d0f21fae67</variable>
+        <variable display_value="">a76680b9c0a8006661b107d0f21fae67</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -542,7 +542,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a77903a7c0a8006641af7c9b1d34444e</variable>
+        <variable display_value="">a77903a7c0a8006641af7c9b1d34444e</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -556,7 +556,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e4cc40a0a0ba96248a7098ec9cb06</variable>
+        <variable display_value="">c35e4cc40a0a0ba96248a7098ec9cb06</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -570,7 +570,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>reject</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">502163410a6a803f0356332b24dc7945</variable>
+        <variable display_value="">502163410a6a803f0356332b24dc7945</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -584,7 +584,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>approval_history</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">e863e3b80a0004f911d67787e77e0f16</variable>
+        <variable display_value="">e863e3b80a0004f911d67787e77e0f16</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -598,7 +598,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>08fcd0830a0a0b2600079f56b1adb9ae</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a7754e91c0a800664938d0ef6d2664d7</variable>
+        <variable display_value="">a7754e91c0a800664938d0ef6d2664d7</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -612,7 +612,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a774138dc0a80066000be7af20961c7d</variable>
+        <variable display_value="">a774138dc0a80066000be7af20961c7d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -626,7 +626,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a769a182c0a8006629db7fa3fc2a863d</variable>
+        <variable display_value="">a769a182c0a8006629db7fa3fc2a863d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -640,7 +640,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>3bf802c20a0a0b52008e2859cd8abcf2</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76c6257c0a8006645cff43883470e64</variable>
+        <variable display_value="">a76c6257c0a8006645cff43883470e64</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -654,7 +654,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a76b8c6ec0a800664bb14d5d8b9cd7c4</variable>
+        <variable display_value="">a76b8c6ec0a800664bb14d5d8b9cd7c4</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -668,7 +668,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a7781cb6c0a80066147dc7a5244d5d16</variable>
+        <variable display_value="">a7781cb6c0a80066147dc7a5244d5d16</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -682,7 +682,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value/>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a775f59ac0a8006665d72362ae687035</variable>
+        <variable display_value="">a775f59ac0a8006665d72362ae687035</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -696,7 +696,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:42</sys_updated_on>
         <value>1a029da66fb247001fb18a6d6b3ee473</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02c618170a0a0b26436f5c2c9f7a3901</variable>
+        <variable display_value="">02c618170a0a0b26436f5c2c9f7a3901</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -711,7 +711,7 @@ answer = 0;</value>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>// Set 'answer' to the number of seconds this timer should wait&#13;
 answer = 0;</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">a782cde9c0a8006608f39abdd85c8395</variable>
+        <variable display_value="">a782cde9c0a8006608f39abdd85c8395</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -734,7 +734,7 @@ answer = 0;</value>
 //    counts.not_required = # of users that approval is not required&#13;
 //&#13;
 </value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02c86d780a0a0b261e6a356bc893d348</variable>
+        <variable display_value="">02c86d780a0a0b261e6a356bc893d348</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -748,7 +748,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:09</sys_updated_on>
         <value>0</value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">02ca01820a0a0b261cf923fb95f5e1d0</variable>
+        <variable display_value="">02ca01820a0a0b261cf923fb95f5e1d0</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -768,7 +768,7 @@ answer = 0;</value>
 //       answer.push('id1');&#13;
 //       answer.push('id2');&#13;
 </value>
-        <variable display_value="var__m_35433da80a0a029a0028c639a1e51eb4">c35e582f0a0a0ba96248a70985207e63</variable>
+        <variable display_value="">c35e582f0a0a0ba96248a70985207e63</variable>
     </sys_variable_value>
     <wf_condition action="INSERT_OR_UPDATE">
         <activity display_value="Aguardar aprovação">cf529da66fb247001fb18a6d6b3ee4e3</activity>
@@ -853,7 +853,7 @@ answer = 0;</value>
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=canceled^EQ</value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
+        <variable display_value="">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -869,7 +869,7 @@ answer = 0;</value>
         <value>// Set the variable 'answer' to true or false to indicate if the condition has been met or not.&#13;
 answer = true;&#13;
 </value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35debce0a0a0ba96248a709440cf31a</variable>
+        <variable display_value="">c35debce0a0a0ba96248a709440cf31a</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -883,7 +883,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=canceled^EQ</value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
+        <variable display_value="">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -899,7 +899,7 @@ answer = true;&#13;
         <value>// Set the variable 'answer' to true or false to indicate if the condition has been met or not.&#13;
 answer = true;&#13;
 </value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35debce0a0a0ba96248a709440cf31a</variable>
+        <variable display_value="">c35debce0a0a0ba96248a709440cf31a</variable>
     </sys_variable_value>
     <wf_condition action="INSERT_OR_UPDATE">
         <activity display_value="Aguardar cancelamento">4f52d1e66fb247001fb18a6d6b3ee4d1</activity>
@@ -963,7 +963,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=waiting_approved^EQ</value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
+        <variable display_value="">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -979,7 +979,7 @@ answer = true;&#13;
         <value>// Set the variable 'answer' to true or false to indicate if the condition has been met or not.&#13;
 answer = true;&#13;
 </value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35debce0a0a0ba96248a709440cf31a</variable>
+        <variable display_value="">c35debce0a0a0ba96248a709440cf31a</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -993,7 +993,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=waiting_approved^EQ</value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
+        <variable display_value="">c35dc4cd0a0a0ba96248a70990c1ac54</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -1009,7 +1009,7 @@ answer = true;&#13;
         <value>// Set the variable 'answer' to true or false to indicate if the condition has been met or not.&#13;
 answer = true;&#13;
 </value>
-        <variable display_value="var__m_d93a02ae0a0a0aa30077abad3fdac035">c35debce0a0a0ba96248a709440cf31a</variable>
+        <variable display_value="">c35debce0a0a0ba96248a709440cf31a</variable>
     </sys_variable_value>
     <wf_condition action="INSERT_OR_UPDATE">
         <activity display_value="Aguardar solicitação de aprovação">0b52d1e66fb247001fb18a6d6b3ee4d5</activity>
@@ -1202,7 +1202,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=published^EQ</value>
-        <variable display_value="var__m_1ca8d7cf0a0a0b265e9a000c2c08248c">1cb38c8f0a0a0b266fb48e08de35f507</variable>
+        <variable display_value="">1cb38c8f0a0a0b266fb48e08de35f507</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -1216,7 +1216,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=published^EQ</value>
-        <variable display_value="var__m_1ca8d7cf0a0a0b265e9a000c2c08248c">1cb38c8f0a0a0b266fb48e08de35f507</variable>
+        <variable display_value="">1cb38c8f0a0a0b266fb48e08de35f507</variable>
     </sys_variable_value>
     <wf_condition action="INSERT_OR_UPDATE">
         <activity display_value="Publicar avaliação">8b52d1e66fb247001fb18a6d6b3ee4d7</activity>
@@ -1330,7 +1330,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=draft^EQ</value>
-        <variable display_value="var__m_1ca8d7cf0a0a0b265e9a000c2c08248c">1cb38c8f0a0a0b266fb48e08de35f507</variable>
+        <variable display_value="">1cb38c8f0a0a0b266fb48e08de35f507</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>wf_activity</document>
@@ -1344,7 +1344,7 @@ answer = true;&#13;
         <sys_updated_by>eli.lima</sys_updated_by>
         <sys_updated_on>2017-12-05 19:31:10</sys_updated_on>
         <value>state=draft^EQ</value>
-        <variable display_value="var__m_1ca8d7cf0a0a0b265e9a000c2c08248c">1cb38c8f0a0a0b266fb48e08de35f507</variable>
+        <variable display_value="">1cb38c8f0a0a0b266fb48e08de35f507</variable>
     </sys_variable_value>
     <wf_condition action="INSERT_OR_UPDATE">
         <activity display_value="Solicitar correção">4b52d1e66fb247001fb18a6d6b3ee4d6</activity>

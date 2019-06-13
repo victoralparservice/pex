@@ -49,7 +49,7 @@
         <sys_created_by>alparservice.yuhri</sys_created_by>
         <sys_created_on>2019-05-14 19:21:44</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>37daf0e3db99b3000b2a32ffaa9619a4</sys_id>
+        <sys_id>bed90911dbb17f008a6532ffaa9619f4</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Maximum possible score</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -57,8 +57,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_u_imp_tmpl_x_alabs_pex_instance_survey_u_maximum_possible_score</sys_update_name>
-        <sys_updated_by>alparservice.yuhri</sys_updated_by>
-        <sys_updated_on>2019-05-14 19:21:44</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-06-01 17:12:50</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

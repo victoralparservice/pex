@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="PEX - Crew Management">faf6f431db2dbb00cceb5e7cf3961949</map>
+        <order>100</order>
+        <script><![CDATA[/*
+|--------------------------------------------------------------------------
+|	Before transform
+|--------------------------------------------------------------------------
+|
+|	Verifica se existe voo cadastrado no Banco de dados. Caso não haja, cria
+| um novo registro de voo no banco de dados
+|
+*/
+(function runTransformScript(source, map, log, target /*undefined onStart*/) {
+	var logs = new global.LogGenerator(
+		"global",
+		"[JDBC Integration] - Informações do Colaborador (Before) 2.0"
+	);
+	logs.addSection();
+	Object.keys(source).forEach(function(key){
+		logs.addInfo(source[key], key);
+	});
+	logs.addSection();
+	var gr;
+	/**************************************************************************/
+	/******************** Obtenção de informações do voo **********************/
+	/**************************************************************************/
+	var infoVoo = source.u_infovoo.toString().split(";"); // Informações do voo concatenadas e separadas por ';'
+	var src = {
+		number: infoVoo[3].toString(),
+		legId: source.u_idleg.toString(),
+		origem: infoVoo[12].toString(),
+		destino: infoVoo[13].toString(),
+		carrier_code: infoVoo[2].toString(),
+		flightDate: infoVoo[5].replace(/(\d{4})(\d{2})(\d{2})/, "$3-$2-$1"),
+		localDepartureDT: infoVoo[10].replace(
+			/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})/,
+			"$1-$2-$3 $4:$5:00"
+		),
+		localArrivalDT: infoVoo[11].replace(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1-$2-$3 $4:$5:00")
+	};
+	
+	logs.addInfo("Integration Source Variable");
+	logs.addInfo(src.legId, "Leg ID");
+	logs.addInfo(src.number, "Flight Number");
+	logs.addInfo(src.origem, "Flight Origin");
+	logs.addInfo(src.destino, "Flight Destiny");
+	logs.addInfo(src.localDepartureDT, "Flight Departure (Local) at");
+	logs.addInfo(src.localArrivalDT, "Flight Arrival (Local) at");
+	logs.addInfo(src.carrier_code, "Carrier Code");
+	logs.addInfo(src.flightDate, "Flight Date");
+	logs.execute();
+
+	/**************************************************************************/
+	/********************** Obtenção do local origem ***********************/
+	var od = {
+		origem: src.origem,
+		destino: src.destino
+	};
+	var origem = new GlideRecord("cmn_location");
+	origem.addQuery("u_iata", src.origem);
+	origem.query();
+	src.origem = origem.next() ? origem.sys_id.toString() : null;
+
+	/**************************************************************************/
+	/*********************** Obtenção do local destino ************************/
+	var destino = new GlideRecord("cmn_location");
+	destino.addQuery("u_iata", src.destino);
+	destino.query();
+	src.destino = destino.next() ? destino.sys_id.toString() : null;
+
+	if (!src.destino === null && !src.origem === null)
+		gs.info("Integreixos\n".concat("Origem: ", od.origem, "\nDestino: ", od.destino));
+	/**************************************************************************/
+	/******************* Verificação e inserção de registro *******************/
+	/**************************************************************************/
+
+	/**************************************************************************/
+	/******************** Verifica existencia de cadastro *********************/
+	gr = new GlideRecord("x_alabs_pex_flights");
+	gr.addEncodedQuery("inventorylegid=".concat(source.u_idleg.toString()));
+	gr.query();
+
+	if (!gr.next()) {
+		/**************************************************************************/
+		/*************** Insere registro em caso de não existência ****************/
+		gr = new GlideRecord("x_alabs_pex_flights");
+		gr.initialize();
+		gr.origem = src.origem;
+		gr.destino = src.destino;
+		gr.inventorylegid = src.legId;
+		gr.carrier_code = src.carrier_code;
+		gr.data_voo = src.flightDate;
+		gr.data_partida_local = src.localDepartureDT;
+		gr.data_chegada_local = src.localArrivalDT;
+		gr.numero_do_voo = src.number;
+		gr.insert();
+	}
+})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>alpar.egomes</sys_created_by>
+        <sys_created_on>2019-06-04 17:51:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d49f201edbf9f3000b2a32ffaa96198e</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>onBefore</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_transform_script_d49f201edbf9f3000b2a32ffaa96198e</sys_update_name>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-10 13:54:49</sys_updated_on>
+        <when>onBefore</when>
+    </sys_transform_script>
+</record_update>

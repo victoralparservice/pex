@@ -49,7 +49,7 @@
         <sys_created_by>alparservice.marcos</sys_created_by>
         <sys_created_on>2019-05-24 17:16:01</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>fffdb326db617b400b2a32ffaa961999</sys_id>
+        <sys_id>8bd94911dbb17f008a6532ffaa9619a0</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DTT_PARTIDA_HORARIO_LOC</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -57,8 +57,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_informacoes_colaborador_implt_u_dtt_partida_horario_loc</sys_update_name>
-        <sys_updated_by>alparservice.marcos</sys_updated_by>
-        <sys_updated_on>2019-05-24 17:16:01</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-06-01 17:13:14</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

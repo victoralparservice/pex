@@ -4,7 +4,7 @@
         <condition/>
         <conditional>false</conditional>
         <name>Desativar Crew Groups</name>
-        <run_as display_value="Douglas Santos">af474057dbad570080567a30ba9619f5</run_as>
+        <run_as display_value="">af474057dbad570080567a30ba9619f5</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>

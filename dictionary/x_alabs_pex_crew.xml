@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="sys_import_set_row" label="PEX - Crew" max_length="40" name="x_alabs_pex_crew" sizeclass="8461" type="collection">
+    <element extends="sys_import_set_row" label="PEX - Crew" max_length="40" name="x_alabs_pex_crew" sizeclass="11649" type="collection">
         <element attributes="import_attribute_name=u_base,edge_encryption_enabled=true" label="BASE" max_length="40" name="u_base" type="string"/>
         <element attributes="import_attribute_name=CARGO,edge_encryption_enabled=true" label="CARGO" max_length="40" name="u_cargo" type="string"/>
         <element attributes="import_attribute_name=DESTINO,edge_encryption_enabled=true" label="DESTINO" max_length="40" name="u_destino" type="string"/>

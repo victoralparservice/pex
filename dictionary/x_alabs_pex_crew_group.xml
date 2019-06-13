@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Crew Group" max_length="40" name="x_alabs_pex_crew_group" sizeclass="6497" type="collection">
+    <element label="Crew Group" max_length="40" name="x_alabs_pex_crew_group" sizeclass="65062" type="collection">
         <element label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Data e Hora de Partida" max_length="200" name="data_e_hora_de_partida" type="glide_date_time"/>
         <element label="Destino" max_length="200" name="destino" type="string"/>

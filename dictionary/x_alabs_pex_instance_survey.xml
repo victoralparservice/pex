@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" label="Pesquisa" max_length="40" name="x_alabs_pex_instance_survey" sizeclass="7083" type="collection">
+    <element audit="true" label="Pesquisa" max_length="40" name="x_alabs_pex_instance_survey" sizeclass="5001" type="collection">
         <element label="Data de Partida" max_length="200" name="data_de_partida" type="string"/>
         <element label="Destino" max_length="200" name="destino" type="string"/>
         <element label="Primeiro Nível" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>

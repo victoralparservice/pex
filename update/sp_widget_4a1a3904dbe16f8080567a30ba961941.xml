@@ -151,7 +151,7 @@
 			$scope.years = $scope.data.yearsArr;
 			$scope.scores = $scope.data.scores;
 			$scope.finalScore = $scope.scores.final_note;
-
+		
 			$scope.autoAssetmentStatus();
 			$scope.technicalPerformanceStatus();
 			$scope.NPSStatus();
@@ -313,9 +313,10 @@
 	gr.query();
 	var countSurvey = gr.getRowCount();
 
-	data.maxCount = parseInt(gs.getProperty("x_alabs_pex.max_surveys_number_for_exibition"));
+	data.maxCount = gs.getProperty("x_alabs_pex.max_surveys_number_for_exibition");
 	data.surveyCount = countSurvey;
-	data.showNotesPanel = true //countSurvey >= data.maxCount;
+
+	data.showNotesPanel = countSurvey >= data.maxCount;
 
 	data.log = [];
 
@@ -382,7 +383,7 @@
         <sys_created_on>2018-10-29 17:03:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>4a1a3904dbe16f8080567a30ba961941</sys_id>
-        <sys_mod_count>614</sys_mod_count>
+        <sys_mod_count>635</sys_mod_count>
         <sys_name>PEX - Crewman Assessments</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -390,8 +391,8 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_4a1a3904dbe16f8080567a30ba961941</sys_update_name>
         <sys_updated_by>alpar.marcos</sys_updated_by>
-        <sys_updated_on>2019-05-30 22:46:13</sys_updated_on>
-        <template><![CDATA[<div class="panel panel-default b">
+        <sys_updated_on>2019-06-03 01:18:35</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b" ng-if="data.showNotesPanel">
 	<div class="panel-heading">
 		<div>
 			<h2 class="h4 panel-title ng-binding" style="display: inline-block;">
@@ -413,8 +414,8 @@ Sem nenhum estrela: < 55
 ******                       : 100
 -->
 		<div class="list-group-item">
-			<span ng-show="years.length <=0">Você ainda não foi classificado</span>
-			<div ng-show="years.length > 0">
+			<span ng-show="finalScore <= 54">Você ainda não foi classificado</span>
+			<div ng-show="finalScore >= 55">
 				<span> VOCÊ É UM TRIPULANTE:</span>
 				<img
 					class="star"

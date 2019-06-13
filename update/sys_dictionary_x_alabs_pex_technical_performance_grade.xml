@@ -47,9 +47,9 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>system</sys_created_by>
-        <sys_created_on>2018-09-17 21:08:18</sys_created_on>
+        <sys_created_on>2019-04-04 02:35:53</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>2e4f562adb60a3002355a19b8a9619ac</sys_id>
+        <sys_id>7b05131edbe8f3801c2b87b3049619db</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Nota de desempenho técnico</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -58,7 +58,7 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_dictionary_x_alabs_pex_technical_performance_grade</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-09-17 21:08:18</sys_updated_on>
+        <sys_updated_on>2019-04-04 02:35:53</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

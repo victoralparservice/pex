@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_cargo" label="CARGO" language="en" table="x_alabs_pex_crew_mgr_new_qr">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_cargo</element>
+            <help/>
+            <hint/>
+            <label>CARGO</label>
+            <language>en</language>
+            <name>x_alabs_pex_crew_mgr_new_qr</name>
+            <plural>CARGOs</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>alpar.marcos</sys_created_by>
+            <sys_created_on>2019-06-03 00:12:24</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>f693b7e9db7db300cceb5e7cf396195d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>CARGO</sys_name>
+            <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+            <sys_update_name>sys_documentation_x_alabs_pex_crew_mgr_new_qr_u_cargo_en</sys_update_name>
+            <sys_updated_by>alpar.marcos</sys_updated_by>
+            <sys_updated_on>2019-06-03 00:12:24</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

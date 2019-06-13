@@ -11,7 +11,7 @@
         <name>Management Reports</name>
         <no_tabs>false</no_tabs>
         <order/>
-        <owner display_value="Eli Lima">4e872cb66f668300218117164b3ee4cc</owner>
+        <owner display_value="">4e872cb66f668300218117164b3ee4cc</owner>
         <restrict_to_roles>x_alabs_pex.admin</restrict_to_roles>
         <role_override>true</role_override>
         <roles/>

@@ -7,7 +7,7 @@
         <element label="Nota NPS" max_length="100" name="grade" type="integer"/>
         <element label="InventoryLegID" max_length="100" name="inventorylegid" type="integer"/>
         <element label="Origem" max_length="100" name="origin" type="string"/>
-        <element choice="3" label="Role" max_length="100" name="role" type="choice">
+        <element attributes="edge_encryption_enabled=true" choice="3" label="Role" max_length="100" name="role" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Comissário" value="Comissario"/>
                 <element inactive_on_update="false" label="Piloto" value="Piloto"/>

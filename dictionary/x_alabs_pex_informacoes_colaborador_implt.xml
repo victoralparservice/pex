@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element extends="sys_import_set_row" label="PEX - Crew Management - Ctrl Impl2" max_length="40" name="x_alabs_pex_informacoes_colaborador_implt" type="collection">
+    <element extends="sys_import_set_row" label="PEX - Crew Management - Ctrl Impl2" max_length="40" name="x_alabs_pex_informacoes_colaborador_implt" sizeclass="564215" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="BASE" max_length="40" name="u_base" type="string"/>
         <element attributes="import_attribute_name=CARGO,edge_encryption_enabled=true" label="CARGO" max_length="40" name="u_cargo" type="string"/>
         <element attributes="import_attribute_name=DESTINO,edge_encryption_enabled=true" label="DESTINO" max_length="40" name="u_destino" type="string"/>
         <element attributes="import_attribute_name=DTT_CHEGADA_HORARIO_LOC" label="DTT_CHEGADA_HORARIO_LOC" max_length="40" name="u_dtt_chegada_horario_loc" type="datetime"/>
@@ -8,7 +9,13 @@
         <element attributes="import_attribute_name=EMPRESA,edge_encryption_enabled=true" label="EMPRESA" max_length="40" name="u_empresa" type="string"/>
         <element attributes="import_attribute_name=FIRST_NAME,edge_encryption_enabled=true" label="FIRST_NAME" max_length="60" name="u_first_name" type="string"/>
         <element attributes="import_attribute_name=FLIGHTLEGID" label="FLIGHTLEGID" max_length="15" name="u_flightlegid" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="IDEMPNO" max_length="40" name="u_idempno" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="IDLEG" max_length="40" name="u_idleg" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="INFOVOO" max_length="100000" name="u_infovoo" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="LASTNAMEL" max_length="40" name="u_lastnamel" type="string"/>
         <element attributes="import_attribute_name=LAST_NAME,edge_encryption_enabled=true" label="LAST_NAME" max_length="60" name="u_last_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="MIDDLENAME" max_length="40" name="u_middlename" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="NAME" max_length="40" name="u_name" type="string"/>
         <element attributes="import_attribute_name=NUMERO_VOO,edge_encryption_enabled=true" label="NUMERO_VOO" max_length="40" name="u_numero_voo" type="string"/>
         <element attributes="import_attribute_name=ORIGEM,edge_encryption_enabled=true" label="ORIGEM" max_length="40" name="u_origem" type="string"/>
         <element attributes="import_attribute_name=RE,edge_encryption_enabled=true" label="RE" max_length="40" name="u_re" type="string"/>
