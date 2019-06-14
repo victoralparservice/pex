@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="scheduled_import_set">
     <scheduled_import_set action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <condition/>
         <conditional>false</conditional>
         <data_source display_value="PEX - Infos Colaborador &amp; Escala de Vôo">eca0d0f26fb89f04571dd7aabb3ee454</data_source>
@@ -25,15 +25,15 @@
         <sys_created_on>2018-03-22 20:42:24</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>1ab460c16f8d5f84571dd7aabb3ee412</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Informações do colaborador</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>scheduled_import_set_1ab460c16f8d5f84571dd7aabb3ee412</sys_update_name>
-        <sys_updated_by>alparservice.yuhri</sys_updated_by>
-        <sys_updated_on>2019-04-05 11:05:11</sys_updated_on>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-13 11:56:58</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </scheduled_import_set>
 </record_update>

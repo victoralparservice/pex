@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_alabs_pex.PexCrewGroupUtils</api_name>
+        <client_callable>false</client_callable>
+        <description>Regras para geração de grupos de tripulantes</description>
+        <name>PexCrewGroupUtils</name>
+        <script><![CDATA[var PexCrewGroupUtils = function(isTest) {
+  this.logs = new global.LogGenerator(
+    "x_alabs_pex",
+    "[PEX] - Crew Group Rules"
+  );
+
+  this._isTest = !!isTest;
+
+  this.tables = {
+    m2m: "x_alabs_pex_crew_group_m2m",
+    group: "x_alabs_pex_crew_group",
+    flightCrew: "x_alabs_pex_flight_crew",
+    flight: "x_alabs_pex_flights"
+  };
+
+  this.TITLES = {
+    COMISSARIES: ["FA", "FE", "CL"],
+    PILOTS: ["CA", "FO"]
+  };
+
+  this.alreadyExists = function(crewmans) {
+    var members = crewmans.map(function(crewman) {
+      return crewman.sys_id;
+    });
+    members.sort();
+    this.logs.print(members.toString(), "Members");
+    var grG = new GlideRecord(this.tables.group);
+    grG.addQuery("members", members.toString());
+    grG.query();
+
+    return grG.hasNext();
+  };
+
+  this.getGroups = function() {
+    this.logs.addInfo("Getting groups");
+    var gaFc = new GlideAggregate(this.tables.flightCrew);
+    gaFc.addNotNullQuery("flight.inventorylegid");
+    gaFc.addQuery("active", true);
+    // gaFc.addEncodedQuery("flight.inventorylegid!=NULL^active=true");
+    if (this._isTest) {
+      gaFc.setLimit(300);
+    }
+    gaFc.groupBy("flight");
+    gaFc.query();
+
+    this.logs.addInfo(gaFc.getRowCount(), "Groups Found");
+    var groups = [];
+    while (gaFc.next()) {
+      var grF = new GlideRecord(this.tables.flight);
+      grF.get(gaFc.getValue("flight"));
+      groups.push({
+        flight: {
+          sys_id: gaFc.getValue("flight"),
+          legId: grF.inventorylegid.toString(),
+          number: grF.numero_do_voo.toString(),
+          origem: grF.origem.getDisplayValue(),
+          destino: grF.destino.getDisplayValue(),
+          dataPartida: grF.data_partida_local.toString()
+        }
+      });
+    }
+    this.logs.addSection();
+    this.logs.addInfo("Getting Members");
+    groups = groups.map(function(group) {
+      var grFc = new GlideRecord(this.tables.flightCrew);
+      // Tem usuário E está ativo E pertence ao voo
+      grFc.addEncodedQuery(
+        "userISNOTEMPTY^active=true^flight=".concat(group.flight.sys_id)
+      );
+      grFc.query();
+      group.members = [];
+      while (grFc.next()) {
+        group.members.push({
+          sys_id: grFc.user.user.sys_id.toString(),
+          re: grFc.user.re.toString(),
+          title: grFc.user_title.toString()
+        });
+      }
+      return group;
+    }, this);
+
+    this.logs.addInfo("Get groups finished");
+    this.logs.execute();
+
+    return groups;
+  };
+
+  this.createGroups = function(flight, crewmans) {
+    this.logs.addInfo("Group creation start");
+
+    this.logs.addSection();
+    this.logs.addInfo("Creting Comissary groups");
+    this._createComissaryGroup(flight, crewmans);
+
+    this.logs.addSection();
+    this.logs.addInfo("Creting Pilot groups");
+    this._createPilotGroup(flight, crewmans);
+
+    this.logs.execute();
+  };
+
+  this._createComissaryGroup = function(flight, crewmans) {
+    var members = crewmans.filter(this._getComissaries, this);
+    this.logs.addInfo(JSON.stringify(members), "Comissarry members");
+
+    if (members.length <= 1 || this.alreadyExists(members)) return;
+
+    var group = this._generateGroup(flight, members, "Comissario");
+    this.logs.addInfo("Generated Comissary Group", group);
+
+    this.logs.addSection("Relation insert started");
+    this._relateMembers(group, members);
+  };
+
+  this._getComissaries = function(crewman) {
+    return !!~this.TITLES.COMISSARIES.indexOf(crewman.title);
+  };
+
+  this._createPilotGroup = function(flight, crewmans) {
+    var members = crewmans.filter(this._getPilots, this);
+    this.logs.addInfo(JSON.stringify(members), "Pilot members");
+
+    if (members.length <= 1 || this.alreadyExists(members)) return;
+
+    var group = this._generateGroup(flight, members, "Piloto");
+    this.logs.addInfo("Generated Comissary Group", group);
+
+    this.logs.addSection("Relation insert started");
+    this._relateMembers(group, members);
+  };
+
+  this._getPilots = function(crewman) {
+    return !!~this.TITLES.PILOTS.indexOf(crewman.title);
+  };
+
+  this._generateGroup = function(flight, members, type) {
+    members = members.map(function(member) {
+      return member.sys_id;
+    });
+
+    members.sort();
+
+    var grGroup = new GlideRecord(this.tables.group);
+
+    grGroup.addQuery("active", true);
+    grGroup.addQuery("ja_recebeu_a_pesquisa", false);
+    grGroup.addQuery("type", type);
+    grGroup.addQuery("destino", flight.destino);
+    grGroup.addQuery("origem", flight.origem);
+    grGroup.addQuery("data_e_hora_de_partida", flight.dataPartida);
+    grGroup.addQuery("numero_do_voo", flight.number);
+
+    grGroup.query();
+    grGroup.next();
+
+    grGroup.destino = flight.destino;
+    grGroup.origem = flight.origem;
+    grGroup.data_e_hora_de_partida = flight.dataPartida;
+    grGroup.numero_do_voo = flight.number;
+    grGroup.ja_recebeu_a_pesquisa = false;
+    grGroup.active = true;
+    grGroup.members = members.toString();
+    grGroup.type = type;
+    var group = grGroup.update();
+
+    return group;
+  };
+
+  this._relateMembers = function(group, members) {
+    members.forEach(function(member) {
+      var grM2M = new GlideRecord("x_alabs_pex_crew_group_m2m");
+      grM2M.initialize();
+      grM2M.group = group;
+      grM2M.user = member.sys_id;
+      grM2M.user_title = member.title;
+      grM2M.insert();
+    });
+  };
+
+  this.type = "PexCrewGroupUtils";
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>alpar.yuhri</sys_created_by>
+        <sys_created_on>2019-06-14 11:51:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2c0dbe59db8a73040b2a32ffaa96197f</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_name>PexCrewGroupUtils</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_include_2c0dbe59db8a73040b2a32ffaa96197f</sys_update_name>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-14 18:37:17</sys_updated_on>
+    </sys_script_include>
+</record_update>
