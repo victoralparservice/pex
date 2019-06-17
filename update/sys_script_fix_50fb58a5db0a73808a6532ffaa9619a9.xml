@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description>Limpa tabelas que não estão comentadas</description>
+        <flush_cache>false</flush_cache>
+        <name>PEX clear tables</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>false</run_once>
+        <script><![CDATA[var tables = [
+	// Vertical
+	// 'x_alabs_pex_flight_crew',
+	//"x_alabs_pex_crew_group",
+	'x_alabs_pex_instance_survey',
+	//'x_alabs_pex_survey',
+	//"x_alabs_pex_crew_group_m2m"
+
+	// Crew Management Transform
+	// 'x_alabs_pex_flights',
+	// 'x_alabs_pex_crew_management',
+	// 'x_alabs_pex_m2m_users_flights',
+	// 'x_alabs_pex_location_survey_types',
+
+	//Clear Questions
+	//'x_alabs_pex_question',
+	//'x_alabs_pex_surveys_questions'
+];
+
+tables.forEach(function(table) {
+	var gr = new GlideRecord(table);
+	gr.query();
+	gr.deleteMultiple();
+});]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>alpar.yuhri</sys_created_by>
+        <sys_created_on>2019-06-14 18:46:24</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>50fb58a5db0a73808a6532ffaa9619a9</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>PEX clear tables</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sys_script_fix_50fb58a5db0a73808a6532ffaa9619a9</sys_update_name>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-17 17:40:12</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

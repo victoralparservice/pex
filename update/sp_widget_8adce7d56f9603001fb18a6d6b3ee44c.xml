@@ -45,6 +45,7 @@
 	var gr = new GlideRecordSecure('x_alabs_pex_instance_survey');
 	gr.orderBy('survey.valid_until');
 	gr.addEncodedQuery(options.filtro);
+	gr.addEncodedQuery('survey.tipo_de_pesquisa!=vertical')
 	gr.addEncodedQuery('responsible=' + gs.getUserID());
 	if (options.mostrar_tudo) {
 		gr.setLimit(options.maximo);
@@ -58,6 +59,7 @@
 		var item = [];
 		//item.push($sp.getField(gr, 'number'));
 		item.push($sp.getField(gr, 'survey'));
+		//item.push($sp.getField(gr, 'tripulante_avaliado_na_pesquisa'));
 		item.push($sp.getField(survey, 'type'));
 		item.push($sp.getField(gr, 'location'));
 		item.push(getQuestion(gr));
@@ -90,15 +92,15 @@
         <sys_created_on>2017-11-07 13:02:18</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>8adce7d56f9603001fb18a6d6b3ee44c</sys_id>
-        <sys_mod_count>246</sys_mod_count>
+        <sys_mod_count>250</sys_mod_count>
         <sys_name>PEX - Avaliações Lista</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_8adce7d56f9603001fb18a6d6b3ee44c</sys_update_name>
-        <sys_updated_by>alpar.douglas.silva</sys_updated_by>
-        <sys_updated_on>2019-02-04 13:29:15</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-17 13:13:50</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default b">
    <div class="panel-heading">
       <h2 class="h4 panel-title">

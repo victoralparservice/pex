@@ -69,6 +69,8 @@
 		var item = [];
 		//item.push($sp.getField(gr, 'number'));
 		item.push($sp.getField(gr, 'survey'));
+		if($sp.getField(gr, 'tripulante_avaliado_na_pesquisa') != '')
+		item.push($sp.getField(gr, 'tripulante_avaliado_na_pesquisa'));
 		item.push($sp.getField(survey, 'type'));
 		item.push(getQuestion(gr));
 		item.push($sp.getField(gr, 'state'));		
@@ -102,15 +104,15 @@
         <sys_created_on>2017-11-07 18:11:16</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>3383b4696f5a03001fb18a6d6b3ee4b0</sys_id>
-        <sys_mod_count>140</sys_mod_count>
+        <sys_mod_count>141</sys_mod_count>
         <sys_name>PEX - Avaliações Lista / Card</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_3383b4696f5a03001fb18a6d6b3ee4b0</sys_update_name>
-        <sys_updated_by>victor.leite</sys_updated_by>
-        <sys_updated_on>2018-02-26 18:31:52</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-17 13:09:19</sys_updated_on>
         <template><![CDATA[<div class="buttons pull-right">
   <a ng-click = "data.selected = 'card'" class="btn btn-default fa fa-th" ng-class = "{'btn-active': data.selected == 'card' }"></a>
   <a ng-click = "data.selected = 'list'" class="btn btn-default fa fa-bars" ng-class = "{'btn-active': data.selected == 'list' }"></a>

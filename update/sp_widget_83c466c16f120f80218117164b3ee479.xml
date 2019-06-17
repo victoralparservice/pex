@@ -11,7 +11,6 @@
 		$scope.exibirFinalizar = true;
 	}
 
-
 	$scope.teste = '';
 	$scope.questaoArray = $scope.data.survey.questions;
 
@@ -108,7 +107,8 @@
 	function _updateQuestion(question) {
 		var input = {
 			action : "updateQuestion",
-			question : question
+			question : question,
+			research_type: $scope.data.survey.research_type
 		}
 
 		c.server.get(input).then(function(response){
@@ -361,13 +361,15 @@ p.action-text {
 			grSurvey.update();
 			
 		} else if (input.action == "updateQuestion") {
-			
 			var question = input.question;
 			var grQuestion = new GlideRecord('x_alabs_pex_instance_survey_question');
 			grQuestion.get(question.id);		
 			grQuestion.situation = question.situation;
 			grQuestion.proposition = question.notConform.proposition;	
+			if(input.research_type != 'vertical')
 			grQuestion.responsible_area = question.notConform.responsible_area;
+			else
+				grQuestion.responsible_area = 'my_area';
 			
 			//gs.addInfoMessage(question.notConform.du_ate);			
 			var dueDate = new GlideDate();
@@ -428,6 +430,7 @@ p.action-text {
 		totalAnswered : grSurvey.number_of_questions_answered.getDisplayValue(),
 		title : grSurvey.survey.name.getDisplayValue(), 
 		type : grSurvey.survey.type.getDisplayValue(),
+		research_type: grSurvey.survey.tipo_de_pesquisa.toString(),
 		introduction : grSurvey.survey.introduction.getDisplayValue(),
 		endNotes : grSurvey.survey.end_note.getDisplayValue(),
 		questions : []
@@ -484,15 +487,15 @@ p.action-text {
         <sys_created_on>2017-11-06 13:09:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>83c466c16f120f80218117164b3ee479</sys_id>
-        <sys_mod_count>1136</sys_mod_count>
+        <sys_mod_count>1160</sys_mod_count>
         <sys_name>PEX - Formulário de Avaliação</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_83c466c16f120f80218117164b3ee479</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-04-12 17:07:56</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-17 14:31:12</sys_updated_on>
         <template><![CDATA[<!-- INICIO INTRODUÇÃO -->
 <div class="introduction" ng-if="data.survey.state == 'pending'">
   <div class="row">
@@ -631,7 +634,7 @@ p.action-text {
             <div class="col-md-offset-1 col-md-10">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="form-group required">
+                  <div class="form-group required" ng-if="data.survey.research_type != 'vertical'">
                     <label class="control-label" for="due_date">Prazo</label>
                     <input class='prazo' type="date"  name="due_date" id="due_date" ng-model="question.notConform.due_date" ng-required='question.notConform.required' ng-change="selectDate(notConformForm.$valid, $last, question)">
                   	
@@ -640,7 +643,7 @@ p.action-text {
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-group required">
+                  <div class="form-group required" ng-if="data.survey.research_type != 'vertical'">
                     <label class="control-label" for="responsible_area">Área Responsável</label>
                     <select class="form-control" name="responsible_area" ng-options="responsibleArea.value as responsibleArea.label for responsibleArea in data.responsibleAreas" ng-required='question.notConform.required' ng-model="question.notConform.responsible_area" ng-change="selectDate(notConformForm.$valid, $last, question)">
                       <option value="">Selecione a área responsável...</option>
