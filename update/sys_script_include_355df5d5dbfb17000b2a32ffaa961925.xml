@@ -8,15 +8,15 @@
         <name>PexScoreUtils</name>
         <script><![CDATA[var PexScoreUtils = function() {
 	/*
-	|--------------------------------------------------------------------------
-	|	Instâncias para manipulação das tabelas
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Instâncias para manipulação das tabelas
+		|--------------------------------------------------------------------------
+		*/
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Tabelas relacionadas a notas
-	*/
+		|--------------------------------------------------------------------------
+		|	Tabelas relacionadas a notas
+		*/
 	this.NPS = new global.TableCRUD("x_alabs_pex_nps_note"); //Notas NPS
 	this.VertSurveyInst = new global.TableCRUD("x_alabs_pex_instance_survey"); // Pesquisas (Verticais, auto avaliações)
 	this.TechnicalPerformance = new global.TableCRUD(
@@ -25,9 +25,9 @@
 	this.GeneralScore = new global.TableCRUD("x_alabs_pex_general_notes"); // Notas gerais
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Tabelas relacionadas à informações necessárias
-	*/
+		|--------------------------------------------------------------------------
+		|	Tabelas relacionadas à informações necessárias
+		*/
 	this.Flight = new global.TableCRUD("x_alabs_pex_flights"); // Vôos
 	this.FlightCrew = new global.TableCRUD("x_alabs_pex_flight_crew"); //Tripulantes de voo
 	this.CrewManagement = new global.TableCRUD("x_alabs_pex_crew_management"); // Gestão de tripulantes
@@ -35,10 +35,10 @@
 	this.CrewGroupMember = new global.TableCRUD("x_alabs_pex_crew_group_m2m"); // Grupos de tripulantes
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Atualiza nota NPS
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Atualiza nota NPS
+		|--------------------------------------------------------------------------
+		*/
 	this.updateNPS = function() {
 		var self = this;
 		var query;
@@ -46,15 +46,15 @@
 		var insertValues;
 
 		/*
-		|--------------------------------------------------------------------------
-		|	Obtenção do grupo
-		*/
+			|--------------------------------------------------------------------------
+			|	Obtenção do grupo
+			*/
 		var flight = self.Flight.data[0];
 
 		/*
-		|--------------------------------------------------------------------------
-		|	Obtém grupos a partir do voo
-		*/
+			|--------------------------------------------------------------------------
+			|	Obtém grupos a partir do voo
+			*/
 		query = {
 			ja_recebeu_a_pesquisa: "true",
 			origem: flight.origem.u_iata.toString(),
@@ -74,19 +74,19 @@
 		};
 
 		/*
-		|--------------------------------------------------------------------------
-		|	Obtém usuários a partir do grupo
-		*/
+			|--------------------------------------------------------------------------
+			|	Obtém usuários a partir do grupo
+			*/
 		var users = self.CrewGroupMember.get(query).map(function(gr) {
 			return gr.user.toString();
 		});
 		users.forEach(function(user) {
-			insertValues = {
+			var insertValues = {
 				name_of_crew_member: user,
 				ano: flight.data_partida_utc
-					.toString()
-					.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
-					.trim(),
+				.toString()
+				.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+				.trim(),
 				nps: ""
 			};
 			self.GeneralScore.createOrUpdate(insertValues, [
@@ -97,48 +97,48 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Calcula nota NPS para atribução no registro de Notas Gerais
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Calcula nota NPS para atribução no registro de Notas Gerais
+		|--------------------------------------------------------------------------
+		*/
 	this.updateGeneralNPS = function(user, year) {
 		var self = this;
 		var query;
 		// var options; // Unused
 
 		/*
-		|--------------------------------------------------------------------------
-		|	Obtenção dos grupos
-		|--------------------------------------------------------------------------
-		*/
+			|--------------------------------------------------------------------------
+			|	Obtenção dos grupos
+			|--------------------------------------------------------------------------
+			*/
 		query =
 			"user=".concat(user) +
 			"^group.data_e_hora_de_partidaDATEPART".concat(
-				year,
-				"@javascript:gs.datePart('year','",
-				year,
-				"','EE')"
-			);
+			year,
+			"@javascript:gs.datePart('year','",
+			year,
+			"','EE')"
+		);
 		self.CrewGroupMember.get(query);
 
 		var NPSs = self.CrewGroupMember.data
-			.map(function(gMember) {
-				query = {
-					flight_number: gMember.group.numero_do_voo.toString(),
-					origin: gMember.group.origem.toString(),
-					destination: gMember.group.destino.toString(),
-					flight_local_date: gMember.group.data_e_hora_de_partida.toString(),
-					role: gMember.group.type.toString()
-				};
+		.map(function(gMember) {
+			query = {
+				flight_number: gMember.group.numero_do_voo.toString(),
+				origin: gMember.group.origem.toString(),
+				destination: gMember.group.destino.toString(),
+				flight_local_date: gMember.group.data_e_hora_de_partida.toString(),
+				role: gMember.group.type.toString()
+			};
 
-				self.NPS.get(query);
+			self.NPS.get(query);
 
-				if (self.NPS.count > 0) return self.NPS.data[0];
-				else return null;
-			})
-			.filter(function(nps) {
-				return nps !== null;
-			});
+			if (self.NPS.count > 0) return self.NPS.data[0];
+			else return null;
+		})
+		.filter(function(nps) {
+			return nps !== null;
+		});
 
 		notaNPS = NPSs.reduce(function(acm, nps) {
 			return acm + parseInt(nps.grade);
@@ -150,12 +150,12 @@
 	};
 
 	/*
-  |--------------------------------------------------------------------------
-  |	Atualiza desempenho técnico do tripulante
-  |--------------------------------------------------------------------------
-  */
+	  |--------------------------------------------------------------------------
+	  |	Atualiza desempenho técnico do tripulante
+	  |--------------------------------------------------------------------------
+	  */
 	this.updateTechnicalPerformance = function(user, year, score) {
-		insertValues = {
+		var insertValues = {
 			name_of_crew_member: user,
 			ano: year,
 			technical_performance: score >= 95 ? 100 : 0
@@ -168,10 +168,10 @@
 	};
 
 	/*
-  |--------------------------------------------------------------------------
-  |	Calcula nota do registro de pesquisa vertical atual (BR)
-  |--------------------------------------------------------------------------
-  */
+	  |--------------------------------------------------------------------------
+	  |	Calcula nota do registro de pesquisa vertical atual (BR)
+	  |--------------------------------------------------------------------------
+	  */
 	this.calculateCurrentVertical = function(surveyInstance) {
 		var score = {
 			maxScore: 0,
@@ -188,14 +188,17 @@
 		ga.addQuery("survey_instance", current.sys_id);
 		ga.addAggregate("SUM", "pontuacao_obtida");
 		ga.addAggregate("SUM", "question.peso_da_questao");
-		ga.addAggregate("COUNT", "situation");
-		ga.groupBy("question");
-		ga.groupBy("responsible_area");
-		ga.groupBy("situation");
+		//ga.addAggregate("COUNT", "situation");
+		//ga.groupBy("responsible_area");
+		//ga.groupBy("situation");
+		ga.groupBy("category");
 		ga.query();
 
 		while (ga.next()) {
-			isRelevant = false;
+			var property = gs.getProperty('x_alabs_pex.peso_do_pilar_'+ga.category);
+			var percent = ga.getAggregate("SUM", "pontuacao_obtida") / ga.getAggregate("SUM", "question.peso_da_questao");
+			var value = property * percent;
+		/*	isRelevant = false;
 
 			var situation = ga.situation.toString();
 			var points = parseInt(ga.getAggregate("SUM", "pontuacao_obtida"));
@@ -214,9 +217,9 @@
 				score.relevantCount += parseInt(ga.getAggregate("COUNT", "situation"));
 			}
 			/*
-			|--------------------------------------------------------------------------
-			|	Logs
-			*/
+				|--------------------------------------------------------------------------
+				|	Logs
+				*/
 			// gs.info("Situação: " + situation);
 			// gs.info("Area Responsável: " + ga.responsible_area.toString());
 			// gs.info("Quantidade: " + ga.getAggregate("COUNT", "situation"));
@@ -231,8 +234,8 @@
 
 		score.adicionalScore =
 			parseInt(score.relevantCount) !== 0
-				? parseFloat(score.not_applicable) / parseFloat(score.relevantCount)
-				: 0.0;
+			? parseFloat(score.not_applicable) / parseFloat(score.relevantCount)
+		: 0.0;
 		score.adicionalScore = score.adicionalScore.toFixed(2);
 
 		score.according = score.according.reduce(function(acm, curr) {
@@ -248,17 +251,17 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Atualiza autoavaliação (Caso não exista, insere registro)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Atualiza autoavaliação (Caso não exista, insere registro)
+		|--------------------------------------------------------------------------
+		*/
 	this.updateSelfEvaluation = function(user, year) {
-		insertValues = {
+		var insertValues = {
 			name_of_crew_member: user,
 			ano: year
-				.toString()
-				.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
-				.trim(),
+			.toString()
+			.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+			.trim(),
 			self_assessment: ""
 		};
 
@@ -269,10 +272,10 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Calcula Auto avaliação para atualização das notas gerais
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Calcula Auto avaliação para atualização das notas gerais
+		|--------------------------------------------------------------------------
+		*/
 	this.updateGeneralSelfEvaluation = function(user, year) {
 		var res = 0.0;
 
@@ -310,17 +313,17 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Atualiza nota de pesquisa vertical (Caso não exista, insere registro)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Atualiza nota de pesquisa vertical (Caso não exista, insere registro)
+		|--------------------------------------------------------------------------
+		*/
 	this.updateVertical = function(user, year) {
-		insertValues = {
+		var insertValues = {
 			name_of_crew_member: user,
 			ano: year
-				.toString()
-				.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
-				.trim(),
+			.toString()
+			.replace(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, "$1")
+			.trim(),
 			vertical_evaluation: ""
 		};
 
@@ -331,41 +334,36 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Calcula persquisas vertical para atualização das notas gerais
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Calcula persquisas vertical para atualização das notas gerais
+		|--------------------------------------------------------------------------
+		*/
 	this.updateGeneralVertical = function(user, year) {
 		var res = 0.0;
 
-		var ga = new GlideAggregate("x_alabs_pex_instance_survey");
-		ga.addQuery("tripulante_avaliado_na_pesquisa", user); // que pretença ao usuário X
+			var ga = new GlideAggregate("x_alabs_pex_instance_survey");
+			ga.addQuery("tripulante_avaliado_na_pesquisa", user); // que pretença ao usuário X
 
-		ga.addQuery("state", "completed"); // Pontuação obtida não está vazia
+			ga.addQuery("state", "completed"); // Pontuação obtida não está vazia
 
-		ga.addQuery(
-			"sys_created_on",
-			"DATEPART",
-			"".concat(year, "@javascript:gs.datePart('year','", year, "','EE')")
-		); // Pesquisas realizadas em 2019
+			ga.addQuery(
+				"sys_created_on",
+				"DATEPART",
+				"".concat(year, "@javascript:gs.datePart('year','", year, "','EE')")
+			); // Pesquisas realizadas em 2019
 
-		ga.addQuery("survey.tipo_de_pesquisa", "vertical"); // Tipo de pesquisa
+			ga.addQuery("survey.tipo_de_pesquisa", "vertical"); // Tipo de pesquisa
 
-		ga.addAggregate("SUM", "pontuacao_obtida_na_pesquisa"); // Soma das pontuações obtidas
-		ga.addAggregate("SUM", "pontuacao_maxima_possivel"); // Soma das máximas pontuações possíveis
+			ga.addAggregate("SUM", "pontuacao_obtida_na_pesquisa"); // Soma das pontuações obtidas
 
-		ga.addAggregate("COUNT"); // Número de pesquisas completas ou finalizadas
+			ga.addAggregate("COUNT"); // Número de pesquisas completas ou finalizadas
+			ga.query();
 
-		ga.groupBy("tripulante_avaliado_na_pesquisa"); // Agrupa por tripulante
-		ga.query();
-
-		if (ga.next()) {
-			if (parseInt(ga.getAggregate("COUNT")) > 2)
-				res =
-					(parseFloat(ga.getAggregate("SUM", "pontuacao_obtida_na_pesquisa")) /
-						parseFloat(ga.getAggregate("SUM", "pontuacao_maxima_possivel"))) *
-					100.0;
-		}
+			if (ga.next()) {
+					res =
+						parseFloat(ga.getAggregate("SUM", "pontuacao_obtida_na_pesquisa")) /
+							parseFloat(ga.getAggregate("COUNT")) / 10;
+			}
 
 		res = res.toFixed(1);
 
@@ -380,14 +378,14 @@
         <sys_created_on>2018-08-07 14:45:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>355df5d5dbfb17000b2a32ffaa961925</sys_id>
-        <sys_mod_count>166</sys_mod_count>
+        <sys_mod_count>170</sys_mod_count>
         <sys_name>PexScoreUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_355df5d5dbfb17000b2a32ffaa961925</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-03-01 16:44:19</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-17 20:07:36</sys_updated_on>
     </sys_script_include>
 </record_update>

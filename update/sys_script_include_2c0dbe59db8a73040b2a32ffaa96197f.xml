@@ -26,7 +26,7 @@
     PILOTS: ["CA", "FO"]
   };
 
-  this.alreadyExists = function(crewmans, flight, type) {
+  this.alreadyExists = function(crewmans) {
     var members = crewmans.map(function(crewman) {
       return crewman.sys_id;
     });
@@ -34,11 +34,6 @@
     this.logs.print(members.toString(), "Members");
     var grG = new GlideRecord(this.tables.group);
     grG.addQuery("members", members.toString());
-    grGroup.addQuery("type", type);
-    grGroup.addQuery("destino", flight.destino);
-    grGroup.addQuery("origem", flight.origem);
-    grGroup.addQuery("data_e_hora_de_partida", flight.dataPartida);
-    grGroup.addQuery("numero_do_voo", flight.number);
     grG.addQuery();
 
     grG.query();
@@ -118,11 +113,7 @@
     var members = crewmans.filter(this._getComissaries, this);
     this.logs.addInfo(JSON.stringify(members), "Comissarry members");
 
-    if (
-      members.length <= 1 ||
-      this.alreadyExists(members, flight, "Comissario")
-    )
-      return;
+    if (members.length <= 1 || this.alreadyExists(members)) return;
 
     var group = this._generateGroup(flight, members, "Comissario");
     this.logs.addInfo("Generated Comissary Group", group);
@@ -139,8 +130,7 @@
     var members = crewmans.filter(this._getPilots, this);
     this.logs.addInfo(JSON.stringify(members), "Pilot members");
 
-    if (members.length <= 1 || this.alreadyExists(members, flight, "Piloto"))
-      return;
+    if (members.length <= 1 || this.alreadyExists(members)) return;
 
     var group = this._generateGroup(flight, members, "Piloto");
     this.logs.addInfo("Generated Comissary Group", group);
@@ -164,6 +154,7 @@
 
     grGroup.initialize();
 
+    grGroup.flight = flight.sys_id;
     grGroup.destino = flight.destino;
     grGroup.origem = flight.origem;
     grGroup.data_e_hora_de_partida = flight.dataPartida;
@@ -196,7 +187,7 @@
         <sys_created_on>2019-06-14 11:51:26</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2c0dbe59db8a73040b2a32ffaa96197f</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>PexCrewGroupUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
@@ -204,6 +195,6 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_2c0dbe59db8a73040b2a32ffaa96197f</sys_update_name>
         <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-17 18:13:55</sys_updated_on>
+        <sys_updated_on>2019-06-17 22:48:07</sys_updated_on>
     </sys_script_include>
 </record_update>
