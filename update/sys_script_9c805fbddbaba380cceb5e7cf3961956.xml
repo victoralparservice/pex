@@ -87,7 +87,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9c805fbddbaba380cceb5e7cf3961956</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>ALP: Get All Scores</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -95,8 +95,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_9c805fbddbaba380cceb5e7cf3961956</sys_update_name>
-        <sys_updated_by>alpar.marcos</sys_updated_by>
-        <sys_updated_on>2019-05-30 22:24:23</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-18 21:20:47</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

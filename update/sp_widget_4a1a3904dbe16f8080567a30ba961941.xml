@@ -86,7 +86,7 @@
 	$scope.technicalPerformanceStatus = function () {
 		var score = $scope.scores.technical_performance;
 
-		if (score === 100) $scope.currEmoji.technicalPerformance = 1;
+		if (score === 10) $scope.currEmoji.technicalPerformance = 1;
 		else if (score === 0) $scope.currEmoji.technicalPerformance = -1;
 		else $scope.currEmoji.technicalPerformance = 0;
 
@@ -115,8 +115,8 @@
 	$scope.verticalStatus = function () {
 		var score = $scope.scores.vertical_evaluation;
 
-		if (score < 70) $scope.currEmoji.vertical = -1;
-		else if (score >= 90) $scope.currEmoji.vertical = 1;
+		if (score < 7) $scope.currEmoji.vertical = -1;
+		else if (score >= 9) $scope.currEmoji.vertical = 1;
 		else $scope.currEmoji.vertical = 0;
 
 	}
@@ -383,15 +383,15 @@
         <sys_created_on>2018-10-29 17:03:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>4a1a3904dbe16f8080567a30ba961941</sys_id>
-        <sys_mod_count>635</sys_mod_count>
+        <sys_mod_count>637</sys_mod_count>
         <sys_name>PEX - Crewman Assessments</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_4a1a3904dbe16f8080567a30ba961941</sys_update_name>
-        <sys_updated_by>alpar.marcos</sys_updated_by>
-        <sys_updated_on>2019-06-03 01:18:35</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-18 21:25:46</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default b" ng-if="data.showNotesPanel">
 	<div class="panel-heading">
 		<div>
