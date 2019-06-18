@@ -219,16 +219,16 @@
           return;
         }
 
-        // if (
-        //   self.surveyExists(
-        //     responsibleCrewman,
-        //     ratedCrewman,
-        //     flightInfo,
-        //     survey
-        //   )
-        // ) {
-        //   return;
-        // }
+        if (
+          self.surveyExists(
+            responsibleCrewman,
+            ratedCrewman,
+            flightInfo,
+            survey
+          )
+        ) {
+          return;
+        }
 
         // ANCHOR remover log após testes
         gs.info("Crew Control - Instance Verticals:\nPode receceber Pesquisa");
@@ -274,18 +274,16 @@
     flightInfo,
     survey
   ) {
-    // var gr = new GlideRecord("x_alabs_pex_instance_survey");
-    // gr.addQuery("responsible", responsibleCrewman.sys_id);
-    // gr.addQuery("tripulante_avaliado_na_pesquisa", ratedCrewman.sys_id);
-    // gr.addQuery("origem", flightInfo.origem);
-    // gr.addQuery("destino", flightInfo.destino);
-    // gr.addQuery("data_de_partida", flightInfo.localDepDate);
-    // gr.addQuery("numero_do_voo", flightInfo.number);
-    // gr.addQuery("survey", survey);
+    var gr = new GlideRecord("x_alabs_pex_instance_survey");
+    gr.addQuery("state", "IN", "pending,started");
+    gr.addQuery("responsible", responsibleCrewman.sys_id);
+    gr.addQuery("tripulante_avaliado_na_pesquisa", ratedCrewman.sys_id);
+    gr.addQuery("flight", flightInfo.sys_id);
+    gr.addQuery("survey", survey);
 
-    // gr.query();
+    gr.query();
 
-    return false;
+    return gr.next();
   };
 
   this.canReciveSurvey = function(crewmanSysId) {
@@ -379,7 +377,7 @@
         <sys_created_on>2019-06-17 13:34:54</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>aa81765adb423b04cceb5e7cf3961955</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>VerticalSurveyUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
@@ -387,6 +385,6 @@
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_aa81765adb423b04cceb5e7cf3961955</sys_update_name>
         <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-18 20:05:33</sys_updated_on>
+        <sys_updated_on>2019-06-18 20:37:01</sys_updated_on>
     </sys_script_include>
 </record_update>
