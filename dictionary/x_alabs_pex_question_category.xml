@@ -5,5 +5,6 @@
         <element label="Nome" mandatory="true" max_length="200" name="name" type="string"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Número" max_length="40" name="number" read_only="true" type="string"/>
         <element default="0" label="Peso do pilar" max_length="40" name="peso_do_pilar" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Property Name" max_length="100" name="property_name" type="string"/>
     </element>
 </database>

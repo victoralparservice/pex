@@ -6,7 +6,6 @@
         <element label="Pontuação obtida" max_length="200" name="pontuacao_obtida" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Proposta" max_length="4000" name="proposition" type="string"/>
         <element label="Definição da Questão" mandatory="true" max_length="32" name="question" reference="x_alabs_pex_question" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" default="current.question.peso_da_questao" label="Real Value" max_length="40" name="real_value" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Área responsável" max_length="40" name="responsible_area" type="string">
             <choice>
                 <element hint="Minha área" inactive_on_update="false" label="Minha área" language="pb" sequence="0" value="my_area"/>
