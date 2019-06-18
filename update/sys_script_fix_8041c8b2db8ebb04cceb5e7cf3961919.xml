@@ -4,31 +4,25 @@
         <before>false</before>
         <description/>
         <flush_cache>false</flush_cache>
-        <name>PEX Reset Crew Groups</name>
+        <name>PEX: Vertical Manual Generator</name>
         <record_for_rollback>false</record_for_rollback>
         <run_once>false</run_once>
-        <script><![CDATA[var gr = new GlideRecord("x_alabs_pex_crew_group");
-gr.query();
-
-while(gr.next()){
-	gr.ja_recebeu_a_pesquisa = false;
-	gr.active = true;
-	gr.update();
-}]]></script>
+        <script><![CDATA[var util = new x_alabs_pex.VerticalSurveyUtils();
+util.generateVerticalInstances();]]></script>
         <sys_class_name>sys_script_fix</sys_class_name>
         <sys_created_by>alpar.yuhri</sys_created_by>
-        <sys_created_on>2019-06-17 13:05:45</sys_created_on>
+        <sys_created_on>2019-06-18 14:01:57</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>ea7a6adedb4ebb409b6a9d40ba96190e</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>PEX Reset Crew Groups</sys_name>
+        <sys_id>8041c8b2db8ebb04cceb5e7cf3961919</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PEX: Vertical Manual Generator</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
-        <sys_update_name>sys_script_fix_ea7a6adedb4ebb409b6a9d40ba96190e</sys_update_name>
+        <sys_update_name>sys_script_fix_8041c8b2db8ebb04cceb5e7cf3961919</sys_update_name>
         <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-18 14:00:23</sys_updated_on>
+        <sys_updated_on>2019-06-18 14:01:57</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>

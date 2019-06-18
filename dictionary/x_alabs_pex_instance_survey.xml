@@ -3,6 +3,7 @@
         <element label="Data de Partida" max_length="200" name="data_de_partida" type="string"/>
         <element label="Destino" max_length="200" name="destino" type="string"/>
         <element label="Primeiro Nível" max_length="32" name="first_level_notification" reference="sys_user" type="reference"/>
+        <element label="Flight" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
         <element label="Localidade" max_length="32" name="location" reference="x_alabs_pex_location_survey" type="reference"/>
         <element label="Notas" max_length="40" name="notes" type="journal_input"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Número" max_length="40" name="number" read_only="true" type="string"/>
@@ -32,18 +33,21 @@
         <element label="Definição da Pesquisa" max_length="32" name="survey" reference="x_alabs_pex_survey" type="reference"/>
         <element label="Tripulante avaliado na pesquisa" max_length="32" name="tripulante_avaliado_na_pesquisa" reference="sys_user" type="reference"/>
         <index name="index">
-            <element name="first_level_notification"/>
+            <element name="flight"/>
         </index>
         <index name="index2">
-            <element name="responsible"/>
+            <element name="first_level_notification"/>
         </index>
         <index name="index3">
-            <element name="survey"/>
+            <element name="responsible"/>
         </index>
         <index name="index4">
-            <element name="location"/>
+            <element name="survey"/>
         </index>
         <index name="index5">
+            <element name="location"/>
+        </index>
+        <index name="index6">
             <element name="second_level_notification"/>
         </index>
     </element>
