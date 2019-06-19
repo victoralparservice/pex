@@ -11,16 +11,16 @@
 	//console.log("surveyCount",$scope.data.surveyCount)
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Logs
-	|--------------------------------------------------------------------------
-	*/
-	console.log("Data", $scope.data);
+		|--------------------------------------------------------------------------
+		|	Logs
+		|--------------------------------------------------------------------------
+		*/
+	//console.log("Data", $scope.data);
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Anos em que foi avaliado
-	*/
+		|--------------------------------------------------------------------------
+		|	Anos em que foi avaliado
+		*/
 	$scope.years = $scope.data.yearsArr;
 	$scope.yearChoice = $scope.years.map(function (year) {
 		return {
@@ -30,16 +30,16 @@
 	})
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Notas para o utlimo ano em que recebeu avaliações
-	*/
+		|--------------------------------------------------------------------------
+		|	Notas para o utlimo ano em que recebeu avaliações
+		*/
 	$scope.scores = $scope.data.scores;
 	$scope.finalScore = $scope.scores.final_note;
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Emojis para cada avaliação
-	*/
+		|--------------------------------------------------------------------------
+		|	Emojis para cada avaliação
+		*/
 	$scope.currEmoji = {
 		autoAssetment: 0,
 		vertical: 0,
@@ -48,27 +48,27 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Melhores e piores avaliações
-	*/
+		|--------------------------------------------------------------------------
+		|	Melhores e piores avaliações
+		*/
 	$scope.topAccording = $scope.data.topAccording;
 	$scope.notConform = $scope.data.notConforms;
 	/*
-	|--------------------------------------------------------------------------
-	|	Métodos
-	|--------------------------------------------------------------------------
-	|
-	|	Funções:[
-			autoAssetmentStatus: Retorna o status da auto avaliação para aquele ano
-	|	]
-	|
-	*/
+		|--------------------------------------------------------------------------
+		|	Métodos
+		|--------------------------------------------------------------------------
+		|
+		|	Funções:[
+				autoAssetmentStatus: Retorna o status da auto avaliação para aquele ano
+		|	]
+		|
+		*/
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Auto avaliação (H:10 S:0 R:-)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Auto avaliação (H:10 S:0 R:-)
+		|--------------------------------------------------------------------------
+		*/
 	$scope.autoAssetmentStatus = function () {
 		var score = $scope.scores.self_assessment;
 
@@ -79,10 +79,10 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Desempenho Técnico (H:10 S:0  R:- )
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Desempenho Técnico (H:10 S:0  R:- )
+		|--------------------------------------------------------------------------
+		*/
 	$scope.technicalPerformanceStatus = function () {
 		var score = $scope.scores.technical_performance;
 
@@ -93,10 +93,10 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	NPS (H: >9 S: < 7 R:x)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	NPS (H: >9 S: < 7 R:x)
+		|--------------------------------------------------------------------------
+		*/
 	$scope.NPSStatus = function () {
 		var score = $scope.scores.nps;
 
@@ -107,10 +107,10 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Vertical (H: S: R:)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Vertical (H: S: R:)
+		|--------------------------------------------------------------------------
+		*/
 
 	$scope.verticalStatus = function () {
 		var score = $scope.scores.vertical_evaluation;
@@ -122,10 +122,10 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Chama modal de preferencias de pesquisa (seleção de ano)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Chama modal de preferencias de pesquisa (seleção de ano)
+		|--------------------------------------------------------------------------
+		*/
 	$scope.modalYear = function () {
 		$($element)
 			.find("#preferenceModal")
@@ -133,10 +133,10 @@
 	};
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Atualizar dados com base nas preferencias
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Atualizar dados com base nas preferencias
+		|--------------------------------------------------------------------------
+		*/
 	$scope.setPreferences = function (year) {
 		c.data.setPrefs = "true"
 		c.data.year = year;
@@ -151,7 +151,7 @@
 			$scope.years = $scope.data.yearsArr;
 			$scope.scores = $scope.data.scores;
 			$scope.finalScore = $scope.scores.final_note;
-		
+
 			$scope.autoAssetmentStatus();
 			$scope.technicalPerformanceStatus();
 			$scope.NPSStatus();
@@ -160,126 +160,134 @@
 	}
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Chama modal de preferencias de pesquisa (seleção de ano)
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Chama modal de preferencias de pesquisa (seleção de ano)
+		|--------------------------------------------------------------------------
+		*/
 	$scope.showVerticalInfo = function () {
-		$($element)
-			.find("#verticalModal")
-			.modal("show");
+		if($scope.scores.count.vertical > 0)
+			$($element)
+				.find("#verticalModal")
+				.modal("show");
 	}
 	/*
-	|--------------------------------------------------------------------------
-	|	Primeiras execussões
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Primeiras execussões
+		|--------------------------------------------------------------------------
+		*/
 	$scope.autoAssetmentStatus();
 	$scope.technicalPerformanceStatus();
 	$scope.NPSStatus();
 	$scope.verticalStatus();
 
 	/*
-	|--------------------------------------------------------------------------
-	|	Logs on change
-	|--------------------------------------------------------------------------
-	*/
+		|--------------------------------------------------------------------------
+		|	Logs on change
+		|--------------------------------------------------------------------------
+		*/
 	$scope.test = function () {
 		alert("Escopo - Ano selecionado " + $scope.selectedName);
 		alert("Escopo - Ano selecionado " + $scope.yearChoice);
 	}
+	console.log($scope.data.scores);
 
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.card {
-	float: left;
-	padding: 10px;
-	flex: auto;
-	height: auto;
-	justify-content: center;
-	display: flex;
-	flex-direction: column;
+  float: left;
+  padding: 10px;
+  flex: auto;
+  height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .star {
-	display: block;
-	margin-left: 10px;
+  display: block;
+  margin-left: 10px;
 }
 
 .cards {
-	display: flex;
+  display: flex;
 }
 
 .slot {
-	padding: 10px;
-	text-align: center;
+  padding: 10px;
+  text-align: center;
+}
+.inactive{
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .list-group-item {
-	text-align: center;
-	font-weight: 500;
+  text-align: center;
+  font-weight: 500;
 
-	div {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	}
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .fade-scale {
-	transform: scale(0.5);
-	opacity: 0;
-	-webkit-transition: all .25s linear;
-	-o-transition: all .25s linear;
-	transition: all .25s linear;
+  transform: scale(0.5);
+  opacity: 0;
+  -webkit-transition: all .25s linear;
+  -o-transition: all .25s linear;
+  transition: all .25s linear;
 }
 
 .fade-scale.in {
-	opacity: 1;
-	transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .emoji {
-	width: 32px;
-	height: 32px;
-	margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
 }
 
 .link {
-	color: #428bca;
+  color: #428bca;
 
-	&amp;:hover {
-		color: #31708f;
-		cursor: pointer;
-	}
+  &amp;:hover {
+    color: #31708f;
+    cursor: pointer;
+  }
 }
 
 .fl {
-	float: right;
+  float: right;
 }
 
 .yearsSelect {
-	max-height: 500px;
-	overflow: auto;
+  max-height: 500px;
+  overflow: auto;
 
-	h4 {
-		display: block;
-	}
+  h4 {
+    display: block;
+  }
 
-	.buttons {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
-		button {
-			margin-left: 10px;
-		}
+    button {
+      margin-left: 10px;
+    }
 
-		button:first-of-type {
-			margin: 0;
-		}
-	}
+    button:first-of-type {
+      margin: 0;
+    }
+  }
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -351,12 +359,16 @@
 	function getScores(year) {
 		data.log.push("GetScores chamado");
 		data.log.push(util.getScore(year));
-		if (util.result)
+		if (util.result){
+			var count = util.result.count;
+			if(count.vertical < data.maxCount)
+				count.vertical = 0;
 			return {
 				/*
 			|--------------------------------------------------------------------------
 			|	Notas
 			*/
+				count: count,
 				average: parseInt(util.result.average.toString()), // média
 				final_note: parseInt(util.result.final_note.toString()), // Nota final
 				/*
@@ -373,6 +385,7 @@
 			*/
 				ano: util.result.ano.toString() // ano da pesquisa
 			};
+		}
 		else return null;
 	}
 })();
@@ -383,28 +396,29 @@
         <sys_created_on>2018-10-29 17:03:46</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>4a1a3904dbe16f8080567a30ba961941</sys_id>
-        <sys_mod_count>637</sys_mod_count>
+        <sys_mod_count>670</sys_mod_count>
         <sys_name>PEX - Crewman Assessments</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sp_widget_4a1a3904dbe16f8080567a30ba961941</sys_update_name>
-        <sys_updated_by>alpar.egomes</sys_updated_by>
-        <sys_updated_on>2019-06-18 21:25:46</sys_updated_on>
-        <template><![CDATA[<div class="panel panel-default b" ng-if="data.showNotesPanel">
-	<div class="panel-heading">
-		<div>
-			<h2 class="h4 panel-title ng-binding" style="display: inline-block;">
-				{{ options.title }} - {{ data.selectedYear }}
-			</h2>
-			<div ng-click="modalYear()" style="float: right;">
-				<img src="settings.png" width="16" title="Preferências" height="16" />
-			</div>
-		</div>
-	</div>
-	<ul class="list-group">
-		<!--
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-19 19:40:09</sys_updated_on>
+        <template><![CDATA[<!--<div class="panel panel-default b" ng-if="data.showNotesPanel">-->
+<div class="panel panel-default b">
+  <div class="panel-heading">
+    <div>
+      <h2 class="h4 panel-title ng-binding" style="display: inline-block;">
+        {{ options.title }} - {{ data.selectedYear }}
+      </h2>
+      <div ng-click="modalYear()" style="float: right;">
+        <img src="settings.png" width="16" title="Preferências" height="16" />
+      </div>
+    </div>
+  </div>
+  <ul class="list-group">
+    <!--
 Sem nenhum estrela: < 55
 *                               : de 55 à 66,999
 **                              : de 67 à 76,999
@@ -413,99 +427,99 @@ Sem nenhum estrela: < 55
 *****                         : de 97 à 99,999
 ******                       : 100
 -->
-		<div class="list-group-item">
-			<span ng-show="finalScore <= 54">Você ainda não foi classificado</span>
-			<div ng-show="finalScore >= 55">
-				<span> VOCÊ É UM TRIPULANTE:</span>
-				<img
-					class="star"
-					ng-show="finalScore >= 55"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-				<img
-					class="star"
-					ng-show="finalScore >= 67"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-				<img
-					class="star"
-					ng-show="finalScore >= 77"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-				<img
-					class="star"
-					ng-show="finalScore >= 87"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-				<img
-					class="star"
-					ng-show="finalScore > 97"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-				<img
-					class="star"
-					ng-show="finalScore > 99.99"
-					src="star.png"
-					alt="Avatar"
-					width="16px"
-					height="16px"
-				/>
-			</div>
-		</div>
-	</ul>
+    <div class="list-group-item">
+      <span ng-show="finalScore <= 54">Você ainda não foi classificado</span>
+      <div ng-show="finalScore >= 55">
+        <span> VOCÊ É UM TRIPULANTE:</span>
+        <img
+             class="star"
+             ng-show="finalScore >= 55"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+        <img
+             class="star"
+             ng-show="finalScore >= 67"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+        <img
+             class="star"
+             ng-show="finalScore >= 77"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+        <img
+             class="star"
+             ng-show="finalScore >= 87"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+        <img
+             class="star"
+             ng-show="finalScore > 97"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+        <img
+             class="star"
+             ng-show="finalScore > 99.99"
+             src="star.png"
+             alt="Avatar"
+             width="16px"
+             height="16px"
+             />
+      </div>
+    </div>
+  </ul>
 
-	<div class="cards">
-		<div class="card">
-			<img ng-show="currEmoji.autoAssetment == 1" src="happy-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.autoAssetment == 0" src="regular-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.autoAssetment == -1" src="sad-emoji.png" class="emoji" />
-			<div class="slot">
-				<p>Auto avaliação</p>
-			</div>
-		</div>
+  <div class="cards">
+    <div class="card">
+      <img ng-show="currEmoji.autoAssetment == 1 && scores.count.selfEvaluation > 0" src="happy-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.autoAssetment == 0 && scores.count.selfEvaluation > 0" src="regular-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.autoAssetment == -1 && scores.count.selfEvaluation > 0" src="sad-emoji.png" class="emoji" />
+      <div class="slot" ng-class="{'inactive':scores.count.selfEvaluation <= 0}">
+        <p>Auto avaliação</p>
+      </div>
+    </div>
 
-		<div class="card">
-			<img ng-show="currEmoji.technicalPerformance == 1" src="happy-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.technicalPerformance == 0" src="regular-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.technicalPerformance == -1" src="sad-emoji.png" class="emoji" />
-			<div class="slot">
-				<p>Desempenho Tec.</p>
-			</div>
-		</div>
+    <div class="card">
+      <img ng-show="currEmoji.technicalPerformance == 1 && scores.count.technical > 0" src="happy-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.technicalPerformance == 0 && scores.count.technical > 0" src="regular-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.technicalPerformance == -1 && scores.count.technical > 0" src="sad-emoji.png" class="emoji" />
+      <div class="slot" ng-class="{'inactive':scores.count.technical <= 0}">
+        <p>Desempenho Tec.</p>
+      </div>
+    </div>
 
-		<div class="card">
-			<img ng-show="currEmoji.nps == 1" src="happy-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.nps == 0" src="regular-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.nps == -1" src="sad-emoji.png" class="emoji" />
-			<div class="slot">
-				<p>NPS</p>
-			</div>
-		</div>
+    <div class="card">
+      <img ng-show="currEmoji.nps == 1 && scores.count.nps > 0 " src="happy-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.nps == 0 && scores.count.nps > 0" src="regular-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.nps == -1 && scores.count.nps > 0" src="sad-emoji.png" class="emoji" />
+      <div class="slot" ng-class="{'inactive':scores.count.nps <= 0}" >
+        <p>NPS</p>
+      </div>
+    </div>
 
-		<div class="card">
-			<img ng-show="currEmoji.vertical == 1" src="happy-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.vertical == 0" src="regular-emoji.png" class="emoji" />
-			<img ng-show="currEmoji.vertical == -1" src="sad-emoji.png" class="emoji" />
-			<div class="slot">
-				<p class="link" ng-click="showVerticalInfo()">Avaliação Vertical</p>
-			</div>
-		</div>
-	</div>
+    <div class="card">
+      <img ng-show="currEmoji.vertical == 1 && scores.count.vertical > 0" src="happy-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.vertical == 0 && scores.count.vertical > 0" src="regular-emoji.png" class="emoji" />
+      <img ng-show="currEmoji.vertical == -1 && scores.count.vertical > 0" src="sad-emoji.png" class="emoji" />
+      <div class="slot" ng-class="{'inactive':scores.count.vertical <= 0}">
+        <p class="link" ng-click="showVerticalInfo()">Avaliação Vertical</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--
@@ -515,35 +529,35 @@ Sem nenhum estrela: < 55
 -->
 
 <div id="preferenceModal" class="modal fade-scale" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3>Preferências do usuário</h3>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<span ng-if="years.length < 1">Você ainda não participou de pesquisas.</span>
-					<div class="yearsSelect" ng-if="years.length > 0">
-						<h4>Selecione o ano:</h4>
-						<div class="buttons">
-							<button
-								ng-repeat="ano in years"
-								class="btn btn-primary"
-								ng-click="setPreferences(ano)"
-							>
-								{{ ano }}
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">
-					Fechar
-				</button>
-			</div>
-		</div>
-	</div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Preferências do usuário</h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <span ng-if="years.length < 1">Você ainda não participou de pesquisas.</span>
+          <div class="yearsSelect" ng-if="years.length > 0">
+            <h4>Selecione o ano:</h4>
+            <div class="buttons">
+              <button
+                      ng-repeat="ano in years"
+                      class="btn btn-primary"
+                      ng-click="setPreferences(ano)"
+                      >
+                {{ ano }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--
@@ -552,90 +566,90 @@ Sem nenhum estrela: < 55
 |--------------------------------------------------------------------------
 -->
 <div id="verticalModal" class="modal fade assetment-modal" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title">Pesquisas verticais</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="panel panel-default" ng-show="topAccording.length > 0">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pontos Fortes</h3>
-							</div>
-							<div class="panel-body">
-								<table class="table table-bordered">
-									<tr>
-										<th scope="col">Qtde.</th>
-										<th scope="col" class="text-center">Questão</th>
-										<tbody>
-											<tr ng-repeat="question in topAccording">
-												<th scope="row" class="text-center">
-													{{ question.count }}
-												</th>
-												<td>{{ question.description }}</td>
-											</tr>
-										</tbody>
-									</tr>
-								</table>
-							</div>
-						</div>
-						<div class="panel panel-default" ng-show="!(topAccording.length)">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pontos Fortes</h3>
-							</div>
-							<div class="panel-body">
-								<h4 class="text-center">Não há questões avaliadas.</h4>
-							</div>
-						</div>
-					</div>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Pesquisas verticais</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="panel panel-default" ng-show="topAccording.length > 0">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos Fortes</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <tr>
+                   <!-- <th scope="col">Qtde.</th>-->
+                    <th scope="col" class="text-center">Questão</th>
+                    <tbody>
+                      <tr ng-repeat="question in topAccording">
+                      <!--  <th scope="row" class="text-center">
+                          {{ question.count }}
+                        </th>-->
+                        <td>{{ question.description }}</td>
+                      </tr>
+                    </tbody>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="panel panel-default" ng-show="!(topAccording.length)">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos Fortes</h3>
+              </div>
+              <div class="panel-body">
+                <h4 class="text-center">Não há questões avaliadas.</h4>
+              </div>
+            </div>
+          </div>
 
-					<div class="col-md-6">
-						<div class="panel panel-default" ng-show="notConform.length > 0">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pontos de Melhoria</h3>
-							</div>
-							<div class="panel-body">
-								<table class="table table-bordered">
-									<tr>
-										<th scope="col">Qtde.</th>
-										<th scope="col" class="text-center">Questão</th>
-										<tbody>
-											<tr ng-repeat="question in notConform">
-												<th scope="row" class="text-center">
-													{{ question.count }}
-												</th>
-												<td>{{ question.description }}</td>
-											</tr>
-										</tbody>
-									</tr>
-								</table>
-							</div>
-						</div>
+          <div class="col-md-6">
+            <div class="panel panel-default" ng-show="notConform.length > 0">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos de Melhoria</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered">
+                  <tr>
+                    <!-- <th scope="col">Qtde.</th>-->
+                    <th scope="col" class="text-center">Questão</th>
+                    <tbody>
+                      <tr ng-repeat="question in notConform">
+                        <!-- <th scope="row" class="text-center">
+{{ question.count }}
+</th>-->
+                        <td>{{ question.description }}</td>
+                      </tr>
+                    </tbody>
+                  </tr>
+                </table>
+              </div>
+            </div>
 
-						<div class="panel panel-default" ng-show="!(notConform.length > 0)">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pontos de Melhoria</h3>
-							</div>
-							<div class="panel-body">
-								<h4 class="text-center">Não há questões avaliadas.</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="panel panel-default" ng-show="!(notConform.length > 0)">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pontos de Melhoria</h3>
+              </div>
+              <div class="panel-body">
+                <h4 class="text-center">Não há questões avaliadas.</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">
-					Fechar
-				</button>
-			</div>
-		</div>
-	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 ]]></template>
     </sp_widget>

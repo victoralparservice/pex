@@ -39,7 +39,7 @@
 	*/
 	var nps = util.updateGeneralNPS(user, year);
 	gs.info("YUHRI LOG\n" + nps);
-	current.nps = isNaN(nps) ? 0 : nps;
+	current.nps = isNaN(nps) ? null : nps;
 
 	/*
 	|--------------------------------------------------------------------------
@@ -55,7 +55,7 @@
 	|--------------------------------------------------------------------------
 	*/
 	var selfEv = util.updateGeneralSelfEvaluation(user, year);
-	current.self_assessment = isNaN(selfEv) ? 0 : selfEv;
+	current.self_assessment = isNaN(selfEv) ? null : selfEv;
 
 	// ============================ temporario
 	var pNPS = gs.getProperty("x_alabs_pex.porcentagem.nota.nps");
@@ -70,10 +70,10 @@
 	);
 
 	var media =
-		(current.self_assessment * pAutoAvaliacao) / 100 +
-		(current.technical_performance * pDesempenhoTecnico) / 100 +
-		(current.vertical_evaluation * pAvaliacaoVertical) / 100 +
-		(current.nps * pNPS) / 100;
+		((current.self_assessment || 0) * pAutoAvaliacao) / 100 +
+		((current.technical_performance||0) * pDesempenhoTecnico) / 100 +
+		((current.vertical_evaluation||0) * pAvaliacaoVertical) / 100 +
+		((current.nps||0) * pNPS) / 100;
 
 	current.average = media;
 
@@ -87,7 +87,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9c805fbddbaba380cceb5e7cf3961956</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>ALP: Get All Scores</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -95,8 +95,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_9c805fbddbaba380cceb5e7cf3961956</sys_update_name>
-        <sys_updated_by>alpar.egomes</sys_updated_by>
-        <sys_updated_on>2019-06-18 21:20:47</sys_updated_on>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-19 17:43:54</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

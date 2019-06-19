@@ -8,15 +8,15 @@
         <name>PexScoreUtils</name>
         <script><![CDATA[var PexScoreUtils = function() {
 	/*
-					|--------------------------------------------------------------------------
-					|	Instâncias para manipulação das tabelas
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Instâncias para manipulação das tabelas
+						|--------------------------------------------------------------------------
+						*/
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Tabelas relacionadas a notas
-					*/
+						|--------------------------------------------------------------------------
+						|	Tabelas relacionadas a notas
+						*/
 	this.NPS = new global.TableCRUD("x_alabs_pex_nps_note"); //Notas NPS
 	this.VertSurveyInst = new global.TableCRUD("x_alabs_pex_instance_survey"); // Pesquisas (Verticais, auto avaliações)
 	this.TechnicalPerformance = new global.TableCRUD(
@@ -25,9 +25,9 @@
 	this.GeneralScore = new global.TableCRUD("x_alabs_pex_general_notes"); // Notas gerais
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Tabelas relacionadas à informações necessárias
-					*/
+						|--------------------------------------------------------------------------
+						|	Tabelas relacionadas à informações necessárias
+						*/
 	this.Flight = new global.TableCRUD("x_alabs_pex_flights"); // Vôos
 	this.FlightCrew = new global.TableCRUD("x_alabs_pex_flight_crew"); //Tripulantes de voo
 	this.CrewManagement = new global.TableCRUD("x_alabs_pex_crew_management"); // Gestão de tripulantes
@@ -35,10 +35,10 @@
 	this.CrewGroupMember = new global.TableCRUD("x_alabs_pex_crew_group_m2m"); // Grupos de tripulantes
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Atualiza nota NPS
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Atualiza nota NPS
+						|--------------------------------------------------------------------------
+						*/
 	this.updateNPS = function() {
 		var self = this;
 		var query;
@@ -46,15 +46,15 @@
 		var insertValues;
 
 		/*
-						|--------------------------------------------------------------------------
-						|	Obtenção do grupo
-						*/
+							|--------------------------------------------------------------------------
+							|	Obtenção do grupo
+							*/
 		var flight = self.Flight.data[0];
 
 		/*
-						|--------------------------------------------------------------------------
-						|	Obtém grupos a partir do voo
-						*/
+							|--------------------------------------------------------------------------
+							|	Obtém grupos a partir do voo
+							*/
 		query = {
 			ja_recebeu_a_pesquisa: "true",
 			origem: flight.origem.u_iata.toString(),
@@ -74,9 +74,9 @@
 		};
 
 		/*
-						|--------------------------------------------------------------------------
-						|	Obtém usuários a partir do grupo
-						*/
+							|--------------------------------------------------------------------------
+							|	Obtém usuários a partir do grupo
+							*/
 		var users = self.CrewGroupMember.get(query).map(function(gr) {
 			return gr.user.toString();
 		});
@@ -97,20 +97,20 @@
 	};
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Calcula nota NPS para atribução no registro de Notas Gerais
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Calcula nota NPS para atribução no registro de Notas Gerais
+						|--------------------------------------------------------------------------
+						*/
 	this.updateGeneralNPS = function(user, year) {
 		var self = this;
 		var query;
 		// var options; // Unused
 
 		/*
-						|--------------------------------------------------------------------------
-						|	Obtenção dos grupos
-						|--------------------------------------------------------------------------
-						*/
+							|--------------------------------------------------------------------------
+							|	Obtenção dos grupos
+							|--------------------------------------------------------------------------
+							*/
 		query =
 			"user=".concat(user) +
 			"^group.data_e_hora_de_partidaDATEPART".concat(
@@ -150,10 +150,10 @@
 	};
 
 	/*
-				  |--------------------------------------------------------------------------
-				  |	Atualiza desempenho técnico do tripulante
-				  |--------------------------------------------------------------------------
-				  */
+					  |--------------------------------------------------------------------------
+					  |	Atualiza desempenho técnico do tripulante
+					  |--------------------------------------------------------------------------
+					  */
 	this.updateTechnicalPerformance = function(user, year, score) {
 		var insertValues = {
 			name_of_crew_member: user,
@@ -168,10 +168,10 @@
 	};
 
 	/*
-				  |--------------------------------------------------------------------------
-				  |	Calcula nota do registro de pesquisa vertical atual (BR)
-				  |--------------------------------------------------------------------------
-				  */
+					  |--------------------------------------------------------------------------
+					  |	Calcula nota do registro de pesquisa vertical atual (BR)
+					  |--------------------------------------------------------------------------
+					  */
 	this.calculateCurrentVertical = function(surveyInstance) {
 		var score = 0;
 		var calc = {};
@@ -210,29 +210,29 @@
 			var not_applicable = calc[cat]["not_applicable"] || {value: 0};
 
 			var maxreal = according['value'] + non_conform['value'];
-// 			gs.info("[PEX Score] maxreal: {0}", maxreal);
+			// 			gs.info("[PEX Score] maxreal: {0}", maxreal);
 			var distribuir = not_applicable['value'] / (maxreal || 1);
-// 			gs.info("[PEX Score] distribuir: {0}", distribuir);
+			// 			gs.info("[PEX Score] distribuir: {0}", distribuir);
 			var distribuido = maxreal * (1 + distribuir);
 			var atingido = distribuido - (non_conform['value']);
-// 			gs.info("[PEX Score] atingido: {0}", atingido);
+			// 			gs.info("[PEX Score] atingido: {0}", atingido);
 			var percent = atingido / (distribuido || 1);
-// 			gs.info("[PEX Score] Percent: {0}", percent);
+			// 			gs.info("[PEX Score] Percent: {0}", percent);
 
 			score+= calc[cat].weight * percent;
-// 			gs.info("[PEX Score] Final Score Calculated: {0}", score);
+			// 			gs.info("[PEX Score] Final Score Calculated: {0}", score);
 		}
 
 		score = parseFloat(score).toFixed(1);
-// 		gs.info("[PEX Score] Final Score return: {0}", score);
+		// 		gs.info("[PEX Score] Final Score return: {0}", score);
 		return score;
 	};
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Atualiza autoavaliação (Caso não exista, insere registro)
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Atualiza autoavaliação (Caso não exista, insere registro)
+						|--------------------------------------------------------------------------
+						*/
 	this.updateSelfEvaluation = function(user, year) {
 		var insertValues = {
 			name_of_crew_member: user,
@@ -250,10 +250,10 @@
 	};
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Calcula Auto avaliação para atualização das notas gerais
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Calcula Auto avaliação para atualização das notas gerais
+						|--------------------------------------------------------------------------
+						*/
 	this.updateGeneralSelfEvaluation = function(user, year) {
 		var res = 0.0;
 
@@ -291,10 +291,10 @@
 	};
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Atualiza nota de pesquisa vertical (Caso não exista, insere registro)
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Atualiza nota de pesquisa vertical (Caso não exista, insere registro)
+						|--------------------------------------------------------------------------
+						*/
 	this.updateVertical = function(user, year) {
 		var insertValues = {
 			name_of_crew_member: user,
@@ -312,14 +312,16 @@
 	};
 
 	/*
-					|--------------------------------------------------------------------------
-					|	Calcula persquisas vertical para atualização das notas gerais
-					|--------------------------------------------------------------------------
-					*/
+						|--------------------------------------------------------------------------
+						|	Calcula persquisas vertical para atualização das notas gerais
+						|--------------------------------------------------------------------------
+						*/
 	this.updateGeneralVertical = function(user, year) {
 		var res = 0.0;
 		var total = 0;
 		var count = 0;
+		var min = gs.getProperty('x_alabs_pex.minimo_de_respondentes_por_tripulante');
+
 		var ga = new GlideRecord("x_alabs_pex_instance_survey");
 		ga.addQuery("tripulante_avaliado_na_pesquisa", user); // que pretença ao usuário X
 
@@ -339,7 +341,8 @@
 			total += parseFloat(ga.pontuacao_obtida_na_pesquisa);
 
 		}
-		res = total / count / 10;
+		if(count >= min)
+			res = total / count / 10;
 
 		res = res.toFixed(1);
 
@@ -354,14 +357,14 @@
         <sys_created_on>2018-08-07 14:45:31</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>355df5d5dbfb17000b2a32ffaa961925</sys_id>
-        <sys_mod_count>206</sys_mod_count>
+        <sys_mod_count>207</sys_mod_count>
         <sys_name>PexScoreUtils</sys_name>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_include_355df5d5dbfb17000b2a32ffaa961925</sys_update_name>
-        <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-19 04:42:36</sys_updated_on>
+        <sys_updated_by>alpar.egomes</sys_updated_by>
+        <sys_updated_on>2019-06-19 18:37:01</sys_updated_on>
     </sys_script_include>
 </record_update>
