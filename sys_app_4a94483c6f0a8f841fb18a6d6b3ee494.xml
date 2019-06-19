@@ -16,21 +16,21 @@
         <scoped_administration>false</scoped_administration>
         <short_description/>
         <source>x_alabs_pex</source>
-        <store_correlation_id>REPOAPP0000127014</store_correlation_id>
+        <store_correlation_id>REPOAPP0000127015</store_correlation_id>
         <store_url/>
         <sys_class_name>sys_app</sys_class_name>
         <sys_code/>
         <sys_created_by>victor.leite</sys_created_by>
         <sys_created_on>2017-12-22 08:48:45</sys_created_on>
         <sys_id>4a94483c6f0a8f841fb18a6d6b3ee494</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-19 04:27:30</sys_updated_on>
+        <sys_updated_on>2019-06-19 04:42:59</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>2.2.20</version>
+        <version>2.2.21</version>
     </sys_app>
 </record_update>
