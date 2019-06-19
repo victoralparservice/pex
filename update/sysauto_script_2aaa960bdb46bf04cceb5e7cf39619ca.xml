@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>ALP: PEX - Set Verticals Finished</name>
+        <run_as display_value="Yuhri  Graziano Bernardes">d60c6104db94ab40082c980c8a961906</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2019-06-19 19:50:24</run_start>
+        <run_time>1970-01-01 04:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[var logs = new global.LogGenerator(
+  "x_alabs_pex",
+  "[PEX] Schedule - Expire Vertical Surveys"
+);
+
+var daysAgo = parseInt(
+  gs.getProperty("x_alabs_pex.tempo_de_expiracao_da_pesquisa_pos_voo")
+);
+logs.addInfo(daysAgo, "Days Ago");
+
+var today = new GlideDateTime();
+logs.addInfo(
+  today.getLocalDate().toString() + today.getLocalTime().toString(),
+  "Today"
+);
+
+today.addDaysLocalTime(daysAgo * -1);
+
+logs.addInfo(
+  today.getLocalDate().toString() + today.getLocalTime().toString(),
+  "Created At Date Time"
+);
+
+var createdAt = today.getLocalDate();
+
+var gr = new GlideRecord("x_alabs_pex_instance_survey");
+gr.addQuery("state", "IN", "pending,started");
+gr.addQuery("survey.tipo_de_pesquisa", "vertical");
+gr.addQuery(
+  "flight.data_chegada_localON".concat(createdAt) +
+    "@javascript:gs.dateGenerate('".concat(createdAt) +
+    "','start')@javascript:gs.dateGenerate('".concat(createdAt) +
+    "','end')"
+);
+gr.query();
+
+logs.addInfo(gr.getEncodedQuery(), "Encoded Query");
+logs.addInfo(gr.getRowCount(), "Surveys Found");
+logs.execute();
+
+while (gr.next()) {
+  gr.state = "finished";
+  gr.update();
+}
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>alpar.yuhri</sys_created_by>
+        <sys_created_on>2019-06-19 19:51:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2aaa960bdb46bf04cceb5e7cf39619ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ALP: PEX - Set Verticals Finished</sys_name>
+        <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
+        <sys_update_name>sysauto_script_2aaa960bdb46bf04cceb5e7cf39619ca</sys_update_name>
+        <sys_updated_by>alpar.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-19 19:51:29</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
