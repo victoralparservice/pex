@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>ALP: On insert or Update</name>
+        <name>ALP: Update Notas Gerais</name>
         <order>500</order>
         <priority>100</priority>
         <rest_method/>
@@ -44,52 +44,36 @@
 |
 */
 
-(function executeRule(current, previous /*null when async*/ ) {
+(function executeRule(current, previous /*null when async*/) {
+  var util = new x_alabs_pex.PexScoreUtils();
 
-	var util = new x_alabs_pex.PexScoreUtils();
+  //OBS é necessário fazer a ação 1 para que a ação 3 funcione
 
-	//OBS é necessário fazer a ação 1 para que a ação 3 funcione
-
-	/*
+  /*
 	|--------------------------------------------------------------------------
 	|	Ação 1
 	|--------------------------------------------------------------------------
 	*/
 
-	var query = {
-		numero_do_voo: current.flight_number.toString().replace(/[.|,]/g, "").trim(),
-		"origem.u_iata": current.origin.toString().trim(),
-		"destino.u_iata": current.destination.toString().trim(),
-		data_partida_local: current.flight_local_date.toString().trim()
-	};
+  var query = {
+    numero_do_voo: current.flight_number
+      .toString()
+      .replace(/[.|,]/g, "")
+      .trim(),
+    "origem.u_iata": current.origin.toString().trim(),
+    "destino.u_iata": current.destination.toString().trim(),
+    data_partida_local: current.flight_local_date.toString().trim()
+  };
 
+  util.Flight.get(query);
 
-	util.Flight.get(query);
+  if (util.Flight.count) current.flight = util.Flight.data[0].getUniqueValue();
 
-	if (util.Flight.count)
-		current.flight = util.Flight.data[0].getUniqueValue();
+  current.update();
 
-	/*
-	|--------------------------------------------------------------------------
-	|	Ação 2
-	|--------------------------------------------------------------------------
-	*/
-	current.update();
-
-	/*
-	|--------------------------------------------------------------------------
-	|	Ação 3
-	|--------------------------------------------------------------------------
-	*/
-
-	util.NPS.getByID(current.getUniqueValue());
-
-	util.updateNPS();
-
-
-
-
-})(current, previous);]]></script>
+  util.updateNPS(current.flight, current.role.toString());
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>yuhri.bernardes</sys_created_by>
         <sys_created_on>2019-02-05 14:19:52</sys_created_on>
@@ -97,16 +81,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b1d94fffdb53ef400b2a32ffaa9619bb</sys_id>
-        <sys_mod_count>10</sys_mod_count>
-        <sys_name>ALP: On insert or Update</sys_name>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>ALP: Update Notas Gerais</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_b1d94fffdb53ef400b2a32ffaa9619bb</sys_update_name>
-        <sys_updated_by>yuhri.bernardes</sys_updated_by>
-        <sys_updated_on>2019-02-26 14:38:33</sys_updated_on>
+        <sys_updated_by>alparservice.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-25 13:25:16</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

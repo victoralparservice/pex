@@ -28,56 +28,56 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var util = new PexScoreUtils();
+  var util = new PexScoreUtils();
 
-	var user = current.name_of_crew_member.toString();
-	var year = current.ano.toString();
-	/*
+  var user = current.name_of_crew_member.toString();
+  var year = current.ano.toString();
+  /*
 	|--------------------------------------------------------------------------
 	|	Ação 1 - Atualiza Notas NPS
 	|--------------------------------------------------------------------------
 	*/
-	var nps = util.updateGeneralNPS(user, year);
-	gs.info("YUHRI LOG\n" + nps);
-	current.nps = isNaN(nps) ? null : nps;
+  var nps = util.updateGeneralNPS(user, year);
+  gs.info("YUHRI LOG\n" + nps);
+  current.nps = isNaN(nps) ? null : nps;
 
-	/*
+  /*
 	|--------------------------------------------------------------------------
 	|	Ação 2 - Atualiza Nota Avaliação vertical
 	|--------------------------------------------------------------------------
 	*/
-	var vertical = util.updateGeneralVertical(user, year);
-	current.vertical_evaluation = isNaN(vertical) ? 0 : vertical;
+  var vertical = util.updateGeneralVertical(user, year);
+  current.vertical_evaluation = isNaN(vertical) ? 0 : vertical;
 
-	/*
+  /*
 	|--------------------------------------------------------------------------
 	|	Ação 3 - Atualiza Nota Auto Avaliação
 	|--------------------------------------------------------------------------
 	*/
-	var selfEv = util.updateGeneralSelfEvaluation(user, year);
-	current.self_assessment = isNaN(selfEv) ? null : selfEv;
+  var selfEv = util.updateGeneralSelfEvaluation(user, year);
+  current.self_assessment = isNaN(selfEv) ? null : selfEv;
 
-	// ============================ temporario
-	var pNPS = gs.getProperty("x_alabs_pex.porcentagem.nota.nps");
-	var pAvaliacaoVertical = gs.getProperty(
-		"x_alabs_pex.porcentagem_nota_avaliacao_vertical_para_calculo_final"
-	);
-	var pAutoAvaliacao = gs.getProperty(
-		"x_alabs_pex.porcentagem_nota_auto_avaliacao_para_calculo_final"
-	);
-	var pDesempenhoTecnico = gs.getProperty(
-		"x_alabs_pex.porcentagem_nota_desempenho_tecnico_para_calculo_final"
-	);
+  // ============================ temporario
+  var pNPS = gs.getProperty("x_alabs_pex.porcentagem.nota.nps");
+  var pAvaliacaoVertical = gs.getProperty(
+    "x_alabs_pex.porcentagem_nota_avaliacao_vertical_para_calculo_final"
+  );
+  var pAutoAvaliacao = gs.getProperty(
+    "x_alabs_pex.porcentagem_nota_auto_avaliacao_para_calculo_final"
+  );
+  var pDesempenhoTecnico = gs.getProperty(
+    "x_alabs_pex.porcentagem_nota_desempenho_tecnico_para_calculo_final"
+  );
 
-	var media =
-		((current.self_assessment || 0) * pAutoAvaliacao) / 100 +
-		((current.technical_performance||0) * pDesempenhoTecnico) / 100 +
-		((current.vertical_evaluation||0) * pAvaliacaoVertical) / 100 +
-		((current.nps||0) * pNPS) / 100;
+  var media =
+    ((current.self_assessment || 0) * pAutoAvaliacao) / 100 +
+    ((current.technical_performance || 0) * pDesempenhoTecnico) / 100 +
+    ((current.vertical_evaluation || 0) * pAvaliacaoVertical) / 100 +
+    ((current.nps || 0) * pNPS) / 100;
 
-	current.average = media;
+  current.average = media;
 
-	current.update();
+  current.update();
 })(current, previous);
 ]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -87,7 +87,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9c805fbddbaba380cceb5e7cf3961956</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>ALP: Get All Scores</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -95,8 +95,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sys_script_9c805fbddbaba380cceb5e7cf3961956</sys_update_name>
-        <sys_updated_by>alpar.yuhri</sys_updated_by>
-        <sys_updated_on>2019-06-19 17:43:54</sys_updated_on>
+        <sys_updated_by>alparservice.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-25 12:51:11</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
