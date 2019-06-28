@@ -7,7 +7,8 @@
         <affected_field_on_event/>
         <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>x_alabs_pex_instance_survey</collection>
-        <condition table="x_alabs_pex_instance_survey">responsibleVALCHANGES^EQ<item endquery="false" field="responsible" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+        <condition table="x_alabs_pex_instance_survey">responsibleVALCHANGES^survey.tipo_de_pesquisa!=vertical^EQ<item endquery="false" field="responsible" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="false" field="survey.tipo_de_pesquisa" goto="false" newquery="false" operator="!=" or="false" value="vertical"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <content_type>text/html</content_type>
@@ -24,7 +25,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
-        <event_name>alert_priority.calc_priority_grouping</event_name>
+        <event_name>approval.cancelled</event_name>
         <event_parm_1>false</event_parm_1>
         <event_parm_2>false</event_parm_2>
         <exclude_delegates>false</exclude_delegates>
@@ -81,7 +82,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2b4832116f020780218117164b3ee4b6</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>AZUL - PEX - Nova avaliação</sys_name>
         <sys_overrides/>
         <sys_package display_value="PEX" source="x_alabs_pex">4a94483c6f0a8f841fb18a6d6b3ee494</sys_package>
@@ -89,8 +90,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="PEX">4a94483c6f0a8f841fb18a6d6b3ee494</sys_scope>
         <sys_update_name>sysevent_email_action_2b4832116f020780218117164b3ee4b6</sys_update_name>
-        <sys_updated_by>carlos.correia</sys_updated_by>
-        <sys_updated_on>2019-04-23 13:01:30</sys_updated_on>
+        <sys_updated_by>alparservice.yuhri</sys_updated_by>
+        <sys_updated_on>2019-06-27 12:04:33</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
