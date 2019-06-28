@@ -2,7 +2,7 @@
     <element label="Notas NPS" max_length="40" name="x_alabs_pex_nps_note" type="collection">
         <element label="Destination" max_length="100" name="destination" type="string"/>
         <element label="Vôo" max_length="32" name="flight" reference="x_alabs_pex_flights" type="reference"/>
-        <element label="Flight Date UTC" max_length="40" name="flight_local_date" type="glide_date_time"/>
+        <element label="Flight Date Local" max_length="40" name="flight_local_date" type="glide_date_time"/>
         <element label="Número do Vôo" max_length="100" name="flight_number" type="integer"/>
         <element label="Nota NPS" max_length="100" name="grade" type="integer"/>
         <element label="InventoryLegID" max_length="100" name="inventorylegid" type="integer"/>
